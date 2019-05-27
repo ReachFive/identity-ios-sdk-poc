@@ -7,31 +7,72 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		22C146A3DF9F42BEEFFA55344C82F48D /* Pods-IdentitySdkFacebook-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 71198717208ED15FB9F4D9BFFD75E5ED /* Pods-IdentitySdkFacebook-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		66DAC2A5C680926A841898F0A80E677E /* Pods-IdentitySdkFacebook-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A372C3E8A7236C7482FDD8B0FA3E9FD /* Pods-IdentitySdkFacebook-dummy.m */; };
-		F71D6ED6D32809B0715504AC47185E6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
+		29843B18C63F9FE322079652F574FFE9 /* IdentitySdkCore-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 26100886F569121C0E687BD9ED021B20 /* IdentitySdkCore-dummy.m */; };
+		425BD9B61EEC232DA13D2B6513D874DB /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D0C92CC0C40E19BBFD3E5C25FE65BC /* Provider.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		4C93C2E13B82FE8CBE2EBA8A3AC9B5D2 /* Pods-IdentitySdkFacebook-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 71198717208ED15FB9F4D9BFFD75E5ED /* Pods-IdentitySdkFacebook-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5AE3529E29BAD11C8EBE44053CCC29C0 /* IdentitySdkCore-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 278090B7D38BDE61F8BF764DC797122E /* IdentitySdkCore-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E48C5F09DA21A969D118C7CF83110BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
+		8B593974513BA9A78D2A133E9089CE43 /* IdentitySdkCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 14F9B72B3F3FC9C087CF3BA7C7C86846 /* IdentitySdkCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A6EC001C40A2C11A49746084BDAFFE69 /* SdkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62D6C680425E5B353E82FED4FCCF05D /* SdkConfig.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		AB46637FA36A59CCCDD6D9AF1E28E8AF /* WebViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF0849E9912945A591DC62E8C9CA682 /* WebViewProvider.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		AF59A2CDA78EA516623A696D446CB207 /* ProviderConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397A69D2D34AF7401B0E0E66342B5F30 /* ProviderConfig.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		BAB3E158D543F23B2147EE8DDDE2AE49 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
+		C7E263CAB248BEC288632CD17FB14DD5 /* Pods-IdentitySdkFacebook-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A372C3E8A7236C7482FDD8B0FA3E9FD /* Pods-IdentitySdkFacebook-dummy.m */; };
+		E1843F0967A53B7B745758080FDF07BD /* ReachFive.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43670BCDD39D62B9BC0C8240CCF8FC7 /* ReachFive.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		41F73AC8A46D0AB1A39E28CC59F5BADF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6B28A7A50187D955DA0AEA9388E50B0C;
+			remoteInfo = IdentitySdkCore;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		021E67DB5AC191FAD29AD77D8CFAF631 /* IdentitySdkCore-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "IdentitySdkCore-Info.plist"; sourceTree = "<group>"; };
+		02817BE35E386706B885A3C28D93A5B7 /* Pods_IdentitySdkFacebook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_IdentitySdkFacebook.framework; path = "Pods-IdentitySdkFacebook.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		038FB81C4F38DFF675CD4520ADE2FD34 /* IdentitySdkCore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IdentitySdkCore.xcconfig; sourceTree = "<group>"; };
 		0F1ED8B6289C4D99EBDCF18DEE6CF18C /* Pods-IdentitySdkFacebook-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-IdentitySdkFacebook-Info.plist"; sourceTree = "<group>"; };
+		14F9B72B3F3FC9C087CF3BA7C7C86846 /* IdentitySdkCore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IdentitySdkCore.h; path = IdentitySdkCore/IdentitySdkCore.h; sourceTree = "<group>"; };
 		2091A520704687DEDCF2FF22E3F111F0 /* Pods-IdentitySdkFacebook.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-IdentitySdkFacebook.modulemap"; sourceTree = "<group>"; };
+		26100886F569121C0E687BD9ED021B20 /* IdentitySdkCore-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IdentitySdkCore-dummy.m"; sourceTree = "<group>"; };
+		278090B7D38BDE61F8BF764DC797122E /* IdentitySdkCore-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IdentitySdkCore-umbrella.h"; sourceTree = "<group>"; };
+		397A69D2D34AF7401B0E0E66342B5F30 /* ProviderConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ProviderConfig.swift; path = IdentitySdkCore/ProviderConfig.swift; sourceTree = "<group>"; };
 		71198717208ED15FB9F4D9BFFD75E5ED /* Pods-IdentitySdkFacebook-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-IdentitySdkFacebook-umbrella.h"; sourceTree = "<group>"; };
+		72D0C92CC0C40E19BBFD3E5C25FE65BC /* Provider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Provider.swift; path = IdentitySdkCore/Provider.swift; sourceTree = "<group>"; };
 		7A372C3E8A7236C7482FDD8B0FA3E9FD /* Pods-IdentitySdkFacebook-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-IdentitySdkFacebook-dummy.m"; sourceTree = "<group>"; };
+		7AB75D2FD0458A9C038EDCBD0D7B4651 /* IdentitySdkCore.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = IdentitySdkCore.modulemap; sourceTree = "<group>"; };
 		9989D14C891B9FCF05D83CF471D8C8AA /* Pods-IdentitySdkFacebook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-IdentitySdkFacebook.debug.xcconfig"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		AFCD40C4230A1907853BB3533BDCAA1A /* Pods_IdentitySdkFacebook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_IdentitySdkFacebook.framework; path = "Pods-IdentitySdkFacebook.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A392C68CF37CE9BE75E1E93BFC664DB3 /* IdentitySdkCore.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = IdentitySdkCore.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B62D6C680425E5B353E82FED4FCCF05D /* SdkConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SdkConfig.swift; path = IdentitySdkCore/SdkConfig.swift; sourceTree = "<group>"; };
 		BD43A5ED030DCFC90CD906C542182439 /* Pods-IdentitySdkFacebook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-IdentitySdkFacebook.release.xcconfig"; sourceTree = "<group>"; };
+		CAA4E06F6488EE1908F962E3F53187B8 /* IdentitySdkCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = IdentitySdkCore.framework; path = IdentitySdkCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		CFF0849E9912945A591DC62E8C9CA682 /* WebViewProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WebViewProvider.swift; path = IdentitySdkCore/WebViewProvider.swift; sourceTree = "<group>"; };
 		EB8C6EE38256CD71B6884EE2B9B55ADB /* Pods-IdentitySdkFacebook-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-IdentitySdkFacebook-acknowledgements.markdown"; sourceTree = "<group>"; };
 		EC7145CA3476E220F63B2ED4EEDB80CE /* Pods-IdentitySdkFacebook-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-IdentitySdkFacebook-acknowledgements.plist"; sourceTree = "<group>"; };
+		EE0867DC4E7CA3FD0C3AF3B048818220 /* IdentitySdkCore-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IdentitySdkCore-prefix.pch"; sourceTree = "<group>"; };
+		F43670BCDD39D62B9BC0C8240CCF8FC7 /* ReachFive.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReachFive.swift; path = IdentitySdkCore/ReachFive.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		CC145C4CB7DF8159D51FEB40DD0E01F7 /* Frameworks */ = {
+		D205005E358FEBC3EFB95D1E26169BFD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F71D6ED6D32809B0715504AC47185E6D /* Foundation.framework in Frameworks */,
+				7E48C5F09DA21A969D118C7CF83110BF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEAF7557AC5637DE87997520D9562AB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAB3E158D543F23B2147EE8DDDE2AE49 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +103,37 @@
 			path = "Target Support Files/Pods-IdentitySdkFacebook";
 			sourceTree = "<group>";
 		};
+		4FB0023B32C7DCCCB9BEF81E1A352866 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CAA4E06F6488EE1908F962E3F53187B8 /* IdentitySdkCore.framework */,
+				02817BE35E386706B885A3C28D93A5B7 /* Pods_IdentitySdkFacebook.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6DB39CEF8FCD45775B9DD680B55A438F /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				A392C68CF37CE9BE75E1E93BFC664DB3 /* IdentitySdkCore.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		85A6EABBA245E5C6EADDDD2E0A42C6E3 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7AB75D2FD0458A9C038EDCBD0D7B4651 /* IdentitySdkCore.modulemap */,
+				038FB81C4F38DFF675CD4520ADE2FD34 /* IdentitySdkCore.xcconfig */,
+				26100886F569121C0E687BD9ED021B20 /* IdentitySdkCore-dummy.m */,
+				021E67DB5AC191FAD29AD77D8CFAF631 /* IdentitySdkCore-Info.plist */,
+				EE0867DC4E7CA3FD0C3AF3B048818220 /* IdentitySdkCore-prefix.pch */,
+				278090B7D38BDE61F8BF764DC797122E /* IdentitySdkCore-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../IdentitySdkFacebook/Pods/Target Support Files/IdentitySdkCore";
+			sourceTree = "<group>";
+		};
 		9B055D0CFEA43187E72B03DED11F5662 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -70,22 +142,39 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		BD937305452FC3B01637A04C5C29B309 /* Products */ = {
+		A81EAE30B5B47DC12AE1C6BE0EA35B88 /* IdentitySdkCore */ = {
 			isa = PBXGroup;
 			children = (
-				AFCD40C4230A1907853BB3533BDCAA1A /* Pods_IdentitySdkFacebook.framework */,
+				14F9B72B3F3FC9C087CF3BA7C7C86846 /* IdentitySdkCore.h */,
+				72D0C92CC0C40E19BBFD3E5C25FE65BC /* Provider.swift */,
+				397A69D2D34AF7401B0E0E66342B5F30 /* ProviderConfig.swift */,
+				F43670BCDD39D62B9BC0C8240CCF8FC7 /* ReachFive.swift */,
+				B62D6C680425E5B353E82FED4FCCF05D /* SdkConfig.swift */,
+				CFF0849E9912945A591DC62E8C9CA682 /* WebViewProvider.swift */,
+				6DB39CEF8FCD45775B9DD680B55A438F /* Pod */,
+				85A6EABBA245E5C6EADDDD2E0A42C6E3 /* Support Files */,
 			);
-			name = Products;
+			name = IdentitySdkCore;
+			path = ../../IdentitySdkCore;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D08830F2BFB0E636A8F536C62DB56904 /* Development Pods */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				BD937305452FC3B01637A04C5C29B309 /* Products */,
+				4FB0023B32C7DCCCB9BEF81E1A352866 /* Products */,
 				01CD8659A9EBFB96032A0DAC053D78D7 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		D08830F2BFB0E636A8F536C62DB56904 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A81EAE30B5B47DC12AE1C6BE0EA35B88 /* IdentitySdkCore */,
+			);
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
@@ -99,11 +188,20 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		38F9E59FF7D46C1C184AB475D701DB7A /* Headers */ = {
+		4E969ED5FA403E05A1D266C67B0F41EA /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22C146A3DF9F42BEEFFA55344C82F48D /* Pods-IdentitySdkFacebook-umbrella.h in Headers */,
+				5AE3529E29BAD11C8EBE44053CCC29C0 /* IdentitySdkCore-umbrella.h in Headers */,
+				8B593974513BA9A78D2A133E9089CE43 /* IdentitySdkCore.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E861411C1D5D8FC71FC44739F7BA593E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C93C2E13B82FE8CBE2EBA8A3AC9B5D2 /* Pods-IdentitySdkFacebook-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,20 +210,39 @@
 /* Begin PBXNativeTarget section */
 		17EDF0B928081E41F6BD1B8B5D4AF45B /* Pods-IdentitySdkFacebook */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0142335EA6B2FC38DC909223B3D74474 /* Build configuration list for PBXNativeTarget "Pods-IdentitySdkFacebook" */;
+			buildConfigurationList = 0BC7AF0D0ABAA15E69C9948419C55BD2 /* Build configuration list for PBXNativeTarget "Pods-IdentitySdkFacebook" */;
 			buildPhases = (
-				38F9E59FF7D46C1C184AB475D701DB7A /* Headers */,
-				E7AD3198720E07E3398A35AC788E56AB /* Sources */,
-				CC145C4CB7DF8159D51FEB40DD0E01F7 /* Frameworks */,
-				33D78FE582191CE689305A640A1C6D29 /* Resources */,
+				E861411C1D5D8FC71FC44739F7BA593E /* Headers */,
+				65BB7DAE9463CA18E331D210DF2AC22C /* Sources */,
+				D205005E358FEBC3EFB95D1E26169BFD /* Frameworks */,
+				EF0CF1A0B42A2D453056F93EB5F5D7D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A517A85A278E95F141E99DB39694EF1B /* PBXTargetDependency */,
+			);
+			name = "Pods-IdentitySdkFacebook";
+			productName = "Pods-IdentitySdkFacebook";
+			productReference = 02817BE35E386706B885A3C28D93A5B7 /* Pods_IdentitySdkFacebook.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6B28A7A50187D955DA0AEA9388E50B0C /* IdentitySdkCore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1E8900449A2D0419342ADE9FB641F23E /* Build configuration list for PBXNativeTarget "IdentitySdkCore" */;
+			buildPhases = (
+				4E969ED5FA403E05A1D266C67B0F41EA /* Headers */,
+				453BF5353093041483C85B52EC247BA5 /* Sources */,
+				EEAF7557AC5637DE87997520D9562AB7 /* Frameworks */,
+				B8E5F7B875AF2A851AFF3809BA067697 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Pods-IdentitySdkFacebook";
-			productName = "Pods-IdentitySdkFacebook";
-			productReference = AFCD40C4230A1907853BB3533BDCAA1A /* Pods_IdentitySdkFacebook.framework */;
+			name = IdentitySdkCore;
+			productName = IdentitySdkCore;
+			productReference = CAA4E06F6488EE1908F962E3F53187B8 /* IdentitySdkCore.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -145,17 +262,25 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = BD937305452FC3B01637A04C5C29B309 /* Products */;
+			productRefGroup = 4FB0023B32C7DCCCB9BEF81E1A352866 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				6B28A7A50187D955DA0AEA9388E50B0C /* IdentitySdkCore */,
 				17EDF0B928081E41F6BD1B8B5D4AF45B /* Pods-IdentitySdkFacebook */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		33D78FE582191CE689305A640A1C6D29 /* Resources */ = {
+		B8E5F7B875AF2A851AFF3809BA067697 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF0CF1A0B42A2D453056F93EB5F5D7D2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -165,15 +290,37 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		E7AD3198720E07E3398A35AC788E56AB /* Sources */ = {
+		453BF5353093041483C85B52EC247BA5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66DAC2A5C680926A841898F0A80E677E /* Pods-IdentitySdkFacebook-dummy.m in Sources */,
+				29843B18C63F9FE322079652F574FFE9 /* IdentitySdkCore-dummy.m in Sources */,
+				425BD9B61EEC232DA13D2B6513D874DB /* Provider.swift in Sources */,
+				AF59A2CDA78EA516623A696D446CB207 /* ProviderConfig.swift in Sources */,
+				E1843F0967A53B7B745758080FDF07BD /* ReachFive.swift in Sources */,
+				A6EC001C40A2C11A49746084BDAFFE69 /* SdkConfig.swift in Sources */,
+				AB46637FA36A59CCCDD6D9AF1E28E8AF /* WebViewProvider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65BB7DAE9463CA18E331D210DF2AC22C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7E263CAB248BEC288632CD17FB14DD5 /* Pods-IdentitySdkFacebook-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A517A85A278E95F141E99DB39694EF1B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = IdentitySdkCore;
+			target = 6B28A7A50187D955DA0AEA9388E50B0C /* IdentitySdkCore */;
+			targetProxy = 41F73AC8A46D0AB1A39E28CC59F5BADF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		07488D4657FB0A78086563621D425F8A /* Debug */ = {
@@ -240,45 +387,7 @@
 			};
 			name = Debug;
 		};
-		88948641190EA78DA27D7050F35302EE /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BD43A5ED030DCFC90CD906C542182439 /* Pods-IdentitySdkFacebook.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-IdentitySdkFacebook/Pods-IdentitySdkFacebook-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-IdentitySdkFacebook/Pods-IdentitySdkFacebook.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		976CA3CA3D72759E16FBDA7F37E9F6AA /* Debug */ = {
+		23EBEDC7FD376B8F19A19963F5F8145B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9989D14C891B9FCF05D83CF471D8C8AA /* Pods-IdentitySdkFacebook.debug.xcconfig */;
 			buildSettings = {
@@ -314,6 +423,42 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
+		};
+		3CD6F4E2368A667A5A58173DB2D3DFF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 038FB81C4F38DFF675CD4520ADE2FD34 /* IdentitySdkCore.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/IdentitySdkCore/IdentitySdkCore-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/IdentitySdkCore/IdentitySdkCore-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/IdentitySdkCore/IdentitySdkCore.modulemap";
+				PRODUCT_MODULE_NAME = IdentitySdkCore;
+				PRODUCT_NAME = IdentitySdkCore;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
 		};
 		A1962E6FF39BBAC201A2E5DDF99557DF /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -375,14 +520,96 @@
 			};
 			name = Release;
 		};
+		C0685AB236BF2601A438BF648996E264 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD43A5ED030DCFC90CD906C542182439 /* Pods-IdentitySdkFacebook.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-IdentitySdkFacebook/Pods-IdentitySdkFacebook-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-IdentitySdkFacebook/Pods-IdentitySdkFacebook.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FB2A700D8F8F16CAB9CB693AECFC6979 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 038FB81C4F38DFF675CD4520ADE2FD34 /* IdentitySdkCore.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/IdentitySdkCore/IdentitySdkCore-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/IdentitySdkCore/IdentitySdkCore-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/IdentitySdkCore/IdentitySdkCore.modulemap";
+				PRODUCT_MODULE_NAME = IdentitySdkCore;
+				PRODUCT_NAME = IdentitySdkCore;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0142335EA6B2FC38DC909223B3D74474 /* Build configuration list for PBXNativeTarget "Pods-IdentitySdkFacebook" */ = {
+		0BC7AF0D0ABAA15E69C9948419C55BD2 /* Build configuration list for PBXNativeTarget "Pods-IdentitySdkFacebook" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				976CA3CA3D72759E16FBDA7F37E9F6AA /* Debug */,
-				88948641190EA78DA27D7050F35302EE /* Release */,
+				23EBEDC7FD376B8F19A19963F5F8145B /* Debug */,
+				C0685AB236BF2601A438BF648996E264 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1E8900449A2D0419342ADE9FB641F23E /* Build configuration list for PBXNativeTarget "IdentitySdkCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB2A700D8F8F16CAB9CB693AECFC6979 /* Debug */,
+				3CD6F4E2368A667A5A58173DB2D3DFF3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

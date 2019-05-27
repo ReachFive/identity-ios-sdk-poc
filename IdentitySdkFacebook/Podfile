@@ -7,4 +7,6 @@ target 'IdentitySdkFacebook' do
 
   # Pods for IdentitySdkFacebook
 
+  pod 'IdentitySdkCore', :path => '../IdentitySdkCore'
+
 end

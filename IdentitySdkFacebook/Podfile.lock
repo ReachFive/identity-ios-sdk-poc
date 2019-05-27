@@ -1,3 +1,16 @@
-PODFILE CHECKSUM: 00b7b08743da259745f13b80051f70cef01f94fb
+PODS:
+  - IdentitySdkCore (4.0.0)
+
+DEPENDENCIES:
+  - IdentitySdkCore (from `../IdentitySdkCore`)
+
+EXTERNAL SOURCES:
+  IdentitySdkCore:
+    :path: "../IdentitySdkCore"
+
+SPEC CHECKSUMS:
+  IdentitySdkCore: 6a97f1f9f8c383fee4a0a55a80f73a77691a37f9
+
+PODFILE CHECKSUM: dd2ca67c97eab118a33cdd79ad3adcc87e885b53
 
 COCOAPODS: 1.7.0
