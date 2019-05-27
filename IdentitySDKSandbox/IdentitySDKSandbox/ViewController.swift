@@ -8,6 +8,7 @@ class ViewController: UIViewController {
         
         let provider = WebViewProvider()
         
+        print(provider.helloWorld())
         // Do any additional setup after loading the view.
     }
 
