@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		14F33E0EA96F2CA5351DC8D2 /* Pods_IdentitySdkFacebook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57949F2A0ADABEC4B80C53C8 /* Pods_IdentitySdkFacebook.framework */; };
+		343DFFC4229C386C00322053 /* FacebookProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343DFFC3229C386C00322053 /* FacebookProvider.swift */; };
 		34DD7DC6229C222D007311FE /* IdentitySdkFacebook.h in Headers */ = {isa = PBXBuildFile; fileRef = 34DD7DC4229C222D007311FE /* IdentitySdkFacebook.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		343DFFC3229C386C00322053 /* FacebookProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookProvider.swift; sourceTree = "<group>"; };
 		34DD7DC1229C222D007311FE /* IdentitySdkFacebook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IdentitySdkFacebook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34DD7DC4229C222D007311FE /* IdentitySdkFacebook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IdentitySdkFacebook.h; sourceTree = "<group>"; };
 		34DD7DC5229C222D007311FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 			children = (
 				34DD7DC4229C222D007311FE /* IdentitySdkFacebook.h */,
 				34DD7DC5229C222D007311FE /* Info.plist */,
+				343DFFC3229C386C00322053 /* FacebookProvider.swift */,
 			);
 			path = IdentitySdkFacebook;
 			sourceTree = "<group>";
@@ -73,7 +76,6 @@
 				FDD7057EC2980CC379122E2B /* Pods-IdentitySdkFacebook.debug.xcconfig */,
 				C91A33F1EC32479081AE3526 /* Pods-IdentitySdkFacebook.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -121,6 +123,7 @@
 				TargetAttributes = {
 					34DD7DC0229C222D007311FE = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -181,6 +184,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				343DFFC4229C386C00322053 /* FacebookProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +317,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FDD7057EC2980CC379122E2B /* Pods-IdentitySdkFacebook.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -329,6 +334,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.reach5.IdentitySdkFacebook;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -338,6 +344,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C91A33F1EC32479081AE3526 /* Pods-IdentitySdkFacebook.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
