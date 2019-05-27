@@ -9,8 +9,10 @@ class ViewController: UIViewController {
         let provider = WebViewProvider()
         
         let sdkConfig = SdkConfig(domain: "local-sandbox.og4.me", clientId: "sg48CdAYohRPeRWZ9j1H")
+        let reachfive = ReachFive(sdkConfig: sdkConfig, providersCreators: [provider])
         
-        print(provider.create(sdkConfig: sdkConfig).helloWorld())
+        reachfive.show()
+
         // Do any additional setup after loading the view.
     }
 

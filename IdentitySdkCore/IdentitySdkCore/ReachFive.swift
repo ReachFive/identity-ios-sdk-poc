@@ -9,4 +9,13 @@ public class ReachFive {
         self.sdkConfig = sdkConfig
         self.providersCreators = providersCreators
     }
+    
+    public func show() {
+        print(sdkConfig.domain)
+        print(sdkConfig.clientId)
+        
+        for providersCreator in providersCreators {
+            print(providersCreator.create(sdkConfig: sdkConfig).helloWorld())
+        }
+    }
 }
