@@ -1,5 +1,5 @@
 import Foundation
 
-protocol Provider {
+public protocol Provider {
     func helloWorld() -> String
 }

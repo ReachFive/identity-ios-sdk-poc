@@ -12,7 +12,40 @@
 		347FDB26229BE6EF00660687 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 347FDB24229BE6EF00660687 /* Main.storyboard */; };
 		347FDB28229BE6F100660687 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 347FDB27229BE6F100660687 /* Assets.xcassets */; };
 		347FDB2B229BE6F100660687 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 347FDB29229BE6F100660687 /* LaunchScreen.storyboard */; };
+		347FDB5E229BE9D100660687 /* IdentitySdkCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 347FDB52229BE8D100660687 /* IdentitySdkCore.framework */; };
+		347FDB5F229BE9D100660687 /* IdentitySdkCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 347FDB52229BE8D100660687 /* IdentitySdkCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		347FDB51229BE8D100660687 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 347FDB4D229BE8D100660687 /* IdentitySdkCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 347FDB42229BE84500660687;
+			remoteInfo = IdentitySdkCore;
+		};
+		347FDB60229BE9D100660687 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 347FDB4D229BE8D100660687 /* IdentitySdkCore.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 347FDB41229BE84500660687;
+			remoteInfo = IdentitySdkCore;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		347FDB62229BE9D100660687 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				347FDB5F229BE9D100660687 /* IdentitySdkCore.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		347FDB1D229BE6EF00660687 /* IdentitySDKSandbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IdentitySDKSandbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,6 +55,7 @@
 		347FDB27229BE6F100660687 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		347FDB2A229BE6F100660687 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		347FDB2C229BE6F100660687 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		347FDB4D229BE8D100660687 /* IdentitySdkCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = IdentitySdkCore.xcodeproj; path = ../IdentitySdkCore/IdentitySdkCore.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				347FDB5E229BE9D100660687 /* IdentitySdkCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,8 +73,10 @@
 		347FDB14229BE6EF00660687 = {
 			isa = PBXGroup;
 			children = (
+				347FDB4D229BE8D100660687 /* IdentitySdkCore.xcodeproj */,
 				347FDB1F229BE6EF00660687 /* IdentitySDKSandbox */,
 				347FDB1E229BE6EF00660687 /* Products */,
+				347FDB57229BE94E00660687 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +101,21 @@
 			path = IdentitySDKSandbox;
 			sourceTree = "<group>";
 		};
+		347FDB4E229BE8D100660687 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				347FDB52229BE8D100660687 /* IdentitySdkCore.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		347FDB57229BE94E00660687 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,10 +126,12 @@
 				347FDB19229BE6EF00660687 /* Sources */,
 				347FDB1A229BE6EF00660687 /* Frameworks */,
 				347FDB1B229BE6EF00660687 /* Resources */,
+				347FDB62229BE9D100660687 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				347FDB61229BE9D100660687 /* PBXTargetDependency */,
 			);
 			name = IdentitySDKSandbox;
 			productName = IdentitySDKSandbox;
@@ -110,12 +164,28 @@
 			mainGroup = 347FDB14229BE6EF00660687;
 			productRefGroup = 347FDB1E229BE6EF00660687 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 347FDB4E229BE8D100660687 /* Products */;
+					ProjectRef = 347FDB4D229BE8D100660687 /* IdentitySdkCore.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				347FDB1C229BE6EF00660687 /* IdentitySDKSandbox */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		347FDB52229BE8D100660687 /* IdentitySdkCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = IdentitySdkCore.framework;
+			remoteRef = 347FDB51229BE8D100660687 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		347FDB1B229BE6EF00660687 /* Resources */ = {
@@ -141,6 +211,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		347FDB61229BE9D100660687 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = IdentitySdkCore;
+			targetProxy = 347FDB60229BE9D100660687 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		347FDB24229BE6EF00660687 /* Main.storyboard */ = {
@@ -281,6 +359,7 @@
 		347FDB30229BE6F100660687 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = IdentitySDKSandbox/Info.plist;
@@ -298,6 +377,7 @@
 		347FDB31229BE6F100660687 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = IdentitySDKSandbox/Info.plist;
