@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../IdentitySdkCore"
 
 SPEC CHECKSUMS:
-  IdentitySdkCore: 31eff1fffa23d650052b311df1a344a9d14e6d9a
+  IdentitySdkCore: 8e49a49aea9597e05dd81be8b6a3882ff540e465
 
 PODFILE CHECKSUM: 3928fb5029efa937f8e67d98e7380747a6a202da
 
