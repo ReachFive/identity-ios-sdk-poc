@@ -6,7 +6,7 @@ Pod::Spec.new do |spec|
       ReachFive Identity Sdk Core
   DESC
   spec.homepage       = "https://github.com/ReachFive/identity-ios-sdk-poc"
-  spec.license        = { :type => "MIT", :file => "IdentitySdkCore/LICENSE" }
+  spec.license        = { :type => "MIT", :file => "LICENSE" }
   spec.author         = "ReachFive"
   spec.authors        = { "egor" => "egor@reach5.co" }
   spec.platform       = :ios, "12"
