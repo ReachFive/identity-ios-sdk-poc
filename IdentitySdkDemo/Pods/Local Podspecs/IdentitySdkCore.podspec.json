@@ -6,7 +6,7 @@
   "homepage": "https://github.com/ReachFive/identity-ios-sdk-poc",
   "license": {
     "type": "MIT",
-    "file": "IdentitySdkCore/LICENSE"
+    "file": "LICENSE"
   },
   "authors": {
     "egor": "egor@reach5.co"
