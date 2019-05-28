@@ -1,0 +1,26 @@
+{
+  "name": "IdentitySdkCore",
+  "version": "4.0.0",
+  "summary": "ReachFive IdentitySdkCore",
+  "description": "ReachFive Identity Sdk Core",
+  "homepage": "https://github.com/ReachFive/identity-ios-sdk-poc",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "egor": "egor@reach5.co"
+  },
+  "swift_versions": [
+    "5"
+  ],
+  "source": {
+    "git": "https://github.com/ReachFive/identity-ios-sdk-poc.git",
+    "tag": "4.0.0"
+  },
+  "source_files": "Classes/*.*",
+  "platforms": {
+    "ios": "12.2"
+  },
+  "swift_version": "5"
+}
