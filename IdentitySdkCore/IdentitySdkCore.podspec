@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
   spec.author         = "ReachFive"
   spec.authors        = { "egor" => "egor@reach5.co" }
   spec.platform       = :ios, "12.0"
-  spec.swift_versions = 5
+  spec.swift_versions = ["5.0"]
   spec.source         = { :git => "https://github.com/ReachFive/identity-ios-sdk-poc.git", :branch => "new-sdk" }
   # spec.source       = { :git => "https://github.com/ReachFive/identity-ios-sdk-poc.git", :tag => "#{spec.version}" }
   spec.source_files   = "IdentitySdkCore/Classes/*.swift"
