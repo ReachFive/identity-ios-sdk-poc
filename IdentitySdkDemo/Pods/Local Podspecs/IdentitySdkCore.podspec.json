@@ -12,7 +12,7 @@
     "egor": "egor@reach5.co"
   },
   "platforms": {
-    "ios": "12.0"
+    "ios": "11.0"
   },
   "swift_versions": [
     "5.0"
