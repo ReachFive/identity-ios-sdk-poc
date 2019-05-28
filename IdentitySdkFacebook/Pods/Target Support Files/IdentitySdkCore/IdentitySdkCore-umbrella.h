@@ -10,7 +10,6 @@
 #endif
 #endif
 
-#import "IdentitySdkCore.h"
 
 FOUNDATION_EXPORT double IdentitySdkCoreVersionNumber;
 FOUNDATION_EXPORT const unsigned char IdentitySdkCoreVersionString[];

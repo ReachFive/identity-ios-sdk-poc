@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../IdentitySdkCore"
 
 SPEC CHECKSUMS:
-  IdentitySdkCore: 6a97f1f9f8c383fee4a0a55a80f73a77691a37f9
+  IdentitySdkCore: e956c0050d7f57a94c0ce28fbb1ba7909da49b21
 
-PODFILE CHECKSUM: dd2ca67c97eab118a33cdd79ad3adcc87e885b53
+PODFILE CHECKSUM: 20f0620a5ffe1d5a6729c3fd0b58a4cd9ef56e06
 
 COCOAPODS: 1.7.0
