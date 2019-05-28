@@ -1,5 +1,7 @@
 import UIKit
-import IdentitySdkCore
+import IdentitySDKCore
+
+// pod 'IdentitySdkCore', :path => '../IdentitySdkCore'
 
 class ViewController: UIViewController {
 

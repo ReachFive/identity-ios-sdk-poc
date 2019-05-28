@@ -1,3 +1,11 @@
+//
+//  AppDelegate.swift
+//  Sandbox
+//
+//  Created by Egor Berezovskiy on 28/05/2019.
+//  Copyright © 2019 Reachfive. All rights reserved.
+//
+
 import UIKit
 
 @UIApplicationMain
@@ -33,4 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+
 }
+
