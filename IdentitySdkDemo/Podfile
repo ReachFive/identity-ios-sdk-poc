@@ -6,5 +6,5 @@ target 'IdentitySdkDemo' do
   use_frameworks!
 
   # Pods for IdentitySdkDemo
-
+  pod 'IdentitySdkCore', :path => '../IdentitySdkCore'
 end
