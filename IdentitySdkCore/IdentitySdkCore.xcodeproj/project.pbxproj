@@ -42,6 +42,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34173218229D801500681CFD /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				347FDB64229C02A800660687 /* SdkConfig.swift */,
+				347FDB66229C02FE00660687 /* ReachFive.swift */,
+				347FDB68229C04C200660687 /* ProviderConfig.swift */,
+				347FDB55229BE8FF00660687 /* WebViewProvider.swift */,
+				347FDB53229BE8F800660687 /* Provider.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		347FDB38229BE84500660687 = {
 			isa = PBXGroup;
 			children = (
@@ -63,13 +75,9 @@
 		347FDB44229BE84500660687 /* IdentitySdkCore */ = {
 			isa = PBXGroup;
 			children = (
-				347FDB55229BE8FF00660687 /* WebViewProvider.swift */,
-				347FDB53229BE8F800660687 /* Provider.swift */,
+				34173218229D801500681CFD /* Classes */,
 				347FDB45229BE84500660687 /* IdentitySdkCore.h */,
 				347FDB46229BE84500660687 /* Info.plist */,
-				347FDB64229C02A800660687 /* SdkConfig.swift */,
-				347FDB66229C02FE00660687 /* ReachFive.swift */,
-				347FDB68229C04C200660687 /* ProviderConfig.swift */,
 			);
 			path = IdentitySdkCore;
 			sourceTree = "<group>";
@@ -88,7 +96,6 @@
 				C36DD42482ABE1F3925FA62A /* Pods-IdentitySdkCore.debug.xcconfig */,
 				BD90675FB57876B852A4CA19 /* Pods-IdentitySdkCore.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

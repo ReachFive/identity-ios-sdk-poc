@@ -8,16 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		033D82C0B6ED17222A76EEA1A5D5E3AA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
-		51E4F91945BC68F46D9C7B8A40E0CEFC /* ReachFive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB468A5EBFCC175D05D739A9D9A2871 /* ReachFive.swift */; };
-		597885F79D55B82CE0712062B123D6F9 /* IdentitySdkCore-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A7B0A42B346635F6270E5167C76B5D4 /* IdentitySdkCore-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		597885F79D55B82CE0712062B123D6F9 /* IdentitySdkCore-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BD52F7CDB6610685964D8C5E8907093 /* IdentitySdkCore-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5CDD21B227C4FB900D60AE4A39671814 /* Pods-Sandbox-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B13D1399406309C42D6C95862708833B /* Pods-Sandbox-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		63C2B301D0937634C1A16FD27BF7DBA0 /* WebViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62758595BE2755E8D006B58A17A74934 /* WebViewProvider.swift */; };
 		6E867F5C1616A06E4CCB0E03092B0078 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
-		7C7784FA91260CCDD9E16340F76F5DF3 /* SdkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D67D791B527917C2C314B080E54BC4 /* SdkConfig.swift */; };
-		81E198E1459A9D50A6A7EED8D5A83D85 /* IdentitySdkCore-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B8E66BAF8C025A341A48E70EA9A46FE /* IdentitySdkCore-dummy.m */; };
-		8F024D257AA859352D519C8D67251023 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8BD912B2EBCE2B70DC7949969360E9 /* Provider.swift */; };
-		C0D6C84F024AE4E4FC63E5AAEAF51383 /* ProviderConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F126ECDB63A1E343D9ADDB697F769C /* ProviderConfig.swift */; };
+		81E198E1459A9D50A6A7EED8D5A83D85 /* IdentitySdkCore-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E847B9B010AD08D55A4CAFD255C68C5F /* IdentitySdkCore-dummy.m */; };
+		87B6D730C2BEC92B3B959C01F7EC8CDD /* SdkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9689072256F388D1F45A94D6F3771C1 /* SdkConfig.swift */; };
+		9148D3C75313888215ADD79ED15B2478 /* WebViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E2225F42CDFB79BC4EC90C833B7286 /* WebViewProvider.swift */; };
+		CD6F185AED28B53196271DE2AB360697 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF9D55EB2BFE128503DECFC0C2947BE /* Provider.swift */; };
 		E587FEA6DF7D26FFFDB23BCDC1DB7FBE /* Pods-Sandbox-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C133CCC545B0372C5461CEAFC077DAE /* Pods-Sandbox-dummy.m */; };
+		EB7EF88C9B61E7E905F3889967DCA70F /* ReachFive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5377051C7148600458F9D5415B472E06 /* ReachFive.swift */; };
+		F393E4B575D48035E73205E750E5725D /* ProviderConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F115356D325A8D9D0A77C4DD215CA4E /* ProviderConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,31 +32,31 @@
 
 /* Begin PBXFileReference section */
 		00E678253B6EB175C602DFAB2E292CB7 /* Pods-Sandbox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Sandbox.debug.xcconfig"; sourceTree = "<group>"; };
-		07ABEE529EA844106D341A84D3807157 /* IdentitySdkCore-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "IdentitySdkCore-Info.plist"; sourceTree = "<group>"; };
-		0B8E66BAF8C025A341A48E70EA9A46FE /* IdentitySdkCore-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IdentitySdkCore-dummy.m"; sourceTree = "<group>"; };
-		0BF1EBD45BB8826726C93AE00EF5B8BC /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		0B9597F2B4F4BE34BE3169C7AA27EA17 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		1091577F60E343B143B72364A278678A /* Pods-Sandbox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Sandbox.release.xcconfig"; sourceTree = "<group>"; };
-		1EB468A5EBFCC175D05D739A9D9A2871 /* ReachFive.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReachFive.swift; path = Classes/ReachFive.swift; sourceTree = "<group>"; };
-		23D67D791B527917C2C314B080E54BC4 /* SdkConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SdkConfig.swift; path = Classes/SdkConfig.swift; sourceTree = "<group>"; };
-		3A7B0A42B346635F6270E5167C76B5D4 /* IdentitySdkCore-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IdentitySdkCore-umbrella.h"; sourceTree = "<group>"; };
-		413EAF516C3B15991177CCB7A8A390A1 /* IdentitySdkCore-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IdentitySdkCore-prefix.pch"; sourceTree = "<group>"; };
-		49ABD0C517DD6127FC1DAD1C06B4C289 /* IdentitySdkCore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IdentitySdkCore.xcconfig; sourceTree = "<group>"; };
-		62758595BE2755E8D006B58A17A74934 /* WebViewProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WebViewProvider.swift; path = Classes/WebViewProvider.swift; sourceTree = "<group>"; };
+		4E72DFDEA056204CAFBFAD988C2FE889 /* IdentitySdkCore-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IdentitySdkCore-prefix.pch"; sourceTree = "<group>"; };
+		4F115356D325A8D9D0A77C4DD215CA4E /* ProviderConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ProviderConfig.swift; path = IdentitySdkCore/Classes/ProviderConfig.swift; sourceTree = "<group>"; };
+		52E711C28EE55070A5AF4BECD6213AA8 /* IdentitySdkCore-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "IdentitySdkCore-Info.plist"; sourceTree = "<group>"; };
+		5377051C7148600458F9D5415B472E06 /* ReachFive.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReachFive.swift; path = IdentitySdkCore/Classes/ReachFive.swift; sourceTree = "<group>"; };
+		544D09763DF1BCCF1F4E5CF4791881FF /* IdentitySdkCore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IdentitySdkCore.xcconfig; sourceTree = "<group>"; };
+		585D1B3D95E18D1C7697AB4B5F4E7443 /* IdentitySdkCore.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = IdentitySdkCore.modulemap; sourceTree = "<group>"; };
 		7C34DBC2338F35209EA34E376D0D3126 /* IdentitySdkCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = IdentitySdkCore.framework; path = IdentitySdkCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		96DFD1CA83ACDF18DF0FD7026CA56EBA /* IdentitySdkCore.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = IdentitySdkCore.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9BD52F7CDB6610685964D8C5E8907093 /* IdentitySdkCore-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IdentitySdkCore-umbrella.h"; sourceTree = "<group>"; };
 		9C133CCC545B0372C5461CEAFC077DAE /* Pods-Sandbox-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Sandbox-dummy.m"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9F035E15B6DA4F55F7DE624C501B1134 /* Pods-Sandbox-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Sandbox-acknowledgements.markdown"; sourceTree = "<group>"; };
-		A9F126ECDB63A1E343D9ADDB697F769C /* ProviderConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ProviderConfig.swift; path = Classes/ProviderConfig.swift; sourceTree = "<group>"; };
-		AA8BD912B2EBCE2B70DC7949969360E9 /* Provider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Provider.swift; path = Classes/Provider.swift; sourceTree = "<group>"; };
 		B13D1399406309C42D6C95862708833B /* Pods-Sandbox-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Sandbox-umbrella.h"; sourceTree = "<group>"; };
 		B49E4338A808296162179D079219FE8E /* Pods-Sandbox-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Sandbox-Info.plist"; sourceTree = "<group>"; };
 		C5E40D480ADB6B7B2F6EBD10A844F56F /* Pods_Sandbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Sandbox.framework; path = "Pods-Sandbox.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5EE78F186BF3FC8212AB186D4B13CEA /* Pods-Sandbox.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Sandbox.modulemap"; sourceTree = "<group>"; };
 		CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		D0639CB3E40DB021CC8BE612B0FC209A /* Pods-Sandbox-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Sandbox-frameworks.sh"; sourceTree = "<group>"; };
+		D9689072256F388D1F45A94D6F3771C1 /* SdkConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SdkConfig.swift; path = IdentitySdkCore/Classes/SdkConfig.swift; sourceTree = "<group>"; };
 		E32DC682D9B7BC6ACF5A58AB7688A82F /* Pods-Sandbox-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Sandbox-acknowledgements.plist"; sourceTree = "<group>"; };
-		FACC8C0B572EF8A90020DE87AB9ED903 /* IdentitySdkCore.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = IdentitySdkCore.modulemap; sourceTree = "<group>"; };
+		E7E2225F42CDFB79BC4EC90C833B7286 /* WebViewProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WebViewProvider.swift; path = IdentitySdkCore/Classes/WebViewProvider.swift; sourceTree = "<group>"; };
+		E847B9B010AD08D55A4CAFD255C68C5F /* IdentitySdkCore-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IdentitySdkCore-dummy.m"; sourceTree = "<group>"; };
+		F5962DE679928417AC558B9F5183E761 /* IdentitySdkCore.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = IdentitySdkCore.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		FEF9D55EB2BFE128503DECFC0C2947BE /* Provider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Provider.swift; path = IdentitySdkCore/Classes/Provider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +79,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11F71ACC069B23A3D02234D0445F8BCF /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				585D1B3D95E18D1C7697AB4B5F4E7443 /* IdentitySdkCore.modulemap */,
+				544D09763DF1BCCF1F4E5CF4791881FF /* IdentitySdkCore.xcconfig */,
+				E847B9B010AD08D55A4CAFD255C68C5F /* IdentitySdkCore-dummy.m */,
+				52E711C28EE55070A5AF4BECD6213AA8 /* IdentitySdkCore-Info.plist */,
+				4E72DFDEA056204CAFBFAD988C2FE889 /* IdentitySdkCore-prefix.pch */,
+				9BD52F7CDB6610685964D8C5E8907093 /* IdentitySdkCore-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Sandbox/Pods/Target Support Files/IdentitySdkCore";
+			sourceTree = "<group>";
+		};
 		12BD2F867847A86CFCB91BC21509836D /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,15 +110,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8A112E61E849842C18A7DCE57F91BDFC /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				96DFD1CA83ACDF18DF0FD7026CA56EBA /* IdentitySdkCore.podspec */,
-				0BF1EBD45BB8826726C93AE00EF5B8BC /* LICENSE */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
 		9B055D0CFEA43187E72B03DED11F5662 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,10 +118,34 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
+		9BD479EDC0D590E8A973483138681D2E /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				F5962DE679928417AC558B9F5183E761 /* IdentitySdkCore.podspec */,
+				0B9597F2B4F4BE34BE3169C7AA27EA17 /* LICENSE */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		A58CD305C80EDAB67E209CD49C87F69B /* IdentitySdkCore */ = {
+			isa = PBXGroup;
+			children = (
+				FEF9D55EB2BFE128503DECFC0C2947BE /* Provider.swift */,
+				4F115356D325A8D9D0A77C4DD215CA4E /* ProviderConfig.swift */,
+				5377051C7148600458F9D5415B472E06 /* ReachFive.swift */,
+				D9689072256F388D1F45A94D6F3771C1 /* SdkConfig.swift */,
+				E7E2225F42CDFB79BC4EC90C833B7286 /* WebViewProvider.swift */,
+				9BD479EDC0D590E8A973483138681D2E /* Pod */,
+				11F71ACC069B23A3D02234D0445F8BCF /* Support Files */,
+			);
+			name = IdentitySdkCore;
+			path = ../../IdentitySdkCore;
+			sourceTree = "<group>";
+		};
 		CED1D7E7885BA89BD7D4427D27A40E77 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F4E72E7C59D85CFD2C2919EDCE07A773 /* IdentitySdkCore */,
+				A58CD305C80EDAB67E209CD49C87F69B /* IdentitySdkCore */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
@@ -140,21 +169,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F4E72E7C59D85CFD2C2919EDCE07A773 /* IdentitySdkCore */ = {
-			isa = PBXGroup;
-			children = (
-				AA8BD912B2EBCE2B70DC7949969360E9 /* Provider.swift */,
-				A9F126ECDB63A1E343D9ADDB697F769C /* ProviderConfig.swift */,
-				1EB468A5EBFCC175D05D739A9D9A2871 /* ReachFive.swift */,
-				23D67D791B527917C2C314B080E54BC4 /* SdkConfig.swift */,
-				62758595BE2755E8D006B58A17A74934 /* WebViewProvider.swift */,
-				8A112E61E849842C18A7DCE57F91BDFC /* Pod */,
-				FF4540E6C6E5DC87E7E7E5D546D4B174 /* Support Files */,
-			);
-			name = IdentitySdkCore;
-			path = ../../IdentitySdkCore;
-			sourceTree = "<group>";
-		};
 		FC345D0591B7ED1968A1E4E81F46EAFA /* Pods-Sandbox */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,20 +184,6 @@
 			);
 			name = "Pods-Sandbox";
 			path = "Target Support Files/Pods-Sandbox";
-			sourceTree = "<group>";
-		};
-		FF4540E6C6E5DC87E7E7E5D546D4B174 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				FACC8C0B572EF8A90020DE87AB9ED903 /* IdentitySdkCore.modulemap */,
-				49ABD0C517DD6127FC1DAD1C06B4C289 /* IdentitySdkCore.xcconfig */,
-				0B8E66BAF8C025A341A48E70EA9A46FE /* IdentitySdkCore-dummy.m */,
-				07ABEE529EA844106D341A84D3807157 /* IdentitySdkCore-Info.plist */,
-				413EAF516C3B15991177CCB7A8A390A1 /* IdentitySdkCore-prefix.pch */,
-				3A7B0A42B346635F6270E5167C76B5D4 /* IdentitySdkCore-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Sandbox/Pods/Target Support Files/IdentitySdkCore";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,11 +303,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				81E198E1459A9D50A6A7EED8D5A83D85 /* IdentitySdkCore-dummy.m in Sources */,
-				8F024D257AA859352D519C8D67251023 /* Provider.swift in Sources */,
-				C0D6C84F024AE4E4FC63E5AAEAF51383 /* ProviderConfig.swift in Sources */,
-				51E4F91945BC68F46D9C7B8A40E0CEFC /* ReachFive.swift in Sources */,
-				7C7784FA91260CCDD9E16340F76F5DF3 /* SdkConfig.swift in Sources */,
-				63C2B301D0937634C1A16FD27BF7DBA0 /* WebViewProvider.swift in Sources */,
+				CD6F185AED28B53196271DE2AB360697 /* Provider.swift in Sources */,
+				F393E4B575D48035E73205E750E5725D /* ProviderConfig.swift in Sources */,
+				EB7EF88C9B61E7E905F3889967DCA70F /* ReachFive.swift in Sources */,
+				87B6D730C2BEC92B3B959C01F7EC8CDD /* SdkConfig.swift in Sources */,
+				9148D3C75313888215ADD79ED15B2478 /* WebViewProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,7 +325,7 @@
 /* Begin XCBuildConfiguration section */
 		00BDAC8DA4D58738749324D050AC7CED /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 49ABD0C517DD6127FC1DAD1C06B4C289 /* IdentitySdkCore.xcconfig */;
+			baseConfigurationReference = 544D09763DF1BCCF1F4E5CF4791881FF /* IdentitySdkCore.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -361,7 +361,7 @@
 		};
 		23C9689D7AA3641E780000B83303F67C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 49ABD0C517DD6127FC1DAD1C06B4C289 /* IdentitySdkCore.xcconfig */;
+			baseConfigurationReference = 544D09763DF1BCCF1F4E5CF4791881FF /* IdentitySdkCore.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";

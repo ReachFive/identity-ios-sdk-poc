@@ -18,7 +18,7 @@
     "git": "https://github.com/ReachFive/identity-ios-sdk-poc.git",
     "tag": "4.0.0"
   },
-  "source_files": "Classes/*.*",
+  "source_files": "IdentitySdkCore/Classes/*.*",
   "platforms": {
     "ios": "12.2"
   },
