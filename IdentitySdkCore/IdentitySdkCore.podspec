@@ -9,10 +9,10 @@ Pod::Spec.new do |spec|
   spec.license        = { :type => "MIT", :file => "LICENSE" }
   spec.author         = "ReachFive"
   spec.authors        = { "egor" => "egor@reach5.co" }
-  spec.swift_versions = ["5", "4"]
-  spec.source         = { :git => "https://github.com/ReachFive/identity-ios-sdk-poc.git", :branch => "new-sdk" }
-  # spec.source       = { :git => "https://github.com/ReachFive/identity-ios-sdk-poc.git", :tag => "#{spec.version}" }
-  spec.source_files   = "IdentitySdkCore/Classes/**/*"
-  spec.platform       = :ios, "12"
-  spec.ios.deployment_target = '12'
+  spec.swift_versions = ["5"]
+#  spec.source         = { :git => "https://github.com/ReachFive/identity-ios-sdk-poc.git", :branch => "new-sdk" }
+  spec.source       = { :git => "https://github.com/ReachFive/identity-ios-sdk-poc.git", :tag => "#{spec.version}" }
+  spec.source_files   = "Classes/*.*"
+  spec.platform       = :ios
+  spec.ios.deployment_target = '12.2'
 end
