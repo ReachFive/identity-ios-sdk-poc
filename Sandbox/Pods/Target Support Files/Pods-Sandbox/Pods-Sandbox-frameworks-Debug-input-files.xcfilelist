@@ -1,2 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-Sandbox/Pods-Sandbox-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/IdentitySdkCore/IdentitySdkCore.framework
+${BUILT_PRODUCTS_DIR}/IdentitySdkFacebook/IdentitySdkFacebook.framework

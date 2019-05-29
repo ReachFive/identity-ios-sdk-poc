@@ -1,0 +1,6 @@
+framework module IdentitySdkFacebook {
+  umbrella header "IdentitySdkFacebook-umbrella.h"
+
+  export *
+  module * { export * }
+}
