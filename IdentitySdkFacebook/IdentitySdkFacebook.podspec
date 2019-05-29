@@ -15,4 +15,6 @@ Pod::Spec.new do |spec|
   spec.source_files   = "IdentitySdkFacebook/Classes/*.*"
   spec.platform       = :ios
   spec.ios.deployment_target = '12.2'
+
+  spec.dependency 'IdentitySdkCore'
 end
