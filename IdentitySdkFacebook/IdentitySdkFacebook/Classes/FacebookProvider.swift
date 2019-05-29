@@ -7,8 +7,8 @@ public class FacebookProvider: ProviderCreator {
     }
 }
 
-class ConfiguredFacebookProvider: Provider {
-    func helloWorld() -> String {
+public class ConfiguredFacebookProvider: Provider {
+    public func helloWorld() -> String {
         return "hello from ConfiguredFacebookProvider"
     }
 }
