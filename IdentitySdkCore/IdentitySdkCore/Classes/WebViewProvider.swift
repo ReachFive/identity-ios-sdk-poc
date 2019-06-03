@@ -9,6 +9,6 @@ public class WebViewProvider: ProviderCreator {
 
 class ConfiguredWebViewProvider: Provider {
     public func helloWorld() -> String {
-        return "Hello from sdk core: WebViewProvider"
+        return "Hello from sdk core: WebViewProvider 2"
     }
 }
