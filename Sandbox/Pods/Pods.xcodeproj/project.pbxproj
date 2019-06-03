@@ -61,15 +61,15 @@
 		5413C36F644EF7CE03EF227E2A15401A /* ReachFive.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReachFive.swift; path = IdentitySdkCore/Classes/ReachFive.swift; sourceTree = "<group>"; };
 		692CAEB46EA32EE3BBB6F295AD42E7F1 /* IdentitySdkCore-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IdentitySdkCore-dummy.m"; sourceTree = "<group>"; };
 		69CBAA2A7E7362D9C59AA27C9ECAB978 /* IdentitySdkFacebook-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "IdentitySdkFacebook-Info.plist"; sourceTree = "<group>"; };
-		7705C71D566594901D4FE2DB45655076 /* IdentitySdkCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = IdentitySdkCore.framework; path = IdentitySdkCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7705C71D566594901D4FE2DB45655076 /* IdentitySdkCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IdentitySdkCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A2829362558296D143A5A575BDA9949 /* SdkConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SdkConfig.swift; path = IdentitySdkCore/Classes/SdkConfig.swift; sourceTree = "<group>"; };
 		88D635EC61472EDB93BAB0D14C4CD4C4 /* IdentitySdkFacebook-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IdentitySdkFacebook-prefix.pch"; sourceTree = "<group>"; };
-		90F480B38C18FA63DF8486F69702BF05 /* IdentitySdkCore.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = IdentitySdkCore.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9142836A9E990A5C0F8255B6D48A7241 /* Pods_Sandbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Sandbox.framework; path = "Pods-Sandbox.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		96EC69C15885453234A9DF62BF9D423C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		90F480B38C18FA63DF8486F69702BF05 /* IdentitySdkCore.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = IdentitySdkCore.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9142836A9E990A5C0F8255B6D48A7241 /* Pods_Sandbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sandbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		96EC69C15885453234A9DF62BF9D423C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		9C133CCC545B0372C5461CEAFC077DAE /* Pods-Sandbox-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Sandbox-dummy.m"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9DE416CFFF798862244BDDF0CE4B367B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9DE416CFFF798862244BDDF0CE4B367B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		9F035E15B6DA4F55F7DE624C501B1134 /* Pods-Sandbox-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Sandbox-acknowledgements.markdown"; sourceTree = "<group>"; };
 		9F0B7507666271EABA26BBD0582FDBCE /* Provider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Provider.swift; path = IdentitySdkCore/Classes/Provider.swift; sourceTree = "<group>"; };
 		B13D1399406309C42D6C95862708833B /* Pods-Sandbox-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Sandbox-umbrella.h"; sourceTree = "<group>"; };
@@ -82,9 +82,9 @@
 		E32DC682D9B7BC6ACF5A58AB7688A82F /* Pods-Sandbox-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Sandbox-acknowledgements.plist"; sourceTree = "<group>"; };
 		E9885D02689F8A1D1150B535972C589E /* IdentitySdkCore-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IdentitySdkCore-prefix.pch"; sourceTree = "<group>"; };
 		EA8C075BAEDD2792729895F1BBD5929E /* WebViewProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WebViewProvider.swift; path = IdentitySdkCore/Classes/WebViewProvider.swift; sourceTree = "<group>"; };
-		ECA617C5E5DEF4823CCEDCBBC327D12B /* IdentitySdkFacebook.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = IdentitySdkFacebook.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		ECA617C5E5DEF4823CCEDCBBC327D12B /* IdentitySdkFacebook.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = IdentitySdkFacebook.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		EEB6F0F3029BBE64CBBCB5B850C87D0F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		F6BBBB3A5BC95B312C13B9630D33D88F /* IdentitySdkFacebook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = IdentitySdkFacebook.framework; path = IdentitySdkFacebook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6BBBB3A5BC95B312C13B9630D33D88F /* IdentitySdkFacebook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IdentitySdkFacebook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCC58EF23A70062DB5314D2575CEE275 /* IdentitySdkCore.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = IdentitySdkCore.modulemap; sourceTree = "<group>"; };
 		FF7E3E647AA185CCB49F6A71C863B9A1 /* IdentitySdkFacebook-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IdentitySdkFacebook-umbrella.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -356,13 +356,14 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1020;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
@@ -570,6 +571,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -666,6 +668,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
