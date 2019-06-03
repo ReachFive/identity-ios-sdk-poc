@@ -1,11 +1,17 @@
 PODS:
-  - IdentitySdkCore (4.0.0)
+  - Alamofire (5.0.0-beta.6)
+  - IdentitySdkCore (4.0.0):
+    - Alamofire (~> 5.0.0-beta.6)
   - IdentitySdkFacebook (4.0.0):
     - IdentitySdkCore (= 4.0.0)
 
 DEPENDENCIES:
   - IdentitySdkCore (from `../IdentitySdkCore`)
   - IdentitySdkFacebook (from `../IdentitySdkFacebook`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
 
 EXTERNAL SOURCES:
   IdentitySdkCore:
@@ -14,7 +20,8 @@ EXTERNAL SOURCES:
     :path: "../IdentitySdkFacebook"
 
 SPEC CHECKSUMS:
-  IdentitySdkCore: e956c0050d7f57a94c0ce28fbb1ba7909da49b21
+  Alamofire: cd08a4402bd12cacd0c66f23fb12fec8d6b965e4
+  IdentitySdkCore: d3ad4470df018b617df546441256eb57a4803382
   IdentitySdkFacebook: f8859a1c0be81c3821ea0882dba4b0f5465c0e91
 
 PODFILE CHECKSUM: add5c77d4265f77dd04c9871402b66de0e72184c

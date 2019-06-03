@@ -15,4 +15,6 @@ Pod::Spec.new do |spec|
   spec.source_files   = "IdentitySdkCore/Classes/*.*"
   spec.platform       = :ios
   spec.ios.deployment_target = '12.2'
+
+  spec.dependency 'Alamofire', '~> 5.0.0-beta.6'
 end
