@@ -10,10 +10,10 @@ class ViewController: UIViewController {
         let provider = WebViewProvider()
         let facebook = FacebookProvider()
         
-        let sdkConfig = SdkConfig(domain: "local-sandbox.og4.me", clientId: "sg48CdAYohRPeRWZ9j1H")
+        let sdkConfig = SdkConfig(domain: "integ-guillaume.reach5.net", clientId: "aQKiT49jlrTVKrrLsuDR")
         let reachfive = ReachFive(sdkConfig: sdkConfig, providersCreators: [facebook, provider])
         
-        reachfive.show()
+        reachfive.initialize()
     }
 
 }
