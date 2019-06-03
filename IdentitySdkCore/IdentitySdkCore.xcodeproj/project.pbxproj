@@ -13,6 +13,8 @@
 		347FDB65229C02A800660687 /* SdkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347FDB64229C02A800660687 /* SdkConfig.swift */; };
 		347FDB67229C02FE00660687 /* ReachFive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347FDB66229C02FE00660687 /* ReachFive.swift */; };
 		347FDB69229C04C200660687 /* ProviderConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347FDB68229C04C200660687 /* ProviderConfig.swift */; };
+		34F7D3E422A54AA2003A7BC0 /* ReachFiveApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F7D3E322A54AA2003A7BC0 /* ReachFiveApi.swift */; };
+		34F7D3E622A54ADE003A7BC0 /* ProvidersConfigsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F7D3E522A54ADE003A7BC0 /* ProvidersConfigsResult.swift */; };
 		E54C169342B380F36F732553 /* Pods_IdentitySdkCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC4CBFA03F10FC9EF8CF04 /* Pods_IdentitySdkCore.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +27,8 @@
 		347FDB64229C02A800660687 /* SdkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SdkConfig.swift; sourceTree = "<group>"; };
 		347FDB66229C02FE00660687 /* ReachFive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachFive.swift; sourceTree = "<group>"; };
 		347FDB68229C04C200660687 /* ProviderConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderConfig.swift; sourceTree = "<group>"; };
+		34F7D3E322A54AA2003A7BC0 /* ReachFiveApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachFiveApi.swift; sourceTree = "<group>"; };
+		34F7D3E522A54ADE003A7BC0 /* ProvidersConfigsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvidersConfigsResult.swift; sourceTree = "<group>"; };
 		43DC4CBFA03F10FC9EF8CF04 /* Pods_IdentitySdkCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IdentitySdkCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD90675FB57876B852A4CA19 /* Pods-IdentitySdkCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IdentitySdkCore.release.xcconfig"; path = "Target Support Files/Pods-IdentitySdkCore/Pods-IdentitySdkCore.release.xcconfig"; sourceTree = "<group>"; };
 		C36DD42482ABE1F3925FA62A /* Pods-IdentitySdkCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IdentitySdkCore.debug.xcconfig"; path = "Target Support Files/Pods-IdentitySdkCore/Pods-IdentitySdkCore.debug.xcconfig"; sourceTree = "<group>"; };
@@ -50,6 +54,8 @@
 				347FDB68229C04C200660687 /* ProviderConfig.swift */,
 				347FDB55229BE8FF00660687 /* WebViewProvider.swift */,
 				347FDB53229BE8F800660687 /* Provider.swift */,
+				34F7D3E322A54AA2003A7BC0 /* ReachFiveApi.swift */,
+				34F7D3E522A54ADE003A7BC0 /* ProvidersConfigsResult.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -208,6 +214,8 @@
 				347FDB69229C04C200660687 /* ProviderConfig.swift in Sources */,
 				347FDB54229BE8F800660687 /* Provider.swift in Sources */,
 				347FDB65229C02A800660687 /* SdkConfig.swift in Sources */,
+				34F7D3E422A54AA2003A7BC0 /* ReachFiveApi.swift in Sources */,
+				34F7D3E622A54ADE003A7BC0 /* ProvidersConfigsResult.swift in Sources */,
 				347FDB67229C02FE00660687 /* ReachFive.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
