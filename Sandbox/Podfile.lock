@@ -1,9 +1,14 @@
 PODS:
   - Alamofire (4.8.2)
+  - AlamofireObjectMapper (5.2.0):
+    - Alamofire (~> 4.7)
+    - ObjectMapper (~> 3.4)
   - IdentitySdkCore (4.0.0):
     - Alamofire (~> 4.8.1)
+    - AlamofireObjectMapper (~> 5.2)
   - IdentitySdkFacebook (4.0.0):
     - IdentitySdkCore (= 4.0.0)
+  - ObjectMapper (3.4.2)
 
 DEPENDENCIES:
   - IdentitySdkCore (from `../IdentitySdkCore`)
@@ -12,6 +17,8 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - AlamofireObjectMapper
+    - ObjectMapper
 
 EXTERNAL SOURCES:
   IdentitySdkCore:
@@ -21,8 +28,10 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  IdentitySdkCore: 247eb79cb29e2085661eef4a0b2f19b27217a84a
+  AlamofireObjectMapper: 92b6ce2423a9d159e686f6a1d514a009bf903ddc
+  IdentitySdkCore: 260bdc974ba80c90de7609daff0d1ac851e08dc1
   IdentitySdkFacebook: f8859a1c0be81c3821ea0882dba4b0f5465c0e91
+  ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
 
 PODFILE CHECKSUM: add5c77d4265f77dd04c9871402b66de0e72184c
 

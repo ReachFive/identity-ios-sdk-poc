@@ -16,4 +16,5 @@ Pod::Spec.new do |spec|
   spec.ios.deployment_target = '12.2'
 
   spec.dependency 'Alamofire', '~> 4.8.1'
+  spec.dependency 'AlamofireObjectMapper', '~> 5.2'
 end
