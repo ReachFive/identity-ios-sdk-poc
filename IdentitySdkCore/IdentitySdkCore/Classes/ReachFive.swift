@@ -1,7 +1,6 @@
 import Foundation
 
 public class ReachFive: NSObject {
-    
     let sdkConfig: SdkConfig
     let providersCreators: Array<ProviderCreator>
     let reachFiveApi: ReachFiveApi
@@ -44,7 +43,7 @@ public class ReachFive: NSObject {
         }).compactMap { $0 }
     }
     
-    public func signupWithPassword(profile: Profile, success: @escaping Success<Any /* TODO OpenIdTokenResponse*/>, failure: @escaping Failure<Error>) {
+    public func signupWithPassword(profile: Profile, success: @escaping Success<OpenIdTokenResponse>, failure: @escaping Failure<Error>) {
         let signupRequest = SignupRequest(
             clientId: sdkConfig.clientId,
             data: profile,
@@ -54,7 +53,7 @@ public class ReachFive: NSObject {
         reachFiveApi.signupWithPassword(signupRequest: signupRequest, success: success, failure: failure)
     }
     
-    public func loginWithPassword(username: String, password: String, success: @escaping Success<Any /* TODO OpenIdTokenResponse*/>, failure: @escaping Failure<Error>) {
+    public func loginWithPassword(username: String, password: String, success: @escaping Success<OpenIdTokenResponse>, failure: @escaping Failure<Error>) {
         let loginRequest = LoginRequest(
             username: username,
             password: password,
