@@ -13,7 +13,7 @@ class ViewController: UIViewController {
         let sdkConfig = SdkConfig(domain: "integ-guillaume.reach5.net", clientId: "aQKiT49jlrTVKrrLsuDR")
         let reachfive = ReachFive(sdkConfig: sdkConfig, providersCreators: [facebook, provider])
         
-        reachfive.initialize()
+        reachfive.initialize(success: { providers in print(providers) }, failure: { error in print(error) })
     }
 
 }

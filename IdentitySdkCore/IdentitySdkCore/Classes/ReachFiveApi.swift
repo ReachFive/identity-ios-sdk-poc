@@ -2,6 +2,8 @@ import Foundation
 import Alamofire
 import AlamofireObjectMapper
 
+typealias ResponseHandler<T> = (_ response: DataResponse<T>) -> Void
+
 public class ReachFiveApi {
     let sdkConfig: SdkConfig
     
@@ -9,13 +11,22 @@ public class ReachFiveApi {
         self.sdkConfig = sdkConfig
     }
     
-    public func providersConfigs() -> ProvidersConfigsResult? {
+    public func providersConfigs(success: @escaping Success<ProvidersConfigsResult>, failure: @escaping Failure<Error>) {
         Alamofire
-            .request("https://\(sdkConfig.domain)/api/v1/providers")
-            .responseObject { (response: DataResponse<ProvidersConfigsResult>) in
-                print(response.result.error!)
-                print(response.result.value!)
+            .request(createUrl(path: "/api/v1/providers"))
+            .responseObject(completionHandler: handleResponse(success: success, failure: failure))
+    }
+    
+    func handleResponse<T>(success: @escaping Success<T>, failure: @escaping Failure<Error>) -> ResponseHandler<T> {
+        return {(response: DataResponse<T>) -> Void in
+            switch response.result {
+            case let .failure(error): failure(error)
+            case let .success(value): success(value)
             }
-        return nil
+        }
+    }
+    
+    func createUrl(path: String) -> String {
+        return "https://\(sdkConfig.domain)\(path)"
     }
 }

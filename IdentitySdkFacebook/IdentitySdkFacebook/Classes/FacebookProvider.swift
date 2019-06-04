@@ -2,6 +2,10 @@ import Foundation
 import IdentitySdkCore
 
 public class FacebookProvider: ProviderCreator {
+    public static var NAME: String = "facebook"
+    
+    public var name: String = NAME
+    
     public init() {}
 
     public func create(sdkConfig: SdkConfig) -> Provider {
@@ -9,10 +13,12 @@ public class FacebookProvider: ProviderCreator {
     }
 }
 
-public class ConfiguredFacebookProvider: Provider {
-    public init() {}
-
-    public func helloWorld() -> String {
-        return "hello from ConfiguredFacebookProvider"
+public class ConfiguredFacebookProvider: NSObject, Provider {
+    public var name: String = FacebookProvider.NAME
+    
+    public override init() {}
+    
+    public override var description: String {
+        return "Provider: \(name)"
     }
 }
