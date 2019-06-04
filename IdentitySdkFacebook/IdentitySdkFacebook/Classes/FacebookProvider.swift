@@ -1,5 +1,8 @@
 import Foundation
+import UIKit
 import IdentitySdkCore
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 public class FacebookProvider: ProviderCreator {
     public static var NAME: String = "facebook"
@@ -20,5 +23,9 @@ public class ConfiguredFacebookProvider: NSObject, Provider {
     
     public override var description: String {
         return "Provider: \(name)"
+    }
+    
+    public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        return true
     }
 }

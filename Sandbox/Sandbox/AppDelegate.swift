@@ -1,4 +1,6 @@
 import UIKit
+import IdentitySdkCore
+import IdentitySdkFacebook
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -8,6 +10,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Do any additional setup after loading the view.
+        let provider = WebViewProvider()
+        let facebook = FacebookProvider()
+        
+        let sdkConfig = SdkConfig(domain: "integ-guillaume.reach5.net", clientId: "aQKiT49jlrTVKrrLsuDR")
+        let reachfive = ReachFive(sdkConfig: sdkConfig, providersCreators: [facebook, provider])
+        
+        reachfive.initialize(success: { providers in print(providers) }, failure: { error in print(error) })
+        
         return true
     }
 

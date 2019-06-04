@@ -3,10 +3,19 @@ PODS:
   - AlamofireObjectMapper (5.2.0):
     - Alamofire (~> 4.7)
     - ObjectMapper (~> 3.4)
+  - FBSDKCoreKit (5.0.1):
+    - FBSDKCoreKit/Basics (= 5.0.1)
+    - FBSDKCoreKit/Core (= 5.0.1)
+  - FBSDKCoreKit/Basics (5.0.1)
+  - FBSDKCoreKit/Core (5.0.1):
+    - FBSDKCoreKit/Basics
+  - FBSDKLoginKit (5.0.1):
+    - FBSDKCoreKit (~> 5.0)
   - IdentitySdkCore (4.0.0):
     - Alamofire (~> 4.8.1)
     - AlamofireObjectMapper (~> 5.2)
   - IdentitySdkFacebook (4.0.0):
+    - FBSDKLoginKit (= 5.0.1)
     - IdentitySdkCore (= 4.0.0)
   - ObjectMapper (3.4.2)
 
@@ -18,6 +27,8 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - AlamofireObjectMapper
+    - FBSDKCoreKit
+    - FBSDKLoginKit
     - ObjectMapper
 
 EXTERNAL SOURCES:
@@ -29,8 +40,10 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   AlamofireObjectMapper: 92b6ce2423a9d159e686f6a1d514a009bf903ddc
+  FBSDKCoreKit: 4a19534474ade7c71bd016d800aa5e7722bcdda1
+  FBSDKLoginKit: 41efa754b909b0ea813fa9a8596dacc8ed196d50
   IdentitySdkCore: 66193636e180f432c07d390d43b50aee639e6391
-  IdentitySdkFacebook: 4efcbf83935bef0a95e8b351dd5a04237f0af474
+  IdentitySdkFacebook: d83c59598169f40ffb1593a2d56f53f7bd96239d
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
 
 PODFILE CHECKSUM: add5c77d4265f77dd04c9871402b66de0e72184c
