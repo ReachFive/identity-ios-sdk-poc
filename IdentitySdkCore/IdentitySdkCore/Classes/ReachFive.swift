@@ -54,6 +54,18 @@ public class ReachFive: NSObject {
         reachFiveApi.signupWithPassword(signupRequest: signupRequest, success: success, failure: failure)
     }
     
+    public func loginWithPassword(username: String, password: String, success: @escaping Success<Any /* TODO OpenIdTokenResponse*/>, failure: @escaping Failure<Error>) {
+        let loginRequest = LoginRequest(
+            username: username,
+            password: password,
+            grantType: "password",
+            clientId: sdkConfig.clientId,
+            scope: "openid profile email"
+        )
+        reachFiveApi.loginWithPassword(loginRequest: loginRequest, success: success, failure: failure)
+    }
+    
+    
     public override var description: String {
         return """
         Config: domain=\(sdkConfig.domain), clientId=\(sdkConfig.clientId)

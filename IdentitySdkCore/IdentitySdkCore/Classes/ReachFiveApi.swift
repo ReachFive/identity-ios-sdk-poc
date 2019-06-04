@@ -23,6 +23,12 @@ public class ReachFiveApi {
             .responseObject(completionHandler: handleResponse(success: success, failure: failure))
     }
     
+    public func loginWithPassword(loginRequest: LoginRequest, success: @escaping Success<OpenIdTokenResponse>, failure: @escaping Failure<Error>) {
+        Alamofire
+            .request(createUrl(path: "/oauth/token"), method: .post, parameters: loginRequest.toJSON(), encoding: JSONEncoding.default)
+            .responseObject(completionHandler: handleResponse(success: success, failure: failure))
+    }
+    
     func handleResponse<T>(success: @escaping Success<T>, failure: @escaping Failure<Error>) -> ResponseHandler<T> {
         return {(response: DataResponse<T>) -> Void in
             switch response.result {

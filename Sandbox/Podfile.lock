@@ -29,8 +29,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   AlamofireObjectMapper: 92b6ce2423a9d159e686f6a1d514a009bf903ddc
-  IdentitySdkCore: 260bdc974ba80c90de7609daff0d1ac851e08dc1
-  IdentitySdkFacebook: f8859a1c0be81c3821ea0882dba4b0f5465c0e91
+  IdentitySdkCore: 66193636e180f432c07d390d43b50aee639e6391
+  IdentitySdkFacebook: 4efcbf83935bef0a95e8b351dd5a04237f0af474
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
 
 PODFILE CHECKSUM: add5c77d4265f77dd04c9871402b66de0e72184c
