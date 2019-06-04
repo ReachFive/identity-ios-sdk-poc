@@ -17,6 +17,11 @@ public class ReachFiveApi {
             .responseObject(completionHandler: handleResponse(success: success, failure: failure))
     }
     
+    public func signupWithPassword(signupRequest: SignupRequest, success: @escaping Success<ProvidersConfigsResult>, failure: @escaping Failure<Error>) {
+        Alamofire
+            .request(createUrl(path: "/identity/v1/signup-token"), method: .post, parameters: signupRequest.toJSON(), encoding: JSONEncoding.default)
+    }
+    
     func handleResponse<T>(success: @escaping Success<T>, failure: @escaping Failure<Error>) -> ResponseHandler<T> {
         return {(response: DataResponse<T>) -> Void in
             switch response.result {

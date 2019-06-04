@@ -13,6 +13,14 @@ public class ReachFive: NSObject {
         self.reachFiveApi = ReachFiveApi(sdkConfig: sdkConfig)
     }
     
+    public func getProvider(name: String) -> Provider? {
+        return providers.first(where: { $0.name == name })
+    }
+    
+    public func getProviders() -> [Provider] {
+        return providers
+    }
+    
     public func initialize(success: @escaping Success<[Provider]>, failure: @escaping Failure<Error>) -> Self {
         reachFiveApi.providersConfigs(success: { providersConfigs in
             self.providers = self.createProviders(providersConfigsResult: providersConfigs)
@@ -34,6 +42,16 @@ public class ReachFive: NSObject {
                 return nil
             }
         }).compactMap { $0 }
+    }
+    
+    public func signupWithPassword(profile: Profile, success: @escaping Success<Any /* TODO OpenIdTokenResponse*/>, failure: @escaping Failure<Error>) {
+        let signupRequest = SignupRequest(
+            clientId: sdkConfig.clientId,
+            data: profile,
+            scope: "openid profile email",
+            acceptTos: nil
+        )
+        reachFiveApi.signupWithPassword(signupRequest: signupRequest, success: success, failure: failure)
     }
     
     public override var description: String {
