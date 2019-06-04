@@ -15,6 +15,7 @@
 		347FDB69229C04C200660687 /* ProviderConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347FDB68229C04C200660687 /* ProviderConfig.swift */; };
 		34E18B8822A66EEF00952EBD /* Callback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E18B8722A66EEF00952EBD /* Callback.swift */; };
 		34E18B8A22A6985C00952EBD /* SignupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E18B8922A6985C00952EBD /* SignupRequest.swift */; };
+		34E18B8C22A6BEC900952EBD /* OpenIdTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E18B8B22A6BEC900952EBD /* OpenIdTokenResponse.swift */; };
 		34F7D3E422A54AA2003A7BC0 /* ReachFiveApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F7D3E322A54AA2003A7BC0 /* ReachFiveApi.swift */; };
 		34F7D3E622A54ADE003A7BC0 /* ProvidersConfigsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F7D3E522A54ADE003A7BC0 /* ProvidersConfigsResult.swift */; };
 		E54C169342B380F36F732553 /* Pods_IdentitySdkCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC4CBFA03F10FC9EF8CF04 /* Pods_IdentitySdkCore.framework */; };
@@ -31,6 +32,7 @@
 		347FDB68229C04C200660687 /* ProviderConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderConfig.swift; sourceTree = "<group>"; };
 		34E18B8722A66EEF00952EBD /* Callback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Callback.swift; sourceTree = "<group>"; };
 		34E18B8922A6985C00952EBD /* SignupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupRequest.swift; sourceTree = "<group>"; };
+		34E18B8B22A6BEC900952EBD /* OpenIdTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenIdTokenResponse.swift; sourceTree = "<group>"; };
 		34F7D3E322A54AA2003A7BC0 /* ReachFiveApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachFiveApi.swift; sourceTree = "<group>"; };
 		34F7D3E522A54ADE003A7BC0 /* ProvidersConfigsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvidersConfigsResult.swift; sourceTree = "<group>"; };
 		43DC4CBFA03F10FC9EF8CF04 /* Pods_IdentitySdkCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IdentitySdkCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,6 +64,7 @@
 				34F7D3E522A54ADE003A7BC0 /* ProvidersConfigsResult.swift */,
 				34E18B8722A66EEF00952EBD /* Callback.swift */,
 				34E18B8922A6985C00952EBD /* SignupRequest.swift */,
+				34E18B8B22A6BEC900952EBD /* OpenIdTokenResponse.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				347FDB56229BE8FF00660687 /* WebViewProvider.swift in Sources */,
 				347FDB69229C04C200660687 /* ProviderConfig.swift in Sources */,
 				347FDB54229BE8F800660687 /* Provider.swift in Sources */,
+				34E18B8C22A6BEC900952EBD /* OpenIdTokenResponse.swift in Sources */,
 				34E18B8A22A6985C00952EBD /* SignupRequest.swift in Sources */,
 				347FDB65229C02A800660687 /* SdkConfig.swift in Sources */,
 				34F7D3E422A54AA2003A7BC0 /* ReachFiveApi.swift in Sources */,
