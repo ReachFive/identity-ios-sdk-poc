@@ -31,7 +31,7 @@ public class ReachFive: NSObject {
     
     func createProviders(providersConfigsResult: ProvidersConfigsResult) -> [Provider] {
         let webViewProvider = providersCreators.first(where: { $0.name == "webview" })
-        return providersConfigsResult.items.map({ config in
+        return (providersConfigsResult.items ?? []).map({ config in
             let nativeProvider = providersCreators.first(where: { $0.name == config.provider })
             if (nativeProvider != nil) {
                 return nativeProvider?.create(sdkConfig: sdkConfig)

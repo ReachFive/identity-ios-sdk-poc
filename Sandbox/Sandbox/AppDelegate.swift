@@ -6,19 +6,24 @@ import IdentitySdkFacebook
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    let reachfive = ReachFive(
+        sdkConfig: SdkConfig(domain: "sdk-mobile-sandbox.reach5.net", clientId: "TYAIHFRJ2a1FGJ1T8pKD"),
+        providersCreators: [FacebookProvider(), WebViewProvider()]
+    )
+    
+    static func shared() -> AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         // Do any additional setup after loading the view.
-        let provider = WebViewProvider()
-        let facebook = FacebookProvider()
         
-        let sdkConfig = SdkConfig(domain: "integ-guillaume.reach5.net", clientId: "aQKiT49jlrTVKrrLsuDR")
-        let reachfive = ReachFive(sdkConfig: sdkConfig, providersCreators: [facebook, provider])
-        
-        reachfive.initialize(success: { providers in print(providers) }, failure: { error in print(error) })
+        let _ = reachfive.initialize(success: { providers in print(providers) }, failure: {
+            print("initialize error \($0)")
+        })
         
         return true
     }
