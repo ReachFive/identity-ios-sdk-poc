@@ -12,6 +12,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         providersCreators: [FacebookProvider(), WebViewProvider()]
     )
     
+    static func reachfive() -> ReachFive {
+        let app = UIApplication.shared.delegate as! AppDelegate
+        return app.reachfive
+    }
+    
     static func shared() -> AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }

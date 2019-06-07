@@ -2,10 +2,37 @@ import UIKit
 import IdentitySdkCore
 
 class LoginController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    var providers: [Provider] = []
     
+    @IBOutlet weak var emailInput: UITextField!
+    @IBOutlet weak var passwordInput: UITextField!
     @IBOutlet weak var providersTableView: UITableView!
     
-    var providers: [Provider] = []
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        providersTableView.dataSource = self
+        providersTableView.delegate = self
+        
+        AppDelegate.reachfive().initialize(success: {
+            self.providers.append(contentsOf: $0)
+            self.providersTableView.reloadData()
+        }, failure: {
+            print("initialize error \($0)")
+        })
+    }
+    
+    public func reloadProvidersData(providers: [Provider]) {
+        self.providers = providers
+        self.providersTableView.reloadData()
+    }
+    
+    @IBAction func login(_ sender: Any) {
+        let email = emailInput.text ?? ""
+        let password = passwordInput.text ?? ""
+        print("Login email=\(email) password=\(password)")
+        AppDelegate.shared().reachfive.loginWithPassword(username: email, password: password, success: { print($0) }, failure: { print($0) })
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return providers.count
@@ -31,36 +58,6 @@ class LoginController: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
-    }
-    
-
-    @IBOutlet weak var emailInput: UITextField!
-    @IBOutlet weak var passwordInput: UITextField!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        providersTableView.dataSource = self
-        providersTableView.delegate = self
-        
-        AppDelegate.shared().reachfive.initialize(success: {
-            self.providers.append(contentsOf: $0)
-            self.providersTableView.reloadData()
-        }, failure: {
-            print("initialize error \($0)")
-        })
-    }
-    
-    public func reloadProvidersData(providers: [Provider]) {
-        self.providers = providers
-        self.providersTableView.reloadData()
-    }
-    
-    @IBAction func login(_ sender: Any) {
-        let email = emailInput.text ?? ""
-        let password = passwordInput.text ?? ""
-        print("Login email=\(email) password=\(password)")
-        AppDelegate.shared().reachfive.loginWithPassword(username: email, password: password, success: { print($0) }, failure: { print($0) })
     }
     
 }
