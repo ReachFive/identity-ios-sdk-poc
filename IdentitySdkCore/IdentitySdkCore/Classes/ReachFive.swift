@@ -1,6 +1,12 @@
 import Foundation
 
+enum State {
+    case NotInitialazed
+    case Initialazed
+}
+
 public class ReachFive: NSObject {
+    var state: State = .NotInitialazed
     let sdkConfig: SdkConfig
     let providersCreators: Array<ProviderCreator>
     let reachFiveApi: ReachFiveApi
@@ -20,19 +26,32 @@ public class ReachFive: NSObject {
         return providers
     }
     
-    public func initialize(success: @escaping Success<[Provider]>, failure: @escaping Failure<Error>) -> Self {
-        reachFiveApi.providersConfigs(success: { providersConfigs in
-            self.providers = self.createProviders(providersConfigsResult: providersConfigs)
+    public func initialize(success: @escaping Success<[Provider]>, failure: @escaping Failure<Error>) {
+        print("initialize \(state)")
+        switch self.state {
+        case .NotInitialazed:
+            reachFiveApi.providersConfigs(success: { providersConfigs in
+                self.providers = self.createProviders(providersConfigsResult: providersConfigs)
+                success(self.providers)
+                self.state = .Initialazed
+            }, failure: failure)
+        case .Initialazed:
             success(self.providers)
-        }, failure: failure)
-        print(self)
-        return self
+        }
+    }
+    
+    public func initialize() {
+        self.initialize(success: { _ in }, failure: { _ in })
     }
     
     func createProviders(providersConfigsResult: ProvidersConfigsResult) -> [Provider] {
         let webViewProvider = providersCreators.first(where: { $0.name == "webview" })
+        print("createProviders.providersCreators \(providersCreators) webViewProvider=\(webViewProvider)")
         return (providersConfigsResult.items ?? []).map({ config in
             let nativeProvider = providersCreators.first(where: { $0.name == config.provider })
+            
+            print("createProviders.nativeProvider \(nativeProvider)")
+            
             if (nativeProvider != nil) {
                 return nativeProvider?.create(sdkConfig: sdkConfig)
             } else if (webViewProvider != nil) {

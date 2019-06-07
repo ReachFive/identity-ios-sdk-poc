@@ -1,8 +1,8 @@
 import Foundation
 import UIKit
 import IdentitySdkCore
-import FBSDKCoreKit
-import FBSDKLoginKit
+//import FBSDKCoreKit
+//import FBSDKLoginKit
 
 public class FacebookProvider: ProviderCreator {
     public static var NAME: String = "facebook"

@@ -21,10 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Do any additional setup after loading the view.
         
-        let _ = reachfive.initialize(success: { providers in print(providers) }, failure: {
-            print("initialize error \($0)")
-        })
-        
         return true
     }
 

@@ -2,7 +2,7 @@ import Foundation
 import ObjectMapper
 
 public class ProvidersConfigsResult: NSObject, ImmutableMappable {
-    let items: [ProviderConfig]?
+    let items: [ProviderConfig] // TODO this is optional, fix this
     let status: String
     
     public required init(map: Map) throws {
