@@ -99,7 +99,7 @@ public class ReachFive: NSObject {
     
     public func applicationDidBecomeActive(_ application: UIApplication) {
         for provider in providers {
-            let _ = provider.applicationDidBecomeActive(application: application)
+            let _ = provider.applicationDidBecomeActive(application)
         }
     }
     
