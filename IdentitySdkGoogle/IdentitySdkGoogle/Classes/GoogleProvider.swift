@@ -1,6 +1,6 @@
 import Foundation
 import IdentitySdkCore
-
+import GoogleSignIn
 
 public class GoogleProvider: ProviderCreator {
     public static var NAME: String = "google"
