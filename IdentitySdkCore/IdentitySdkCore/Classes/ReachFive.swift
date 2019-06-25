@@ -97,6 +97,12 @@ public class ReachFive: NSObject {
         return true
     }
     
+    public func applicationDidBecomeActive(_ application: UIApplication) {
+        for provider in providers {
+            let _ = provider.applicationDidBecomeActive(application: application)
+        }
+    }
+    
     public override var description: String {
         return """
         Config: domain=\(sdkConfig.domain), clientId=\(sdkConfig.clientId)
