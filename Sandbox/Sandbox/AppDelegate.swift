@@ -2,6 +2,7 @@ import UIKit
 import IdentitySdkCore
 import IdentitySdkFacebook
 import IdentitySdkWebView
+import IdentitySdkGoogle
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -10,7 +11,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let reachfive = ReachFive(
         sdkConfig: SdkConfig(domain: "sdk-mobile-sandbox.reach5.net", clientId: "TYAIHFRJ2a1FGJ1T8pKD"),
-        providersCreators: [FacebookProvider(), WebViewProvider()]
+        providersCreators: [FacebookProvider(), WebViewProvider(), GoogleProvider()]
     )
     
     static func reachfive() -> ReachFive {

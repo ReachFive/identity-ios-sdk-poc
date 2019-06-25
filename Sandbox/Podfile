@@ -4,6 +4,7 @@ platform :ios, '12.2'
 
 target 'Sandbox' do
   pod 'IdentitySdkCore', :path => '../IdentitySdkCore'
-  pod 'IdentitySdkFacebook', :path => '../IdentitySdkFacebook'
   pod 'IdentitySdkWebView', :path => '../IdentitySdkWebView'
+  pod 'IdentitySdkGoogle', :path => '../IdentitySdkGoogle'
+  pod 'IdentitySdkFacebook', :path => '../IdentitySdkFacebook'
 end
