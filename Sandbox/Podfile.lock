@@ -24,11 +24,14 @@ PODS:
     - FacebookCore (~> 0.7.0)
     - FacebookLogin (~> 0.7.0)
     - IdentitySdkCore (= 4.0.0)
+  - IdentitySdkWebView (4.0.0):
+    - IdentitySdkCore (= 4.0.0)
   - ObjectMapper (3.5.0)
 
 DEPENDENCIES:
   - IdentitySdkCore (from `../IdentitySdkCore`)
   - IdentitySdkFacebook (from `../IdentitySdkFacebook`)
+  - IdentitySdkWebView (from `../IdentitySdkWebView`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -45,6 +48,8 @@ EXTERNAL SOURCES:
     :path: "../IdentitySdkCore"
   IdentitySdkFacebook:
     :path: "../IdentitySdkFacebook"
+  IdentitySdkWebView:
+    :path: "../IdentitySdkWebView"
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
@@ -53,10 +58,11 @@ SPEC CHECKSUMS:
   FacebookLogin: 94cdad6850e86a2b04704dedfe7674a7af8148eb
   FBSDKCoreKit: c29b6b65f6a171ca0a317960a622cff62c9ee269
   FBSDKLoginKit: fdaf402766755e1175ed5c0382f25e2e7dab3c2a
-  IdentitySdkCore: 66193636e180f432c07d390d43b50aee639e6391
-  IdentitySdkFacebook: 4103a1c5f46f7cdce196a81d97edf3bd5a4df4a4
+  IdentitySdkCore: cfe83cbd792b2f610df993cbce3271966f060057
+  IdentitySdkFacebook: 152fa10805f84336dfa9a81ac0b4439d6bb02255
+  IdentitySdkWebView: 1d03c45ec16491beb5cce36b5a6dee416c7db627
   ObjectMapper: 078b564ed25c6578b62588e306bf1da3924636d4
 
-PODFILE CHECKSUM: add5c77d4265f77dd04c9871402b66de0e72184c
+PODFILE CHECKSUM: f1ac457689d68b668e5e8b896f24d8fb95ab14b8
 
-COCOAPODS: 1.7.1
+COCOAPODS: 1.7.2

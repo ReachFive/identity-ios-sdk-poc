@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		347FDB47229BE84500660687 /* IdentitySdkCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 347FDB45229BE84500660687 /* IdentitySdkCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		347FDB54229BE8F800660687 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347FDB53229BE8F800660687 /* Provider.swift */; };
-		347FDB56229BE8FF00660687 /* WebViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347FDB55229BE8FF00660687 /* WebViewProvider.swift */; };
 		347FDB65229C02A800660687 /* SdkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347FDB64229C02A800660687 /* SdkConfig.swift */; };
 		347FDB67229C02FE00660687 /* ReachFive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347FDB66229C02FE00660687 /* ReachFive.swift */; };
 		347FDB69229C04C200660687 /* ProviderConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347FDB68229C04C200660687 /* ProviderConfig.swift */; };
@@ -27,7 +26,6 @@
 		347FDB45229BE84500660687 /* IdentitySdkCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IdentitySdkCore.h; sourceTree = "<group>"; };
 		347FDB46229BE84500660687 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		347FDB53229BE8F800660687 /* Provider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
-		347FDB55229BE8FF00660687 /* WebViewProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewProvider.swift; sourceTree = "<group>"; };
 		347FDB64229C02A800660687 /* SdkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SdkConfig.swift; sourceTree = "<group>"; };
 		347FDB66229C02FE00660687 /* ReachFive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachFive.swift; sourceTree = "<group>"; };
 		347FDB68229C04C200660687 /* ProviderConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderConfig.swift; sourceTree = "<group>"; };
@@ -59,7 +57,6 @@
 			children = (
 				34E18B8D22A6C13100952EBD /* models */,
 				347FDB66229C02FE00660687 /* ReachFive.swift */,
-				347FDB55229BE8FF00660687 /* WebViewProvider.swift */,
 				347FDB53229BE8F800660687 /* Provider.swift */,
 				34F7D3E322A54AA2003A7BC0 /* ReachFiveApi.swift */,
 				34E18B8722A66EEF00952EBD /* Callback.swift */,
@@ -230,7 +227,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				347FDB56229BE8FF00660687 /* WebViewProvider.swift in Sources */,
 				347FDB69229C04C200660687 /* ProviderConfig.swift in Sources */,
 				347FDB54229BE8F800660687 /* Provider.swift in Sources */,
 				34E18B8C22A6BEC900952EBD /* OpenIdTokenResponse.swift in Sources */,

@@ -1,6 +1,7 @@
 import UIKit
 import IdentitySdkCore
 import IdentitySdkFacebook
+import IdentitySdkWebView
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

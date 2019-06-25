@@ -3,7 +3,7 @@ Pod::Spec.new do |spec|
   spec.version               = "4.0.0"
   spec.summary               = "ReachFive IdentitySdkWebView"
   spec.description           = <<-DESC
-      ReachFive Identity Sdk VewView
+      ReachFive Identity Sdk WebView
   DESC
   spec.homepage              = "https://github.com/ReachFive/identity-ios-sdk"
   spec.license               = { :type => "MIT", :file => "LICENSE" }
