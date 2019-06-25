@@ -15,6 +15,8 @@ Pod::Spec.new do |spec|
   spec.platform              = :ios
   spec.ios.deployment_target = '12.2'
 
+  spec.static_framework = true
+
   spec.dependency 'IdentitySdkCore', '~> 4.0.0'
   spec.dependency 'GoogleSignIn', '~> 4.4.0'
 end

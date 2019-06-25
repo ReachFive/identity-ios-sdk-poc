@@ -17,17 +17,31 @@ PODS:
     - FBSDKCoreKit/Basics
   - FBSDKLoginKit (5.1.1):
     - FBSDKCoreKit (~> 5.0)
+  - GoogleSignIn (4.4.0):
+    - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
+    - "GoogleToolboxForMac/NSString+URLArguments (~> 2.1)"
+    - GTMSessionFetcher/Core (~> 1.1)
+  - GoogleToolboxForMac/DebugUtils (2.2.1):
+    - GoogleToolboxForMac/Defines (= 2.2.1)
+  - GoogleToolboxForMac/Defines (2.2.1)
+  - "GoogleToolboxForMac/NSDictionary+URLArguments (2.2.1)":
+    - GoogleToolboxForMac/DebugUtils (= 2.2.1)
+    - GoogleToolboxForMac/Defines (= 2.2.1)
+    - "GoogleToolboxForMac/NSString+URLArguments (= 2.2.1)"
+  - "GoogleToolboxForMac/NSString+URLArguments (2.2.1)"
+  - GTMSessionFetcher/Core (1.2.2)
   - IdentitySdkCore (4.0.0):
     - Alamofire (~> 4.8.1)
     - AlamofireObjectMapper (~> 5.2)
   - IdentitySdkFacebook (4.0.0):
     - FacebookCore (~> 0.7.0)
     - FacebookLogin (~> 0.7.0)
-    - IdentitySdkCore (= 4.0.0)
+    - IdentitySdkCore (~> 4.0.0)
   - IdentitySdkGoogle (4.0.0):
-    - IdentitySdkCore (= 4.0.0)
+    - GoogleSignIn (~> 4.4.0)
+    - IdentitySdkCore (~> 4.0.0)
   - IdentitySdkWebView (4.0.0):
-    - IdentitySdkCore (= 4.0.0)
+    - IdentitySdkCore (~> 4.0.0)
   - ObjectMapper (3.5.0)
 
 DEPENDENCIES:
@@ -44,6 +58,9 @@ SPEC REPOS:
     - FacebookLogin
     - FBSDKCoreKit
     - FBSDKLoginKit
+    - GoogleSignIn
+    - GoogleToolboxForMac
+    - GTMSessionFetcher
     - ObjectMapper
 
 EXTERNAL SOURCES:
@@ -63,10 +80,13 @@ SPEC CHECKSUMS:
   FacebookLogin: 94cdad6850e86a2b04704dedfe7674a7af8148eb
   FBSDKCoreKit: c29b6b65f6a171ca0a317960a622cff62c9ee269
   FBSDKLoginKit: fdaf402766755e1175ed5c0382f25e2e7dab3c2a
+  GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39
+  GoogleToolboxForMac: b3553629623a3b1bff17f555e736cd5a6d95ad55
+  GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
   IdentitySdkCore: cfe83cbd792b2f610df993cbce3271966f060057
-  IdentitySdkFacebook: 152fa10805f84336dfa9a81ac0b4439d6bb02255
-  IdentitySdkGoogle: bb6bdee64d81bad094df31e3c99b61284b54ccce
-  IdentitySdkWebView: 1d03c45ec16491beb5cce36b5a6dee416c7db627
+  IdentitySdkFacebook: d67f465ffa70a30f215645ab6d219308fe4facb1
+  IdentitySdkGoogle: 20e6085b6e2eb386b05c202b0b75ca8ccbc56e1a
+  IdentitySdkWebView: e18e2bf91b98ffef4d7486e44698a81005c0d09d
   ObjectMapper: 078b564ed25c6578b62588e306bf1da3924636d4
 
 PODFILE CHECKSUM: ab481d7e6c0294743895b1d3a294428fb1afc12d

@@ -1,7 +1,8 @@
 import UIKit
 import IdentitySdkCore
+import GoogleSignIn
 
-class LoginController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class LoginController: UIViewController, UITableViewDataSource, UITableViewDelegate, GIDSignInUIDelegate {
     var providers: [Provider] = []
     
     @IBOutlet weak var emailInput: UITextField!
