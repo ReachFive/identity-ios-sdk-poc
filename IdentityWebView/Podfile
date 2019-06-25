@@ -1,0 +1,6 @@
+use_frameworks!
+platform :ios, '12.2'
+
+target 'IdentityWebView' do
+  pod 'IdentitySdkCore', :path => '../IdentitySdkCore'
+end
