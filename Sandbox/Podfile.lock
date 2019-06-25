@@ -3,21 +3,28 @@ PODS:
   - AlamofireObjectMapper (5.2.0):
     - Alamofire (~> 4.7)
     - ObjectMapper (~> 3.4)
-  - FBSDKCoreKit (5.0.1):
-    - FBSDKCoreKit/Basics (= 5.0.1)
-    - FBSDKCoreKit/Core (= 5.0.1)
-  - FBSDKCoreKit/Basics (5.0.1)
-  - FBSDKCoreKit/Core (5.0.1):
+  - FacebookCore (0.7.0):
+    - FBSDKCoreKit (~> 5.0)
+  - FacebookLogin (0.7.0):
+    - FacebookCore (~> 0.7)
+    - FBSDKCoreKit (~> 5.0)
+    - FBSDKLoginKit (~> 5.0)
+  - FBSDKCoreKit (5.1.1):
+    - FBSDKCoreKit/Basics (= 5.1.1)
+    - FBSDKCoreKit/Core (= 5.1.1)
+  - FBSDKCoreKit/Basics (5.1.1)
+  - FBSDKCoreKit/Core (5.1.1):
     - FBSDKCoreKit/Basics
-  - FBSDKLoginKit (5.0.1):
+  - FBSDKLoginKit (5.1.1):
     - FBSDKCoreKit (~> 5.0)
   - IdentitySdkCore (4.0.0):
     - Alamofire (~> 4.8.1)
     - AlamofireObjectMapper (~> 5.2)
   - IdentitySdkFacebook (4.0.0):
-    - FBSDKLoginKit (= 5.0.1)
+    - FacebookCore (~> 0.7.0)
+    - FacebookLogin (~> 0.7.0)
     - IdentitySdkCore (= 4.0.0)
-  - ObjectMapper (3.4.2)
+  - ObjectMapper (3.5.0)
 
 DEPENDENCIES:
   - IdentitySdkCore (from `../IdentitySdkCore`)
@@ -27,6 +34,8 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - AlamofireObjectMapper
+    - FacebookCore
+    - FacebookLogin
     - FBSDKCoreKit
     - FBSDKLoginKit
     - ObjectMapper
@@ -40,11 +49,13 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   AlamofireObjectMapper: 92b6ce2423a9d159e686f6a1d514a009bf903ddc
-  FBSDKCoreKit: 4a19534474ade7c71bd016d800aa5e7722bcdda1
-  FBSDKLoginKit: 41efa754b909b0ea813fa9a8596dacc8ed196d50
+  FacebookCore: 4eee98476cb37a485af5d337eb21f8cd5b3c7e6c
+  FacebookLogin: 94cdad6850e86a2b04704dedfe7674a7af8148eb
+  FBSDKCoreKit: c29b6b65f6a171ca0a317960a622cff62c9ee269
+  FBSDKLoginKit: fdaf402766755e1175ed5c0382f25e2e7dab3c2a
   IdentitySdkCore: 66193636e180f432c07d390d43b50aee639e6391
-  IdentitySdkFacebook: d83c59598169f40ffb1593a2d56f53f7bd96239d
-  ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
+  IdentitySdkFacebook: 4103a1c5f46f7cdce196a81d97edf3bd5a4df4a4
+  ObjectMapper: 078b564ed25c6578b62588e306bf1da3924636d4
 
 PODFILE CHECKSUM: add5c77d4265f77dd04c9871402b66de0e72184c
 

@@ -54,6 +54,8 @@ class LoginController: UIViewController, UITableViewDataSource, UITableViewDeleg
         let selectedProvider = providers[indexPath.row]
         
         print("Select \(selectedProvider.name)")
+        
+        AppDelegate.reachfive().getProvider(name: selectedProvider.name)?.login(origin: "home", viewController: self)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

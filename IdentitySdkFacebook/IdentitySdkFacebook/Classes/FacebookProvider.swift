@@ -1,8 +1,9 @@
 import Foundation
 import UIKit
 import IdentitySdkCore
-//import FBSDKCoreKit
-//import FBSDKLoginKit
+import FacebookCore
+import FacebookLogin
+import FBSDKLoginKit
 
 public class FacebookProvider: ProviderCreator {
     public static var NAME: String = "facebook"
@@ -25,7 +26,27 @@ public class ConfiguredFacebookProvider: NSObject, Provider {
         return "Provider: \(name)"
     }
     
-    public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        return true
+    public func login(origin: String, viewController: UIViewController?) {
+        print("ConfiguredFacebookProvider.login")
+        let loginManager = LoginManager()
+        loginManager.logIn(permissions: [.email, .publicProfile], viewController: viewController) { result in
+            switch (result) {
+            case .success(let granted, let declined, let token):
+                print("----- ------ ConfiguredFacebookProvider.login success granted=\(granted) declined=\(declined) token=\(token)")
+            case .cancelled:
+                print("----- ------ ConfiguredFacebookProvider.login cancelled")
+            case .failed(let error):
+                print("----- ------ ConfiguredFacebookProvider.login error \(error)")
+                
+            }
+        }
+    }
+    
+    public func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        return FBSDKCoreKit.ApplicationDelegate.shared.application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+    }
+    
+    public func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
+        return FBSDKCoreKit.ApplicationDelegate.shared.application(app, open: url, options: options)
     }
 }

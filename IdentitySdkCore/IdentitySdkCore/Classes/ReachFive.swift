@@ -46,11 +46,11 @@ public class ReachFive: NSObject {
     
     func createProviders(providersConfigsResult: ProvidersConfigsResult) -> [Provider] {
         let webViewProvider = providersCreators.first(where: { $0.name == "webview" })
-        print("createProviders.providersCreators \(providersCreators) webViewProvider=\(webViewProvider)")
-        return (providersConfigsResult.items ?? []).map({ config in
+        print("createProviders.providersCreators \(providersCreators) webViewProvider=\(String(describing: webViewProvider))")
+        return providersConfigsResult.items.map({ config in
             let nativeProvider = providersCreators.first(where: { $0.name == config.provider })
             
-            print("createProviders.nativeProvider \(nativeProvider)")
+            print("createProviders.nativeProvider \(String(describing: nativeProvider))")
             
             if (nativeProvider != nil) {
                 return nativeProvider?.create(sdkConfig: sdkConfig)
@@ -83,6 +83,19 @@ public class ReachFive: NSObject {
         reachFiveApi.loginWithPassword(loginRequest: loginRequest, success: success, failure: failure)
     }
     
+    public func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        for provider in providers {
+            let _ = provider.application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+        }
+        return true
+    }
+    
+    public func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
+        for provider in providers {
+            let _ = provider.application(app, open: url, options: options)
+        }
+        return true
+    }
     
     public override var description: String {
         return """
