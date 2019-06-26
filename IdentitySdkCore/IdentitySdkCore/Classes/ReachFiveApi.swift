@@ -13,7 +13,7 @@ public class ReachFiveApi {
     
     public func providersConfigs(success: @escaping Success<ProvidersConfigsResult>, failure: @escaping Failure<Error>) {
         Alamofire
-            .request(createUrl(path: "/api/v1/providers"))
+            .request(createUrl(path: "/api/v1/providers?platform=ios"))
             //.validate(statusCode: 200..<300)
             //.validate(contentType: ["application/json"])
             .responseObject(completionHandler: handleResponse(success: success, failure: failure))
