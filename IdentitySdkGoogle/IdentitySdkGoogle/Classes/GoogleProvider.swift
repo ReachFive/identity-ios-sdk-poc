@@ -10,13 +10,23 @@ public class GoogleProvider: ProviderCreator {
     
     public init() {}
     
-    public func create(sdkConfig: SdkConfig) -> Provider {
-        return ConfiguredGoogleProvider(sdkConfig: sdkConfig)
+    public func create(sdkConfig: SdkConfig, providerConfig: ProviderConfig) -> Provider {
+        return ConfiguredGoogleProvider(sdkConfig: sdkConfig, providerConfig: providerConfig)
     }
 }
 
 
 public class ConfiguredGoogleProvider: NSObject, Provider, GIDSignInDelegate, GIDSignInUIDelegate {
+    var sdkConfig: SdkConfig
+    var providerConfig: ProviderConfig
+    public var name: String = GoogleProvider.NAME
+    
+    public init(sdkConfig: SdkConfig, providerConfig: ProviderConfig) {
+        self.sdkConfig = sdkConfig
+        self.providerConfig = providerConfig
+        GIDSignIn.sharedInstance().clientID = self.providerConfig.clientId
+    }
+    
     public func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         print("ConfiguredGoogleProvider.sign.error=\(error.debugDescription)")
     }
@@ -46,12 +56,6 @@ public class ConfiguredGoogleProvider: NSObject, Provider, GIDSignInDelegate, GI
     
     public func applicationDidBecomeActive(_ application: UIApplication) {
         
-    }
-    
-    public var name: String = GoogleProvider.NAME
-    
-    public init(sdkConfig: SdkConfig) {
-        GIDSignIn.sharedInstance().clientID = sdkConfig.clientId
     }
     
     public override var description: String {

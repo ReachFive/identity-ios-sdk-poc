@@ -12,15 +12,20 @@ public class FacebookProvider: ProviderCreator {
     
     public init() {}
 
-    public func create(sdkConfig: SdkConfig) -> Provider {
-        return ConfiguredFacebookProvider()
+    public func create(sdkConfig: SdkConfig, providerConfig: ProviderConfig) -> Provider {
+        return ConfiguredFacebookProvider(sdkConfig: sdkConfig, providerConfig: providerConfig)
     }
 }
 
 public class ConfiguredFacebookProvider: NSObject, Provider {
     public var name: String = FacebookProvider.NAME
+    var sdkConfig: SdkConfig
+    var providerConfig: ProviderConfig
     
-    public override init() {}
+    public init(sdkConfig: SdkConfig, providerConfig: ProviderConfig) {
+        self.sdkConfig = sdkConfig
+        self.providerConfig = providerConfig
+    }
     
     public override var description: String {
         return "Provider: \(name)"

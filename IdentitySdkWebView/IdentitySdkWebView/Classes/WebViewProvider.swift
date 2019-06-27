@@ -12,20 +12,28 @@ public class WebViewProvider: ProviderCreator {
     
     public init() {}
     
-    public func create(sdkConfig: SdkConfig) -> Provider {
-        return ConfiguredWebViewProvider()
+    public func create(sdkConfig: SdkConfig, providerConfig: ProviderConfig) -> Provider {
+        return ConfiguredWebViewProvider(sdkConfig: sdkConfig, providerConfig: providerConfig)
     }
 }
 
 class ConfiguredWebViewProvider: NSObject, Provider {
+    var sdkConfig: SdkConfig
+    var providerConfig: ProviderConfig
     var name: String = WebViewProvider.NAME
     
     override var description: String {
-        return "Provider: \(name)"
+        return "Provider: \(self.name)"
+    }
+    
+    public init(sdkConfig: SdkConfig, providerConfig: ProviderConfig) {
+        self.sdkConfig = sdkConfig
+        self.providerConfig = providerConfig
+        self.name = providerConfig.provider
     }
     
     public func login(origin: String, viewController: UIViewController?) {
-        
+        print("WebViewProvider login")
     }
     
     public func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {

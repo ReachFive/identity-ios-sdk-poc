@@ -3,7 +3,7 @@ import UIKit
 
 public protocol ProviderCreator {
     var name: String { get }
-    func create(sdkConfig: SdkConfig) -> Provider
+    func create(sdkConfig: SdkConfig, providerConfig: ProviderConfig) -> Provider
     
 }
 
