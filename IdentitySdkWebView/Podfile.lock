@@ -6,7 +6,7 @@ PODS:
   - IdentitySdkCore (4.0.0):
     - Alamofire (~> 4.8.1)
     - AlamofireObjectMapper (~> 5.2)
-  - ObjectMapper (3.5.0)
+  - ObjectMapper (3.5.1)
 
 DEPENDENCIES:
   - IdentitySdkCore (from `../IdentitySdkCore`)
@@ -25,7 +25,7 @@ SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   AlamofireObjectMapper: 92b6ce2423a9d159e686f6a1d514a009bf903ddc
   IdentitySdkCore: cfe83cbd792b2f610df993cbce3271966f060057
-  ObjectMapper: 078b564ed25c6578b62588e306bf1da3924636d4
+  ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
 
 PODFILE CHECKSUM: 2753b95b4f8bc4ebcf5e58381e4e3d8b7dd9a774
 

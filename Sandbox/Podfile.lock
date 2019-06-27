@@ -42,7 +42,7 @@ PODS:
     - IdentitySdkCore (~> 4.0.0)
   - IdentitySdkWebView (4.0.0):
     - IdentitySdkCore (~> 4.0.0)
-  - ObjectMapper (3.5.0)
+  - ObjectMapper (3.5.1)
 
 DEPENDENCIES:
   - IdentitySdkCore (from `../IdentitySdkCore`)
@@ -87,7 +87,7 @@ SPEC CHECKSUMS:
   IdentitySdkFacebook: d67f465ffa70a30f215645ab6d219308fe4facb1
   IdentitySdkGoogle: 20e6085b6e2eb386b05c202b0b75ca8ccbc56e1a
   IdentitySdkWebView: e18e2bf91b98ffef4d7486e44698a81005c0d09d
-  ObjectMapper: 078b564ed25c6578b62588e306bf1da3924636d4
+  ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
 
 PODFILE CHECKSUM: ab481d7e6c0294743895b1d3a294428fb1afc12d
 

@@ -2,10 +2,10 @@ import Foundation
 import ObjectMapper
 
 public class ProviderConfig: NSObject, ImmutableMappable {
-    let provider: String
-    let clientId: String
-    let clientSecret: String?
-    let scope: [String]
+    public let provider: String
+    public let clientId: String
+    public let clientSecret: String?
+    public let scope: [String]
 
     public required init(map: Map) throws {
         provider = try map.value("provider")
