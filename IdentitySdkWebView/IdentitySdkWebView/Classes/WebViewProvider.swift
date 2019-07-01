@@ -30,10 +30,19 @@ class ConfiguredWebViewProvider: NSObject, Provider {
         self.sdkConfig = sdkConfig
         self.providerConfig = providerConfig
         self.name = providerConfig.provider
+        
+        
+        let frameworkBundle = Bundle(identifier: "org.cocoapods.IdentitySdkWebView")
+        let storyboard = UIStoryboard(name: "WebView", bundle: frameworkBundle)
+        let controller = storyboard.instantiateViewController(withIdentifier: "WebViewController") as! WebViewController
     }
     
     public func login(origin: String, viewController: UIViewController?) {
         print("WebViewProvider login")
+        let webViewController = WebViewController()
+        webViewController.sdkConfig = self.sdkConfig
+        webViewController.providerConfig = self.providerConfig
+        viewController?.present(webViewController, animated: true, completion: nil)
     }
     
     public func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
