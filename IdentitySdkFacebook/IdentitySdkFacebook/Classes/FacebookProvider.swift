@@ -12,7 +12,7 @@ public class FacebookProvider: ProviderCreator {
     
     public init() {}
 
-    public func create(sdkConfig: SdkConfig, providerConfig: ProviderConfig) -> Provider {
+    public func create(sdkConfig: SdkConfig, providerConfig: ProviderConfig, reachFiveApi: ReachFiveApi) -> Provider {
         return ConfiguredFacebookProvider(sdkConfig: sdkConfig, providerConfig: providerConfig)
     }
 }
@@ -31,7 +31,7 @@ public class ConfiguredFacebookProvider: NSObject, Provider {
         return "Provider: \(name)"
     }
     
-    public func login(origin: String, viewController: UIViewController?) {
+    public func login(origin: String, viewController: UIViewController?, callback: @escaping Callback<String>) {
         print("ConfiguredFacebookProvider.login")
         let loginManager = LoginManager()
         loginManager.logIn(permissions: [.email, .publicProfile], viewController: viewController) { result in

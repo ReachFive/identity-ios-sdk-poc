@@ -3,9 +3,13 @@ import IdentitySdkCore
 import IdentitySdkFacebook
 import IdentitySdkWebView
 import IdentitySdkGoogle
+import AlamofireNetworkLogger
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, ReachFiveDelegate {
+    func authentication(result: Result<String, ReachFiveError>) {
+        print("authentication \(result)")
+    }
 
     var window: UIWindow?
     
@@ -27,6 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         print("application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?)")
         // Do any additional setup after loading the view.
+        AlamofireNetworkLogger.shared.startLogging()
+        AlamofireNetworkLogger.shared.level = .debug
         return true //reachfive.application(application, didFinishLaunchingWithOptions: launchOptions)
     }
     

@@ -10,7 +10,7 @@ public class GoogleProvider: ProviderCreator {
     
     public init() {}
     
-    public func create(sdkConfig: SdkConfig, providerConfig: ProviderConfig) -> Provider {
+    public func create(sdkConfig: SdkConfig, providerConfig: ProviderConfig, reachFiveApi: ReachFiveApi) -> Provider {
         return ConfiguredGoogleProvider(sdkConfig: sdkConfig, providerConfig: providerConfig)
     }
 }
@@ -31,7 +31,7 @@ public class ConfiguredGoogleProvider: NSObject, Provider, GIDSignInDelegate, GI
         print("ConfiguredGoogleProvider.sign.error=\(error.debugDescription)")
     }
     
-    public func login(origin: String, viewController: UIViewController?) {
+    public func login(origin: String, viewController: UIViewController?, callback: @escaping Callback<String>) {
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = viewController as! GIDSignInUIDelegate
         GIDSignIn.sharedInstance().signIn()

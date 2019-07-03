@@ -53,9 +53,9 @@ public class ReachFive: NSObject {
             print("createProviders.nativeProvider \(String(describing: nativeProvider))")
             
             if (nativeProvider != nil) {
-                return nativeProvider?.create(sdkConfig: sdkConfig, providerConfig: config)
+                return nativeProvider?.create(sdkConfig: sdkConfig, providerConfig: config, reachFiveApi: reachFiveApi)
             } else if (webViewProvider != nil) {
-                return webViewProvider?.create(sdkConfig: sdkConfig, providerConfig: config)
+                return webViewProvider?.create(sdkConfig: sdkConfig, providerConfig: config, reachFiveApi: reachFiveApi)
             } else {
                 return nil
             }
