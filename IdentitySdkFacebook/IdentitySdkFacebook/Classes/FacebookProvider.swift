@@ -31,7 +31,7 @@ public class ConfiguredFacebookProvider: NSObject, Provider {
         return "Provider: \(name)"
     }
     
-    public func login(origin: String, viewController: UIViewController?, callback: @escaping Callback<String>) {
+    public func login(origin: String, viewController: UIViewController?, callback: @escaping Callback<String, ReachFiveError>) {
         print("ConfiguredFacebookProvider.login")
         let loginManager = LoginManager()
         loginManager.logIn(permissions: [.email, .publicProfile], viewController: viewController) { result in

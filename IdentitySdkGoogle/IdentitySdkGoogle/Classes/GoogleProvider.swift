@@ -31,7 +31,7 @@ public class ConfiguredGoogleProvider: NSObject, Provider, GIDSignInDelegate, GI
         print("ConfiguredGoogleProvider.sign.error=\(error.debugDescription)")
     }
     
-    public func login(origin: String, viewController: UIViewController?, callback: @escaping Callback<String>) {
+    public func login(origin: String, viewController: UIViewController?, callback: @escaping Callback<String, ReachFiveError>) {
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = viewController as! GIDSignInUIDelegate
         GIDSignIn.sharedInstance().signIn()

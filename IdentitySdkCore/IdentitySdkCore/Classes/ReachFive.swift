@@ -26,22 +26,25 @@ public class ReachFive: NSObject {
         return providers
     }
     
-    public func initialize(success: @escaping Success<[Provider]>, failure: @escaping Failure<Error>) {
+    public func initialize(callback: @escaping Callback<[Provider], Error>) {
         print("initialize \(state)")
         switch self.state {
         case .NotInitialazed:
-            reachFiveApi.providersConfigs(success: { providersConfigs in
-                self.providers = self.createProviders(providersConfigsResult: providersConfigs)
-                success(self.providers)
-                self.state = .Initialazed
-            }, failure: failure)
+            reachFiveApi.providersConfigs(callback: { result in
+                callback(result.map({ providersConfigs in
+                    let providers = self.createProviders(providersConfigsResult: providersConfigs)
+                    self.providers = providers
+                    self.state = .Initialazed
+                    return providers
+                }))
+            })
         case .Initialazed:
-            success(self.providers)
+            callback(.success(self.providers))
         }
     }
     
     public func initialize() {
-        self.initialize(success: { _ in }, failure: { _ in })
+        self.initialize(callback: { _ in })
     }
     
     func createProviders(providersConfigsResult: ProvidersConfigsResult) -> [Provider] {
@@ -62,17 +65,17 @@ public class ReachFive: NSObject {
         }).compactMap { $0 }
     }
     
-    public func signupWithPassword(profile: Profile, success: @escaping Success<OpenIdTokenResponse>, failure: @escaping Failure<Error>) {
+    public func signupWithPassword(profile: Profile, callback: @escaping Callback<OpenIdTokenResponse, Error>) {
         let signupRequest = SignupRequest(
             clientId: sdkConfig.clientId,
             data: profile,
             scope: "openid profile email",
             acceptTos: nil
         )
-        reachFiveApi.signupWithPassword(signupRequest: signupRequest, success: success, failure: failure)
+        reachFiveApi.signupWithPassword(signupRequest: signupRequest, callback: callback)
     }
     
-    public func loginWithPassword(username: String, password: String, success: @escaping Success<OpenIdTokenResponse>, failure: @escaping Failure<Error>) {
+    public func loginWithPassword(username: String, password: String, callback: @escaping Callback<OpenIdTokenResponse, Error>) {
         let loginRequest = LoginRequest(
             username: username,
             password: password,
@@ -80,7 +83,7 @@ public class ReachFive: NSObject {
             clientId: sdkConfig.clientId,
             scope: "openid profile email"
         )
-        reachFiveApi.loginWithPassword(loginRequest: loginRequest, success: success, failure: failure)
+        reachFiveApi.loginWithPassword(loginRequest: loginRequest, callback: callback)
     }
     
     public func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {

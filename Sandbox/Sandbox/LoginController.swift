@@ -15,11 +15,13 @@ class LoginController: UIViewController, UITableViewDataSource, UITableViewDeleg
         providersTableView.dataSource = self
         providersTableView.delegate = self
         
-        AppDelegate.reachfive().initialize(success: {
-            self.providers.append(contentsOf: $0)
-            self.providersTableView.reloadData()
-        }, failure: {
-            print("initialize error \($0)")
+        AppDelegate.reachfive().initialize(callback: { response in
+            switch response {
+            case .success(let providers):
+                self.providers.append(contentsOf: providers)
+                self.providersTableView.reloadData()
+            case .failure(let error): print("initialize error \(error)")
+            }
         })
     }
     
@@ -32,7 +34,7 @@ class LoginController: UIViewController, UITableViewDataSource, UITableViewDeleg
         let email = emailInput.text ?? ""
         let password = passwordInput.text ?? ""
         print("Login email=\(email) password=\(password)")
-        AppDelegate.shared().reachfive.loginWithPassword(username: email, password: password, success: { print($0) }, failure: { print($0) })
+        AppDelegate.shared().reachfive.loginWithPassword(username: email, password: password, callback: { print($0) })
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

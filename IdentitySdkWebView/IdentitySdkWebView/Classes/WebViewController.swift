@@ -7,7 +7,7 @@ public class WebViewController: UIViewController, WKNavigationDelegate, WKUIDele
     var webView: WKWebView!
     
     var url: String? = nil
-    var delegate: Callback<Dictionary<String, String?>>? = nil
+    var delegate: Callback<Dictionary<String, String?>, ReachFiveError>? = nil
     
     public override func loadView() {
         super.viewDidLoad()

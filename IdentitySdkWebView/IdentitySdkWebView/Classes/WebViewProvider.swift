@@ -43,10 +43,11 @@ class ConfiguredWebViewProvider: NSObject, Provider {
                 let code = params["code"] as? String
                 if code != nil {
                     let authCodeRequest = AuthCodeRequest(clientId: self.sdkConfig.clientId, code: code!)
-                    self.reachFiveApi.authWithCode(authCodeRequest: authCodeRequest, success: { authToken in
-                        print("authWithCode authToken=\(authToken)")
-                    }, failure: {
-                        callback(.failure(.AuthFailure(reason: $0.localizedDescription))) // TODO harmonize error handling
+                    self.reachFiveApi.authWithCode(authCodeRequest: authCodeRequest, callback: { response in
+                        switch response {
+                        case .success(let openIdTokenResponse): callback(.success(openIdTokenResponse.description))
+                        case .failure(let error): callback(.failure(.AuthFailure(reason: error.localizedDescription))) // TODO harmonize error handling
+                        }
                     })
                 } else {
                     callback(.failure(.AuthFailure(reason: "No code")))
