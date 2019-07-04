@@ -14,6 +14,7 @@
 		34689A9522CDFB39002970F9 /* OpenIdUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34689A9422CDFB39002970F9 /* OpenIdUser.swift */; };
 		34689A9722CDFB5F002970F9 /* AuthToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34689A9622CDFB5F002970F9 /* AuthToken.swift */; };
 		34689A9922CDFC24002970F9 /* LoginProviderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34689A9822CDFC24002970F9 /* LoginProviderRequest.swift */; };
+		34689A9C22CE3E57002970F9 /* Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34689A9B22CE3E57002970F9 /* Base64.swift */; };
 		347FDB47229BE84500660687 /* IdentitySdkCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 347FDB45229BE84500660687 /* IdentitySdkCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		347FDB54229BE8F800660687 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347FDB53229BE8F800660687 /* Provider.swift */; };
 		347FDB65229C02A800660687 /* SdkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347FDB64229C02A800660687 /* SdkConfig.swift */; };
@@ -36,6 +37,7 @@
 		34689A9422CDFB39002970F9 /* OpenIdUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenIdUser.swift; sourceTree = "<group>"; };
 		34689A9622CDFB5F002970F9 /* AuthToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthToken.swift; sourceTree = "<group>"; };
 		34689A9822CDFC24002970F9 /* LoginProviderRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProviderRequest.swift; sourceTree = "<group>"; };
+		34689A9B22CE3E57002970F9 /* Base64.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base64.swift; sourceTree = "<group>"; };
 		347FDB42229BE84500660687 /* IdentitySdkCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IdentitySdkCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		347FDB45229BE84500660687 /* IdentitySdkCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IdentitySdkCore.h; sourceTree = "<group>"; };
 		347FDB46229BE84500660687 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -69,14 +71,23 @@
 		34173218229D801500681CFD /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				34689A9A22CE3E34002970F9 /* utils */,
 				34E18B8D22A6C13100952EBD /* models */,
 				347FDB66229C02FE00660687 /* ReachFive.swift */,
 				347FDB53229BE8F800660687 /* Provider.swift */,
 				34F7D3E322A54AA2003A7BC0 /* ReachFiveApi.swift */,
-				34E18B8722A66EEF00952EBD /* Callback.swift */,
 				3404A40722CB9B7E002FFEDB /* ReachFiveError.swift */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		34689A9A22CE3E34002970F9 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				34E18B8722A66EEF00952EBD /* Callback.swift */,
+				34689A9B22CE3E57002970F9 /* Base64.swift */,
+			);
+			path = utils;
 			sourceTree = "<group>";
 		};
 		347FDB38229BE84500660687 = {
@@ -252,6 +263,7 @@
 				347FDB54229BE8F800660687 /* Provider.swift in Sources */,
 				34E18B8C22A6BEC900952EBD /* AccessTokenResponse.swift in Sources */,
 				34689A9122CDFAE4002970F9 /* Profile.swift in Sources */,
+				34689A9C22CE3E57002970F9 /* Base64.swift in Sources */,
 				34E18B8A22A6985C00952EBD /* SignupRequest.swift in Sources */,
 				347FDB65229C02A800660687 /* SdkConfig.swift in Sources */,
 				34F7D3E422A54AA2003A7BC0 /* ReachFiveApi.swift in Sources */,

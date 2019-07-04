@@ -15,7 +15,6 @@ public class GoogleProvider: ProviderCreator {
     }
 }
 
-
 public class ConfiguredGoogleProvider: NSObject, Provider, GIDSignInDelegate, GIDSignInUIDelegate {
     public var name: String = GoogleProvider.NAME
     
@@ -49,10 +48,9 @@ public class ConfiguredGoogleProvider: NSObject, Provider, GIDSignInDelegate, GI
             )
             self.reachFiveApi.loginWithProvider(loginProviderRequest: loginProviderRequest, callback: { response in
                 self.callback?(
-                    response
-                        .flatMap({ openIdTokenResponse in
-                            AuthToken.fromOpenIdTokenResponse(openIdTokenResponse: openIdTokenResponse)
-                        })
+                    response.flatMap({ openIdTokenResponse in
+                        AuthToken.fromOpenIdTokenResponse(openIdTokenResponse: openIdTokenResponse)
+                    })
                 )
             })
         }
@@ -76,17 +74,14 @@ public class ConfiguredGoogleProvider: NSObject, Provider, GIDSignInDelegate, GI
     }
     
     public func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        var _: [String: AnyObject] = [UIApplication.OpenURLOptionsKey.sourceApplication.rawValue: sourceApplication as AnyObject,
-                                            UIApplication.OpenURLOptionsKey.annotation.rawValue: annotation as AnyObject]
-        return GIDSignIn.sharedInstance().handle(url,
-                                                    sourceApplication: sourceApplication,
-                                                    annotation: annotation)
-
+        var _: [String: AnyObject] = [
+            UIApplication.OpenURLOptionsKey.sourceApplication.rawValue: sourceApplication as AnyObject,
+            UIApplication.OpenURLOptionsKey.annotation.rawValue: annotation as AnyObject
+        ]
+        return GIDSignIn.sharedInstance().handle(url, sourceApplication: sourceApplication, annotation: annotation)
     }
     
-    public func applicationDidBecomeActive(_ application: UIApplication) {
-        
-    }
+    public func applicationDidBecomeActive(_ application: UIApplication) {}
     
     public override var description: String {
         return "Provider: \(name)"

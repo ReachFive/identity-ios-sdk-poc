@@ -34,7 +34,7 @@ class LoginController: UIViewController, UITableViewDataSource, UITableViewDeleg
         let email = emailInput.text ?? ""
         let password = passwordInput.text ?? ""
         print("Login email=\(email) password=\(password)")
-        AppDelegate.shared().reachfive.loginWithPassword(username: email, password: password, callback: { print($0) })
+        AppDelegate.shared().reachfive.loginWithPassword(username: email, password: password, scope: ReachFive.defaultScope, callback: { print($0) })
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -16,13 +16,39 @@ public class AuthToken: NSObject {
     }
     
     public static func fromOpenIdTokenResponse(openIdTokenResponse: AccessTokenResponse) -> Result<AuthToken, ReachFiveError> {
-        return .success(AuthToken(
+        if openIdTokenResponse.idToken != nil {
+            return fromIdToken(openIdTokenResponse.idToken!).flatMap { user in
+                return .success(withUser(openIdTokenResponse, user))
+            }
+        } else {
+            return .success(withUser(openIdTokenResponse, nil))
+        }
+    }
+    
+    static func withUser(_ openIdTokenResponse: AccessTokenResponse, _ user: OpenIdUser?) -> AuthToken {
+        return AuthToken(
             idToken: openIdTokenResponse.idToken,
             accessToken: openIdTokenResponse.accessToken,
             tokenType: openIdTokenResponse.tokenType,
             expiresIn: openIdTokenResponse.expiresIn,
-            user: nil // TODO add user
-        ))
+            user: user
+        )
+    }
+    
+    static func fromIdToken(_ idToken: String) -> Result<OpenIdUser, ReachFiveError> {
+        let parts = idToken.components(separatedBy: ".")
+        if parts.count == 3 {
+            let data = Base64.base64UrlSafeDecode(parts[1])
+            let content = String(data: data!, encoding: .utf8)
+            let user = Result.init(catching: {
+                return try OpenIdUser(JSONString: content!)
+            })
+            return user.mapError({ error in
+                return .TechnicalError(reason: error.localizedDescription)
+            })
+        } else {
+            return .failure(.TechnicalError(reason: "idToken invalid"))
+        }
     }
     
     public override var description: String {

@@ -18,5 +18,4 @@ public class ProvidersConfigsResult: NSObject, ImmutableMappable {
     public override var description: String {
         return self.toJSONString(prettyPrint: true) ?? super.description
     }
-
 }
