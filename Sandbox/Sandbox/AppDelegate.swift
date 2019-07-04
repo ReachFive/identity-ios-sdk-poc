@@ -6,11 +6,7 @@ import IdentitySdkGoogle
 import AlamofireNetworkLogger
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, ReachFiveDelegate {
-    func authentication(result: Result<String, ReachFiveError>) {
-        print("authentication \(result)")
-    }
-
+class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     let reachfive = ReachFive(
