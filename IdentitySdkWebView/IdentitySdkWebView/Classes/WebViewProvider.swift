@@ -50,7 +50,7 @@ class ConfiguredWebViewProvider: NSObject, Provider {
                     callback(.failure(.TechnicalError(reason: "No code")))
                 }
             case .failure(let error):
-                callback(.failure(.TechnicalError(reason: error.localizedDescription))) // TODO harmonize error handling
+                callback(.failure(.TechnicalError(reason: error.localizedDescription)))
             }
         }
         viewController?.show(webViewController, sender: nil)
