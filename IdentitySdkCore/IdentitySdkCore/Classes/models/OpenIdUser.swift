@@ -16,10 +16,10 @@ public class OpenIdUser: NSObject, ImmutableMappable {
                 return try OpenIdUser(JSONString: content!)
             })
             return user.mapError({ error in
-                return ReachFiveError.AuthFailure(reason: error.localizedDescription) // TODO add specifique error
+                return .TechnicalError(reason: error.localizedDescription)
             })
         } else {
-            return .failure(.AuthFailure(reason: "idToken invalid"))
+            return .failure(.TechnicalError(reason: "idToken invalid"))
         }
     }
     

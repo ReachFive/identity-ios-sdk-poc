@@ -19,6 +19,7 @@ public class FacebookProvider: ProviderCreator {
 
 public class ConfiguredFacebookProvider: NSObject, Provider {
     public var name: String = FacebookProvider.NAME
+
     var sdkConfig: SdkConfig
     var providerConfig: ProviderConfig
     var reachFiveApi: ReachFiveApi
@@ -34,11 +35,10 @@ public class ConfiguredFacebookProvider: NSObject, Provider {
     }
     
     public func login(scope: [String], origin: String, viewController: UIViewController?, callback: @escaping Callback<AuthToken, ReachFiveError>) {
-        print("ConfiguredFacebookProvider.login")
         let loginManager = LoginManager()
         loginManager.logIn(permissions: [.email, .publicProfile], viewController: viewController) { result in
             switch (result) {
-            case .success(let granted, let declined, let token):
+            case .success(_, _, let token):
                 let loginProviderRequest = LoginProviderRequest(
                     provider: self.providerConfig.provider,
                     providerToken: token.tokenString,
@@ -56,13 +56,10 @@ public class ConfiguredFacebookProvider: NSObject, Provider {
                             })
                     )
                 })
-                print("----- ------ ConfiguredFacebookProvider.login success granted=\(granted) declined=\(declined) token=\(token.tokenString)")
             case .cancelled:
-                print("----- ------ ConfiguredFacebookProvider.login cancelled")
-                callback(.failure(.AuthFailure(reason: "User canceled authentification"))) // TODO add specifique error
+                callback(.failure(.AuthCanceled))
             case .failed(let error):
-                print("----- ------ ConfiguredFacebookProvider.login error \(error)")
-                callback(.failure(.AuthFailure(reason: error.localizedDescription))) // TODO add specifique error
+                callback(.failure(.TechnicalError(reason: error.localizedDescription)))
             }
         }
     }

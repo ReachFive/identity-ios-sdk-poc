@@ -17,8 +17,8 @@ class SignupController: UIViewController {
         let name = nameInput.text ?? ""
 
         print("Signup email=\(email) password=\(password) name=\(name)")
-        // TODO builder pattern or unordered named parametres
-        let profile = Profile(email: email, password: password, phoneNumber: nil, gender: nil, name: name, givenName: nil, middleName: nil, familyName: nil, nickname: nil, username: nil, birthdate: nil, picture: nil, company: nil, locale: nil, address: nil, customFields: nil)
+
+        let profile = Profile(email: email, password: password)
         AppDelegate.reachfive().signupWithPassword(profile: profile, callback: { print($0) })
     }
 }

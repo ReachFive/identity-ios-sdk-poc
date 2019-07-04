@@ -35,7 +35,6 @@ public class ConfiguredGoogleProvider: NSObject, Provider, GIDSignInDelegate, GI
     }
     
     public func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        print("ConfiguredGoogleProvider.sign.error=\(error.debugDescription) self.callback.nil=\(self.callback == nil) user=\(String(describing: user.authentication.accessToken))}")
         if error != nil {
             self.callback?(.failure(.AuthFailure(reason: error.localizedDescription)))
         } else {

@@ -19,7 +19,24 @@ public class Profile: NSObject, ImmutableMappable {
     let address: ProfileAddress?
     let customFields: Dictionary<String, Any>?
     
-    public init(email: String, password: String, phoneNumber: String?, gender: String?, name: String?, givenName: String?, middleName: String?, familyName: String?, nickname: String?, username: String?, birthdate: String?, picture: String?, company: String?, locale: String?, address: ProfileAddress?, customFields: Dictionary<String, Any>?) {
+    public init(
+        email: String,
+        password: String,
+        phoneNumber: String? = nil,
+        gender: String? = nil,
+        name: String? = nil,
+        givenName: String? = nil,
+        middleName: String? = nil,
+        familyName: String? = nil,
+        nickname: String? = nil,
+        username: String? = nil,
+        birthdate: String? = nil,
+        picture: String? = nil,
+        company: String? = nil,
+        locale: String? = nil,
+        address: ProfileAddress? = nil,
+        customFields: Dictionary<String, Any>? = nil
+    ) {
         self.email = email
         self.password = password
         self.phoneNumber = phoneNumber
