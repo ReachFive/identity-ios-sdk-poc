@@ -67,23 +67,23 @@ public class ReachFive: NSObject {
         }).compactMap { $0 }
     }
     
-    public func signupWithPassword(profile: Profile, callback: @escaping Callback<AccessTokenResponse, ReachFiveError>) {
+    public func signupWithPassword(profile: Profile, scope: [String], callback: @escaping Callback<AccessTokenResponse, ReachFiveError>) {
         let signupRequest = SignupRequest(
             clientId: sdkConfig.clientId,
             data: profile,
-            scope: "openid profile email",
+            scope: scope.joined(separator: " "),
             acceptTos: nil
         )
         reachFiveApi.signupWithPassword(signupRequest: signupRequest, callback: callback)
     }
     
-    public func loginWithPassword(username: String, password: String, callback: @escaping Callback<AccessTokenResponse, ReachFiveError>) {
+    public func loginWithPassword(username: String, password: String, scope: [String], callback: @escaping Callback<AccessTokenResponse, ReachFiveError>) {
         let loginRequest = LoginRequest(
             username: username,
             password: password,
             grantType: "password",
             clientId: sdkConfig.clientId,
-            scope: "openid profile email"
+            scope: scope.joined(separator: " ")
         )
         reachFiveApi.loginWithPassword(loginRequest: loginRequest, callback: callback)
     }

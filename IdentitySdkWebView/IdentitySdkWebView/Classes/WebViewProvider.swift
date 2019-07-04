@@ -14,14 +14,11 @@ public class WebViewProvider: ProviderCreator {
 }
 
 class ConfiguredWebViewProvider: NSObject, Provider {
+    var name: String = WebViewProvider.NAME
+    
     let sdkConfig: SdkConfig
     let providerConfig: ProviderConfig
     let reachFiveApi: ReachFiveApi
-    var name: String = WebViewProvider.NAME
-    
-    override var description: String {
-        return "Provider: \(self.name)"
-    }
     
     public init(sdkConfig: SdkConfig, providerConfig: ProviderConfig, reachFiveApi: ReachFiveApi) {
         self.sdkConfig = sdkConfig
@@ -35,7 +32,6 @@ class ConfiguredWebViewProvider: NSObject, Provider {
         let storyboard = UIStoryboard(name: "WebView", bundle: frameworkBundle)
         let webViewController = storyboard.instantiateViewController(withIdentifier: "WebViewController") as! WebViewController
         let url = self.buildUrl(sdkConfig: sdkConfig, providerConfig: providerConfig, scope: scope)
-        print("WebViewProvider login url=\(url)")
         webViewController.url = url
         webViewController.delegate = {
             switch $0 {
@@ -47,14 +43,14 @@ class ConfiguredWebViewProvider: NSObject, Provider {
                         switch response {
                         case .success(let openIdTokenResponse):
                             callback(AuthToken.fromOpenIdTokenResponse(openIdTokenResponse: openIdTokenResponse))
-                        case .failure(let error): callback(.failure(ReachFiveError.AuthFailure(reason: error.localizedDescription))) // TODO harmonize error handling
+                        case .failure(let error): callback(.failure(ReachFiveError.TechnicalError(reason: error.localizedDescription)))
                         }
                     })
                 } else {
-                    callback(.failure(.AuthFailure(reason: "No code")))
+                    callback(.failure(.TechnicalError(reason: "No code")))
                 }
             case .failure(let error):
-                callback(.failure(.AuthFailure(reason: error.localizedDescription))) // TODO harmonize error handling
+                callback(.failure(.TechnicalError(reason: error.localizedDescription))) // TODO harmonize error handling
             }
         }
         viewController?.show(webViewController, sender: nil)
@@ -88,5 +84,9 @@ class ConfiguredWebViewProvider: NSObject, Provider {
             .map { $0! }
             .joined(separator: "&")
         return "https://\(sdkConfig.domain)/oauth/authorize?\(queryStrings)"
+    }
+    
+    override var description: String {
+        return "Provider: \(self.name)"
     }
 }
