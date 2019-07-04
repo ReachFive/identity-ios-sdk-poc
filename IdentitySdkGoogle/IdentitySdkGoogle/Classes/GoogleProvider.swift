@@ -11,29 +11,60 @@ public class GoogleProvider: ProviderCreator {
     public init() {}
     
     public func create(sdkConfig: SdkConfig, providerConfig: ProviderConfig, reachFiveApi: ReachFiveApi) -> Provider {
-        return ConfiguredGoogleProvider(sdkConfig: sdkConfig, providerConfig: providerConfig)
+        return ConfiguredGoogleProvider(sdkConfig: sdkConfig, providerConfig: providerConfig, reachFiveApi: reachFiveApi)
     }
 }
 
 
 public class ConfiguredGoogleProvider: NSObject, Provider, GIDSignInDelegate, GIDSignInUIDelegate {
-    var sdkConfig: SdkConfig
-    var providerConfig: ProviderConfig
     public var name: String = GoogleProvider.NAME
     
-    public init(sdkConfig: SdkConfig, providerConfig: ProviderConfig) {
+    var sdkConfig: SdkConfig
+    var providerConfig: ProviderConfig
+    var reachFiveApi: ReachFiveApi
+    
+    var scope: [String] = ReachFive.defaultScope
+    var origin: String = ""
+    var callback: Callback<AuthToken, ReachFiveError>?
+    
+    public init(sdkConfig: SdkConfig, providerConfig: ProviderConfig, reachFiveApi: ReachFiveApi) {
         self.sdkConfig = sdkConfig
         self.providerConfig = providerConfig
+        self.reachFiveApi = reachFiveApi
         GIDSignIn.sharedInstance().clientID = self.providerConfig.clientId
     }
     
     public func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        print("ConfiguredGoogleProvider.sign.error=\(error.debugDescription)")
+        print("ConfiguredGoogleProvider.sign.error=\(error.debugDescription) self.callback.nil=\(self.callback == nil) user=\(String(describing: user.authentication.accessToken))}")
+        if error != nil {
+            self.callback?(.failure(.AuthFailure(reason: error.localizedDescription)))
+        } else {
+            let loginProviderRequest = LoginProviderRequest(
+                provider: self.providerConfig.provider,
+                providerToken: user.authentication.accessToken,
+                code: nil,
+                origin: origin,
+                clientId: self.sdkConfig.clientId,
+                responseType: "token",
+                scope: scope.joined(separator: " ")
+            )
+            self.reachFiveApi.loginWithProvider(loginProviderRequest: loginProviderRequest, callback: { response in
+                self.callback?(
+                    response
+                        .flatMap({ openIdTokenResponse in
+                            AuthToken.fromOpenIdTokenResponse(openIdTokenResponse: openIdTokenResponse)
+                        })
+                )
+            })
+        }
     }
     
     public func login(scope: [String], origin: String, viewController: UIViewController?, callback: @escaping Callback<AuthToken, ReachFiveError>) {
+        self.scope = scope
+        self.origin = origin
+        self.callback = callback
         GIDSignIn.sharedInstance().delegate = self
-        GIDSignIn.sharedInstance().uiDelegate = viewController as! GIDSignInUIDelegate
+        GIDSignIn.sharedInstance().uiDelegate = viewController as? GIDSignInUIDelegate
         GIDSignIn.sharedInstance().signIn()
     }
     

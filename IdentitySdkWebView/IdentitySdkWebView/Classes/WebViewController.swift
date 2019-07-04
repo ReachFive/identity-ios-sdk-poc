@@ -28,14 +28,11 @@ public class WebViewController: UIViewController, WKNavigationDelegate, WKUIDele
     }
     
     public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        //print("webView didStartProvisionalNavigation \(String(describing: webView.url?.absoluteString))")
-        
         let scheme = webView.url?.scheme
         let queries = webView.url?.query
         
         if scheme == "reachfive" && queries != nil {
             let params = parseQueriesStrings(query: queries!)
-            //print("INTERCEPTED scheme \((navigationController == nil)) \(params)")
             decisionHandler(.cancel)
             navigationController?.popViewController(animated: true)
             self.delegate!(.success(params))

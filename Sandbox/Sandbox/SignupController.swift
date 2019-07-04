@@ -21,5 +21,4 @@ class SignupController: UIViewController {
         let profile = Profile(email: email, password: password, phoneNumber: nil, gender: nil, name: name, givenName: nil, middleName: nil, familyName: nil, nickname: nil, username: nil, birthdate: nil, picture: nil, company: nil, locale: nil, address: nil, customFields: nil)
         AppDelegate.reachfive().signupWithPassword(profile: profile, callback: { print($0) })
     }
-
 }
