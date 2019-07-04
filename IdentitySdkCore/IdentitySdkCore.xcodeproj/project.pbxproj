@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3404A40822CB9B7E002FFEDB /* ReachFiveError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3404A40722CB9B7E002FFEDB /* ReachFiveError.swift */; };
-		3404A40A22CB9DC9002FFEDB /* ReachFiveDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3404A40922CB9DC9002FFEDB /* ReachFiveDelegate.swift */; };
 		3404A40C22CBA6DD002FFEDB /* AuthCodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3404A40B22CBA6DD002FFEDB /* AuthCodeRequest.swift */; };
 		34689A9122CDFAE4002970F9 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34689A9022CDFAE4002970F9 /* Profile.swift */; };
 		34689A9322CDFB0B002970F9 /* ProfileAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34689A9222CDFB0B002970F9 /* ProfileAddress.swift */; };
@@ -31,7 +30,6 @@
 
 /* Begin PBXFileReference section */
 		3404A40722CB9B7E002FFEDB /* ReachFiveError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachFiveError.swift; sourceTree = "<group>"; };
-		3404A40922CB9DC9002FFEDB /* ReachFiveDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachFiveDelegate.swift; sourceTree = "<group>"; };
 		3404A40B22CBA6DD002FFEDB /* AuthCodeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCodeRequest.swift; sourceTree = "<group>"; };
 		34689A9022CDFAE4002970F9 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		34689A9222CDFB0B002970F9 /* ProfileAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAddress.swift; sourceTree = "<group>"; };
@@ -77,7 +75,6 @@
 				34F7D3E322A54AA2003A7BC0 /* ReachFiveApi.swift */,
 				34E18B8722A66EEF00952EBD /* Callback.swift */,
 				3404A40722CB9B7E002FFEDB /* ReachFiveError.swift */,
-				3404A40922CB9DC9002FFEDB /* ReachFiveDelegate.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -266,7 +263,6 @@
 				347FDB67229C02FE00660687 /* ReachFive.swift in Sources */,
 				34E18B8F22A6C32500952EBD /* LoginRequest.swift in Sources */,
 				34689A9922CDFC24002970F9 /* LoginProviderRequest.swift in Sources */,
-				3404A40A22CB9DC9002FFEDB /* ReachFiveDelegate.swift in Sources */,
 				3404A40822CB9B7E002FFEDB /* ReachFiveError.swift in Sources */,
 				34689A9322CDFB0B002970F9 /* ProfileAddress.swift in Sources */,
 			);
