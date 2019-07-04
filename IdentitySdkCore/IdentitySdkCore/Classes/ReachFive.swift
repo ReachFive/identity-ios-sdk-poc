@@ -123,6 +123,20 @@ public class ReachFive: NSObject {
             )
     }
     
+    func updateEmail(
+        authToken: AuthToken,
+        email: String,
+        redirectUrl: String? = nil,
+        callback: @escaping Callback<Profile, ReachFiveError>
+    ) {
+        reachFiveApi
+            .updateEmail(
+                authToken: authToken,
+                updateEmailRequest: UpdateEmailRequest(email: email, redirectUrl: redirectUrl),
+                callback: callback
+            )
+    }
+    
     public override var description: String {
         return """
         Config: domain=\(sdkConfig.domain), clientId=\(sdkConfig.clientId)

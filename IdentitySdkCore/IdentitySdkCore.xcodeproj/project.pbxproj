@@ -16,6 +16,7 @@
 		34689A9922CDFC24002970F9 /* LoginProviderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34689A9822CDFC24002970F9 /* LoginProviderRequest.swift */; };
 		34689A9C22CE3E57002970F9 /* Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34689A9B22CE3E57002970F9 /* Base64.swift */; };
 		34689A9E22CE4666002970F9 /* VerifyPhoneNumberRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34689A9D22CE4666002970F9 /* VerifyPhoneNumberRequest.swift */; };
+		34689AA122CE5D08002970F9 /* UpdateEmailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34689AA022CE5D08002970F9 /* UpdateEmailRequest.swift */; };
 		347FDB47229BE84500660687 /* IdentitySdkCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 347FDB45229BE84500660687 /* IdentitySdkCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		347FDB54229BE8F800660687 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347FDB53229BE8F800660687 /* Provider.swift */; };
 		347FDB65229C02A800660687 /* SdkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347FDB64229C02A800660687 /* SdkConfig.swift */; };
@@ -40,6 +41,7 @@
 		34689A9822CDFC24002970F9 /* LoginProviderRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProviderRequest.swift; sourceTree = "<group>"; };
 		34689A9B22CE3E57002970F9 /* Base64.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base64.swift; sourceTree = "<group>"; };
 		34689A9D22CE4666002970F9 /* VerifyPhoneNumberRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPhoneNumberRequest.swift; sourceTree = "<group>"; };
+		34689AA022CE5D08002970F9 /* UpdateEmailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateEmailRequest.swift; sourceTree = "<group>"; };
 		347FDB42229BE84500660687 /* IdentitySdkCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IdentitySdkCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		347FDB45229BE84500660687 /* IdentitySdkCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IdentitySdkCore.h; sourceTree = "<group>"; };
 		347FDB46229BE84500660687 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -92,6 +94,14 @@
 			path = utils;
 			sourceTree = "<group>";
 		};
+		34689A9F22CE5CF9002970F9 /* requests */ = {
+			isa = PBXGroup;
+			children = (
+				34689AA022CE5D08002970F9 /* UpdateEmailRequest.swift */,
+			);
+			path = requests;
+			sourceTree = "<group>";
+		};
 		347FDB38229BE84500660687 = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +133,7 @@
 		34E18B8D22A6C13100952EBD /* models */ = {
 			isa = PBXGroup;
 			children = (
+				34689A9F22CE5CF9002970F9 /* requests */,
 				34F7D3E522A54ADE003A7BC0 /* ProvidersConfigsResult.swift */,
 				347FDB68229C04C200660687 /* ProviderConfig.swift */,
 				34E18B8922A6985C00952EBD /* SignupRequest.swift */,
@@ -265,6 +276,7 @@
 				347FDB69229C04C200660687 /* ProviderConfig.swift in Sources */,
 				347FDB54229BE8F800660687 /* Provider.swift in Sources */,
 				34E18B8C22A6BEC900952EBD /* AccessTokenResponse.swift in Sources */,
+				34689AA122CE5D08002970F9 /* UpdateEmailRequest.swift in Sources */,
 				34689A9122CDFAE4002970F9 /* Profile.swift in Sources */,
 				34689A9C22CE3E57002970F9 /* Base64.swift in Sources */,
 				34E18B8A22A6985C00952EBD /* SignupRequest.swift in Sources */,

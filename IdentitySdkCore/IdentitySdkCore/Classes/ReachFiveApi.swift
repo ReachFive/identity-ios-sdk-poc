@@ -64,6 +64,14 @@ public class ReachFiveApi {
             .validate(contentType: ["application/json"])
             .response(completionHandler: handleVoidResponse(callback: callback))
     }
+
+    public func updateEmail(authToken: AuthToken, updateEmailRequest: UpdateEmailRequest, callback: @escaping Callback<Profile, ReachFiveError>) {
+        Alamofire
+            .request(createUrl(path: "/identity/v1/update-email"), method: .post, parameters: updateEmailRequest.toJSON(), encoding: JSONEncoding.default)
+            .validate(statusCode: 200..<300)
+            .validate(contentType: ["application/json"])
+            .responseObject(completionHandler: handleResponse(callback: callback))
+    }
     
     func handleVoidResponse(callback: @escaping Callback<Void, ReachFiveError>) -> (DefaultDataResponse) -> Void {
         return {(response: DefaultDataResponse) -> Void in
