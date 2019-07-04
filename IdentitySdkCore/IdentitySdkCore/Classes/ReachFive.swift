@@ -108,6 +108,21 @@ public class ReachFive: NSObject {
         }
     }
     
+    func verifyPhoneNumber(
+        authToken: AuthToken,
+        phoneNumber: String,
+        verificationCode: String,
+        callback: @escaping Callback<Void, ReachFiveError>
+    ) {
+        let verifyPhoneNumberRequest = VerifyPhoneNumberRequest(phoneNumber: phoneNumber, verificationCode: verificationCode)
+        reachFiveApi
+            .verifyPhoneNumber(
+                authToken: authToken,
+                verifyPhoneNumberRequest: verifyPhoneNumberRequest,
+                callback: callback
+            )
+    }
+    
     public override var description: String {
         return """
         Config: domain=\(sdkConfig.domain), clientId=\(sdkConfig.clientId)

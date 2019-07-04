@@ -3,14 +3,14 @@ import ObjectMapper
 
 public class AccessTokenResponse: NSObject, ImmutableMappable {
     let idToken: String?
-    let accessToken: String?
+    let accessToken: String
     let code: String?
     let tokenType: String?
     let expiresIn: Int?
     let error: String?
     let errorDescription: String?
     
-    public init(idToken: String?, accessToken: String?, code: String?, tokenType: String?, expiresIn: Int?, error: String?, errorDescription: String?) {
+    public init(idToken: String?, accessToken: String, code: String?, tokenType: String?, expiresIn: Int?, error: String?, errorDescription: String?) {
         self.idToken = idToken
         self.accessToken = accessToken
         self.code = code
@@ -22,7 +22,7 @@ public class AccessTokenResponse: NSObject, ImmutableMappable {
 
     public required init(map: Map) throws {
         idToken = try? map.value("id_token")
-        accessToken = try? map.value("access_token")
+        accessToken = try map.value("access_token")
         code = try? map.value("code")
         tokenType = try? map.value("token_type")
         expiresIn = try? map.value("expires_in")

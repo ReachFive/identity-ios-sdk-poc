@@ -51,6 +51,30 @@ public class ReachFiveApi {
             .responseObject(completionHandler: handleResponse(callback: callback))
     }
     
+    public func verifyPhoneNumber(authToken: AuthToken, verifyPhoneNumberRequest: VerifyPhoneNumberRequest, callback: @escaping Callback<Void, ReachFiveError>) {
+        Alamofire
+            .request(
+                createUrl(path: "/identity/v1/verify-phone-number"),
+                method: .post,
+                parameters: verifyPhoneNumberRequest.toJSON(),
+                encoding: JSONEncoding.default,
+                headers: tokenHeader(authToken.accessToken)
+            )
+            .validate(statusCode: 200..<300)
+            .validate(contentType: ["application/json"])
+            .response(completionHandler: handleVoidResponse(callback: callback))
+    }
+    
+    func handleVoidResponse(callback: @escaping Callback<Void, ReachFiveError>) -> (DefaultDataResponse) -> Void {
+        return {(response: DefaultDataResponse) -> Void in
+            if response.error != nil {
+                callback(.failure(.TechnicalError(reason: response.error!.localizedDescription)))
+            } else {
+                callback(.success(()))
+            }
+        }
+    }
+    
     func handleResponse<T>(callback: @escaping Callback<T, ReachFiveError>) -> ResponseHandler<T> {
         return {(response: DataResponse<T>) -> Void in
             switch response.result {
@@ -58,6 +82,10 @@ public class ReachFiveApi {
             case let .success(value): callback(.success(value))
             }
         }
+    }
+    
+    func tokenHeader(_ accessToken: String?) -> [String: String] {
+        return ["Authorization": accessToken ?? ""]
     }
     
     func createUrl(path: String) -> String {

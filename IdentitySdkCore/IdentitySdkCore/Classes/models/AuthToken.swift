@@ -2,12 +2,12 @@ import Foundation
 
 public class AuthToken: NSObject {
     let idToken: String?
-    let accessToken: String?
+    let accessToken: String
     let tokenType: String?
     let expiresIn: Int?
     let user: OpenIdUser?
     
-    public init(idToken: String?, accessToken: String?, tokenType: String?, expiresIn: Int?, user: OpenIdUser?) {
+    public init(idToken: String?, accessToken: String, tokenType: String?, expiresIn: Int?, user: OpenIdUser?) {
         self.idToken = idToken
         self.accessToken = accessToken
         self.tokenType = tokenType
@@ -25,12 +25,12 @@ public class AuthToken: NSObject {
         }
     }
     
-    static func withUser(_ openIdTokenResponse: AccessTokenResponse, _ user: OpenIdUser?) -> AuthToken {
+    static func withUser(_ accessTokenResponse: AccessTokenResponse, _ user: OpenIdUser?) -> AuthToken {
         return AuthToken(
-            idToken: openIdTokenResponse.idToken,
-            accessToken: openIdTokenResponse.accessToken,
-            tokenType: openIdTokenResponse.tokenType,
-            expiresIn: openIdTokenResponse.expiresIn,
+            idToken: accessTokenResponse.idToken,
+            accessToken: accessTokenResponse.accessToken,
+            tokenType: accessTokenResponse.tokenType,
+            expiresIn: accessTokenResponse.expiresIn,
             user: user
         )
     }
