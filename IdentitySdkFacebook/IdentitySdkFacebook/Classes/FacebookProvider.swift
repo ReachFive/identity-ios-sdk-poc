@@ -31,7 +31,7 @@ public class ConfiguredFacebookProvider: NSObject, Provider {
         return "Provider: \(name)"
     }
     
-    public func login(origin: String, viewController: UIViewController?, callback: @escaping Callback<String, ReachFiveError>) {
+    public func login(scope: [String], origin: String, viewController: UIViewController?, callback: @escaping Callback<AuthToken, ReachFiveError>) {
         print("ConfiguredFacebookProvider.login")
         let loginManager = LoginManager()
         loginManager.logIn(permissions: [.email, .publicProfile], viewController: viewController) { result in
@@ -42,7 +42,6 @@ public class ConfiguredFacebookProvider: NSObject, Provider {
                 print("----- ------ ConfiguredFacebookProvider.login cancelled")
             case .failed(let error):
                 print("----- ------ ConfiguredFacebookProvider.login error \(error)")
-                
             }
         }
     }

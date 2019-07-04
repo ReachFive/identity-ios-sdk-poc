@@ -30,11 +30,11 @@ class ConfiguredWebViewProvider: NSObject, Provider {
         self.name = providerConfig.provider
     }
     
-    public func login(origin: String, viewController: UIViewController?, callback: @escaping (Result<String, ReachFiveError>) -> Void) {
+    public func login(scope: [String], origin: String, viewController: UIViewController?, callback: @escaping Callback<AuthToken, ReachFiveError>) {
         let frameworkBundle = Bundle(identifier: "org.cocoapods.IdentitySdkWebView")
         let storyboard = UIStoryboard(name: "WebView", bundle: frameworkBundle)
         let webViewController = storyboard.instantiateViewController(withIdentifier: "WebViewController") as! WebViewController
-        let url = self.buildUrl(sdkConfig: sdkConfig, providerConfig: providerConfig)
+        let url = self.buildUrl(sdkConfig: sdkConfig, providerConfig: providerConfig, scope: scope)
         print("WebViewProvider login url=\(url)")
         webViewController.url = url
         webViewController.delegate = {
@@ -45,8 +45,9 @@ class ConfiguredWebViewProvider: NSObject, Provider {
                     let authCodeRequest = AuthCodeRequest(clientId: self.sdkConfig.clientId, code: code!)
                     self.reachFiveApi.authWithCode(authCodeRequest: authCodeRequest, callback: { response in
                         switch response {
-                        case .success(let openIdTokenResponse): callback(.success(openIdTokenResponse.description))
-                        case .failure(let error): callback(.failure(.AuthFailure(reason: error.localizedDescription))) // TODO harmonize error handling
+                        case .success(let openIdTokenResponse):
+                            callback(AuthToken.fromOpenIdTokenResponse(openIdTokenResponse: openIdTokenResponse))
+                        case .failure(let error): callback(.failure(ReachFiveError.AuthFailure(reason: error.localizedDescription))) // TODO harmonize error handling
                         }
                     })
                 } else {
@@ -71,13 +72,13 @@ class ConfiguredWebViewProvider: NSObject, Provider {
         
     }
     
-    func buildUrl(sdkConfig: SdkConfig, providerConfig: ProviderConfig) -> String {
+    func buildUrl(sdkConfig: SdkConfig, providerConfig: ProviderConfig, scope: [String]) -> String {
         let params = [
             "provider": providerConfig.provider,
             "client_id": sdkConfig.clientId,
             "response_type": "code",
             "redirect_uri": "reachfive://callback",
-            "scope": providerConfig.scope.joined(separator: " "),
+            "scope": scope.joined(separator: " "),
             "platform": "ios"
         ]
         let queryStrings = params
