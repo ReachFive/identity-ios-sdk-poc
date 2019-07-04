@@ -28,7 +28,7 @@ public class ReachFive: NSObject {
         return providers
     }
     
-    public func initialize(callback: @escaping Callback<[Provider], Error>) {
+    public func initialize(callback: @escaping Callback<[Provider], ReachFiveError>) {
         print("initialize \(state)")
         switch self.state {
         case .NotInitialazed:
@@ -67,7 +67,7 @@ public class ReachFive: NSObject {
         }).compactMap { $0 }
     }
     
-    public func signupWithPassword(profile: Profile, callback: @escaping Callback<OpenIdTokenResponse, Error>) {
+    public func signupWithPassword(profile: Profile, callback: @escaping Callback<AccessTokenResponse, ReachFiveError>) {
         let signupRequest = SignupRequest(
             clientId: sdkConfig.clientId,
             data: profile,
@@ -77,7 +77,7 @@ public class ReachFive: NSObject {
         reachFiveApi.signupWithPassword(signupRequest: signupRequest, callback: callback)
     }
     
-    public func loginWithPassword(username: String, password: String, callback: @escaping Callback<OpenIdTokenResponse, Error>) {
+    public func loginWithPassword(username: String, password: String, callback: @escaping Callback<AccessTokenResponse, ReachFiveError>) {
         let loginRequest = LoginRequest(
             username: username,
             password: password,

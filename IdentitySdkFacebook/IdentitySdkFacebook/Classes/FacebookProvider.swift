@@ -13,7 +13,7 @@ public class FacebookProvider: ProviderCreator {
     public init() {}
 
     public func create(sdkConfig: SdkConfig, providerConfig: ProviderConfig, reachFiveApi: ReachFiveApi) -> Provider {
-        return ConfiguredFacebookProvider(sdkConfig: sdkConfig, providerConfig: providerConfig)
+        return ConfiguredFacebookProvider(sdkConfig: sdkConfig, providerConfig: providerConfig, reachFiveApi: reachFiveApi)
     }
 }
 
@@ -21,10 +21,12 @@ public class ConfiguredFacebookProvider: NSObject, Provider {
     public var name: String = FacebookProvider.NAME
     var sdkConfig: SdkConfig
     var providerConfig: ProviderConfig
+    var reachFiveApi: ReachFiveApi
     
-    public init(sdkConfig: SdkConfig, providerConfig: ProviderConfig) {
+    public init(sdkConfig: SdkConfig, providerConfig: ProviderConfig, reachFiveApi: ReachFiveApi) {
         self.sdkConfig = sdkConfig
         self.providerConfig = providerConfig
+        self.reachFiveApi = reachFiveApi
     }
     
     public override var description: String {
@@ -37,11 +39,30 @@ public class ConfiguredFacebookProvider: NSObject, Provider {
         loginManager.logIn(permissions: [.email, .publicProfile], viewController: viewController) { result in
             switch (result) {
             case .success(let granted, let declined, let token):
-                print("----- ------ ConfiguredFacebookProvider.login success granted=\(granted) declined=\(declined) token=\(token)")
+                let loginProviderRequest = LoginProviderRequest(
+                    provider: self.providerConfig.provider,
+                    providerToken: token.tokenString,
+                    code: nil,
+                    origin: origin,
+                    clientId: self.sdkConfig.clientId,
+                    responseType: "token",
+                    scope: scope.joined(separator: " ")
+                )
+                self.reachFiveApi.loginWithProvider(loginProviderRequest: loginProviderRequest, callback: { response in
+                    callback(
+                        response
+                            .flatMap({ openIdTokenResponse in
+                                AuthToken.fromOpenIdTokenResponse(openIdTokenResponse: openIdTokenResponse)
+                            })
+                    )
+                })
+                print("----- ------ ConfiguredFacebookProvider.login success granted=\(granted) declined=\(declined) token=\(token.tokenString)")
             case .cancelled:
                 print("----- ------ ConfiguredFacebookProvider.login cancelled")
+                callback(.failure(.AuthFailure(reason: "User canceled authentification"))) // TODO add specifique error
             case .failed(let error):
                 print("----- ------ ConfiguredFacebookProvider.login error \(error)")
+                callback(.failure(.AuthFailure(reason: error.localizedDescription))) // TODO add specifique error
             }
         }
     }

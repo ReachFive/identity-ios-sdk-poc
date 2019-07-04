@@ -11,7 +11,7 @@ public class ReachFiveApi {
         self.sdkConfig = sdkConfig
     }
     
-    public func providersConfigs(callback: @escaping Callback<ProvidersConfigsResult, Error>) {
+    public func providersConfigs(callback: @escaping Callback<ProvidersConfigsResult, ReachFiveError>) {
         Alamofire
             .request(createUrl(path: "/api/v1/providers?platform=ios"))
             //.validate(statusCode: 200..<300)
@@ -19,28 +19,34 @@ public class ReachFiveApi {
             .responseObject(completionHandler: handleResponse(callback: callback))
     }
     
-    public func signupWithPassword(signupRequest: SignupRequest, callback: @escaping Callback<OpenIdTokenResponse, Error>) {
+    public func loginWithProvider(loginProviderRequest: LoginProviderRequest, callback: @escaping Callback<AccessTokenResponse, ReachFiveError>) {
+        Alamofire
+            .request(createUrl(path: "/identity/v1/oauth/provider/token"), method: .post, parameters: loginProviderRequest.toJSON(), encoding: JSONEncoding.default)
+            .responseObject(completionHandler: handleResponse(callback: callback))
+    }
+    
+    public func signupWithPassword(signupRequest: SignupRequest, callback: @escaping Callback<AccessTokenResponse, ReachFiveError>) {
         Alamofire
             .request(createUrl(path: "/identity/v1/signup-token"), method: .post, parameters: signupRequest.toJSON(), encoding: JSONEncoding.default)
             .responseObject(completionHandler: handleResponse(callback: callback))
     }
     
-    public func loginWithPassword(loginRequest: LoginRequest, callback: @escaping Callback<OpenIdTokenResponse, Error>) {
+    public func loginWithPassword(loginRequest: LoginRequest, callback: @escaping Callback<AccessTokenResponse, ReachFiveError>) {
         Alamofire
             .request(createUrl(path: "/oauth/token"), method: .post, parameters: loginRequest.toJSON(), encoding: JSONEncoding.default)
             .responseObject(completionHandler: handleResponse(callback: callback))
     }
     
-    public func authWithCode(authCodeRequest: AuthCodeRequest, callback: @escaping Callback<OpenIdTokenResponse, Error>) {
+    public func authWithCode(authCodeRequest: AuthCodeRequest, callback: @escaping Callback<AccessTokenResponse, ReachFiveError>) {
         Alamofire
             .request(createUrl(path: "/oauth/token"), method: .post, parameters: authCodeRequest.toJSON(), encoding: JSONEncoding.default)
             .responseObject(completionHandler: handleResponse(callback: callback))
     }
     
-    func handleResponse<T>(callback: @escaping Callback<T, Error>) -> ResponseHandler<T> {
+    func handleResponse<T>(callback: @escaping Callback<T, ReachFiveError>) -> ResponseHandler<T> {
         return {(response: DataResponse<T>) -> Void in
             switch response.result {
-            case let .failure(error): callback(.failure(error))
+            case let .failure(error): callback(.failure(.AuthFailure(reason: error.localizedDescription)))
             case let .success(value): callback(.success(value))
             }
         }
