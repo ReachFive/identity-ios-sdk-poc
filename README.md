@@ -98,3 +98,57 @@ com.googleusercontent.apps.1234567890-abcdefg
 When completed, your config should look something similar to the following (but with your application-specific values):
 
 ![google custom scheme config](https://developers.google.com/identity/sign-in/ios/images/xcode_infotab_url_type_values.png)
+
+### Initialize the SDK
+
+`AppDelegate.swift`
+```swift
+let reachfive = ReachFive(
+    sdkConfig: SdkConfig(domain: "my-domain.reach5.net", clientId: "XXXXR5ClientIdXXXXX"),
+    providersCreators: [FacebookProvider(), GoogleProvider(), WebViewProvider()]
+)
+
+static func reachfive() -> ReachFive {
+    let app = UIApplication.shared.delegate as! AppDelegate
+    return app.reachfive
+}
+
+func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    return reachfive.application(app, open: url, options: options)
+}
+```
+
+`ViewController.swift`
+```
+override func viewDidLoad() {
+    super.viewDidLoad()
+    AppDelegate.reachfive().initialize(callback: { response in
+        switch response {
+        case .success(let providers):
+            // You can use this list of providers to display buttons
+        case .failure(let error):
+            // handle error
+        }
+    })
+}
+```
+
+### Login with Provider
+```swift
+AppDelegate.reachfive()
+    .getProvider(name: "paypal")?
+    .login(
+        scope: ReachFive.defaultScope,
+        origin: "home",
+        viewController: self,
+        callback: { result in
+            switch response {
+                case .success(let authToken):
+                    // Content user information
+                    let user = authToken.user
+                    let accessToken = authToken.accessToken
+                case .failure(let error):
+                    // handle error
+                }
+        })
+```
