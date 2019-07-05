@@ -119,7 +119,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 ```
 
 `ViewController.swift`
-```
+```swift
 override func viewDidLoad() {
     super.viewDidLoad()
     AppDelegate.reachfive().initialize(callback: { response in
@@ -143,12 +143,39 @@ AppDelegate.reachfive()
         viewController: self,
         callback: { result in
             switch response {
-                case .success(let authToken):
-                    // Content user information
-                    let user = authToken.user
-                    let accessToken = authToken.accessToken
-                case .failure(let error):
+            case .success(let authToken):
+                // Content user information
+                let user = authToken.user
+                let accessToken = authToken.accessToken
+            case .failure(let error):
                     // handle error
-                }
-        })
+            }
+        }
+    )
+```
+
+### Login with password
+
+```swift
+AppDelegate.reachfive().loginWithPassword(
+    username: email,
+    password: password,
+    scope: ReachFive.defaultScope,
+    callback: { response in
+        handleResponse(response)
+    }
+)
+```
+
+### Sign-up with password
+
+```swift
+let profile = Profile(email: email, password: password)
+AppDelegate.reachfive().signupWithPassword(
+    profile: profile,
+    scope: ReachFive.defaultScope,
+    callback: {
+        handleResponse(response)
+    }
+)
 ```
