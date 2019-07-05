@@ -15,7 +15,7 @@ It contains all the main tools and interfaces, as well as methods related to sta
 
 It contains all common tools and interfaces, authentication with passwords.
 
-add thes dependency into your Podfile
+add thes dependency into your `Podfile` file
 
 ```ruby
 pod 'IdentitySdkCore'
@@ -76,3 +76,25 @@ This module uses the Google native SDK to provide a better user experience.
 ```ruby
 pod 'IdentitySdkGoogle'
 ```
+
+#### Configuration
+
+To use Google's native SDK you need to create a Google app, the steps are described in this article [Google Connect](https://support.reach5.co/article/5-create-google-application).
+
+Official documentation https://developers.google.com/identity/sign-in/ios/start-integrating
+
+Google Sign-in requires a custom URL Scheme to be added to your project. To add the custom scheme:
+
+Open your project configuration: double-click the project name in the left tree view. Select your app from the TARGETS section, then select the Info tab, and expand the URL Types section.
+
+Click the + button, and add your reversed client ID as a URL scheme.
+
+The reversed client ID is your client ID with the order of the dot-delimited fields reversed. For example:
+
+```
+com.googleusercontent.apps.1234567890-abcdefg
+```
+
+When completed, your config should look something similar to the following (but with your application-specific values):
+
+![google custom scheme config](https://developers.google.com/identity/sign-in/ios/images/xcode_infotab_url_type_values.png)
