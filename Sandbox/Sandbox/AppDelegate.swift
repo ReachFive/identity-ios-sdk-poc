@@ -24,23 +24,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        print("application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?)")
-        // Do any additional setup after loading the view.
         AlamofireNetworkLogger.shared.startLogging()
         AlamofireNetworkLogger.shared.level = .debug
-        return true //reachfive.application(application, didFinishLaunchingWithOptions: launchOptions)
+        return true
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        print("application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:])")
         return reachfive.application(app, open: url, options: options)
     }
     
-    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        print("application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool")
-        return true
-    }
+    //func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
+    //func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool
+    //func applicationDidBecomeActive(_ application: UIApplication)
+    
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -58,6 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        reachfive.application(application: application)
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

@@ -29,7 +29,6 @@ public class ReachFive: NSObject {
     }
     
     public func initialize(callback: @escaping Callback<[Provider], ReachFiveError>) {
-        print("initialize \(state)")
         switch self.state {
         case .NotInitialazed:
             reachFiveApi.providersConfigs(callback: { result in

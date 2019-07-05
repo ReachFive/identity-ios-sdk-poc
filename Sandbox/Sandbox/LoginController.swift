@@ -20,7 +20,8 @@ class LoginController: UIViewController, UITableViewDataSource, UITableViewDeleg
             case .success(let providers):
                 self.providers.append(contentsOf: providers)
                 self.providersTableView.reloadData()
-            case .failure(let error): print("initialize error \(error)")
+            case .failure(let error):
+                print("initialize error \(error)")
             }
         })
     }
@@ -33,7 +34,6 @@ class LoginController: UIViewController, UITableViewDataSource, UITableViewDeleg
     @IBAction func login(_ sender: Any) {
         let email = emailInput.text ?? ""
         let password = passwordInput.text ?? ""
-        print("Login email=\(email) password=\(password)")
         AppDelegate.shared().reachfive.loginWithPassword(username: email, password: password, scope: ReachFive.defaultScope, callback: { print($0) })
     }
     
@@ -55,8 +55,6 @@ class LoginController: UIViewController, UITableViewDataSource, UITableViewDeleg
         tableView.deselectRow(at: indexPath, animated: true)
         
         let selectedProvider = providers[indexPath.row]
-        
-        print("Select \(selectedProvider.name)")
         
         AppDelegate.reachfive().getProvider(name: selectedProvider.name)?.login(scope: ReachFive.defaultScope, origin: "home", viewController: self, callback: { result in print(result) })
     }
