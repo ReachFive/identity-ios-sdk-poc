@@ -133,6 +133,14 @@ public class ReachFive: NSObject {
             )
     }
     
+    public func updateProfile(
+        authToken: AuthToken,
+        profile: Profile,
+        callback: @escaping Callback<Profile, ReachFiveError>
+    ) {
+        reachFiveApi.updateProfile(authToken: authToken, profile: profile, callback: callback)
+    }
+    
     public func requestPasswordReset(
         authToken: AuthToken,
         email: String?,

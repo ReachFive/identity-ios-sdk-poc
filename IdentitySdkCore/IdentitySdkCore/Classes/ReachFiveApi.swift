@@ -70,7 +70,31 @@ public class ReachFiveApi {
 
     public func updateEmail(authToken: AuthToken, updateEmailRequest: UpdateEmailRequest, callback: @escaping Callback<Profile, ReachFiveError>) {
         Alamofire
-            .request(createUrl(path: "/identity/v1/update-email&device=\(deviceInfo)"), method: .post, parameters: updateEmailRequest.toJSON(), encoding: JSONEncoding.default)
+            .request(
+                createUrl(path: "/identity/v1/update-email&device=\(deviceInfo)"),
+                method: .post,
+                parameters: updateEmailRequest.toJSON(),
+                encoding: JSONEncoding.default,
+                headers: tokenHeader(authToken.accessToken)
+            )
+            .validate(statusCode: 200..<300)
+            .validate(contentType: ["application/json"])
+            .responseObject(completionHandler: handleResponse(callback: callback))
+    }
+    
+    public func updateProfile(
+        authToken: AuthToken,
+        profile: Profile,
+        callback: @escaping Callback<Profile, ReachFiveError>
+    ) {
+        Alamofire
+            .request(
+                createUrl(path: "/identity/v1/update-profile&device=\(deviceInfo)"),
+                method: .post,
+                parameters: profile.toJSON(),
+                encoding: JSONEncoding.default,
+                headers: tokenHeader(authToken.accessToken)
+            )
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
             .responseObject(completionHandler: handleResponse(callback: callback))
@@ -86,7 +110,8 @@ public class ReachFiveApi {
                 path: "/identity/v1/forgot-password&device=\(deviceInfo)"),
                 method: .post,
                 parameters: requestPasswordResetRequest.toJSON(),
-                encoding: JSONEncoding.default
+                encoding: JSONEncoding.default,
+                headers: tokenHeader(authToken.accessToken)
             )
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
