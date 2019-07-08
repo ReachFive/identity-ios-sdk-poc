@@ -76,6 +76,23 @@ public class ReachFiveApi {
             .responseObject(completionHandler: handleResponse(callback: callback))
     }
     
+    public func requestPasswordReset(
+        authToken: AuthToken,
+        requestPasswordResetRequest: RequestPasswordResetRequest,
+        callback: @escaping Callback<Void, ReachFiveError>
+    ) {
+        Alamofire
+            .request(createUrl(
+                path: "/identity/v1/forgot-password&device=\(deviceInfo)"),
+                method: .post,
+                parameters: requestPasswordResetRequest.toJSON(),
+                encoding: JSONEncoding.default
+            )
+            .validate(statusCode: 200..<300)
+            .validate(contentType: ["application/json"])
+            .response(completionHandler: handleVoidResponse(callback: callback))
+    }
+    
     func handleVoidResponse(callback: @escaping Callback<Void, ReachFiveError>) -> (DefaultDataResponse) -> Void {
         return {(response: DefaultDataResponse) -> Void in
             if response.error != nil {
