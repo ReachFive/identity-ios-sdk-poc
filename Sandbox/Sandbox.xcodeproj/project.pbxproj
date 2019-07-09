@@ -12,9 +12,20 @@
 		34173203229D6B6400681CFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34173201229D6B6400681CFD /* Main.storyboard */; };
 		34173205229D6B6400681CFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34173204229D6B6400681CFD /* Assets.xcassets */; };
 		34173208229D6B6400681CFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34173206229D6B6400681CFD /* LaunchScreen.storyboard */; };
+		3448FF5322D4E819008D0123 /* SandboxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3448FF5222D4E819008D0123 /* SandboxUITests.swift */; };
 		34797ABD22A9607D00ED093C /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34797ABC22A9607D00ED093C /* SignupController.swift */; };
 		ADC8995361C4AB125E775CCE /* Pods_Sandbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 514A43AA721312D19BFBD529 /* Pods_Sandbox.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3448FF5522D4E81A008D0123 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 341731F2229D6B6400681CFD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 341731F9229D6B6400681CFD;
+			remoteInfo = Sandbox;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		341731FA229D6B6400681CFD /* Sandbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sandbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +35,9 @@
 		34173204229D6B6400681CFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34173207229D6B6400681CFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34173209229D6B6400681CFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3448FF5022D4E819008D0123 /* SandboxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SandboxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3448FF5222D4E819008D0123 /* SandboxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandboxUITests.swift; sourceTree = "<group>"; };
+		3448FF5422D4E81A008D0123 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34797ABC22A9607D00ED093C /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
 		514A43AA721312D19BFBD529 /* Pods_Sandbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sandbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		75AC65C0735D780B9A6F4181 /* Pods-Sandbox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sandbox.release.xcconfig"; path = "Target Support Files/Pods-Sandbox/Pods-Sandbox.release.xcconfig"; sourceTree = "<group>"; };
@@ -39,6 +53,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3448FF4D22D4E819008D0123 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -46,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				341731FC229D6B6400681CFD /* Sandbox */,
+				3448FF5122D4E819008D0123 /* SandboxUITests */,
 				341731FB229D6B6400681CFD /* Products */,
 				8CD874808BCF122A3F9EDA83 /* Pods */,
 				A19C0883C2C3964994A2A248 /* Frameworks */,
@@ -56,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				341731FA229D6B6400681CFD /* Sandbox.app */,
+				3448FF5022D4E819008D0123 /* SandboxUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -72,6 +95,15 @@
 				34173209229D6B6400681CFD /* Info.plist */,
 			);
 			path = Sandbox;
+			sourceTree = "<group>";
+		};
+		3448FF5122D4E819008D0123 /* SandboxUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3448FF5222D4E819008D0123 /* SandboxUITests.swift */,
+				3448FF5422D4E81A008D0123 /* Info.plist */,
+			);
+			path = SandboxUITests;
 			sourceTree = "<group>";
 		};
 		8CD874808BCF122A3F9EDA83 /* Pods */ = {
@@ -114,6 +146,24 @@
 			productReference = 341731FA229D6B6400681CFD /* Sandbox.app */;
 			productType = "com.apple.product-type.application";
 		};
+		3448FF4F22D4E819008D0123 /* SandboxUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3448FF5722D4E81A008D0123 /* Build configuration list for PBXNativeTarget "SandboxUITests" */;
+			buildPhases = (
+				3448FF4C22D4E819008D0123 /* Sources */,
+				3448FF4D22D4E819008D0123 /* Frameworks */,
+				3448FF4E22D4E819008D0123 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3448FF5622D4E81A008D0123 /* PBXTargetDependency */,
+			);
+			name = SandboxUITests;
+			productName = SandboxUITests;
+			productReference = 3448FF5022D4E819008D0123 /* SandboxUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -129,6 +179,10 @@
 				TargetAttributes = {
 					341731F9229D6B6400681CFD = {
 						CreatedOnToolsVersion = 10.2.1;
+					};
+					3448FF4F22D4E819008D0123 = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 341731F9229D6B6400681CFD;
 					};
 				};
 			};
@@ -146,6 +200,7 @@
 			projectRoot = "";
 			targets = (
 				341731F9229D6B6400681CFD /* Sandbox */,
+				3448FF4F22D4E819008D0123 /* SandboxUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -158,6 +213,13 @@
 				34173208229D6B6400681CFD /* LaunchScreen.storyboard in Resources */,
 				34173205229D6B6400681CFD /* Assets.xcassets in Resources */,
 				34173203229D6B6400681CFD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3448FF4E22D4E819008D0123 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,7 +295,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3448FF4C22D4E819008D0123 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3448FF5322D4E819008D0123 /* SandboxUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3448FF5622D4E81A008D0123 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 341731F9229D6B6400681CFD /* Sandbox */;
+			targetProxy = 3448FF5522D4E81A008D0123 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		34173201229D6B6400681CFD /* Main.storyboard */ = {
@@ -411,6 +489,44 @@
 			};
 			name = Release;
 		};
+		3448FF5822D4E81A008D0123 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6X8RPJDRWS;
+				INFOPLIST_FILE = SandboxUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.reach5.SandboxUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Sandbox;
+			};
+			name = Debug;
+		};
+		3448FF5922D4E81A008D0123 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6X8RPJDRWS;
+				INFOPLIST_FILE = SandboxUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.reach5.SandboxUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Sandbox;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -428,6 +544,15 @@
 			buildConfigurations = (
 				3417320D229D6B6400681CFD /* Debug */,
 				3417320E229D6B6400681CFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3448FF5722D4E81A008D0123 /* Build configuration list for PBXNativeTarget "SandboxUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3448FF5822D4E81A008D0123 /* Debug */,
+				3448FF5922D4E81A008D0123 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
