@@ -35,16 +35,51 @@ public class WebViewController: UIViewController, WKNavigationDelegate, WKUIDele
         webViewContainer.sendSubviewToBack(webView)
         addConstraints(to: webView, with: webViewContainer)
         
+        if #available(iOS 11.0, *) {
+            webView.frame = webViewContainer.safeAreaLayoutGuide.layoutFrame
+        }
+        
         let url = URL(string: self.url!)!
         webView.load(URLRequest(url: url))
     }
     
     func addConstraints(to webView: UIView, with superView: UIView) {
         webView.translatesAutoresizingMaskIntoConstraints = false
-        let leadingConstraint = NSLayoutConstraint(item: webView, attribute: .leading, relatedBy: .equal, toItem: superView, attribute: .leading, multiplier: 1, constant: 0)
-        let trailingConstraint = NSLayoutConstraint(item: webView, attribute: .trailing, relatedBy: .equal, toItem: superView, attribute: .trailing, multiplier: 1, constant: 0)
-        let topConstraint = NSLayoutConstraint(item: webView, attribute: .top, relatedBy: .equal, toItem: superView, attribute: .top, multiplier: 1, constant: 0)
-        let bottomConstraint = NSLayoutConstraint(item: webView, attribute: .bottom, relatedBy: .equal, toItem: superView, attribute: .bottom, multiplier: 1, constant: 0)
+        let leadingConstraint = NSLayoutConstraint(
+            item: webView,
+            attribute: .leading,
+            relatedBy: .equal,
+            toItem: superView,
+            attribute: .leading,
+            multiplier: 1,
+            constant: 0
+        )
+        let trailingConstraint = NSLayoutConstraint(
+            item: webView,
+            attribute: .trailing,
+            relatedBy: .equal,
+            toItem: superView,
+            attribute: .trailing,
+            multiplier: 1,
+            constant: 0
+        )
+        let topConstraint = NSLayoutConstraint(
+            item: webView,
+            attribute: .top,
+            relatedBy: .equal,
+            toItem: superView,
+            attribute: .top,
+            multiplier: 1, constant: 0
+        )
+        let bottomConstraint = NSLayoutConstraint(
+            item: webView,
+            attribute: .bottom,
+            relatedBy: .equal,
+            toItem: superView,
+            attribute: .bottom,
+            multiplier: 1,
+            constant: 0
+        )
         superView.addConstraints([leadingConstraint, trailingConstraint, topConstraint, bottomConstraint])
     }
     
