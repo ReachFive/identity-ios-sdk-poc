@@ -56,7 +56,6 @@ class ConfiguredWebViewProvider: NSObject, Provider {
         }
         
         viewController?.present(webViewController, animated: true, completion: { () in })
-        //viewController?.show(webViewController, sender: nil)
     }
     
     public func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
