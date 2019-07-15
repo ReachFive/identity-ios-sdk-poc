@@ -83,6 +83,10 @@ public class ConfiguredGoogleProvider: NSObject, Provider, GIDSignInDelegate, GI
     
     public func applicationDidBecomeActive(_ application: UIApplication) {}
     
+    public func logout() {
+        GIDSignIn.sharedInstance()?.disconnect()
+    }
+    
     public override var description: String {
         return "Provider: \(name)"
     }
