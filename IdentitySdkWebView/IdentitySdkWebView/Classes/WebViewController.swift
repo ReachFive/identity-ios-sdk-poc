@@ -66,6 +66,11 @@ public class WebViewController: UIViewController, WKNavigationDelegate, WKUIDele
         }
     }
     
+    public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        self.loader.stopAnimating()
+        self.loader.removeFromSuperview()
+    }
+    
     func parseQueriesStrings(query: String) -> Dictionary<String, String?> {
         return query.split(separator: "&").reduce(Dictionary<String, String?>(), { ( acc, param) in
             var mutAcc = acc

@@ -22,9 +22,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="MiZ-e5-HPe">
-                                <rect key="frame" x="177" y="323" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="MiZ-e5-HPe">
+                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -32,7 +31,9 @@
                             <constraint firstItem="TIA-Ny-4wE" firstAttribute="trailing" secondItem="F3g-XZ-8LV" secondAttribute="trailing" id="0I8-NJ-eps"/>
                             <constraint firstItem="TIA-Ny-4wE" firstAttribute="top" secondItem="tYC-E3-Xmi" secondAttribute="top" id="5ZQ-5w-vZi"/>
                             <constraint firstItem="TIA-Ny-4wE" firstAttribute="bottom" secondItem="F3g-XZ-8LV" secondAttribute="bottom" id="Dfb-sh-1fO"/>
+                            <constraint firstItem="MiZ-e5-HPe" firstAttribute="centerY" secondItem="tYC-E3-Xmi" secondAttribute="centerY" id="Qik-fd-Ytj"/>
                             <constraint firstItem="TIA-Ny-4wE" firstAttribute="leading" secondItem="F3g-XZ-8LV" secondAttribute="leading" id="aon-8A-iZZ"/>
+                            <constraint firstItem="MiZ-e5-HPe" firstAttribute="centerX" secondItem="tYC-E3-Xmi" secondAttribute="centerX" id="bf3-kg-W5G"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="F3g-XZ-8LV"/>
                     </view>
