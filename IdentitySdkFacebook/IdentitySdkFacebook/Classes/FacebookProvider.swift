@@ -19,7 +19,6 @@ public class FacebookProvider: ProviderCreator {
 
 public class ConfiguredFacebookProvider: NSObject, Provider {
     public var name: String = FacebookProvider.NAME
-    var loginManager: LoginManager?
 
     var sdkConfig: SdkConfig
     var providerConfig: ProviderConfig
@@ -36,8 +35,7 @@ public class ConfiguredFacebookProvider: NSObject, Provider {
     }
     
     public func login(scope: [String], origin: String, viewController: UIViewController?, callback: @escaping Callback<AuthToken, ReachFiveError>) {
-        self.loginManager = LoginManager()
-        self.loginManager?.logIn(permissions: [.email, .publicProfile], viewController: viewController) { result in
+        LoginManager().logIn(permissions: [.email, .publicProfile], viewController: viewController) { result in
             switch (result) {
             case .success(_, _, let token):
                 let loginProviderRequest = LoginProviderRequest(
@@ -78,6 +76,6 @@ public class ConfiguredFacebookProvider: NSObject, Provider {
     }
     
     public func logout() {
-        self.loginManager?.logOut()
+        LoginManager().logOut()
     }
 }
