@@ -91,6 +91,10 @@ public class ReachFive: NSObject {
         reachFiveApi.loginWithPassword(loginRequest: loginRequest, callback: handleAuthResponse(callback: callback))
     }
     
+    public func getProfile(authToken: AuthToken, callback: @escaping Callback<UserProfile, ReachFiveError>) {
+        reachFiveApi.getProfile(authToken: authToken, callback: callback)
+    }
+    
     public func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         for provider in providers {
             let _ = provider.application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)

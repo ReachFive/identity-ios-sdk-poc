@@ -10,6 +10,15 @@ class ProfileController: UIViewController {
         super.viewDidLoad()
         
         self.nameLabel?.text = self.authToken?.user?.name
+        
+        AppDelegate.reachfive().getProfile(authToken: self.authToken!, callback: { result in
+            switch result {
+            case .success(let profile):
+                print("Profile = \(profile)")
+            case .failure(let error):
+                print(error)
+            }
+        })
     }
 
     @IBAction func logoutAction(_ sender: Any) {
