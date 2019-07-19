@@ -258,32 +258,6 @@ public class UserProfile: NSObject, ImmutableMappable {
     public override var description: String {
         return self.toJSONString(prettyPrint: true) ?? super.description
     }
-    
-    // public let birthDate: String?
-    // public let birthDay: Int?
-    // public let birthMonth: Int?
-    // public let birthYear: Int?
-    // public let city: String?
-    // public let country: String?
-    // public let hometown: String?
-    // public let identities: [Identity]? // TODO
-    // public let likes: [Like]? // TODO
-    // public let educationLevel: String?
-    // public let relationshipStatus: String?
-    // public let professionalHeadline: String?
-    // public let professionalIndustry: String?
-    // public let company: String?
-    // public let friends: [Friend]? // TODO
-    // public let followersCount: Int?
-    // public let friendsCount: Int?
-    // public let likesCount: Int?
-    // public let audiences: [Segment]? // TODO
-    // public let interests: [Interest]? // TODO
-    // public let signins: [UserEvent]? // TODO
-    // public let facebookIdsForPages: [FacebookIdForPage]? // TODO
-    // public let nameAlias: String?
-    // public let givenNameAlias: String?
-    // public let familyNameAlias: String?
 }
 
 public class Emails: NSObject, ImmutableMappable {
