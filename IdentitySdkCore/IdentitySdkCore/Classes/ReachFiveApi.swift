@@ -54,7 +54,7 @@ public class ReachFiveApi {
             .responseObject(completionHandler: handleResponse(callback: callback))
     }
     
-    public func getProfile(authToken: AuthToken, callback: @escaping Callback<UserProfile, ReachFiveError>) {
+    public func getProfile(authToken: AuthToken, callback: @escaping Callback<Profile, ReachFiveError>) {
         Alamofire
             .request(
                 createUrl(path: "/identity/v1/me?device=\(deviceInfo)"),
@@ -96,7 +96,7 @@ public class ReachFiveApi {
     
     public func updateProfile(
         authToken: AuthToken,
-        profile: Profile,
+        profile: ProfileRequest,
         callback: @escaping Callback<Profile, ReachFiveError>
     ) {
         Alamofire

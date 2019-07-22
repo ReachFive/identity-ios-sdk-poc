@@ -70,7 +70,7 @@ public class ReachFive: NSObject {
         }
     }
     
-    public func signupWithPassword(profile: Profile, scope: [String], callback: @escaping Callback<AuthToken, ReachFiveError>) {
+    public func signupWithPassword(profile: ProfileRequest, scope: [String], callback: @escaping Callback<AuthToken, ReachFiveError>) {
         let signupRequest = SignupRequest(
             clientId: sdkConfig.clientId,
             data: profile,
@@ -91,7 +91,7 @@ public class ReachFive: NSObject {
         reachFiveApi.loginWithPassword(loginRequest: loginRequest, callback: handleAuthResponse(callback: callback))
     }
     
-    public func getProfile(authToken: AuthToken, callback: @escaping Callback<UserProfile, ReachFiveError>) {
+    public func getProfile(authToken: AuthToken, callback: @escaping Callback<Profile, ReachFiveError>) {
         reachFiveApi.getProfile(authToken: authToken, callback: callback)
     }
     
@@ -147,7 +147,7 @@ public class ReachFive: NSObject {
     
     public func updateProfile(
         authToken: AuthToken,
-        profile: Profile,
+        profile: ProfileRequest,
         callback: @escaping Callback<Profile, ReachFiveError>
     ) {
         reachFiveApi.updateProfile(authToken: authToken, profile: profile, callback: callback)

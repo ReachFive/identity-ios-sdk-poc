@@ -1,7 +1,7 @@
 import Foundation
 import ObjectMapper
 
-public class ProfileAddress: NSObject, ImmutableMappable {
+public class AddressRequest: NSObject, ImmutableMappable {
     public let formatted: String
     public let streetAddress: String
     public let locality: String
