@@ -2,20 +2,20 @@ import Foundation
 import ObjectMapper
 
 public class AddressRequest: NSObject, ImmutableMappable {
-    public let formatted: String
-    public let streetAddress: String
-    public let locality: String
-    public let region: String
-    public let postalCode: String
-    public let country: String
+    public let formatted: String?
+    public let streetAddress: String?
+    public let locality: String?
+    public let region: String?
+    public let postalCode: String?
+    public let country: String?
     
     public init(
-        formatted: String,
-        streetAddress: String,
-        locality: String,
-        region: String,
-        postalCode: String,
-        country: String
+        formatted: String?,
+        streetAddress: String?,
+        locality: String?,
+        region: String?,
+        postalCode: String?,
+        country: String?
     ) {
         self.formatted = formatted
         self.streetAddress = streetAddress
@@ -26,12 +26,12 @@ public class AddressRequest: NSObject, ImmutableMappable {
     }
     
     public required init(map: Map) throws {
-        formatted = try map.value("formatted")
-        streetAddress = try map.value("streetAddress")
-        locality = try map.value("locality")
-        region = try map.value("region")
-        postalCode = try map.value("postalCode")
-        country = try map.value("country")
+        formatted = try? map.value("formatted")
+        streetAddress = try? map.value("streetAddress")
+        locality = try? map.value("locality")
+        region = try? map.value("region")
+        postalCode = try? map.value("postalCode")
+        country = try? map.value("country")
     }
     
     public func mapping(map: Map) {

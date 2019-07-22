@@ -36,7 +36,7 @@ public class ProfileRequest: NSObject, ImmutableMappable {
         locale: String? = nil,
         address: AddressRequest? = nil,
         customFields: Dictionary<String, Any>? = nil
-        ) {
+    ) {
         self.email = email
         self.password = password
         self.phoneNumber = phoneNumber
