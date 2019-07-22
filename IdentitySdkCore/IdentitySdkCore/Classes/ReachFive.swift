@@ -19,15 +19,7 @@ public class ReachFive: NSObject {
         self.providersCreators = providersCreators
         self.reachFiveApi = ReachFiveApi(sdkConfig: sdkConfig)
     }
-    
-    internal func handleAuthResponse(callback: @escaping Callback<AuthToken, ReachFiveError>) -> Callback<AccessTokenResponse, ReachFiveError> {
-        return { response in
-            callback(response.flatMap { openIdTokenResponse in
-                AuthToken.fromOpenIdTokenResponse(openIdTokenResponse: openIdTokenResponse)
-            })
-        }
-    }
-        
+            
     public func logout(authToken: AuthToken, callback: @escaping Callback<Void, ReachFiveError>) {
         for provider in self.providers {
             provider.logout()

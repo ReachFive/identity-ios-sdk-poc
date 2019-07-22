@@ -68,4 +68,12 @@ public extension ReachFive {
                 callback: callback
         )
     }
+    
+    internal func handleAuthResponse(callback: @escaping Callback<AuthToken, ReachFiveError>) -> Callback<AccessTokenResponse, ReachFiveError> {
+        return { response in
+            callback(response.flatMap { openIdTokenResponse in
+                AuthToken.fromOpenIdTokenResponse(openIdTokenResponse: openIdTokenResponse)
+            })
+        }
+    }
 }
