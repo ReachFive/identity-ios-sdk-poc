@@ -54,6 +54,7 @@ class ConfiguredWebViewProvider: NSObject, Provider {
                 callback(.failure(.TechnicalError(reason: error.localizedDescription)))
             }
         }
+        
         viewController?.show(webViewController, sender: nil)
     }
     
@@ -68,6 +69,8 @@ class ConfiguredWebViewProvider: NSObject, Provider {
     public func applicationDidBecomeActive(_ application: UIApplication) {
         
     }
+    
+    public func logout() {}
     
     func buildUrl(sdkConfig: SdkConfig, providerConfig: ProviderConfig, scope: [String], pkce: Pkce) -> String {
         let params = [
