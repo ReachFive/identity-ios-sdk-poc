@@ -30,7 +30,7 @@ public class Address: NSObject, ImmutableMappable {
         recipient: String?,
         company: String?,
         phoneNumber: String?
-        ) {
+    ) {
         self.title = title
         self.isDefault = isDefault
         self.addressType = addressType
