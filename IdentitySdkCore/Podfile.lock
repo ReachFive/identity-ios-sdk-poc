@@ -4,12 +4,22 @@ PODS:
     - Alamofire (~> 4.7)
     - ObjectMapper (~> 3.4)
   - CryptoSwift (1.0.0)
-  - ObjectMapper (3.4.2)
+  - ObjectMapper (3.5.1)
+  - PromiseKit (6.10.0):
+    - PromiseKit/CorePromise (= 6.10.0)
+    - PromiseKit/Foundation (= 6.10.0)
+    - PromiseKit/UIKit (= 6.10.0)
+  - PromiseKit/CorePromise (6.10.0)
+  - PromiseKit/Foundation (6.10.0):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.10.0):
+    - PromiseKit/CorePromise
 
 DEPENDENCIES:
   - Alamofire (~> 4.8.1)
   - AlamofireObjectMapper (~> 5.2)
   - CryptoSwift (~> 1.0.0)
+  - PromiseKit (~> 6.10.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -17,13 +27,15 @@ SPEC REPOS:
     - AlamofireObjectMapper
     - CryptoSwift
     - ObjectMapper
+    - PromiseKit
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   AlamofireObjectMapper: 92b6ce2423a9d159e686f6a1d514a009bf903ddc
   CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
-  ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
+  ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
+  PromiseKit: 1fdaeb6c0a94a5114fcb814ff3d772b86886ad4e
 
-PODFILE CHECKSUM: 1dd29596cc90527164e55c82b1231c6c2ab6a7f1
+PODFILE CHECKSUM: 31360170483fd895e19d01749b2ab923da535165
 
-COCOAPODS: 1.7.3
+COCOAPODS: 1.7.4

@@ -12,7 +12,7 @@ public class ReachFive: NSObject {
     let reachFiveApi: ReachFiveApi
     var providers: [Provider] = []
     
-    public static let defaultScope = ["openid", "email", "profile", "phone"]
+    public static let defaultScope = ["openid", "email", "profile", "phone", "offline_access"]
     
     public init(sdkConfig: SdkConfig, providersCreators: Array<ProviderCreator>) {
         self.sdkConfig = sdkConfig

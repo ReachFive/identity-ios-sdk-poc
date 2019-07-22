@@ -1,4 +1,5 @@
 import Foundation
+import PromiseKit
 import Alamofire
 import AlamofireObjectMapper
 
@@ -20,6 +21,14 @@ public class ReachFiveApi {
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
             .responseObject(completionHandler: handleResponse(callback: callback))
+    }
+    
+    public func _providersConfigs() -> Promise<ProvidersConfigsResult> {
+        Alamofire
+            .request(createUrl(path: "/api/v1/providers?platform=ios&device=\(deviceInfo)"))
+            .validate(statusCode: 200..<300)
+            .validate(contentType: ["application/json"])
+            .responseDecodable(queue: DispatchQueue.global())
     }
     
     public func loginWithProvider(loginProviderRequest: LoginProviderRequest, callback: @escaping Callback<AccessTokenResponse, ReachFiveError>) {
@@ -159,6 +168,7 @@ public class ReachFiveApi {
     }
     
     func handleResponse<T>(callback: @escaping Callback<T, ReachFiveError>) -> ResponseHandler<T> {
+        
         return {(response: DataResponse<T>) -> Void in
             let data = response.data
             switch response.result {

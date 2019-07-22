@@ -19,6 +19,8 @@ Pod::Spec.new do |spec|
 
   spec.dependency 'Alamofire', '~> 4.8'
   spec.dependency 'AlamofireObjectMapper', '~> 5.2'
+  spec.dependency 'PromiseKit', '~> 6.10.0'
+  spec.dependency 'PromiseKit/Alamofire', '~> 6.10.0'
   spec.dependency 'CryptoSwift', '~> 1.0.0'
   spec.dependency 'AlamofireNetworkLogger'
 end
