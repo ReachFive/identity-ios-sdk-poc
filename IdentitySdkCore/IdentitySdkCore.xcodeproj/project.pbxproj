@@ -30,6 +30,9 @@
 		34BDDA3A22E5BF1C00D16DAE /* UserConsent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BDDA3922E5BF1C00D16DAE /* UserConsent.swift */; };
 		34BDDA3C22E5BF3600D16DAE /* Emails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BDDA3B22E5BF3600D16DAE /* Emails.swift */; };
 		34BDDA3E22E5BFAC00D16DAE /* ProfileRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BDDA3D22E5BFAC00D16DAE /* ProfileRequest.swift */; };
+		34BDDA4022E5D73900D16DAE /* ReachFiveProviders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BDDA3F22E5D73900D16DAE /* ReachFiveProviders.swift */; };
+		34BDDA4222E5D87E00D16DAE /* ReachFivePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BDDA4122E5D87E00D16DAE /* ReachFivePassword.swift */; };
+		34BDDA4422E5D95B00D16DAE /* ReachFiveProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BDDA4322E5D95B00D16DAE /* ReachFiveProfile.swift */; };
 		34E18B8822A66EEF00952EBD /* Callback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E18B8722A66EEF00952EBD /* Callback.swift */; };
 		34E18B8A22A6985C00952EBD /* SignupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E18B8922A6985C00952EBD /* SignupRequest.swift */; };
 		34E18B8C22A6BEC900952EBD /* AccessTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E18B8B22A6BEC900952EBD /* AccessTokenResponse.swift */; };
@@ -65,6 +68,9 @@
 		34BDDA3922E5BF1C00D16DAE /* UserConsent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConsent.swift; sourceTree = "<group>"; };
 		34BDDA3B22E5BF3600D16DAE /* Emails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emails.swift; sourceTree = "<group>"; };
 		34BDDA3D22E5BFAC00D16DAE /* ProfileRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRequest.swift; sourceTree = "<group>"; };
+		34BDDA3F22E5D73900D16DAE /* ReachFiveProviders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachFiveProviders.swift; sourceTree = "<group>"; };
+		34BDDA4122E5D87E00D16DAE /* ReachFivePassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachFivePassword.swift; sourceTree = "<group>"; };
+		34BDDA4322E5D95B00D16DAE /* ReachFiveProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachFiveProfile.swift; sourceTree = "<group>"; };
 		34E18B8722A66EEF00952EBD /* Callback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Callback.swift; sourceTree = "<group>"; };
 		34E18B8922A6985C00952EBD /* SignupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupRequest.swift; sourceTree = "<group>"; };
 		34E18B8B22A6BEC900952EBD /* AccessTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenResponse.swift; sourceTree = "<group>"; };
@@ -94,6 +100,9 @@
 				34689A9A22CE3E34002970F9 /* utils */,
 				34E18B8D22A6C13100952EBD /* models */,
 				347FDB66229C02FE00660687 /* ReachFive.swift */,
+				34BDDA3F22E5D73900D16DAE /* ReachFiveProviders.swift */,
+				34BDDA4122E5D87E00D16DAE /* ReachFivePassword.swift */,
+				34BDDA4322E5D95B00D16DAE /* ReachFiveProfile.swift */,
 				347FDB53229BE8F800660687 /* Provider.swift */,
 				34F7D3E322A54AA2003A7BC0 /* ReachFiveApi.swift */,
 				3404A40722CB9B7E002FFEDB /* ReachFiveError.swift */,
@@ -303,6 +312,7 @@
 				34E18B8C22A6BEC900952EBD /* AccessTokenResponse.swift in Sources */,
 				34689AA122CE5D08002970F9 /* UpdateEmailRequest.swift in Sources */,
 				34689A9122CDFAE4002970F9 /* Profile.swift in Sources */,
+				34BDDA4222E5D87E00D16DAE /* ReachFivePassword.swift in Sources */,
 				34BDDA3C22E5BF3600D16DAE /* Emails.swift in Sources */,
 				34689A9C22CE3E57002970F9 /* Base64.swift in Sources */,
 				34BDDA3622E5BE6000D16DAE /* Address.swift in Sources */,
@@ -319,6 +329,8 @@
 				34689A9E22CE4666002970F9 /* VerifyPhoneNumberRequest.swift in Sources */,
 				3404A40C22CBA6DD002FFEDB /* AuthCodeRequest.swift in Sources */,
 				34BDDA3E22E5BFAC00D16DAE /* ProfileRequest.swift in Sources */,
+				34BDDA4422E5D95B00D16DAE /* ReachFiveProfile.swift in Sources */,
+				34BDDA4022E5D73900D16DAE /* ReachFiveProviders.swift in Sources */,
 				347FDB67229C02FE00660687 /* ReachFive.swift in Sources */,
 				34E18B8F22A6C32500952EBD /* LoginRequest.swift in Sources */,
 				34689A9922CDFC24002970F9 /* LoginProviderRequest.swift in Sources */,
