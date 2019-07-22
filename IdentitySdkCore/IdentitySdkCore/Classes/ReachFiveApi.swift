@@ -96,7 +96,7 @@ public class ReachFiveApi {
     
     public func updateProfile(
         authToken: AuthToken,
-        profile: ProfileRequest,
+        profile: Profile,
         callback: @escaping Callback<Profile, ReachFiveError>
     ) {
         Alamofire

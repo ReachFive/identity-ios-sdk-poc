@@ -19,6 +19,17 @@ class ProfileController: UIViewController {
                 print(error)
             }
         })
+        
+        AppDelegate.reachfive().updateProfile(
+            authToken: self.authToken!,
+            profile: Profile(nickname: "Updated nickname"),
+            callback: { result in
+                result.map { profile in
+                    self.nameLabel?.text = profile.nickname
+                }
+            }
+        )
+        
     }
 
     @IBAction func logoutAction(_ sender: Any) {

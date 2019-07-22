@@ -37,7 +37,7 @@ public extension ReachFive {
     
     func updateProfile(
         authToken: AuthToken,
-        profile: ProfileRequest,
+        profile: Profile,
         callback: @escaping Callback<Profile, ReachFiveError>
     ) {
         reachFiveApi.updateProfile(authToken: authToken, profile: profile, callback: callback)
