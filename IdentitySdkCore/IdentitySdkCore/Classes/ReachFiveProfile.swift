@@ -10,7 +10,7 @@ public extension ReachFive {
         phoneNumber: String,
         verificationCode: String,
         callback: @escaping Callback<Void, ReachFiveError>
-        ) {
+    ) {
         let verifyPhoneNumberRequest = VerifyPhoneNumberRequest(phoneNumber: phoneNumber, verificationCode: verificationCode)
         reachFiveApi
             .verifyPhoneNumber(
@@ -25,7 +25,7 @@ public extension ReachFive {
         email: String,
         redirectUrl: String? = nil,
         callback: @escaping Callback<Profile, ReachFiveError>
-        ) {
+    ) {
         let updateEmailRequest = UpdateEmailRequest(email: email, redirectUrl: redirectUrl)
         reachFiveApi
             .updateEmail(
@@ -39,7 +39,7 @@ public extension ReachFive {
         authToken: AuthToken,
         profile: ProfileRequest,
         callback: @escaping Callback<Profile, ReachFiveError>
-        ) {
+    ) {
         reachFiveApi.updateProfile(authToken: authToken, profile: profile, callback: callback)
     }
     
@@ -47,7 +47,7 @@ public extension ReachFive {
         authToken: AuthToken,
         updatePasswordRequest: UpdatePasswordRequest,
         callback: @escaping Callback<Void, ReachFiveError>
-        ) {
+    ) {
         reachFiveApi.updatePassword(authToken: authToken, updatePasswordRequest: updatePasswordRequest, callback: callback)
     }
     
@@ -57,7 +57,7 @@ public extension ReachFive {
         phoneNumber: String?,
         redirectUrl: String? = nil,
         callback: @escaping Callback<Void, ReachFiveError>
-        ) {
+    ) {
         let requestPasswordResetRequest = RequestPasswordResetRequest(
             clientId: sdkConfig.clientId, email: email, phoneNumber: phoneNumber, redirectUrl: redirectUrl
         )
