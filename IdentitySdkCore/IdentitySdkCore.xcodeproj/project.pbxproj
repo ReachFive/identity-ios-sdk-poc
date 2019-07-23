@@ -27,7 +27,7 @@
 		34B5295A22D376FF00B7B6AA /* Pkce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B5295922D376FF00B7B6AA /* Pkce.swift */; };
 		34BDDA3622E5BE6000D16DAE /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BDDA3522E5BE6000D16DAE /* Address.swift */; };
 		34BDDA3822E5BE8C00D16DAE /* LoginSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BDDA3722E5BE8C00D16DAE /* LoginSummary.swift */; };
-		34BDDA3A22E5BF1C00D16DAE /* UserConsent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BDDA3922E5BF1C00D16DAE /* UserConsent.swift */; };
+		34BDDA3A22E5BF1C00D16DAE /* Consent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BDDA3922E5BF1C00D16DAE /* Consent.swift */; };
 		34BDDA3C22E5BF3600D16DAE /* Emails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BDDA3B22E5BF3600D16DAE /* Emails.swift */; };
 		34BDDA3E22E5BFAC00D16DAE /* ProfileRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BDDA3D22E5BFAC00D16DAE /* ProfileRequest.swift */; };
 		34BDDA4022E5D73900D16DAE /* ReachFiveProviders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BDDA3F22E5D73900D16DAE /* ReachFiveProviders.swift */; };
@@ -65,7 +65,7 @@
 		34B5295922D376FF00B7B6AA /* Pkce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pkce.swift; sourceTree = "<group>"; };
 		34BDDA3522E5BE6000D16DAE /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		34BDDA3722E5BE8C00D16DAE /* LoginSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSummary.swift; sourceTree = "<group>"; };
-		34BDDA3922E5BF1C00D16DAE /* UserConsent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConsent.swift; sourceTree = "<group>"; };
+		34BDDA3922E5BF1C00D16DAE /* Consent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consent.swift; sourceTree = "<group>"; };
 		34BDDA3B22E5BF3600D16DAE /* Emails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emails.swift; sourceTree = "<group>"; };
 		34BDDA3D22E5BFAC00D16DAE /* ProfileRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRequest.swift; sourceTree = "<group>"; };
 		34BDDA3F22E5D73900D16DAE /* ReachFiveProviders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachFiveProviders.swift; sourceTree = "<group>"; };
@@ -178,7 +178,7 @@
 				34689A9622CDFB5F002970F9 /* AuthToken.swift */,
 				34BDDA3522E5BE6000D16DAE /* Address.swift */,
 				34BDDA3722E5BE8C00D16DAE /* LoginSummary.swift */,
-				34BDDA3922E5BF1C00D16DAE /* UserConsent.swift */,
+				34BDDA3922E5BF1C00D16DAE /* Consent.swift */,
 				34BDDA3B22E5BF3600D16DAE /* Emails.swift */,
 			);
 			path = models;
@@ -323,7 +323,7 @@
 				34F7D3E622A54ADE003A7BC0 /* ProvidersConfigsResult.swift in Sources */,
 				34E18B8822A66EEF00952EBD /* Callback.swift in Sources */,
 				34689A9722CDFB5F002970F9 /* AuthToken.swift in Sources */,
-				34BDDA3A22E5BF1C00D16DAE /* UserConsent.swift in Sources */,
+				34BDDA3A22E5BF1C00D16DAE /* Consent.swift in Sources */,
 				34689A9522CDFB39002970F9 /* OpenIdUser.swift in Sources */,
 				340DA24822CF4CB200864149 /* UIDevice.swift in Sources */,
 				34689A9E22CE4666002970F9 /* VerifyPhoneNumberRequest.swift in Sources */,

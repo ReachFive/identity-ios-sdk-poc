@@ -26,7 +26,7 @@ public class Profile: NSObject, ImmutableMappable {
     public let locale: String?
     public let bio: String?
     public let customFields: [String: Any]?
-    public let consents: [String: UserConsent]?
+    public let consents: [String: Consent]?
     public let tosAcceptedAt: String?
     public let createdAt: String?
     public let updatedAt: String?

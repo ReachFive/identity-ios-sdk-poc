@@ -1,7 +1,7 @@
 import Foundation
 import ObjectMapper
 
-public class UserConsent: NSObject, ImmutableMappable {
+public class Consent: NSObject, ImmutableMappable {
     public let granted: Bool
     public let consentType: String?
     public let date: String
