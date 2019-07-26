@@ -41,12 +41,12 @@ PODS:
   - IdentitySdkFacebook (4.0.0-beta.13):
     - FacebookCore (~> 0.7)
     - FacebookLogin (~> 0.7)
-    - IdentitySdkCore (~> 4.0.0-beta.13)
+    - IdentitySdkCore (~> 4.0.0-beta.12)
   - IdentitySdkGoogle (4.0.0-beta.13):
     - GoogleSignIn (~> 4.4)
-    - IdentitySdkCore (~> 4.0.0-beta.13)
+    - IdentitySdkCore (~> 4.0.0-beta.12)
   - IdentitySdkWebView (4.0.0-beta.13):
-    - IdentitySdkCore (~> 4.0.0-beta.13)
+    - IdentitySdkCore (~> 4.0.0-beta.12)
   - ObjectMapper (3.5.1)
 
 DEPENDENCIES:
@@ -93,9 +93,9 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: b3553629623a3b1bff17f555e736cd5a6d95ad55
   GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
   IdentitySdkCore: 5ebf323e9b5f7a9c00cfe23624e228fb01690fc5
-  IdentitySdkFacebook: 56dc24636238ceba102f5a78f69e3173e9a51ede
-  IdentitySdkGoogle: df8de3f9bb358cd65277d21f0e3d46279ecd0309
-  IdentitySdkWebView: 4407781a848972bbd2e344163171e53543a408fc
+  IdentitySdkFacebook: 18a8032b5e4f0e8e82ef29012d0e81406407e015
+  IdentitySdkGoogle: df1f53e1f351de28c453da97d4c36e5a4d9c6044
+  IdentitySdkWebView: b63991e24a08e5d0954d2cc88c743fe1e66ceb07
   ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
 
 PODFILE CHECKSUM: fb852a36c23ddc28f1c6bc4091d4d7dbb51df6f9

@@ -1,7 +1,7 @@
 import Foundation
 import ObjectMapper
 
-public class ProfileRequest: NSObject, ImmutableMappable {
+public class ProfileSignupRequest: NSObject, ImmutableMappable {
     public let password: String
     public let email: String?
     public let phoneNumber: String?
