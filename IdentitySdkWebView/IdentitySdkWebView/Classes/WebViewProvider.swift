@@ -1,4 +1,5 @@
 import Foundation
+import SafariServices
 import IdentitySdkCore
 
 public class WebViewProvider: ProviderCreator {
@@ -13,7 +14,7 @@ public class WebViewProvider: ProviderCreator {
     }
 }
 
-class ConfiguredWebViewProvider: NSObject, Provider {
+class ConfiguredWebViewProvider: NSObject, Provider, SFSafariViewControllerDelegate {
     var name: String = WebViewProvider.NAME
     
     let sdkConfig: SdkConfig
@@ -54,15 +55,17 @@ class ConfiguredWebViewProvider: NSObject, Provider {
                 callback(.failure(.TechnicalError(reason: error.localizedDescription)))
             }
         }
+
+        let safariViewController = SFSafariViewController.init(url: URL(string: url)!)
         
-        viewController?.show(webViewController, sender: nil)
-    }
-    
-    public func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        return true
+        viewController?.present(safariViewController, animated: true)
     }
     
     public func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
+        return true
+    }
+    
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         return true
     }
     
