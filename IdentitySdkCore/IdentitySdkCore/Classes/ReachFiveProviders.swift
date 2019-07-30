@@ -12,7 +12,6 @@ public extension ReachFive {
     func initialize(callback: @escaping Callback<[Provider], ReachFiveError>) {
         switch self.state {
         case .NotInitialazed:
-            debugPrint("TEST1")
             reachFiveApi.clientConfig(callback: { configResult in
                 configResult.map({ clientConfig in
                     self.scope = clientConfig.scope.components(separatedBy: " ")
