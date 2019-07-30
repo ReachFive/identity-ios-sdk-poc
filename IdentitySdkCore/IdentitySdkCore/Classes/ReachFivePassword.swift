@@ -22,7 +22,7 @@ public extension ReachFive {
             .then(AuthToken.fromOpenIdTokenResponse)
     }
     
-    func loginWithPassword(username: String, password: String, scope: [String]? = nil, callback: @escaping Callback<AuthToken, ReachFiveError>) {
+    func loginWithPassword(username: String, password: String, scope: [String]? = nil) -> Promise<AuthToken> {
         let loginRequest = LoginRequest(
             username: username,
             password: password,
@@ -30,6 +30,18 @@ public extension ReachFive {
             clientId: sdkConfig.clientId,
             scope: (scope ?? self.scope).joined(separator: " ")
         )
-        self.reachFiveApi.loginWithPassword(loginRequest: loginRequest, callback: handleAuthResponse(callback: callback))
+        return self.reachFiveApi
+            .loginWithPassword(loginRequest: loginRequest)
+            .then(AuthToken.fromOpenIdTokenResponse)
+    }
+    
+    @available(*, deprecated, message: "Please use the methode with Promise")
+    func loginWithPassword(username: String, password: String, scope: [String]? = nil, callback: @escaping Callback<AuthToken, ReachFiveError>) {
+        self.loginWithPassword(username: username, password: password, scope: scope)
+            .done({ authToken in callback(.success(authToken)) })
+            .catch({ error in
+                print(error)
+                callback(.failure(ReachFiveError.TechnicalError(reason: error.localizedDescription)))
+            })
     }
 }

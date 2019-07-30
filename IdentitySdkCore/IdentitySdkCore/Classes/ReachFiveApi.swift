@@ -49,12 +49,12 @@ public class ReachFiveApi {
             .responseDecodable(AccessTokenResponse.self, queue: nil, decoder: self.decoder)
     }
     
-    public func loginWithPassword(loginRequest: LoginRequest, callback: @escaping Callback<AccessTokenResponse, ReachFiveError>) {
-        Alamofire
-            .request(createUrl(path: "/oauth/token?device=\(deviceInfo)"), method: .post, parameters: loginRequest.toJSON(), encoding: JSONEncoding.default)
+    public func loginWithPassword(loginRequest: LoginRequest) -> Promise<AccessTokenResponse> {
+        return Alamofire
+            .request(createUrl(path: "/oauth/token?device=\(deviceInfo)"), method: .post, parameters: loginRequest.dictionary(), encoding: JSONEncoding.default)
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
-            .responseObject(completionHandler: handleResponse(callback: callback))
+            .responseDecodable(AccessTokenResponse.self, queue: nil, decoder: self.decoder)
     }
     
     public func authWithCode(authCodeRequest: AuthCodeRequest, callback: @escaping Callback<AccessTokenResponse, ReachFiveError>) {
