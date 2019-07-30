@@ -28,7 +28,9 @@ public class ReachFiveApi {
             .request(createUrl(path: "/api/v1/providers?platform=ios&device=\(deviceInfo)"))
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
-            .responseDecodable(queue: DispatchQueue.global())
+            .responseJSON().then { json, response in
+                
+            }
     }
     
     public func loginWithProvider(loginProviderRequest: LoginProviderRequest, callback: @escaping Callback<AccessTokenResponse, ReachFiveError>) {
