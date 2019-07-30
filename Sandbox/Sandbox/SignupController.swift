@@ -17,6 +17,26 @@ class SignupController: UIViewController {
         let name = nameInput.text ?? ""
 
         let profile = ProfileSignupRequest(password: password, email: email, name: name)
-        AppDelegate.reachfive().signup(profile: profile, callback: { print($0) })
+        AppDelegate.reachfive().signup(profile: profile)
+            .done(goToProfile)
+            .catch({ error in print("Signup error \(error)")})
+    }
+    
+    func handleResult(result: Result<AuthToken, ReachFiveError>) {
+        switch result {
+        case .success(let authToken):
+            goToProfile(authToken)
+        case .failure(let error):
+            print(error)
+        }
+    }
+    
+    func goToProfile(_ authToken: AuthToken) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let profileController = storyBoard.instantiateViewController(
+            withIdentifier: "ProfileScene"
+            ) as! ProfileController
+        profileController.authToken = authToken
+        self.self.navigationController?.pushViewController(profileController, animated: true)
     }
 }

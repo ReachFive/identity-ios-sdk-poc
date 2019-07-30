@@ -57,17 +57,19 @@ class LoginController: UIViewController, UITableViewDataSource, UITableViewDeleg
     func handleResult(result: Result<AuthToken, ReachFiveError>) {
         switch result {
         case .success(let authToken):
-            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let profileController = storyBoard.instantiateViewController(
-                withIdentifier: "ProfileScene"
-            ) as! ProfileController
-            profileController.authToken = authToken
-            self.self.navigationController?.pushViewController(profileController, animated: true)
-        case .failure(.RequestError(let requestErrors)):
-            self.error.text = requestErrors.errorUserMsg
+            goToProfile(authToken)
         case .failure(let error):
             print(error)
         }
+    }
+    
+    func goToProfile(_ authToken: AuthToken) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let profileController = storyBoard.instantiateViewController(
+            withIdentifier: "ProfileScene"
+        ) as! ProfileController
+        profileController.authToken = authToken
+        self.self.navigationController?.pushViewController(profileController, animated: true)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -6,6 +6,7 @@ import AlamofireObjectMapper
 typealias ResponseHandler<T> = (_ response: DataResponse<T>) -> Void
 
 public class ReachFiveApi {
+    private let decoder = JSONDecoder()
     let sdkConfig: SdkConfig
     
     let deviceInfo: String = "\(UIDevice.current.modelName) \(UIDevice.current.systemName) \(UIDevice.current.systemVersion)"
@@ -13,39 +14,39 @@ public class ReachFiveApi {
     
     public init(sdkConfig: SdkConfig) {
         self.sdkConfig = sdkConfig
+        self.decoder.keyDecodingStrategy = .convertFromSnakeCase
     }
     
-    public func clientConfig(callback: @escaping Callback<ClientConfigResponse, ReachFiveError>) {
-        Alamofire
+    public func clientConfig() -> Promise<ClientConfigResponse> {
+        return Alamofire
             .request(createUrl(path: "/identity/v1/config?client_id=\(sdkConfig.clientId)"))
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
-            .responseObject(completionHandler: handleResponse(callback: callback))
+            .responseDecodable(ClientConfigResponse.self, queue: nil, decoder: self.decoder)
     }
-    
         
     public func providersConfigs() -> Promise<ProvidersConfigsResult> {
         return Alamofire
             .request(createUrl(path: "/api/v1/providers?platform=ios&device=\(deviceInfo)"))
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
-            .responseDecodable(ProvidersConfigsResult.self)
+            .responseDecodable(ProvidersConfigsResult.self, queue: nil, decoder: self.decoder)
     }
     
-    public func loginWithProvider(loginProviderRequest: LoginProviderRequest, callback: @escaping Callback<AccessTokenResponse, ReachFiveError>) {
-        Alamofire
-            .request(createUrl(path: "/identity/v1/oauth/provider/token?device=\(deviceInfo)"), method: .post, parameters: loginProviderRequest.toJSON(), encoding: JSONEncoding.default)
+    public func loginWithProvider(loginProviderRequest: LoginProviderRequest) -> Promise<AccessTokenResponse> {
+        return Alamofire
+            .request(createUrl(path: "/identity/v1/oauth/provider/token?device=\(deviceInfo)"), method: .post, parameters: loginProviderRequest.dictionary(), encoding: JSONEncoding.default)
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
-            .responseObject(completionHandler: handleResponse(callback: callback))
+            .responseDecodable(AccessTokenResponse.self, queue: nil, decoder: self.decoder)
     }
     
-    public func signupWithPassword(signupRequest: SignupRequest, callback: @escaping Callback<AccessTokenResponse, ReachFiveError>) {
-        Alamofire
-            .request(createUrl(path: "/identity/v1/signup-token?device=\(deviceInfo)"), method: .post, parameters: signupRequest.toJSON(), encoding: JSONEncoding.default)
+    public func signupWithPassword(signupRequest: SignupRequest) -> Promise<AccessTokenResponse> {
+        return Alamofire
+            .request(createUrl(path: "/identity/v1/signup-token?device=\(deviceInfo)"), method: .post, parameters: signupRequest.dictionary(), encoding: JSONEncoding.default)
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
-            .responseObject(completionHandler: handleResponse(callback: callback))
+            .responseDecodable(AccessTokenResponse.self, queue: nil, decoder: self.decoder)
     }
     
     public func loginWithPassword(loginRequest: LoginRequest, callback: @escaping Callback<AccessTokenResponse, ReachFiveError>) {

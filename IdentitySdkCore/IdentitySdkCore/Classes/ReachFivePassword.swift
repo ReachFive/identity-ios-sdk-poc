@@ -1,14 +1,25 @@
 import Foundation
+import PromiseKit
 
 public extension ReachFive {
+    
+    @available(*, deprecated, message: "Please use the methode with Promise")
     func signup(profile: ProfileSignupRequest, scope: [String]? = nil, callback: @escaping Callback<AuthToken, ReachFiveError>) {
+        self.signup(profile: profile, scope: scope)
+            .done({ authToken in callback(.success(authToken)) })
+            .catch({ error in callback(.failure(ReachFiveError.TechnicalError(reason: error.localizedDescription))) })
+    }
+    
+    func signup(profile: ProfileSignupRequest, scope: [String]? = nil) -> Promise<AuthToken> {
         let signupRequest = SignupRequest(
             clientId: sdkConfig.clientId,
             data: profile,
             scope: (scope ?? self.scope).joined(separator: " "),
             acceptTos: nil
         )
-        self.reachFiveApi.signupWithPassword(signupRequest: signupRequest, callback: handleAuthResponse(callback: callback))
+        return self.reachFiveApi
+            .signupWithPassword(signupRequest: signupRequest)
+            .then(AuthToken.fromOpenIdTokenResponse)
     }
     
     func loginWithPassword(username: String, password: String, scope: [String]? = nil, callback: @escaping Callback<AuthToken, ReachFiveError>) {

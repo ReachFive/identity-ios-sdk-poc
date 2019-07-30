@@ -1,4 +1,5 @@
 import Foundation
+import PromiseKit
 
 public class AuthToken: NSObject {
     public let idToken: String?
@@ -15,7 +16,16 @@ public class AuthToken: NSObject {
         self.user = user
     }
     
-    public static func fromOpenIdTokenResponse(openIdTokenResponse: AccessTokenResponse) -> Result<AuthToken, ReachFiveError> {
+    public static func fromOpenIdTokenResponse(_ openIdTokenResponse: AccessTokenResponse) -> Promise<AuthToken> {
+        return Promise.init(resolver: { resolver in
+            switch AuthToken.fromOpenIdTokenResponse(openIdTokenResponse: openIdTokenResponse) {
+            case .success(let authToken): resolver.fulfill(authToken)
+            case .failure(let error): resolver.reject(error)
+            }
+        })
+    }
+    
+    public static func fromOpenIdTokenResponse(openIdTokenResponse: AccessTokenResponse) -> Swift.Result<AuthToken, ReachFiveError> {
         if openIdTokenResponse.idToken != nil {
             return fromIdToken(openIdTokenResponse.idToken!).flatMap { user in
                 return .success(withUser(openIdTokenResponse, user))
@@ -35,12 +45,12 @@ public class AuthToken: NSObject {
         )
     }
     
-    static func fromIdToken(_ idToken: String) -> Result<OpenIdUser, ReachFiveError> {
+    static func fromIdToken(_ idToken: String) -> Swift.Result<OpenIdUser, ReachFiveError> {
         let parts = idToken.components(separatedBy: ".")
         if parts.count == 3 {
             let data = Base64.base64UrlSafeDecode(parts[1])
             let content = String(data: data!, encoding: .utf8)
-            let user = Result.init(catching: {
+            let user = Swift.Result.init(catching: {
                 return try OpenIdUser(JSONString: content!)
             })
             return user.mapError({ error in
