@@ -14,23 +14,13 @@ public class ReachFiveApi {
     public init(sdkConfig: SdkConfig) {
         self.sdkConfig = sdkConfig
     }
-    
-    public func providersConfigs(callback: @escaping Callback<ProvidersConfigsResult, ReachFiveError>) {
-        Alamofire
+        
+    public func providersConfigs() -> Promise<ProvidersConfigsResult> {
+        return Alamofire
             .request(createUrl(path: "/api/v1/providers?platform=ios&device=\(deviceInfo)"))
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
-            .responseObject(completionHandler: handleResponse(callback: callback))
-    }
-    
-    public func _providersConfigs() -> Promise<ProvidersConfigsResult> {
-        Alamofire
-            .request(createUrl(path: "/api/v1/providers?platform=ios&device=\(deviceInfo)"))
-            .validate(statusCode: 200..<300)
-            .validate(contentType: ["application/json"])
-            .responseJSON().then { json, response in
-                
-            }
+            .responseDecodable(ProvidersConfigsResult.self)
     }
     
     public func loginWithProvider(loginProviderRequest: LoginProviderRequest, callback: @escaping Callback<AccessTokenResponse, ReachFiveError>) {
