@@ -22,7 +22,7 @@ public class ConfiguredGoogleProvider: NSObject, Provider, GIDSignInDelegate, GI
     var providerConfig: ProviderConfig
     var reachFiveApi: ReachFiveApi
     
-    var scope: [String] = ReachFive.defaultScope
+    var scope: [String] = [] // TODO/cbu
     var origin: String = ""
     var callback: Callback<AuthToken, ReachFiveError>?
     
