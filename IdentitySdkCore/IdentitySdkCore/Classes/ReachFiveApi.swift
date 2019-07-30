@@ -14,6 +14,15 @@ public class ReachFiveApi {
     public init(sdkConfig: SdkConfig) {
         self.sdkConfig = sdkConfig
     }
+    
+    public func clientConfig(callback: @escaping Callback<ClientConfigResponse, ReachFiveError>) {
+        Alamofire
+            .request(createUrl(path: "/identity/v1/config?client_id=\(sdkConfig.clientId)"))
+            .validate(statusCode: 200..<300)
+            .validate(contentType: ["application/json"])
+            .responseObject(completionHandler: handleResponse(callback: callback))
+    }
+    
         
     public func providersConfigs() -> Promise<ProvidersConfigsResult> {
         return Alamofire
