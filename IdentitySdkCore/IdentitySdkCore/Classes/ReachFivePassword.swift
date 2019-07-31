@@ -1,4 +1,5 @@
 import Foundation
+import BrightFutures
 
 public extension ReachFive {
     func signup(profile: ProfileSignupRequest, scope: [String]? = nil, callback: @escaping Callback<AuthToken, ReachFiveError>) {
@@ -11,7 +12,27 @@ public extension ReachFive {
         self.reachFiveApi.signupWithPassword(signupRequest: signupRequest, callback: handleAuthResponse(callback: callback))
     }
     
-    func loginWithPassword(username: String, password: String, scope: [String]? = nil, callback: @escaping Callback<AuthToken, ReachFiveError>) {
+    @available(*, deprecated, message: "Please use the methode with Future")
+    func loginWithPassword(
+        username: String,
+        password: String,
+        scope: [String]? = nil,
+        callback: @escaping Callback<AuthToken, ReachFiveError>
+    ) {
+        self.loginWithPassword(username: username, password: password, scope: scope)
+            .onSuccess { authToken in
+                callback(.success(authToken))
+            }
+            .onFailure { error in
+                callback(.failure(error))
+            }
+    }
+    
+    func loginWithPassword(
+        username: String,
+        password: String,
+        scope: [String]? = nil
+    ) -> Future<AuthToken, ReachFiveError> {
         let loginRequest = LoginRequest(
             username: username,
             password: password,
@@ -19,6 +40,8 @@ public extension ReachFive {
             clientId: sdkConfig.clientId,
             scope: (scope ?? self.scope).joined(separator: " ")
         )
-        self.reachFiveApi.loginWithPassword(loginRequest: loginRequest, callback: handleAuthResponse(callback: callback))
+        return self.reachFiveApi
+            .loginWithPassword(loginRequest: loginRequest)
+            .flatMap({ AuthToken.fromOpenIdTokenResponseFuture($0) })
     }
 }
