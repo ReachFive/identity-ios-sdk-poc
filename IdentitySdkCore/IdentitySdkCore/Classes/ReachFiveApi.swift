@@ -63,12 +63,17 @@ public class ReachFiveApi {
             .responseJson(type: AccessTokenResponse.self, decoder: self.decoder)
     }
     
-    public func authWithCode(authCodeRequest: AuthCodeRequest, callback: @escaping Callback<AccessTokenResponse, ReachFiveError>) {
-        Alamofire
-            .request(createUrl(path: "/oauth/token?device=\(deviceInfo)"), method: .post, parameters: authCodeRequest.toJSON(), encoding: JSONEncoding.default)
+    public func authWithCode(authCodeRequest: AuthCodeRequest) -> Future<AccessTokenResponse, ReachFiveError> {
+        return Alamofire
+            .request(
+                createUrl(path: "/oauth/token?device=\(deviceInfo)"),
+                method: .post,
+                parameters: authCodeRequest.dictionary(),
+                encoding: JSONEncoding.default
+            )
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
-            .responseObject(completionHandler: handleResponse(callback: callback))
+            .responseJson(type: AccessTokenResponse.self, decoder: self.decoder)
     }
     
     public func getProfile(authToken: AuthToken, callback: @escaping Callback<Profile, ReachFiveError>) {
