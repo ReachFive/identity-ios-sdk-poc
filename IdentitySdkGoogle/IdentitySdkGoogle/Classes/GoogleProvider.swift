@@ -2,6 +2,7 @@ import Foundation
 import UIKit
 import IdentitySdkCore
 import GoogleSignIn
+import BrightFutures
 
 public class GoogleProvider: ProviderCreator {
     public static var NAME: String = "google"
@@ -86,8 +87,9 @@ public class ConfiguredGoogleProvider: NSObject, Provider, GIDSignInDelegate, GI
     
     public func applicationDidBecomeActive(_ application: UIApplication) {}
     
-    public func logout() {
+    public func logout() -> Future<Void, ReachFiveError> {
         GIDSignIn.sharedInstance()?.signOut()
+        return Future.init()
     }
     
     public override var description: String {

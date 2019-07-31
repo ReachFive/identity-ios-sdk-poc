@@ -1,6 +1,7 @@
 import Foundation
 import UIKit
 import IdentitySdkCore
+import BrightFutures
 import FacebookCore
 import FacebookLogin
 import FBSDKLoginKit
@@ -76,7 +77,8 @@ public class ConfiguredFacebookProvider: NSObject, Provider {
         AppEvents.activateApp()
     }
     
-    public func logout() {
+    public func logout() -> Future<Void, ReachFiveError> {
         LoginManager().logOut()
+        return Future()
     }
 }

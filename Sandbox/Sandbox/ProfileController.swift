@@ -34,11 +34,12 @@ class ProfileController: UIViewController {
 
     @IBAction func logoutAction(_ sender: Any) {
         if self.authToken != nil {
-            AppDelegate.reachfive().logout(authToken: self.authToken!, callback: { result in
-                print("Logout ended \(result)")
-            })
-            self.authToken = nil
-            self.navigationController?.popViewController(animated: true)
+            AppDelegate.reachfive().logout(authToken: self.authToken!)
+                .onComplete { result in
+                    print("Logout ended \(result)")
+                    self.authToken = nil
+                    self.navigationController?.popViewController(animated: true)
+                }
         }
     }
 

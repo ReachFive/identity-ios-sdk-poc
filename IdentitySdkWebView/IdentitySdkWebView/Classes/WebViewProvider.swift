@@ -1,6 +1,7 @@
 import Foundation
 import SafariServices
 import IdentitySdkCore
+import BrightFutures
 
 public class WebViewProvider: ProviderCreator {
     public static let NAME = "webview"
@@ -101,7 +102,9 @@ class ConfiguredWebViewProvider: NSObject, Provider, SFSafariViewControllerDeleg
         
     }
     
-    public func logout() {}
+    public func logout() -> Future<Void, ReachFiveError> {
+        return Future()
+    }
     
     func buildUrl(sdkConfig: SdkConfig, providerConfig: ProviderConfig, scope: [String], pkce: Pkce) -> String {
         let params = [
