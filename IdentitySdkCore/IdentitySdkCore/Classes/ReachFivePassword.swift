@@ -12,22 +12,6 @@ public extension ReachFive {
         self.reachFiveApi.signupWithPassword(signupRequest: signupRequest, callback: handleAuthResponse(callback: callback))
     }
     
-    @available(*, deprecated, message: "Please use the methode with Future")
-    func loginWithPassword(
-        username: String,
-        password: String,
-        scope: [String]? = nil,
-        callback: @escaping Callback<AuthToken, ReachFiveError>
-    ) {
-        self.loginWithPassword(username: username, password: password, scope: scope)
-            .onSuccess { authToken in
-                callback(.success(authToken))
-            }
-            .onFailure { error in
-                callback(.failure(error))
-            }
-    }
-    
     func loginWithPassword(
         username: String,
         password: String,

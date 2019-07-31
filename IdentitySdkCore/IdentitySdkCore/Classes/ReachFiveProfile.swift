@@ -1,4 +1,5 @@
 import Foundation
+import BrightFutures
 
 public extension ReachFive {
     func getProfile(authToken: AuthToken, callback: @escaping Callback<Profile, ReachFiveError>) {
@@ -8,16 +9,14 @@ public extension ReachFive {
     func verifyPhoneNumber(
         authToken: AuthToken,
         phoneNumber: String,
-        verificationCode: String,
-        callback: @escaping Callback<Void, ReachFiveError>
-    ) {
-        let verifyPhoneNumberRequest = VerifyPhoneNumberRequest(phoneNumber: phoneNumber, verificationCode: verificationCode)
-        reachFiveApi
-            .verifyPhoneNumber(
-                authToken: authToken,
-                verifyPhoneNumberRequest: verifyPhoneNumberRequest,
-                callback: callback
+        verificationCode: String
+    ) -> Future<Void, ReachFiveError> {
+        let verifyPhoneNumberRequest = VerifyPhoneNumberRequest(
+            phoneNumber: phoneNumber,
+            verificationCode: verificationCode
         )
+        return self.reachFiveApi
+            .verifyPhoneNumber(authToken: authToken, verifyPhoneNumberRequest: verifyPhoneNumberRequest)
     }
     
     func updateEmail(

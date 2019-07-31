@@ -88,18 +88,21 @@ public class ReachFiveApi {
             .responseObject(completionHandler: handleResponse(callback: callback))
     }
     
-    public func verifyPhoneNumber(authToken: AuthToken, verifyPhoneNumberRequest: VerifyPhoneNumberRequest, callback: @escaping Callback<Void, ReachFiveError>) {
-        Alamofire
+    public func verifyPhoneNumber(
+        authToken: AuthToken,
+        verifyPhoneNumberRequest: VerifyPhoneNumberRequest
+    ) -> Future<Void, ReachFiveError> {
+        return Alamofire
             .request(
                 createUrl(path: "/identity/v1/verify-phone-number?device=\(deviceInfo)"),
                 method: .post,
-                parameters: verifyPhoneNumberRequest.toJSON(),
+                parameters: verifyPhoneNumberRequest.dictionary(),
                 encoding: JSONEncoding.default,
                 headers: tokenHeader(authToken)
             )
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
-            .response(completionHandler: handleVoidResponse(callback: callback))
+            .responseJson(decoder: self.decoder)
     }
 
     public func updateEmail(authToken: AuthToken, updateEmailRequest: UpdateEmailRequest, callback: @escaping Callback<Profile, ReachFiveError>) {
