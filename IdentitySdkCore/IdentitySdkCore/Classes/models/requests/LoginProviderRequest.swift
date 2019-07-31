@@ -1,7 +1,7 @@
 import Foundation
 import ObjectMapper
 
-public class LoginProviderRequest: NSObject, ImmutableMappable {
+public class LoginProviderRequest: NSObject, Codable, ImmutableMappable {
     public let provider: String
     public let providerToken: String?
     public let code: String?

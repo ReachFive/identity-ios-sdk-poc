@@ -1,7 +1,7 @@
 import Foundation
 import ObjectMapper
 
-public class AccessTokenResponse: NSObject, ImmutableMappable {
+public class AccessTokenResponse: NSObject, Codable, ImmutableMappable {
     public let idToken: String?
     public let accessToken: String
     public let code: String?

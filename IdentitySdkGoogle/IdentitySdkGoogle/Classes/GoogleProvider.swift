@@ -45,13 +45,15 @@ public class ConfiguredGoogleProvider: NSObject, Provider, GIDSignInDelegate, GI
                 responseType: "token",
                 scope: scope.joined(separator: " ")
             )
-            self.reachFiveApi.loginWithProvider(loginProviderRequest: loginProviderRequest, callback: { response in
-                self.callback?(
-                    response.flatMap({ openIdTokenResponse in
-                        AuthToken.fromOpenIdTokenResponse(openIdTokenResponse: openIdTokenResponse)
-                    })
-                )
-            })
+            self.reachFiveApi
+                .loginWithProvider(loginProviderRequest: loginProviderRequest)
+                .flatMap({ AuthToken.fromOpenIdTokenResponseFuture($0) })
+                .onSuccess { authToken in
+                    self.callback?(.success(authToken))
+                }
+                .onFailure { error in
+                    self.callback?(.failure(error))
+                }
         }
     }
     

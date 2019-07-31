@@ -1,4 +1,5 @@
 import Foundation
+import BrightFutures
 
 public class AuthToken: NSObject {
     public let idToken: String?
@@ -13,6 +14,15 @@ public class AuthToken: NSObject {
         self.tokenType = tokenType
         self.expiresIn = expiresIn
         self.user = user
+    }
+    
+    public static func fromOpenIdTokenResponseFuture(
+        _ openIdTokenResponse: AccessTokenResponse
+    ) -> Future<AuthToken, ReachFiveError> {
+        let promise = Promise<AuthToken, ReachFiveError>()
+        let authTokenResult = AuthToken.fromOpenIdTokenResponse(openIdTokenResponse: openIdTokenResponse)
+        promise.complete(authTokenResult)
+        return promise.future
     }
     
     public static func fromOpenIdTokenResponse(openIdTokenResponse: AccessTokenResponse) -> Result<AuthToken, ReachFiveError> {

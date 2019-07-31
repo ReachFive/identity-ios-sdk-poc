@@ -33,12 +33,14 @@ public class ReachFiveApi {
             .responseJson(type: ProvidersConfigsResult.self, decoder: self.decoder)
     }
     
-    public func loginWithProvider(loginProviderRequest: LoginProviderRequest, callback: @escaping Callback<AccessTokenResponse, ReachFiveError>) {
-        Alamofire
+    public func loginWithProvider(
+        loginProviderRequest: LoginProviderRequest
+    ) -> Future<AccessTokenResponse, ReachFiveError> {
+        return Alamofire
             .request(createUrl(path: "/identity/v1/oauth/provider/token?device=\(deviceInfo)"), method: .post, parameters: loginProviderRequest.toJSON(), encoding: JSONEncoding.default)
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
-            .responseObject(completionHandler: handleResponse(callback: callback))
+            .responseJson(type: AccessTokenResponse.self, decoder: self.decoder)
     }
     
     public func signupWithPassword(signupRequest: SignupRequest, callback: @escaping Callback<AccessTokenResponse, ReachFiveError>) {

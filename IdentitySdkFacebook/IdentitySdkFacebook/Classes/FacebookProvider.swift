@@ -47,14 +47,15 @@ public class ConfiguredFacebookProvider: NSObject, Provider {
                     responseType: "token",
                     scope: scope.joined(separator: " ")
                 )
-                self.reachFiveApi.loginWithProvider(loginProviderRequest: loginProviderRequest, callback: { response in
-                    callback(
-                        response
-                            .flatMap({ openIdTokenResponse in
-                                AuthToken.fromOpenIdTokenResponse(openIdTokenResponse: openIdTokenResponse)
-                            })
-                    )
-                })
+                self.reachFiveApi
+                    .loginWithProvider(loginProviderRequest: loginProviderRequest)
+                    .flatMap({ AuthToken.fromOpenIdTokenResponseFuture($0) })
+                    .onSuccess { authToken in
+                        callback(.success(authToken))
+                    }
+                    .onFailure { error in
+                        callback(.failure(error))
+                }
             case .cancelled:
                 callback(.failure(.AuthCanceled))
             case .failed(let error):
