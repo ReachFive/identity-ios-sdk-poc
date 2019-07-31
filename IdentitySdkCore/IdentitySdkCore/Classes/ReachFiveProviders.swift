@@ -1,4 +1,5 @@
 import Foundation
+import BrightFutures
 
 public extension ReachFive {
     func getProvider(name: String) -> Provider? {
@@ -12,20 +13,16 @@ public extension ReachFive {
     func initialize(callback: @escaping Callback<[Provider], ReachFiveError>) {
         switch self.state {
         case .NotInitialazed:
-            reachFiveApi.clientConfig(callback: { configResult in
-                configResult.map({ clientConfig in
-                    self.scope = clientConfig.scope.components(separatedBy: " ")
-
-                    self.reachFiveApi.providersConfigs(callback: { result in
-                        callback(result.map({ providersConfigs in
-                            let providers = self.createProviders(providersConfigsResult: providersConfigs)
-                            self.providers = providers
-                            self.state = .Initialazed
-                            return providers
-                        }))
-                    })
-                })
+            self.reachFiveApi.clientConfig().flatMap({ clientConfig -> Future<ProvidersConfigsResult, ReachFiveError> in
+                self.scope = clientConfig.scope.components(separatedBy: " ")
+                return self.reachFiveApi.providersConfigs()
             })
+            .onSuccess { providersConfigs in
+                    let providers = self.createProviders(providersConfigsResult: providersConfigs)
+                    self.providers = providers
+                    self.state = .Initialazed
+                    callback(.success(providers))
+            }
         case .Initialazed:
             callback(.success(self.providers))
         }

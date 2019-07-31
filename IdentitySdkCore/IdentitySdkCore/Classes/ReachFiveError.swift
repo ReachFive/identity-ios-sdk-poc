@@ -8,7 +8,7 @@ public enum ReachFiveError: Error {
     case TechnicalError(reason: String)
 }
 
-public class RequestErrors: NSObject, ImmutableMappable {
+public class RequestErrors: NSObject, Codable, ImmutableMappable {
     public let error: String?
     public let errorId: String?
     public let errorUserMsg: String?
@@ -36,7 +36,7 @@ public class RequestErrors: NSObject, ImmutableMappable {
     }
 }
 
-public class FieldError: NSObject, ImmutableMappable {
+public class FieldError: NSObject, Codable, ImmutableMappable {
     public let field: String?
     public let message: String?
     public let code: String?

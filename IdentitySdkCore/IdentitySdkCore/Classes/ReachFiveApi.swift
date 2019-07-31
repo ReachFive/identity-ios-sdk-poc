@@ -1,10 +1,12 @@
 import Foundation
 import Alamofire
 import AlamofireObjectMapper
+import BrightFutures
 
 typealias ResponseHandler<T> = (_ response: DataResponse<T>) -> Void
 
 public class ReachFiveApi {
+    let decoder = JSONDecoder()
     let sdkConfig: SdkConfig
     
     let deviceInfo: String = "\(UIDevice.current.modelName) \(UIDevice.current.systemName) \(UIDevice.current.systemVersion)"
@@ -12,22 +14,23 @@ public class ReachFiveApi {
     
     public init(sdkConfig: SdkConfig) {
         self.sdkConfig = sdkConfig
+        self.decoder.keyDecodingStrategy = .convertFromSnakeCase
     }
     
-    public func clientConfig(callback: @escaping Callback<ClientConfigResponse, ReachFiveError>) {
-        Alamofire
+    public func clientConfig() -> Future<ClientConfigResponse, ReachFiveError> {
+        return Alamofire
             .request(createUrl(path: "/identity/v1/config?client_id=\(sdkConfig.clientId)"))
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
-            .responseObject(completionHandler: handleResponse(callback: callback))
+            .responseJson(type: ClientConfigResponse.self, decoder: self.decoder)
     }
     
-    public func providersConfigs(callback: @escaping Callback<ProvidersConfigsResult, ReachFiveError>) {
-        Alamofire
+    public func providersConfigs() -> Future<ProvidersConfigsResult, ReachFiveError> {
+        return Alamofire
             .request(createUrl(path: "/api/v1/providers?platform=ios&device=\(deviceInfo)"))
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
-            .responseObject(completionHandler: handleResponse(callback: callback))
+            .responseJson(type: ProvidersConfigsResult.self, decoder: self.decoder)
     }
     
     public func loginWithProvider(loginProviderRequest: LoginProviderRequest, callback: @escaping Callback<AccessTokenResponse, ReachFiveError>) {
