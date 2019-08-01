@@ -16,7 +16,17 @@ class SignupController: UIViewController {
         let password = passwordInput.text ?? ""
         let name = nameInput.text ?? ""
 
-        let profile = ProfileSignupRequest(password: password, email: email, name: name)
+        let customFields: [String: CustomField] = [
+            "test_string": .string("some random string"),
+            "test_integer": .int(1)
+        ]
+        
+        let profile = ProfileSignupRequest(
+            password: password,
+            email: email,
+            name: name,
+            customFields: customFields
+        )
         AppDelegate.reachfive().signup(profile: profile).onSuccess(callback: goToProfile)
     }
     

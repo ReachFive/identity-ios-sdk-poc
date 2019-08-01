@@ -17,7 +17,7 @@ public class ProfileSignupRequest: Codable, DictionaryEncodable {
     public let addresses: [Address]?
     public let locale: String?
     public let bio: String?
-    public let customFields: [String: String]?
+    public let customFields: [String: CustomField]?
     public let consents: [String: Consent]?
     public let tosAcceptedAt: String?
     public let company: String?
@@ -40,7 +40,7 @@ public class ProfileSignupRequest: Codable, DictionaryEncodable {
         addresses: [Address]? = nil,
         locale: String? = nil,
         bio: String? = nil,
-        customFields: [String: String]? = nil,
+        customFields: [String: CustomField]? = nil,
         consents: [String: Consent]? = nil,
         tosAcceptedAt: String? = nil,
         company: String? = nil,
