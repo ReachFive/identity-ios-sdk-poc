@@ -11,25 +11,21 @@ class ProfileController: UIViewController {
         
         self.nameLabel?.text = self.authToken?.user?.name
         
-        AppDelegate.reachfive().getProfile(authToken: self.authToken!, callback: { result in
-            switch result {
-            case .success(let profile):
-                print("Profile = \(profile)")
-            case .failure(let error):
-                print(error)
-            }
-        })
         
-        AppDelegate.reachfive().updateProfile(
-            authToken: self.authToken!,
-            profile: Profile(nickname: "Updated nickname"),
-            callback: { result in
-                let _ = result.map { profile in
-                    self.nameLabel?.text = profile.nickname
-                }
-            }
-        )
+        AppDelegate.reachfive()
+            .getProfile(authToken: self.authToken!)
+            .onSuccess { profile in print("Profile = \(profile)") }
+            .onFailure { error in print("getProfile error = \(error)") }
         
+        AppDelegate.reachfive()
+            .updateProfile(
+                authToken: self.authToken!,
+                profile: Profile(nickname: "Updated nickname")
+            )
+            .onSuccess { profile in
+                self.nameLabel?.text = profile.nickname
+            }
+            .onFailure { error in print("updateProfile error = \(error)") }
     }
 
     @IBAction func logoutAction(_ sender: Any) {
