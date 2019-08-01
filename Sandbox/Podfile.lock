@@ -2,9 +2,6 @@ PODS:
   - Alamofire (4.8.2)
   - AlamofireNetworkLogger (0.0.2):
     - Alamofire (~> 4.0)
-  - AlamofireObjectMapper (5.2.0):
-    - Alamofire (~> 4.7)
-    - ObjectMapper (~> 3.4)
   - BrightFutures (8.0.0)
   - CryptoSwift (1.0.0)
   - FacebookCore (0.8.0):
@@ -37,7 +34,6 @@ PODS:
   - IdentitySdkCore (4.0.0-beta.15):
     - Alamofire (~> 4.8)
     - AlamofireNetworkLogger
-    - AlamofireObjectMapper (~> 5.2)
     - BrightFutures (~> 8.0.0)
     - CryptoSwift (~> 1.0.0)
   - IdentitySdkFacebook (4.0.0-beta.15):
@@ -49,7 +45,6 @@ PODS:
     - IdentitySdkCore (~> 4.0.0-beta.14)
   - IdentitySdkWebView (4.0.0-beta.15):
     - IdentitySdkCore (~> 4.0.0-beta.14)
-  - ObjectMapper (3.5.1)
 
 DEPENDENCIES:
   - IdentitySdkCore (from `../IdentitySdkCore.podspec`)
@@ -61,7 +56,6 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - AlamofireNetworkLogger
-    - AlamofireObjectMapper
     - BrightFutures
     - CryptoSwift
     - FacebookCore
@@ -71,7 +65,6 @@ SPEC REPOS:
     - GoogleSignIn
     - GoogleToolboxForMac
     - GTMSessionFetcher
-    - ObjectMapper
 
 EXTERNAL SOURCES:
   IdentitySdkCore:
@@ -86,7 +79,6 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   AlamofireNetworkLogger: a035a0146fec0bcc5b0c392dd71fd06817a29b4f
-  AlamofireObjectMapper: 92b6ce2423a9d159e686f6a1d514a009bf903ddc
   BrightFutures: f8427b46feabaf73c5e71ace7d86d65dfbb47696
   CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
   FacebookCore: 563bb4cbcd7dd86cf89f3729252140bf256aacaa
@@ -96,11 +88,10 @@ SPEC CHECKSUMS:
   GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39
   GoogleToolboxForMac: b3553629623a3b1bff17f555e736cd5a6d95ad55
   GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
-  IdentitySdkCore: ade4bfe1d6d0e071668d731503b4ba81c2ee775d
+  IdentitySdkCore: f76d15b32396c1bac6f1fb8deab1e6542f7947aa
   IdentitySdkFacebook: 07ac8c26163d98f71cd8d72e94b883753fdfbdde
   IdentitySdkGoogle: 83b372d7ca6b8fa9f0ffe3d4bfdb26f2b62b0167
   IdentitySdkWebView: c5abfcc91edce6b79ef8acc12c642f7ae3712ee0
-  ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
 
 PODFILE CHECKSUM: fb852a36c23ddc28f1c6bc4091d4d7dbb51df6f9
 
