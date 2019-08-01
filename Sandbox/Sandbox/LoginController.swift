@@ -36,6 +36,14 @@ class LoginController: UIViewController, UITableViewDataSource, UITableViewDeleg
         AppDelegate.shared().reachfive
             .loginWithPassword(username: email, password: password)
             .onSuccess(callback: goToProfile)
+            .onFailure(callback: { error in
+                switch error {
+                case .RequestError(let requestErrors):
+                    self.error.text = requestErrors.errorUserMsg
+                default:
+                    self.error.text = error.localizedDescription
+                }
+            })
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
