@@ -2,8 +2,6 @@ import Foundation
 import Alamofire
 import BrightFutures
 
-typealias ResponseHandler<T> = (_ response: DataResponse<T>) -> Void
-
 public class ReachFiveApi {
     let decoder = JSONDecoder()
     let sdkConfig: SdkConfig
