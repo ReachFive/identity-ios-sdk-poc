@@ -1,7 +1,5 @@
 PODS:
   - Alamofire (4.8.2)
-  - AlamofireNetworkLogger (0.0.2):
-    - Alamofire (~> 4.0)
   - BrightFutures (8.0.0)
   - CryptoSwift (1.0.0)
   - FacebookCore (0.8.0):
@@ -20,7 +18,6 @@ PODS:
     - FBSDKCoreKit (~> 5.0)
   - IdentitySdkCore (4.0.0-beta.15):
     - Alamofire (~> 4.8)
-    - AlamofireNetworkLogger
     - BrightFutures (~> 8.0.0)
     - CryptoSwift (~> 1.0.0)
 
@@ -32,7 +29,6 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
-    - AlamofireNetworkLogger
     - BrightFutures
     - CryptoSwift
     - FacebookCore
@@ -46,14 +42,13 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  AlamofireNetworkLogger: a035a0146fec0bcc5b0c392dd71fd06817a29b4f
   BrightFutures: f8427b46feabaf73c5e71ace7d86d65dfbb47696
   CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
   FacebookCore: 563bb4cbcd7dd86cf89f3729252140bf256aacaa
   FacebookLogin: 8b966ae661e95e7dba837d7cc49cc464ce003dba
   FBSDKCoreKit: 39748deefe37a005f983722e433be2ddcdd83ae7
   FBSDKLoginKit: bc0329e10045789e8d40b12d4f15ddbd07a898e2
-  IdentitySdkCore: f76d15b32396c1bac6f1fb8deab1e6542f7947aa
+  IdentitySdkCore: 876d44a16e845c95edaaeb249a497e6d6f18390a
 
 PODFILE CHECKSUM: 69a72c9811c42f9d256f7ff79c148f8ddfec0dce
 

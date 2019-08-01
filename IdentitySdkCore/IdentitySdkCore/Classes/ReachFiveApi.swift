@@ -1,6 +1,5 @@
 import Foundation
 import Alamofire
-import AlamofireObjectMapper
 import BrightFutures
 
 typealias ResponseHandler<T> = (_ response: DataResponse<T>) -> Void
