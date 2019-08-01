@@ -8,7 +8,13 @@ public class AuthToken {
     public let expiresIn: Int?
     public let user: OpenIdUser?
     
-    public init(idToken: String?, accessToken: String, tokenType: String?, expiresIn: Int?, user: OpenIdUser?) {
+    public init(
+        idToken: String?,
+        accessToken: String,
+        tokenType: String?,
+        expiresIn: Int?,
+        user: OpenIdUser?
+    ) {
         self.idToken = idToken
         self.accessToken = accessToken
         self.tokenType = tokenType

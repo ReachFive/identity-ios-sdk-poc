@@ -8,7 +8,7 @@ class SignupController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        AppDelegate.reachfive().initialize()
+        AppDelegate.reachfive().initialize().onComplete { _ in }
     }
 
     @IBAction func signup(_ sender: Any) {

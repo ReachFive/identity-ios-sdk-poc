@@ -16,15 +16,13 @@ class LoginController: UIViewController, UITableViewDataSource, UITableViewDeleg
         providersTableView.dataSource = self
         providersTableView.delegate = self
         
-        AppDelegate.reachfive().initialize(callback: { response in
-            switch response {
-            case .success(let providers):
+        AppDelegate.reachfive()
+            .initialize()
+            .onSuccess { providers in
                 self.providers.append(contentsOf: providers)
                 self.providersTableView.reloadData()
-            case .failure(let error):
-                print("initialize error \(error)")
             }
-        })
+            .onFailure { print("initialize error \($0)") }
     }
     
     public func reloadProvidersData(providers: [Provider]) {
