@@ -1,5 +1,14 @@
 # Changelog
 
+## v4.0.0-beta.15
+Use SFSafariViewController instead of WKWebView
+
+## v4.0.0-beta.13
+Fix UserConsent
+
+## v4.0.0-beta.12
+Add getProfile
+
 ## v4.0.0
 
 ### 9th July 2019

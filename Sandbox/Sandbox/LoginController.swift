@@ -35,7 +35,7 @@ class LoginController: UIViewController, UITableViewDataSource, UITableViewDeleg
     @IBAction func login(_ sender: Any) {
         let email = emailInput.text ?? ""
         let password = passwordInput.text ?? ""
-        AppDelegate.shared().reachfive.loginWithPassword(username: email, password: password, scope: ReachFive.defaultScope, callback: { result in
+        AppDelegate.shared().reachfive.loginWithPassword(username: email, password: password, callback: { result in
             self.handleResult(result: result)
         })
     }
@@ -75,10 +75,12 @@ class LoginController: UIViewController, UITableViewDataSource, UITableViewDeleg
         
         let selectedProvider = providers[indexPath.row]
         
+        let scope = ["openid", "email", "profile", "phone", "full_write"]
+        
         AppDelegate.reachfive()
             .getProvider(name: selectedProvider.name)?
             .login(
-                scope: ReachFive.defaultScope,
+                scope: scope,
                 origin: "home",
                 viewController: self,
                 callback: { result in self.handleResult(result: result) }
