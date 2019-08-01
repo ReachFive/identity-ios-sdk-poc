@@ -20,25 +20,25 @@ class SandboxUITests: XCTestCase {
     
     func testTest() {
         let app = XCUIApplication()
-        let facebookProvider = app.tables/*@START_MENU_TOKEN@*/.staticTexts["facebook"]/*[[".cells.staticTexts[\"facebook\"]",".staticTexts[\"facebook\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        let facebookProvider = app.tables.staticTexts["facebook"]
         XCTAssertTrue(facebookProvider.exists)
         facebookProvider.tap()
         let webViewsQuery = app.webViews
-        let mobileNumberOrEmailTextField = webViewsQuery/*@START_MENU_TOKEN@*/.textFields["Mobile number or email"]/*[[".otherElements[\"Log into Facebook | Facebook\"]",".otherElements[\"main\"].textFields[\"Mobile number or email\"]",".textFields[\"Mobile number or email\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/
+        let mobileNumberOrEmailTextField = webViewsQuery.textFields["Mobile number or email"]
         
         expectation(for: NSPredicate(format: "exists == 1"), evaluatedWith: mobileNumberOrEmailTextField, handler: nil)
         waitForExpectations(timeout: 5, handler: nil)
 
         mobileNumberOrEmailTextField.tap()
         mobileNumberOrEmailTextField.typeText("myemail@gmail.com")
-        let passwordTextField = webViewsQuery/*@START_MENU_TOKEN@*/.secureTextFields["Facebook Password"]/*[[".otherElements[\"Log into Facebook | Facebook\"]",".otherElements[\"main\"].secureTextFields[\"Facebook Password\"]",".secureTextFields[\"Facebook Password\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/
+        let passwordTextField = webViewsQuery.secureTextFields["Facebook Password"]
         XCTAssertTrue(passwordTextField.exists)
         passwordTextField.tap()
         passwordTextField.typeText("password")
         let loginButton = webViewsQuery.buttons["Log In"]
         XCTAssertTrue(loginButton.exists)
         loginButton.tap()
-        let errorMessage = webViewsQuery/*@START_MENU_TOKEN@*/.staticTexts["The password you entered is incorrect."]/*[[".otherElements[\"Log into Facebook | Facebook\"]",".otherElements[\"main\"].staticTexts[\"The password you entered is incorrect.\"]",".staticTexts[\"The password you entered is incorrect.\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/
+        let errorMessage = webViewsQuery.staticTexts["The password you entered is incorrect."]
         
         expectation(for: NSPredicate(format: "exists == 1"), evaluatedWith: errorMessage, handler: nil)
         waitForExpectations(timeout: 20, handler: nil)
