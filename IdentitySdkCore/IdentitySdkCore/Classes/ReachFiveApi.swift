@@ -1,4 +1,4 @@
-import Foundation
+
 import Alamofire
 import BrightFutures
 
@@ -156,7 +156,6 @@ public class ReachFiveApi {
     }
     
     public func requestPasswordReset(
-        authToken: AuthToken,
         requestPasswordResetRequest: RequestPasswordResetRequest
     ) -> Future<Void, ReachFiveError> {
         return Alamofire
@@ -164,8 +163,7 @@ public class ReachFiveApi {
                 path: "/identity/v1/forgot-password?device=\(deviceInfo)"),
                 method: .post,
                 parameters: requestPasswordResetRequest.dictionary(),
-                encoding: JSONEncoding.default,
-                headers: tokenHeader(authToken)
+                encoding: JSONEncoding.default
             )
             .validate(contentType: ["application/json"])
             .responseJson(decoder: self.decoder)

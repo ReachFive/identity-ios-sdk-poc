@@ -42,11 +42,13 @@ public extension ReachFive {
         authToken: AuthToken,
         updatePasswordRequest: UpdatePasswordRequest
     ) -> Future<Void, ReachFiveError> {
-        return reachFiveApi.updatePassword(authToken: authToken, updatePasswordRequest: updatePasswordRequest)
+        return reachFiveApi.updatePassword(
+            authToken: authToken,
+            updatePasswordRequest: updatePasswordRequest
+        )
     }
     
     func requestPasswordReset(
-        authToken: AuthToken,
         email: String?,
         phoneNumber: String?,
         redirectUrl: String? = nil
@@ -58,16 +60,7 @@ public extension ReachFive {
             redirectUrl: redirectUrl
         )
         return reachFiveApi.requestPasswordReset(
-            authToken: authToken,
             requestPasswordResetRequest: requestPasswordResetRequest
         )
-    }
-    
-    internal func handleAuthResponse(callback: @escaping Callback<AuthToken, ReachFiveError>) -> Callback<AccessTokenResponse, ReachFiveError> {
-        return { response in
-            callback(response.flatMap { openIdTokenResponse in
-                AuthToken.fromOpenIdTokenResponse(openIdTokenResponse: openIdTokenResponse)
-            })
-        }
     }
 }
