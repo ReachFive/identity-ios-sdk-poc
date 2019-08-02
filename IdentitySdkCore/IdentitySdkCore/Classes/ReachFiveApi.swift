@@ -103,7 +103,6 @@ public class ReachFiveApi {
     }
     
     public func updateProfile(
-        authToken: AuthToken,
         profile: Profile,
         callback: @escaping Callback<Profile, ReachFiveError>
     ) {
@@ -112,8 +111,7 @@ public class ReachFiveApi {
                 createUrl(path: "/identity/v1/update-profile?device=\(deviceInfo)"),
                 method: .post,
                 parameters: profile.toJSON(),
-                encoding: JSONEncoding.default,
-                headers: tokenHeader(authToken)
+                encoding: JSONEncoding.default
             )
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
