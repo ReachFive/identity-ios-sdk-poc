@@ -238,34 +238,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORh-Wp-axD">
-                                <rect key="frame" x="20" y="108" width="50" height="20.5"/>
+                                <rect key="frame" x="20" y="108" width="50" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bZv-ie-uA5">
-                                <rect key="frame" x="20" y="137" width="157" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MVX-4K-5B3">
-                                        <rect key="frame" x="0.0" y="0.0" width="157" height="30"/>
-                                        <state key="normal" title="Update Phone Number"/>
-                                        <connections>
-                                            <segue destination="kWn-8O-SSc" kind="show" id="0FR-37-rri"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z5D-tp-H9J">
-                                        <rect key="frame" x="0.0" y="30" width="157" height="30"/>
-                                        <state key="normal" title="Update Email"/>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MVX-4K-5B3">
+                                <rect key="frame" x="20" y="136" width="157" height="30"/>
+                                <state key="normal" title="Update Phone Number"/>
+                                <connections>
+                                    <segue destination="kWn-8O-SSc" kind="show" id="0FR-37-rri"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z5D-tp-H9J">
+                                <rect key="frame" x="20" y="174" width="91" height="30"/>
+                                <state key="normal" title="Update Email"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="MVX-4K-5B3" firstAttribute="top" secondItem="ORh-Wp-axD" secondAttribute="bottom" constant="7" id="2cu-wS-PdP"/>
                             <constraint firstItem="ss7-L2-u8Z" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ORh-Wp-axD" secondAttribute="trailing" symbolic="YES" id="FJC-Nv-zaF"/>
+                            <constraint firstItem="MVX-4K-5B3" firstAttribute="leading" secondItem="ORh-Wp-axD" secondAttribute="leading" id="G5B-Zj-oF3"/>
+                            <constraint firstItem="Z5D-tp-H9J" firstAttribute="top" secondItem="MVX-4K-5B3" secondAttribute="bottom" constant="8" symbolic="YES" id="II5-ep-KUl"/>
                             <constraint firstItem="ORh-Wp-axD" firstAttribute="leading" secondItem="r8i-df-pOX" secondAttribute="leadingMargin" id="KJW-5n-IaP"/>
+                            <constraint firstItem="MVX-4K-5B3" firstAttribute="leading" secondItem="Z5D-tp-H9J" secondAttribute="leading" id="L1g-GK-3FN"/>
+                            <constraint firstItem="ss7-L2-u8Z" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="MVX-4K-5B3" secondAttribute="trailing" symbolic="YES" id="aHO-KV-hXw"/>
                             <constraint firstItem="ORh-Wp-axD" firstAttribute="top" secondItem="ss7-L2-u8Z" secondAttribute="top" constant="20" id="eLZ-2D-WhK"/>
+                            <constraint firstItem="ss7-L2-u8Z" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Z5D-tp-H9J" secondAttribute="trailing" symbolic="YES" id="ijg-IW-EZM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ss7-L2-u8Z"/>
                     </view>
