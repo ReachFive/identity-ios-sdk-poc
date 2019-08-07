@@ -59,7 +59,7 @@ class ConfiguredWebViewProvider: NSObject, Provider, SFSafariViewControllerDeleg
         let url = notification.object as? URL
         
         if let query = url?.query {
-            let params = parseQueriesStrings(query: query)
+            let params = QueriesStrings.parseQueriesStrings(query: query)
             let code = params["code"]
             if code != nil {
                 self.handleAuthCode(code!!)
@@ -135,16 +135,5 @@ class ConfiguredWebViewProvider: NSObject, Provider, SFSafariViewControllerDeleg
     
     override var description: String {
         return "Provider: \(self.name)"
-    }
-    
-    func parseQueriesStrings(query: String) -> Dictionary<String, String?> {
-        return query.split(separator: "&").reduce(Dictionary<String, String?>(), { ( acc, param) in
-            var mutAcc = acc
-            let splited = param.split(separator: "=")
-            let key: String = String(splited.first!)
-            let value: String? = splited.count > 1 ? String(splited[1]) : nil
-            mutAcc.updateValue(value, forKey: key)
-            return mutAcc
-        })
     }
 }

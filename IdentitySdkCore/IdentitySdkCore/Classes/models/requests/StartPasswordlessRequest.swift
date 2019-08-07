@@ -12,6 +12,7 @@ public class StartPasswordlessRequest: Codable, DictionaryEncodable {
     public let responseType: String
     public let authType: String
     public let redirectUri: String
+    public let state: String?
     
     public convenience init(
         clientId: String,
@@ -25,7 +26,8 @@ public class StartPasswordlessRequest: Codable, DictionaryEncodable {
             phoneNumber: phoneNumber,
             responseType: "code",
             authType: authType,
-            redirectUri: "reachfive://callback"
+            redirectUri: "reachfive://callback",
+            state: "passwordless"
         )
     }
     
@@ -35,7 +37,8 @@ public class StartPasswordlessRequest: Codable, DictionaryEncodable {
         phoneNumber: String?,
         responseType: String,
         authType: PasswordLessAuthType,
-        redirectUri: String
+        redirectUri: String,
+        state: String? = nil
     ) {
         self.clientId = clientId
         self.email = email
@@ -43,5 +46,6 @@ public class StartPasswordlessRequest: Codable, DictionaryEncodable {
         self.responseType = responseType
         self.authType = authType.rawValue
         self.redirectUri = redirectUri
+        self.state = state
     }
 }
