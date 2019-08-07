@@ -206,10 +206,10 @@
             </objects>
             <point key="canvasLocation" x="-259" y="113"/>
         </scene>
-        <!--Signup-->
+        <!--Signup with password-->
         <scene sceneID="H6o-jf-Xhj">
             <objects>
-                <viewController title="Signup" id="kCV-U2-VG8" customClass="SignupController" customModule="Sandbox" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Signup with password" id="kCV-U2-VG8" customClass="SignupController" customModule="Sandbox" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7ao-pe-HJy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
