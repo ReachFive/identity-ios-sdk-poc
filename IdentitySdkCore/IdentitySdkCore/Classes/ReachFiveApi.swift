@@ -184,7 +184,6 @@ public class ReachFiveApi {
             .responseJson(decoder: self.decoder)
     }
     
-    public func logout(authToken: AuthToken) -> Future<Void, ReachFiveError> {
     public func logout() -> Future<(), ReachFiveError> {
         return Alamofire
             .request(
