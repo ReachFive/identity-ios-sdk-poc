@@ -2,11 +2,11 @@
 
 ## v5.0.0
 
-Use [Futures](https://github.com/Thomvis/BrightFutures) instead of callbacks
-Passwordless Start
+- Use [Futures](https://github.com/Thomvis/BrightFutures) instead of callbacks
+- Passwordless Start
 
 ### Breaking changes
-Transform yours callaback into the Future handling
+We use Future instead callbacks, you need to transform yours callbacks into the Future
 ```swift
 AppDelegate.reachfive()
   .loginWithPassword(username: email, password: password)
@@ -18,7 +18,7 @@ AppDelegate.reachfive()
   }
 ```
 
-Callbacks handling
+instead of
 
 ```swift
 AppDelegate.reachfive()
