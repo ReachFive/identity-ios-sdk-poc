@@ -55,7 +55,12 @@ class ConfiguredWebViewProvider: NSObject, Provider, SFSafariViewControllerDeleg
         let promise = Promise<AuthToken, ReachFiveError>()
         self.promise = promise
         self.pkce = Pkce.generate()
-        let url = self.buildUrl(sdkConfig: sdkConfig, providerConfig: providerConfig, scope: scope != nil ? scope! : [self.clientConfigResponse.scope], pkce: pkce)
+        let url = self.buildUrl(
+            sdkConfig: sdkConfig,
+            providerConfig: providerConfig,
+            scope: scope != nil ? scope!.joined(separator: " ") : self.clientConfigResponse.scope,
+            pkce: pkce
+        )
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleLogin(_:)), name: self.notificationName, object: nil)
         
@@ -125,13 +130,13 @@ class ConfiguredWebViewProvider: NSObject, Provider, SFSafariViewControllerDeleg
         return Future.init(value: ())
     }
     
-    func buildUrl(sdkConfig: SdkConfig, providerConfig: ProviderConfig, scope: [String], pkce: Pkce) -> String {
+    func buildUrl(sdkConfig: SdkConfig, providerConfig: ProviderConfig, scope: String, pkce: Pkce) -> String {
         let params = [
             "provider": providerConfig.provider,
             "client_id": sdkConfig.clientId,
             "response_type": "code",
             "redirect_uri": "reachfive://callback",
-            "scope": scope.joined(separator: " "),
+            "scope": scope,
             "platform": "ios",
             "code_challenge": pkce.codeChallenge,
             "code_challenge_method": pkce.codeChallengeMethod,
