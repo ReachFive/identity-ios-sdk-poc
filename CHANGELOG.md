@@ -4,6 +4,7 @@
 
 - Use [Futures](https://github.com/Thomvis/BrightFutures) instead of callbacks, we use the [BrightFutures](https://github.com/Thomvis/BrightFutures) library
 - Passwordless Start, it allows to launch the passwordless authentication flow
+- Update password
 
 ### Breaking changes
 We use Future instead callbacks, you need to transform yours callbacks into the Future
