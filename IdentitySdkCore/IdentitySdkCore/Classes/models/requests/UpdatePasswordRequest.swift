@@ -1,12 +1,23 @@
 import Foundation
 
 public enum UpdatePasswordParams {
-    case FreshAccessTokenParams(password: String)
-    case AccessTokenParams(password: String, oldPassword: String)
+    case FreshAccessTokenParams(authToken: AuthToken, password: String)
+    case AccessTokenParams(authToken: AuthToken, password: String, oldPassword: String)
     case EmailParams(email: String, verificationCode: String, password: String)
     case SmsParams(phoneNumber: String, verificationCode: String, password: String)
     case EmailWithClientIdParams(clientId: String, email: String, verificationCode: String, password: String)
     case SmsWithClientIdParams(clientId: String, phoneNumber: String, verificationCode: String, password: String)
+    
+    public func getAuthToken() -> AuthToken? {
+        switch self {
+        case .FreshAccessTokenParams(let authToken, _):
+            return authToken
+        case .AccessTokenParams(let authToken, _, _):
+            return authToken
+        default:
+            return nil
+        }
+    }
 }
 
 public class UpdatePasswordRequest: Codable, DictionaryEncodable {
@@ -35,9 +46,9 @@ public class UpdatePasswordRequest: Codable, DictionaryEncodable {
     
     public convenience init(updatePasswordParams: UpdatePasswordParams) {
         switch updatePasswordParams {
-        case .FreshAccessTokenParams(let password):
+        case .FreshAccessTokenParams(_, let password):
             self.init(password: password)
-        case .AccessTokenParams(let password, let oldPassword):
+        case .AccessTokenParams(_, let password, let oldPassword):
             self.init(password: password, oldPassword: oldPassword)
         case .EmailParams(let email, let verificationCode, let password):
             self.init(password: password, email: email, verificationCode: verificationCode)
