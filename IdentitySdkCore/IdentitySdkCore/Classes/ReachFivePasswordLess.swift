@@ -8,6 +8,10 @@ public enum PasswordLessRequest {
 
 public extension ReachFive {
     
+    func addPasswordlessCallback(passwordlessCallback: @escaping PasswordlessCallback) {
+        self.passwordlessCallback = passwordlessCallback
+    }
+        
     func startPasswordless(_ request: PasswordLessRequest) -> Future<(), ReachFiveError> {
         let pkce = Pkce.generate()
         self.storage.save(key: "PASSWORDLESS_PKCE", value: pkce)
@@ -45,17 +49,14 @@ public extension ReachFive {
                         
                         self.reachFiveApi.authWithCode(authCodeRequest: authCodeRequest)
                             .flatMap({ AuthToken.fromOpenIdTokenResponseFuture($0) })
-                            .onSuccess { authToken in
-                                print("interceptPasswordless success \(authToken.accessToken)")
+                            .onComplete { result in
+                                self.passwordlessCallback?(result)
                             }
-                            .onFailure { error in
-                                print("interceptPasswordless error \(error)")
-                        }
                     }
                 }
             }
         } else {
-            print("interceptPasswordless pkce not found error")
+            self.passwordlessCallback?(.failure(.TechnicalError(reason: "Pkce not found")))
         }
     }
 }

@@ -6,7 +6,11 @@ enum State {
     case Initialazed
 }
 
+public typealias PasswordlessCallback = (_ result: Result<AuthToken, ReachFiveError>) -> Void
+
 public class ReachFive: NSObject {
+    let notificationPasswordlessName = Notification.Name("PasswordlessNotification")
+    var passwordlessCallback: PasswordlessCallback? = nil
     var state: State = .NotInitialazed
     let sdkConfig: SdkConfig
     let providersCreators: Array<ProviderCreator>
@@ -21,7 +25,7 @@ public class ReachFive: NSObject {
         self.reachFiveApi = ReachFiveApi(sdkConfig: sdkConfig)
         self.storage = storage
     }
-            
+    
     public func logout() -> Future<(), ReachFiveError> {
         return self.providers
             .map { $0.logout() }
