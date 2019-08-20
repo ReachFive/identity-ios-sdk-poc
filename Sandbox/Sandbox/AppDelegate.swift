@@ -15,7 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             FacebookProvider(),
             GoogleProvider(),
             WebViewProvider()
-        ]
+        ],
+        storage: UserDefaultsStorage()
     )
     
     static func reachfive() -> ReachFive {

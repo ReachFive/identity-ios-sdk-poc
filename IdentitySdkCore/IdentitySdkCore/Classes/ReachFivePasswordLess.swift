@@ -9,15 +9,16 @@ public enum PasswordLessRequest {
 public extension ReachFive {
     
     func startPasswordless(_ request: PasswordLessRequest) -> Future<(), ReachFiveError> {
-        self.passwordlessPkce = Pkce.generate()
+        let pkce = Pkce.generate()
+        self.storage.save(key: "PASSWORDLESS_PKCE", value: pkce)
         switch request {
         case .Email(let email):
             let startPasswordlessRequest = StartPasswordlessRequest(
                 clientId: sdkConfig.clientId,
                 email: email,
                 authType: .MagicLink,
-                codeChallenge: self.passwordlessPkce?.codeChallenge ?? "",
-                codeChallengeMethod: self.passwordlessPkce?.codeChallengeMethod ?? ""
+                codeChallenge: pkce.codeChallenge,
+                codeChallengeMethod: pkce.codeChallengeMethod
             )
             return reachFiveApi.startPasswordless(startPasswordlessRequest)
         case .PhoneNumber(let phoneNumber):
@@ -25,8 +26,8 @@ public extension ReachFive {
                 clientId: sdkConfig.clientId,
                 phoneNumber: phoneNumber,
                 authType: .SMS,
-                codeChallenge: self.passwordlessPkce?.codeChallenge ?? "",
-                codeChallengeMethod: self.passwordlessPkce?.codeChallengeMethod ?? ""
+                codeChallenge: pkce.codeChallenge,
+                codeChallengeMethod: pkce.codeChallengeMethod
             )
             return reachFiveApi.startPasswordless(startPasswordlessRequest)
         }
@@ -34,21 +35,27 @@ public extension ReachFive {
     
     internal func interceptPasswordless(_ url: URL) {
         let params = QueriesStrings.parseQueriesStrings(query: url.query ?? "")
-        if let state = params["state"] {
-            if state == "passwordless" {
-                if let code = params["code"] {
-                    print("interceptPasswordless code=\(String(describing: code))")
-                    let authCodeRequest = AuthCodeRequest(clientId: self.sdkConfig.clientId, code: code ?? "", pkce: self.passwordlessPkce!)
-                    self.reachFiveApi.authWithCode(authCodeRequest: authCodeRequest)
-                        .flatMap({ AuthToken.fromOpenIdTokenResponseFuture($0) })
-                        .onSuccess { authToken in
-                            print("passwordless success \(authToken.accessToken)")
+        let pkce: Pkce? = self.storage.take(key: "PASSWORDLESS_PKCE")
+        if (pkce != nil) {
+            if let state = params["state"] {
+                if state == "passwordless" {
+                    if let code = params["code"] {
+                        print("interceptPasswordless code=\(String(describing: code))")
+                        let authCodeRequest = AuthCodeRequest(clientId: self.sdkConfig.clientId, code: code ?? "", pkce: pkce!)
+                        
+                        self.reachFiveApi.authWithCode(authCodeRequest: authCodeRequest)
+                            .flatMap({ AuthToken.fromOpenIdTokenResponseFuture($0) })
+                            .onSuccess { authToken in
+                                print("interceptPasswordless success \(authToken.accessToken)")
+                            }
+                            .onFailure { error in
+                                print("interceptPasswordless error \(error)")
                         }
-                        .onFailure { error in
-                            print("passwordless error \(error)")
                     }
                 }
             }
+        } else {
+            print("interceptPasswordless pkce not found error")
         }
     }
 }

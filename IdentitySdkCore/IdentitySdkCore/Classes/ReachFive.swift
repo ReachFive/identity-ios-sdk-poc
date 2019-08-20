@@ -13,12 +13,13 @@ public class ReachFive: NSObject {
     let reachFiveApi: ReachFiveApi
     var providers: [Provider] = []
     internal var scope: [String] = []
-    var passwordlessPkce: Pkce? // TODO use persistent storage
+    public let storage: Storage
     
-    public init(sdkConfig: SdkConfig, providersCreators: Array<ProviderCreator>) {
+    public init(sdkConfig: SdkConfig, providersCreators: Array<ProviderCreator>, storage: Storage) {
         self.sdkConfig = sdkConfig
         self.providersCreators = providersCreators
         self.reachFiveApi = ReachFiveApi(sdkConfig: sdkConfig)
+        self.storage = storage
     }
             
     public func logout() -> Future<(), ReachFiveError> {
