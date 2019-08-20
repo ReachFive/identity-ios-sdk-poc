@@ -7,20 +7,26 @@ public enum PasswordLessRequest {
 }
 
 public extension ReachFive {
+    
     func startPasswordless(_ request: PasswordLessRequest) -> Future<(), ReachFiveError> {
+        self.passwordlessPkce = Pkce.generate()
         switch request {
         case .Email(let email):
             let startPasswordlessRequest = StartPasswordlessRequest(
                 clientId: sdkConfig.clientId,
                 email: email,
-                authType: .MagicLink
+                authType: .MagicLink,
+                codeChallenge: self.passwordlessPkce?.codeChallenge ?? "",
+                codeChallengeMethod: self.passwordlessPkce?.codeChallengeMethod ?? ""
             )
             return reachFiveApi.startPasswordless(startPasswordlessRequest)
         case .PhoneNumber(let phoneNumber):
             let startPasswordlessRequest = StartPasswordlessRequest(
                 clientId: sdkConfig.clientId,
                 phoneNumber: phoneNumber,
-                authType: .SMS
+                authType: .SMS,
+                codeChallenge: self.passwordlessPkce?.codeChallenge ?? "",
+                codeChallengeMethod: self.passwordlessPkce?.codeChallengeMethod ?? ""
             )
             return reachFiveApi.startPasswordless(startPasswordlessRequest)
         }
@@ -31,8 +37,8 @@ public extension ReachFive {
         if let state = params["state"] {
             if state == "passwordless" {
                 if let code = params["code"] {
-                    let fakePkce = Pkce.generate()
-                    let authCodeRequest = AuthCodeRequest(clientId: self.sdkConfig.clientId, code: code ?? "", pkce: fakePkce)
+                    print("interceptPasswordless code=\(String(describing: code))")
+                    let authCodeRequest = AuthCodeRequest(clientId: self.sdkConfig.clientId, code: code ?? "", pkce: self.passwordlessPkce!)
                     self.reachFiveApi.authWithCode(authCodeRequest: authCodeRequest)
                         .flatMap({ AuthToken.fromOpenIdTokenResponseFuture($0) })
                         .onSuccess { authToken in

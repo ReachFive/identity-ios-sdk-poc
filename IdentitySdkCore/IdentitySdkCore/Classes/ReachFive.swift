@@ -13,6 +13,7 @@ public class ReachFive: NSObject {
     let reachFiveApi: ReachFiveApi
     var providers: [Provider] = []
     internal var scope: [String] = []
+    var passwordlessPkce: Pkce? // TODO use persistent storage
     
     public init(sdkConfig: SdkConfig, providersCreators: Array<ProviderCreator>) {
         self.sdkConfig = sdkConfig
