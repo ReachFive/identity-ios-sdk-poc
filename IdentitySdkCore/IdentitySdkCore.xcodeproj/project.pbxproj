@@ -14,6 +14,7 @@
 		3417FF6A22FAD1810009EC84 /* ReachFivePasswordLess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3417FF6922FAD1810009EC84 /* ReachFivePasswordLess.swift */; };
 		3417FF6C22FAD6CB0009EC84 /* StartPasswordlessRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3417FF6B22FAD6CB0009EC84 /* StartPasswordlessRequest.swift */; };
 		3417FF7422FB2D9D0009EC84 /* QueryStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3417FF7322FB2D9D0009EC84 /* QueryStrings.swift */; };
+		3442C21E230EC48A009F8874 /* VerifyAuthCodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3442C21D230EC48A009F8874 /* VerifyAuthCodeRequest.swift */; };
 		3455FCEC22F1B57400892794 /* DictionaryEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3455FCEB22F1B57400892794 /* DictionaryEncodable.swift */; };
 		34689A9122CDFAE4002970F9 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34689A9022CDFAE4002970F9 /* Profile.swift */; };
 		34689A9522CDFB39002970F9 /* OpenIdUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34689A9422CDFB39002970F9 /* OpenIdUser.swift */; };
@@ -57,6 +58,7 @@
 		3417FF6922FAD1810009EC84 /* ReachFivePasswordLess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachFivePasswordLess.swift; sourceTree = "<group>"; };
 		3417FF6B22FAD6CB0009EC84 /* StartPasswordlessRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPasswordlessRequest.swift; sourceTree = "<group>"; };
 		3417FF7322FB2D9D0009EC84 /* QueryStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryStrings.swift; sourceTree = "<group>"; };
+		3442C21D230EC48A009F8874 /* VerifyAuthCodeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAuthCodeRequest.swift; sourceTree = "<group>"; };
 		3455FCEB22F1B57400892794 /* DictionaryEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryEncodable.swift; sourceTree = "<group>"; };
 		34689A9022CDFAE4002970F9 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		34689A9422CDFB39002970F9 /* OpenIdUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenIdUser.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				34BDDA3D22E5BFAC00D16DAE /* ProfileSignupRequest.swift */,
 				3417FF6522F8435F0009EC84 /* UpdatePhoneNumberRequest.swift */,
 				3417FF6B22FAD6CB0009EC84 /* StartPasswordlessRequest.swift */,
+				3442C21D230EC48A009F8874 /* VerifyAuthCodeRequest.swift */,
 			);
 			path = requests;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				34E18B8C22A6BEC900952EBD /* AccessTokenResponse.swift in Sources */,
 				34689AA122CE5D08002970F9 /* UpdateEmailRequest.swift in Sources */,
 				34689A9122CDFAE4002970F9 /* Profile.swift in Sources */,
+				3442C21E230EC48A009F8874 /* VerifyAuthCodeRequest.swift in Sources */,
 				34BDDA4222E5D87E00D16DAE /* ReachFivePassword.swift in Sources */,
 				34BDDA3C22E5BF3600D16DAE /* Emails.swift in Sources */,
 				34689A9C22CE3E57002970F9 /* Base64.swift in Sources */,

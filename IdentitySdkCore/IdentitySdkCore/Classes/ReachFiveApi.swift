@@ -197,6 +197,18 @@ public class ReachFiveApi {
             .responseJson(decoder: self.decoder)
     }
     
+    public func verifyAuthCode(verifyAuthCodeRequest: VerifyAuthCodeRequest) -> Future<(), ReachFiveError> {
+        return Alamofire
+            .request(
+                createUrl(path: "/identity/v1/verify-auth-code?device=\(deviceInfo)"),
+                method: .post,
+                parameters: verifyAuthCodeRequest.dictionary(),
+                encoding: JSONEncoding.default
+            )
+            .validate(statusCode: 200..<300)
+            .responseJson(decoder: self.decoder)
+    }
+    
     public func logout() -> Future<(), ReachFiveError> {
         return Alamofire
             .request(

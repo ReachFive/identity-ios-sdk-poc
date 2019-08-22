@@ -1,6 +1,6 @@
 import Foundation
 
-public enum PasswordLessAuthType: String {
+public enum PasswordLessAuthType: String, Codable {
     case MagicLink = "magic_link"
     case SMS = "sms"
 }

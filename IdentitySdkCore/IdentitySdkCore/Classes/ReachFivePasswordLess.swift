@@ -37,6 +37,10 @@ public extension ReachFive {
         }
     }
     
+    func verifyPasswordlessCode(verifyAuthCodeRequest: VerifyAuthCodeRequest) -> Future<(), ReachFiveError> {
+        return self.reachFiveApi.verifyAuthCode(verifyAuthCodeRequest: verifyAuthCodeRequest)
+    }
+    
     internal func interceptPasswordless(_ url: URL) {
         let params = QueriesStrings.parseQueriesStrings(query: url.query ?? "")
         let pkce: Pkce? = self.storage.take(key: "PASSWORDLESS_PKCE")
