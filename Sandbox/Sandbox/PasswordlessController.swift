@@ -31,7 +31,8 @@ class PasswordlessController: UIViewController {
         AppDelegate.reachfive()
             .verifyPasswordlessCode(verifyAuthCodeRequest: verifyAuthCodeRequest)
             .onComplete { result in
-                print("verifyCode \(result)")
+                let alert = AppDelegate.createAlert(title: "Verify code success", message: "Success")
+                self.present(alert, animated: true, completion: nil)
             }
         
     }
