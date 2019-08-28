@@ -30,7 +30,7 @@ public class StartPasswordlessRequest: Codable, DictionaryEncodable {
             phoneNumber: phoneNumber,
             responseType: "code",
             authType: authType,
-            redirectUri: "reachfive://callback",
+            redirectUri: ReachFive.REDIRECT_URI,
             state: "passwordless",
             codeChallenge: codeChallenge,
             codeChallengeMethod: codeChallengeMethod

@@ -9,6 +9,7 @@ enum State {
 public typealias PasswordlessCallback = (_ result: Result<AuthToken, ReachFiveError>) -> Void
 
 public class ReachFive: NSObject {
+    public static let REDIRECT_URI: String = "reachfive://callback"
     let notificationPasswordlessName = Notification.Name("PasswordlessNotification")
     var passwordlessCallback: PasswordlessCallback? = nil
     var state: State = .NotInitialazed

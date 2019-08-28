@@ -197,6 +197,17 @@ public class ReachFiveApi {
             .responseJson(decoder: self.decoder)
     }
     
+    public func verifyPasswordless(verifyPasswordlessRequest: VerifyPasswordlessRequest) -> Future<PasswordlessVerifyResponse, ReachFiveError> {
+        return Alamofire
+            .request(
+                createUrl(path: "/identity/v1/passwordless/verify?device=\(deviceInfo)"),
+                method: .post,
+                parameters: verifyPasswordlessRequest.dictionary()
+            )
+            .validate(statusCode: 200..<300)
+            .responseJson(type: PasswordlessVerifyResponse.self, decoder: self.decoder)
+    }
+    
     public func verifyAuthCode(verifyAuthCodeRequest: VerifyAuthCodeRequest) -> Future<(), ReachFiveError> {
         return Alamofire
             .request(

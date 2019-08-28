@@ -37,8 +37,30 @@ public extension ReachFive {
         }
     }
     
-    func verifyPasswordlessCode(verifyAuthCodeRequest: VerifyAuthCodeRequest) -> Future<(), ReachFiveError> {
-        return self.reachFiveApi.verifyAuthCode(verifyAuthCodeRequest: verifyAuthCodeRequest)
+    func verifyPasswordlessCode(verifyAuthCodeRequest: VerifyAuthCodeRequest) -> Future<AuthToken, ReachFiveError> {
+        let pkce: Pkce? = self.storage.take(key: "PASSWORDLESS_PKCE")
+        return self.reachFiveApi
+            .verifyAuthCode(verifyAuthCodeRequest: verifyAuthCodeRequest)
+            .flatMap { _ -> Future<AuthToken, ReachFiveError> in
+                print("verifyPasswordlessCode after verifyAuthCode")
+                let verifyPasswordlessRequest = VerifyPasswordlessRequest(
+                    email: verifyAuthCodeRequest.email,
+                    phoneNumber: verifyAuthCodeRequest.phoneNumber,
+                    verificationCode: verifyAuthCodeRequest.verificationCode,
+                    state: "passwordless",
+                    redirectUri: ReachFive.REDIRECT_URI,
+                    clientId: self.sdkConfig.clientId,
+                    responseType: "code"
+                )
+                return self.reachFiveApi
+                    .verifyPasswordless(verifyPasswordlessRequest: verifyPasswordlessRequest)
+                    .flatMap { response -> Future<AuthToken, ReachFiveError> in
+                        print("verifyPasswordlessCode after verifyPasswordless")
+                        let authCodeRequest = AuthCodeRequest(clientId: self.sdkConfig.clientId, code: response.code ?? "", pkce: pkce!)
+                        return self.reachFiveApi.authWithCode(authCodeRequest: authCodeRequest)
+                            .flatMap({ AuthToken.fromOpenIdTokenResponseFuture($0) })
+                    }
+            }
     }
     
     internal func interceptPasswordless(_ url: URL) {
