@@ -42,7 +42,6 @@ public extension ReachFive {
         return self.reachFiveApi
             .verifyAuthCode(verifyAuthCodeRequest: verifyAuthCodeRequest)
             .flatMap { _ -> Future<AuthToken, ReachFiveError> in
-                print("verifyPasswordlessCode after verifyAuthCode")
                 let verifyPasswordlessRequest = VerifyPasswordlessRequest(
                     email: verifyAuthCodeRequest.email,
                     phoneNumber: verifyAuthCodeRequest.phoneNumber,
@@ -55,7 +54,6 @@ public extension ReachFive {
                 return self.reachFiveApi
                     .verifyPasswordless(verifyPasswordlessRequest: verifyPasswordlessRequest)
                     .flatMap { response -> Future<AuthToken, ReachFiveError> in
-                        print("verifyPasswordlessCode after verifyPasswordless")
                         let authCodeRequest = AuthCodeRequest(clientId: self.sdkConfig.clientId, code: response.code ?? "", pkce: pkce!)
                         return self.reachFiveApi.authWithCode(authCodeRequest: authCodeRequest)
                             .flatMap({ AuthToken.fromOpenIdTokenResponseFuture($0) })
@@ -70,7 +68,6 @@ public extension ReachFive {
             if let state = params["state"] {
                 if state == "passwordless" {
                     if let code = params["code"] {
-                        print("interceptPasswordless code=\(String(describing: code))")
                         let authCodeRequest = AuthCodeRequest(clientId: self.sdkConfig.clientId, code: code ?? "", pkce: pkce!)
                         
                         self.reachFiveApi.authWithCode(authCodeRequest: authCodeRequest)
