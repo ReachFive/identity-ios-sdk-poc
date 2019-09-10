@@ -12,7 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     public static let storage = UserDefaultsStorage()
     
     let reachfive = ReachFive(
-        sdkConfig: SdkConfig(domain: "local-sandbox.og4.me", clientId: "sg48CdAYohRPeRWZ9j1H"),
+        sdkConfig: SdkConfig(domain: "sdk-mobile-sandbox.reach5.net", clientId: "TYAIHFRJ2a1FGJ1T8pKD"),
         providersCreators: [
             FacebookProvider(),
             GoogleProvider(),
