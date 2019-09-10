@@ -24,7 +24,7 @@ class LoginWithPasswordController: UIViewController {
     }
     
     func goToProfile(_ authToken: AuthToken) {
-        AppDelegate.reachfive().storage.save(key: "AUTH_TOKEN", value: authToken)
+        AppDelegate.storage.save(key: "AUTH_TOKEN", value: authToken)
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let profileController = storyBoard.instantiateViewController(
             withIdentifier: "ProfileScene"

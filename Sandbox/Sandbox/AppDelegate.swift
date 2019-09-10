@@ -9,6 +9,8 @@ import AlamofireNetworkLogger
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
+    public static let storage = UserDefaultsStorage()
+    
     let reachfive = ReachFive(
         sdkConfig: SdkConfig(domain: "local-sandbox.og4.me", clientId: "sg48CdAYohRPeRWZ9j1H"),
         providersCreators: [

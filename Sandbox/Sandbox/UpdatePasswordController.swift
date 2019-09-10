@@ -3,7 +3,7 @@ import Foundation
 import IdentitySdkCore
 
 class UpdatePasswordController: UIViewController {
-    var authToken: AuthToken? = AppDelegate.reachfive().storage.get(key: "AUTH_TOKEN")
+    var authToken: AuthToken? = AppDelegate.storage.get(key: "AUTH_TOKEN")
     @IBOutlet weak var oldPassword: UITextField!
     @IBOutlet weak var newPassword: UITextField!
 

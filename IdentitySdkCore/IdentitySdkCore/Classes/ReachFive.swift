@@ -18,7 +18,7 @@ public class ReachFive: NSObject {
     let reachFiveApi: ReachFiveApi
     var providers: [Provider] = []
     internal var scope: [String] = []
-    public let storage: Storage
+    internal let storage: Storage
     
     public init(sdkConfig: SdkConfig, providersCreators: Array<ProviderCreator>, storage: Storage) {
         self.sdkConfig = sdkConfig

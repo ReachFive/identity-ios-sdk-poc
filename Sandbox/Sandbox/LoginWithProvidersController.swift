@@ -44,7 +44,7 @@ class LoginWithProvidersController: UIViewController, UITableViewDataSource, UIT
     func handleResult(result: Result<AuthToken, ReachFiveError>) {
         switch result {
         case .success(let authToken):
-            AppDelegate.reachfive().storage.save(key: "AUTH_TOKEN", value: authToken)
+            AppDelegate.storage.save(key: "AUTH_TOKEN", value: authToken)
             goToProfile(authToken)
         case .failure(let error):
             print(error)
