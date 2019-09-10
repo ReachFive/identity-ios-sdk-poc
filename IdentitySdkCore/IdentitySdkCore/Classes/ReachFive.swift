@@ -8,6 +8,7 @@ enum State {
 
 public typealias PasswordlessCallback = (_ result: Result<AuthToken, ReachFiveError>) -> Void
 
+/// ReachFive identity SDK
 public class ReachFive: NSObject {
     public static let REDIRECT_URI: String = "reachfive://callback"
     let notificationPasswordlessName = Notification.Name("PasswordlessNotification")
@@ -20,11 +21,11 @@ public class ReachFive: NSObject {
     internal var scope: [String] = []
     internal let storage: Storage
     
-    public init(sdkConfig: SdkConfig, providersCreators: Array<ProviderCreator>, storage: Storage) {
+    public init(sdkConfig: SdkConfig, providersCreators: Array<ProviderCreator>, storage: Storage?) {
         self.sdkConfig = sdkConfig
         self.providersCreators = providersCreators
         self.reachFiveApi = ReachFiveApi(sdkConfig: sdkConfig)
-        self.storage = storage
+        self.storage = storage ?? UserDefaultsStorage()
     }
     
     public func logout() -> Future<(), ReachFiveError> {
