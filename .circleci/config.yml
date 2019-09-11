@@ -7,7 +7,7 @@ jobs:
   build:
     # Specify the Xcode version to use
     macos:
-      xcode: "8.3.3"
+      xcode: "10.3"
     steps:
       - checkout
       # Install CocoaPods
