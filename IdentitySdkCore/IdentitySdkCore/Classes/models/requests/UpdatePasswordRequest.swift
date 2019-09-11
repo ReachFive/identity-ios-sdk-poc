@@ -1,7 +1,24 @@
 import Foundation
-import ObjectMapper
 
-public class UpdatePasswordRequest: NSObject, ImmutableMappable {
+public enum UpdatePasswordParams {
+    case FreshAccessTokenParams(authToken: AuthToken, password: String)
+    case AccessTokenParams(authToken: AuthToken, password: String, oldPassword: String)
+    case EmailParams(email: String, verificationCode: String, password: String)
+    case SmsParams(phoneNumber: String, verificationCode: String, password: String)
+    
+    public func getAuthToken() -> AuthToken? {
+        switch self {
+        case .FreshAccessTokenParams(let authToken, _):
+            return authToken
+        case .AccessTokenParams(let authToken, _, _):
+            return authToken
+        default:
+            return nil
+        }
+    }
+}
+
+public class UpdatePasswordRequest: Codable, DictionaryEncodable {
     let clientId: String?
     let password: String?
     let oldPassword: String?
@@ -10,12 +27,12 @@ public class UpdatePasswordRequest: NSObject, ImmutableMappable {
     let verificationCode: String?
     
     public init(
-        clientId: String?,
-        password: String?,
-        oldPassword: String?,
-        email: String?,
-        phoneNumber: String?,
-        verificationCode: String?
+        clientId: String? = nil,
+        password: String? = nil,
+        oldPassword: String? = nil,
+        email: String? = nil,
+        phoneNumber: String? = nil,
+        verificationCode: String? = nil
     ) {
         self.clientId = clientId
         self.password = password
@@ -25,25 +42,16 @@ public class UpdatePasswordRequest: NSObject, ImmutableMappable {
         self.verificationCode = verificationCode
     }
     
-    public required init(map: Map) throws {
-        clientId = try? map.value("client_id")
-        password = try? map.value("password")
-        oldPassword = try? map.value("old_password")
-        email = try? map.value("email")
-        phoneNumber = try? map.value("phone_number")
-        verificationCode = try? map.value("verification_code")
-    }
-    
-    public func mapping(map: Map) {
-        clientId >>> map["client_id"]
-        password >>> map["password"]
-        oldPassword >>> map["old_password"]
-        email >>> map["email"]
-        phoneNumber >>> map["phone_number"]
-        verificationCode >>> map["verification_code"]
-    }
-    
-    public override var description: String {
-        return self.toJSONString(prettyPrint: true) ?? super.description
+    public convenience init(updatePasswordParams: UpdatePasswordParams, sdkConfig: SdkConfig) {
+        switch updatePasswordParams {
+        case .FreshAccessTokenParams(_, let password):
+            self.init(password: password)
+        case .AccessTokenParams(_, let password, let oldPassword):
+            self.init(password: password, oldPassword: oldPassword)
+        case .EmailParams(let email, let verificationCode, let password):
+            self.init(clientId: sdkConfig.clientId, password: password, email: email, verificationCode: verificationCode)
+        case .SmsParams(let phoneNumber, let verificationCode, let password):
+            self.init(clientId: sdkConfig.clientId, password: password, phoneNumber: phoneNumber, verificationCode: verificationCode)
+        }
     }
 }

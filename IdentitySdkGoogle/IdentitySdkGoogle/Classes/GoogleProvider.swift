@@ -2,6 +2,7 @@ import Foundation
 import UIKit
 import IdentitySdkCore
 import GoogleSignIn
+import BrightFutures
 
 public class GoogleProvider: ProviderCreator {
     public static var NAME: String = "google"
@@ -10,8 +11,18 @@ public class GoogleProvider: ProviderCreator {
     
     public init() {}
     
-    public func create(sdkConfig: SdkConfig, providerConfig: ProviderConfig, reachFiveApi: ReachFiveApi) -> Provider {
-        return ConfiguredGoogleProvider(sdkConfig: sdkConfig, providerConfig: providerConfig, reachFiveApi: reachFiveApi)
+    public func create(
+        sdkConfig: SdkConfig,
+        providerConfig: ProviderConfig,
+        reachFiveApi: ReachFiveApi,
+        clientConfigResponse: ClientConfigResponse
+    ) -> Provider {
+        return ConfiguredGoogleProvider(
+            sdkConfig: sdkConfig,
+            providerConfig: providerConfig,
+            reachFiveApi: reachFiveApi,
+            clientConfigResponse: clientConfigResponse
+        )
     }
 }
 
@@ -21,20 +32,22 @@ public class ConfiguredGoogleProvider: NSObject, Provider, GIDSignInDelegate, GI
     var sdkConfig: SdkConfig
     var providerConfig: ProviderConfig
     var reachFiveApi: ReachFiveApi
+    var clientConfigResponse: ClientConfigResponse
     
-    var scope: [String] = []
+    var scope: [String]? = []
     var origin: String = ""
-    var callback: Callback<AuthToken, ReachFiveError>?
+    var promise: Promise<AuthToken, ReachFiveError>?
     
-    public init(sdkConfig: SdkConfig, providerConfig: ProviderConfig, reachFiveApi: ReachFiveApi) {
+    public init(sdkConfig: SdkConfig, providerConfig: ProviderConfig, reachFiveApi: ReachFiveApi, clientConfigResponse: ClientConfigResponse) {
         self.sdkConfig = sdkConfig
         self.providerConfig = providerConfig
         self.reachFiveApi = reachFiveApi
+        self.clientConfigResponse = clientConfigResponse
     }
     
     public func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if error != nil {
-            self.callback?(.failure(.AuthFailure(reason: error.localizedDescription)))
+            self.promise?.failure(.AuthFailure(reason: error.localizedDescription))
         } else {
             let loginProviderRequest = LoginProviderRequest(
                 provider: self.providerConfig.provider,
@@ -43,27 +56,35 @@ public class ConfiguredGoogleProvider: NSObject, Provider, GIDSignInDelegate, GI
                 origin: origin,
                 clientId: self.sdkConfig.clientId,
                 responseType: "token",
-                scope: scope.joined(separator: " ")
+                scope: scope != nil ? scope!.joined(separator: " ") : self.clientConfigResponse.scope
             )
-            self.reachFiveApi.loginWithProvider(loginProviderRequest: loginProviderRequest, callback: { response in
-                self.callback?(
-                    response.flatMap({ openIdTokenResponse in
-                        AuthToken.fromOpenIdTokenResponse(openIdTokenResponse: openIdTokenResponse)
-                    })
-                )
-            })
+            self.reachFiveApi
+                .loginWithProvider(loginProviderRequest: loginProviderRequest)
+                .flatMap({ AuthToken.fromOpenIdTokenResponseFuture($0) })
+                .onSuccess { authToken in
+                    self.promise?.success(authToken)
+                }
+                .onFailure { error in
+                    self.promise?.failure(error)
+                }
         }
     }
     
-    public func login(scope: [String], origin: String, viewController: UIViewController?, callback: @escaping Callback<AuthToken, ReachFiveError>) {
+    public func login(
+        scope: [String]?,
+        origin: String,
+        viewController: UIViewController?
+    ) -> Future<AuthToken, ReachFiveError> {
         self.scope = scope
         self.origin = origin
-        self.callback = callback
+        let promise = Promise<AuthToken, ReachFiveError>()
+        self.promise = promise
         GIDSignIn.sharedInstance().clientID = self.providerConfig.clientId
         GIDSignIn.sharedInstance().scopes = self.providerConfig.scope
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = viewController as? GIDSignInUIDelegate
         GIDSignIn.sharedInstance().signIn()
+        return promise.future
     }
     
     public func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
@@ -84,8 +105,9 @@ public class ConfiguredGoogleProvider: NSObject, Provider, GIDSignInDelegate, GI
     
     public func applicationDidBecomeActive(_ application: UIApplication) {}
     
-    public func logout() {
+    public func logout() -> Future<(), ReachFiveError> {
         GIDSignIn.sharedInstance()?.signOut()
+        return Future.init(value: ())
     }
     
     public override var description: String {

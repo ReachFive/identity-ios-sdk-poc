@@ -1,6 +1,7 @@
 import Foundation
 import UIKit
 import IdentitySdkCore
+import BrightFutures
 import FacebookCore
 import FacebookLogin
 import FBSDKLoginKit
@@ -12,8 +13,18 @@ public class FacebookProvider: ProviderCreator {
     
     public init() {}
 
-    public func create(sdkConfig: SdkConfig, providerConfig: ProviderConfig, reachFiveApi: ReachFiveApi) -> Provider {
-        return ConfiguredFacebookProvider(sdkConfig: sdkConfig, providerConfig: providerConfig, reachFiveApi: reachFiveApi)
+    public func create(
+        sdkConfig: SdkConfig,
+        providerConfig: ProviderConfig,
+        reachFiveApi: ReachFiveApi,
+        clientConfigResponse: ClientConfigResponse
+    ) -> Provider {
+        return ConfiguredFacebookProvider(
+            sdkConfig: sdkConfig,
+            providerConfig: providerConfig,
+            reachFiveApi: reachFiveApi,
+            clientConfigResponse: clientConfigResponse
+        )
     }
 }
 
@@ -23,18 +34,31 @@ public class ConfiguredFacebookProvider: NSObject, Provider {
     var sdkConfig: SdkConfig
     var providerConfig: ProviderConfig
     var reachFiveApi: ReachFiveApi
+    var clientConfigResponse: ClientConfigResponse
     
-    public init(sdkConfig: SdkConfig, providerConfig: ProviderConfig, reachFiveApi: ReachFiveApi) {
+    public init(
+        sdkConfig: SdkConfig,
+        providerConfig: ProviderConfig,
+        reachFiveApi: ReachFiveApi,
+        clientConfigResponse: ClientConfigResponse
+    ) {
         self.sdkConfig = sdkConfig
         self.providerConfig = providerConfig
         self.reachFiveApi = reachFiveApi
+        self.clientConfigResponse = clientConfigResponse
     }
     
     public override var description: String {
         return "Provider: \(name)"
     }
     
-    public func login(scope: [String], origin: String, viewController: UIViewController?, callback: @escaping Callback<AuthToken, ReachFiveError>) {
+    public func login(
+        scope: [String]?,
+        origin: String,
+        viewController: UIViewController?
+    ) -> Future<AuthToken, ReachFiveError> {
+        let promise = Promise<AuthToken, ReachFiveError>()
+        
         LoginManager().logIn(permissions: [.email, .publicProfile], viewController: viewController) { result in
             switch (result) {
             case .success(_, _, let token):
@@ -45,22 +69,25 @@ public class ConfiguredFacebookProvider: NSObject, Provider {
                     origin: origin,
                     clientId: self.sdkConfig.clientId,
                     responseType: "token",
-                    scope: scope.joined(separator: " ")
+                    scope: scope != nil ? scope!.joined(separator: " ") : self.clientConfigResponse.scope
                 )
-                self.reachFiveApi.loginWithProvider(loginProviderRequest: loginProviderRequest, callback: { response in
-                    callback(
-                        response
-                            .flatMap({ openIdTokenResponse in
-                                AuthToken.fromOpenIdTokenResponse(openIdTokenResponse: openIdTokenResponse)
-                            })
-                    )
-                })
+                self.reachFiveApi
+                    .loginWithProvider(loginProviderRequest: loginProviderRequest)
+                    .flatMap({ AuthToken.fromOpenIdTokenResponseFuture($0) })
+                    .onSuccess { authToken in
+                        promise.success(authToken)
+                    }
+                    .onFailure { error in
+                        promise.failure(error)
+                    }
             case .cancelled:
-                callback(.failure(.AuthCanceled))
+                promise.failure(.AuthCanceled)
             case .failed(let error):
-                callback(.failure(.TechnicalError(reason: error.localizedDescription)))
+                promise.failure(.TechnicalError(reason: error.localizedDescription))
             }
         }
+        
+        return promise.future
     }
     
     public func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
@@ -75,7 +102,8 @@ public class ConfiguredFacebookProvider: NSObject, Provider {
         AppEvents.activateApp()
     }
     
-    public func logout() {
+    public func logout() -> Future<(), ReachFiveError> {
         LoginManager().logOut()
+        return Future.init(value: ())
     }
 }

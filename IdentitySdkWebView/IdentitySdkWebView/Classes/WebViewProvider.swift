@@ -1,6 +1,7 @@
 import Foundation
 import SafariServices
 import IdentitySdkCore
+import BrightFutures
 
 public class WebViewProvider: ProviderCreator {
     public static let NAME = "webview"
@@ -9,8 +10,18 @@ public class WebViewProvider: ProviderCreator {
     
     public init() {}
     
-    public func create(sdkConfig: SdkConfig, providerConfig: ProviderConfig, reachFiveApi: ReachFiveApi) -> Provider {
-        return ConfiguredWebViewProvider(sdkConfig: sdkConfig, providerConfig: providerConfig, reachFiveApi: reachFiveApi)
+    public func create(
+        sdkConfig: SdkConfig,
+        providerConfig: ProviderConfig,
+        reachFiveApi: ReachFiveApi,
+        clientConfigResponse: ClientConfigResponse
+    ) -> Provider {
+        return ConfiguredWebViewProvider(
+            sdkConfig: sdkConfig,
+            providerConfig: providerConfig,
+            reachFiveApi: reachFiveApi,
+            clientConfigResponse: clientConfigResponse
+        )
     }
 }
 
@@ -18,31 +29,45 @@ class ConfiguredWebViewProvider: NSObject, Provider, SFSafariViewControllerDeleg
     private let notificationName = Notification.Name("AuthCallbackNotification")
     private var safariViewController: SFSafariViewController? = nil
     private var pkce: Pkce = Pkce.generate()
-    private var callback: Callback<AuthToken, ReachFiveError> = { _ in }
+    private var promise: Promise<AuthToken, ReachFiveError>?
 
     var name: String = WebViewProvider.NAME
     
     let sdkConfig: SdkConfig
     let providerConfig: ProviderConfig
     let reachFiveApi: ReachFiveApi
+    let clientConfigResponse: ClientConfigResponse
     
-    public init(sdkConfig: SdkConfig, providerConfig: ProviderConfig, reachFiveApi: ReachFiveApi) {
+    public init(sdkConfig: SdkConfig, providerConfig: ProviderConfig, reachFiveApi: ReachFiveApi, clientConfigResponse: ClientConfigResponse) {
         self.sdkConfig = sdkConfig
         self.providerConfig = providerConfig
         self.reachFiveApi = reachFiveApi
         self.name = providerConfig.provider
+        self.clientConfigResponse = clientConfigResponse
     }
     
-    public func login(scope: [String], origin: String, viewController: UIViewController?, callback: @escaping Callback<AuthToken, ReachFiveError>) {
-        self.callback = callback
+    public func login(
+        scope: [String]?,
+        origin: String,
+        viewController: UIViewController?
+    ) -> Future<AuthToken, ReachFiveError> {
+        self.promise?.failure(.AuthCanceled)
+        let promise = Promise<AuthToken, ReachFiveError>()
+        self.promise = promise
         self.pkce = Pkce.generate()
-        let url = self.buildUrl(sdkConfig: sdkConfig, providerConfig: providerConfig, scope: scope, pkce: pkce)
+        let url = self.buildUrl(
+            sdkConfig: sdkConfig,
+            providerConfig: providerConfig,
+            scope: scope != nil ? scope!.joined(separator: " ") : self.clientConfigResponse.scope,
+            pkce: pkce
+        )
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleLogin(_:)), name: self.notificationName, object: nil)
         
         self.safariViewController = SFSafariViewController.init(url: URL(string: url)!)
         
         viewController?.present(safariViewController!, animated: true)
+        return promise.future
     }
     
     @objc func handleLogin(_ notification : Notification) {
@@ -51,15 +76,15 @@ class ConfiguredWebViewProvider: NSObject, Provider, SFSafariViewControllerDeleg
         let url = notification.object as? URL
         
         if let query = url?.query {
-            let params = parseQueriesStrings(query: query)
+            let params = QueriesStrings.parseQueriesStrings(query: query)
             let code = params["code"]
             if code != nil {
                 self.handleAuthCode(code!!)
             } else {
-                self.callback(.failure(.TechnicalError(reason: "No authorization code")))
+                self.promise?.failure(.TechnicalError(reason: "No authorization code"))
             }
         } else {
-            callback(.failure(.TechnicalError(reason: "No authorization code")))
+            self.promise?.failure(.TechnicalError(reason: "No authorization code"))
         }
         
         self.safariViewController?.dismiss(animated: true, completion: nil)
@@ -67,14 +92,14 @@ class ConfiguredWebViewProvider: NSObject, Provider, SFSafariViewControllerDeleg
     
     private func handleAuthCode(_ code: String) {
         let authCodeRequest = AuthCodeRequest(clientId: self.sdkConfig.clientId, code: code, pkce: self.pkce)
-        self.reachFiveApi.authWithCode(authCodeRequest: authCodeRequest, callback: { response in
-            switch response {
-            case .success(let openIdTokenResponse):
-                self.callback(AuthToken.fromOpenIdTokenResponse(openIdTokenResponse: openIdTokenResponse))
-            case .failure(let error):
-                self.callback(.failure(ReachFiveError.TechnicalError(reason: error.localizedDescription)))
+        self.reachFiveApi.authWithCode(authCodeRequest: authCodeRequest)
+            .flatMap({ AuthToken.fromOpenIdTokenResponseFuture($0) })
+            .onSuccess { authToken in
+                self.promise?.success(authToken)
             }
-        })
+            .onFailure { error in
+                self.promise?.failure(error)
+            }
     }
     
     func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
@@ -101,15 +126,17 @@ class ConfiguredWebViewProvider: NSObject, Provider, SFSafariViewControllerDeleg
         
     }
     
-    public func logout() {}
+    public func logout() -> Future<(), ReachFiveError> {
+        return Future.init(value: ())
+    }
     
-    func buildUrl(sdkConfig: SdkConfig, providerConfig: ProviderConfig, scope: [String], pkce: Pkce) -> String {
+    func buildUrl(sdkConfig: SdkConfig, providerConfig: ProviderConfig, scope: String, pkce: Pkce) -> String {
         let params = [
             "provider": providerConfig.provider,
             "client_id": sdkConfig.clientId,
             "response_type": "code",
-            "redirect_uri": "reachfive://callback",
-            "scope": scope.joined(separator: " "),
+            "redirect_uri": ReachFive.REDIRECT_URI,
+            "scope": scope,
             "platform": "ios",
             "code_challenge": pkce.codeChallenge,
             "code_challenge_method": pkce.codeChallengeMethod,
@@ -125,16 +152,5 @@ class ConfiguredWebViewProvider: NSObject, Provider, SFSafariViewControllerDeleg
     
     override var description: String {
         return "Provider: \(self.name)"
-    }
-    
-    func parseQueriesStrings(query: String) -> Dictionary<String, String?> {
-        return query.split(separator: "&").reduce(Dictionary<String, String?>(), { ( acc, param) in
-            var mutAcc = acc
-            let splited = param.split(separator: "=")
-            let key: String = String(splited.first!)
-            let value: String? = splited.count > 1 ? String(splited[1]) : nil
-            mutAcc.updateValue(value, forKey: key)
-            return mutAcc
-        })
     }
 }

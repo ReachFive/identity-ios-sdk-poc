@@ -2,12 +2,9 @@ import UIKit
 import IdentitySdkCore
 import GoogleSignIn
 
-class LoginController: UIViewController, UITableViewDataSource, UITableViewDelegate, GIDSignInUIDelegate {
+class LoginWithProvidersController: UIViewController, UITableViewDataSource, UITableViewDelegate, GIDSignInUIDelegate {
     var providers: [Provider] = []
     
-    @IBOutlet weak var error: UILabel!
-    @IBOutlet weak var emailInput: UITextField!
-    @IBOutlet weak var passwordInput: UITextField!
     @IBOutlet weak var providersTableView: UITableView!
     
     override func viewDidLoad() {
@@ -16,30 +13,20 @@ class LoginController: UIViewController, UITableViewDataSource, UITableViewDeleg
         providersTableView.dataSource = self
         providersTableView.delegate = self
         
-        AppDelegate.reachfive().initialize(callback: { response in
-            switch response {
-            case .success(let providers):
+        AppDelegate.reachfive()
+            .initialize()
+            .onSuccess { providers in
                 self.providers.append(contentsOf: providers)
                 self.providersTableView.reloadData()
-            case .failure(let error):
-                print("initialize error \(error)")
             }
-        })
+            .onFailure { print("initialize error \($0)") }
     }
     
     public func reloadProvidersData(providers: [Provider]) {
         self.providers = providers
         self.providersTableView.reloadData()
     }
-    
-    @IBAction func login(_ sender: Any) {
-        let email = emailInput.text ?? ""
-        let password = passwordInput.text ?? ""
-        AppDelegate.shared().reachfive.loginWithPassword(username: email, password: password, callback: { result in
-            self.handleResult(result: result)
-        })
-    }
-    
+        
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return providers.count
     }
@@ -57,17 +44,19 @@ class LoginController: UIViewController, UITableViewDataSource, UITableViewDeleg
     func handleResult(result: Result<AuthToken, ReachFiveError>) {
         switch result {
         case .success(let authToken):
-            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let profileController = storyBoard.instantiateViewController(
-                withIdentifier: "ProfileScene"
-            ) as! ProfileController
-            profileController.authToken = authToken
-            self.self.navigationController?.pushViewController(profileController, animated: true)
-        case .failure(.RequestError(let requestErrors)):
-            self.error.text = requestErrors.errorUserMsg
+            AppDelegate.storage.save(key: "AUTH_TOKEN", value: authToken)
+            goToProfile(authToken)
         case .failure(let error):
             print(error)
         }
+    }
+        
+    func goToProfile(_ authToken: AuthToken) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let profileController = storyBoard.instantiateViewController(
+            withIdentifier: "ProfileScene"
+        ) as! ProfileController
+        self.self.navigationController?.pushViewController(profileController, animated: true)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -82,9 +71,11 @@ class LoginController: UIViewController, UITableViewDataSource, UITableViewDeleg
             .login(
                 scope: scope,
                 origin: "home",
-                viewController: self,
-                callback: { result in self.handleResult(result: result) }
+                viewController: self
             )
+            .onComplete { result in
+                self.handleResult(result: result)
+            }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

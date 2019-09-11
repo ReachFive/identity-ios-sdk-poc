@@ -9,13 +9,16 @@ import AlamofireNetworkLogger
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
+    public static let storage = UserDefaultsStorage()
+    
     let reachfive = ReachFive(
         sdkConfig: SdkConfig(domain: "sdk-mobile-sandbox.reach5.net", clientId: "TYAIHFRJ2a1FGJ1T8pKD"),
         providersCreators: [
             FacebookProvider(),
             GoogleProvider(),
             WebViewProvider()
-        ]
+        ],
+        storage: UserDefaultsStorage()
     )
     
     static func reachfive() -> ReachFive {
@@ -26,10 +29,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     static func shared() -> AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
+    
+    static func createAlert(title: String, message: String) -> UIAlertController {
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: UIAlertController.Style.alert
+        )
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        return alert
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         AlamofireNetworkLogger.shared.startLogging()
         AlamofireNetworkLogger.shared.level = .debug
+        
+        reachfive.addPasswordlessCallback { result in
+            print("addPasswordlessCallback \(result)")
+        }
+        
         return true
     }
     
