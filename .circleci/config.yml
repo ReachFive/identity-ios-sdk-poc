@@ -11,9 +11,9 @@ jobs:
     steps:
       - checkout
       # Install CocoaPods
-      - run:
-          name: Install CocoaPods
-          command: pod install
+      # - run:
+      #     name: Install CocoaPods
+      #     command: pod install
       # Build the app and run tests
       - run:
           name: Build and run tests
@@ -21,6 +21,7 @@ jobs:
           environment:
             SCAN_DEVICE: iPhone 6
             SCAN_SCHEME: WebTests
+      - run: pod spec lint IdentitySdkCore.podspec
 workflows:
   version: 2
   build-and-deploy:
