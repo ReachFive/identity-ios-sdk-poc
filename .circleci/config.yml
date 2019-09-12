@@ -10,9 +10,9 @@ jobs:
       xcode: "10.3.0"
     steps:
       - checkout
-      # - run:
-      #     name: Install CocoaPods
-      #     command: curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
+      - run:
+          name: Install CocoaPods
+          command: curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
       - run: pod --version
       - run:
           name: Build and run tests
@@ -21,6 +21,9 @@ jobs:
             SCAN_DEVICE: iPhone 6
             SCAN_SCHEME: WebTests
       - run: pod spec lint IdentitySdkCore.podspec
+      - run: pod spec lint IdentitySdkFacebook.podspec
+      - run: pod spec lint IdentitySdkGoogle.podspec
+      - run: pod spec lint IdentitySdkWebView.podspec
 workflows:
   version: 2
   build-and-deploy:
