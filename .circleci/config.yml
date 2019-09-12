@@ -9,9 +9,9 @@ jobs:
       xcode: "10.3.0"
     steps:
       - checkout
-      - run:
-          name: Install CocoaPods
-          command: curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
+      # - run:
+      #     name: Install CocoaPods
+      #     command: curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
       - run: pod --version
       - run: pod spec lint IdentitySdkCore.podspec
       - run: pod spec lint IdentitySdkFacebook.podspec
@@ -22,9 +22,9 @@ jobs:
       xcode: "10.3.0"
     steps:
       - checkout
-      - run:
-          name: Install CocoaPods
-          command: curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
+      # - run:
+      #     name: Install CocoaPods
+      #     command: curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
       - run: pod --version
       - run: pod trunk push IdentitySdkCore.podspec
       - run: pod trunk push IdentitySdkFacebook.podspec
@@ -37,9 +37,9 @@ jobs:
     steps:
       - checkout:
           path: ~/repo
-      - run:
-          name: Install CocoaPods
-          command: curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
+      # - run:
+      #     name: Install CocoaPods
+      #     command: curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
       - run: pod install
       - run: fastlane scan
 
