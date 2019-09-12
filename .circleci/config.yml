@@ -9,6 +9,8 @@ jobs:
       xcode: "10.3.0"
     steps:
       - checkout
+      - restore_cache:
+          key: v1-cocoapods-{{ checksum "Sandbox/Podfile.lock" }}
       # - run:
       #     name: Install CocoaPods
       #     command: curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
@@ -17,6 +19,10 @@ jobs:
       - run: pod spec lint IdentitySdkFacebook.podspec
       - run: pod spec lint IdentitySdkGoogle.podspec
       - run: pod spec lint IdentitySdkWebView.podspec
+      - save_cache:
+          paths:
+            - ~/.cocoapods/repos/master
+          key: v1-cocoapods-{{ checksum "Sandbox/Podfile.lock" }}
   publish:
     macos:
       xcode: "10.3.0"
