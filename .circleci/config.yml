@@ -69,3 +69,4 @@ workflows:
           requires:
             - build
           <<: *default_workflows_filters
+
