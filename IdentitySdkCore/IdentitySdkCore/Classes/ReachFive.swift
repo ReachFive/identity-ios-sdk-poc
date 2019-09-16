@@ -35,10 +35,10 @@ public class ReachFive: NSObject {
             .flatMap { _ in self.reachFiveApi.logout() }
     }
     
-    public func refreshAccessToken(refreshToken: String) -> Future<AuthToken, ReachFiveError> {
+    public func refreshAccessToken(authToken: AuthToken) -> Future<AuthToken, ReachFiveError> {
         let refreshRequest = RefreshRequest(
             clientId: sdkConfig.clientId,
-            refreshToken: refreshToken,
+            refreshToken: authToken.refreshToken ?? "",
             redirectUri: ReachFive.REDIRECT_URI
         )
         return reachFiveApi
