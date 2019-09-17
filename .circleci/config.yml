@@ -13,22 +13,16 @@ jobs:
       #     name: Install CocoaPods
       #     command: curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
       - run: |
-          pwd
           cd IdentitySdkCore
-          pwd
           xcodebuild -workspace IdentitySdkCore.xcworkspace -scheme "IdentitySdkCore" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGN_ENTITLEMENTS="" CODE_SIGNING_ALLOWED="NO"
       - run: |
-          pwd
-          ls
-          cd ../IdentitySdkFacebook
-          pwd
-          ls
+          cd IdentitySdkFacebook
           xcodebuild -workspace IdentitySdkFacebook.xcworkspace -scheme "IdentitySdkFacebook" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGN_ENTITLEMENTS="" CODE_SIGNING_ALLOWED="NO"
       - run: |
-          cd ../IdentitySdkGoogle
+          cd IdentitySdkGoogle
           xcodebuild -workspace IdentitySdkGoogle.xcworkspace -scheme "IdentitySdkGoogle" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGN_ENTITLEMENTS="" CODE_SIGNING_ALLOWED="NO"
       - run: |
-          cd ../IdentitySdkWebView
+          cd IdentitySdkWebView
           xcodebuild -workspace IdentitySdkWebView.xcworkspace -scheme "IdentitySdkWebView" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGN_ENTITLEMENTS="" CODE_SIGNING_ALLOWED="NO"
   publish:
     macos:
