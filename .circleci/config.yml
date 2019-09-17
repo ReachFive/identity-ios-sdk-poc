@@ -16,15 +16,18 @@ jobs:
           cd IdentitySdkCore
           pod install
           xcodebuild -workspace IdentitySdkCore.xcworkspace -scheme "IdentitySdkCore" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGN_ENTITLEMENTS="" CODE_SIGNING_ALLOWED="NO"
-      # - run: |
-      #     cd ../IdentitySdkFacebook
-      #     xcodebuild -workspace IdentitySdkFacebook.xcworkspace -scheme "IdentitySdkFacebook"
-      # - run: |
-      #     cd ../IdentitySdkGoogle
-      #     xcodebuild -workspace IdentitySdkGoogle.xcworkspace -scheme "IdentitySdkGoogle"
-      # - run: |
-      #     cd ../IdentitySdkWebView
-      #     xcodebuild -workspace IdentitySdkWebView.xcworkspace -scheme "IdentitySdkWebView"
+      - run: |
+          cd ../IdentitySdkFacebook
+          pod install
+          xcodebuild -workspace IdentitySdkFacebook.xcworkspace -scheme "IdentitySdkFacebook" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGN_ENTITLEMENTS="" CODE_SIGNING_ALLOWED="NO"
+      - run: |
+          cd ../IdentitySdkGoogle
+          pod install
+          xcodebuild -workspace IdentitySdkGoogle.xcworkspace -scheme "IdentitySdkGoogle" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGN_ENTITLEMENTS="" CODE_SIGNING_ALLOWED="NO"
+      - run: |
+          cd ../IdentitySdkWebView
+          pod install
+          xcodebuild -workspace IdentitySdkWebView.xcworkspace -scheme "IdentitySdkWebView" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGN_ENTITLEMENTS="" CODE_SIGNING_ALLOWED="NO"
   publish:
     macos:
       xcode: "10.3.0"
