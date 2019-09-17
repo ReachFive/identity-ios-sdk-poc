@@ -1,0 +1,6 @@
+framework module Pods_IdentitySdkGoogle {
+  umbrella header "Pods-IdentitySdkGoogle-umbrella.h"
+
+  export *
+  module * { export * }
+}

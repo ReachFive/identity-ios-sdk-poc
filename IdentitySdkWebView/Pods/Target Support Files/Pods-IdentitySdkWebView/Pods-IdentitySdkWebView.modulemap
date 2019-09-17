@@ -1,0 +1,6 @@
+framework module Pods_IdentitySdkWebView {
+  umbrella header "Pods-IdentitySdkWebView-umbrella.h"
+
+  export *
+  module * { export * }
+}
