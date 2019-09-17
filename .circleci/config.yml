@@ -12,10 +12,18 @@ jobs:
       # - run:
       #     name: Install CocoaPods
       #     command: curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
-      - run: xcodebuild -workspace IdentitySdkCore.xcworkspace -scheme "IdentitySdkCore"
-      - run: xcodebuild -workspace IdentitySdkFacebook.xcworkspace -scheme "IdentitySdkFacebook"
-      - run: xcodebuild -workspace IdentitySdkGoogle.xcworkspace -scheme "IdentitySdkGoogle"
-      - run: xcodebuild -workspace IdentitySdkWebView.xcworkspace -scheme "IdentitySdkWebView"
+      - run: |
+          cd IdentitySdkCore
+          xcodebuild -workspace IdentitySdkCore.xcworkspace -scheme "IdentitySdkCore"
+      - run: |
+          cd ../IdentitySdkFacebook
+          xcodebuild -workspace IdentitySdkFacebook.xcworkspace -scheme "IdentitySdkFacebook"
+      - run: |
+          cd ../IdentitySdkGoogle
+          xcodebuild -workspace IdentitySdkGoogle.xcworkspace -scheme "IdentitySdkGoogle"
+      - run: |
+          cd ../IdentitySdkWebView
+          xcodebuild -workspace IdentitySdkWebView.xcworkspace -scheme "IdentitySdkWebView"
   publish:
     macos:
       xcode: "10.3.0"
