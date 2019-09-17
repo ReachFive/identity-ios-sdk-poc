@@ -15,15 +15,15 @@ jobs:
       - run: |
           cd IdentitySdkCore
           xcodebuild -workspace IdentitySdkCore.xcworkspace -scheme "IdentitySdkCore"
-      - run: |
-          cd ../IdentitySdkFacebook
-          xcodebuild -workspace IdentitySdkFacebook.xcworkspace -scheme "IdentitySdkFacebook"
-      - run: |
-          cd ../IdentitySdkGoogle
-          xcodebuild -workspace IdentitySdkGoogle.xcworkspace -scheme "IdentitySdkGoogle"
-      - run: |
-          cd ../IdentitySdkWebView
-          xcodebuild -workspace IdentitySdkWebView.xcworkspace -scheme "IdentitySdkWebView"
+      # - run: |
+      #     cd ../IdentitySdkFacebook
+      #     xcodebuild -workspace IdentitySdkFacebook.xcworkspace -scheme "IdentitySdkFacebook"
+      # - run: |
+      #     cd ../IdentitySdkGoogle
+      #     xcodebuild -workspace IdentitySdkGoogle.xcworkspace -scheme "IdentitySdkGoogle"
+      # - run: |
+      #     cd ../IdentitySdkWebView
+      #     xcodebuild -workspace IdentitySdkWebView.xcworkspace -scheme "IdentitySdkWebView"
   publish:
     macos:
       xcode: "10.3.0"
