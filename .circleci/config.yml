@@ -9,11 +9,12 @@ jobs:
       xcode: "10.3.0"
     steps:
       - checkout
-      # - run:
-      #     name: Install CocoaPods
-      #     command: curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
+      - run:
+          name: Install CocoaPods
+          command: curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
       - run: |
           cd IdentitySdkCore
+          pod install
           xcodebuild -workspace IdentitySdkCore.xcworkspace -scheme "IdentitySdkCore" CODE_SIGNING_REQUIRED=NO
       # - run: |
       #     cd ../IdentitySdkFacebook
