@@ -5,6 +5,9 @@
 - Passwordless code verifification
 - Passwordless intercept magic link
 
+### Breaking changes
+The login with provider require scope parameter `login(scope: [String]?, origin: String, viewController: UIViewController?)`
+
 ## v5.0.0
 
 - Use [Futures](https://github.com/Thomvis/BrightFutures) instead of callbacks, we use the [BrightFutures](https://github.com/Thomvis/BrightFutures) library
