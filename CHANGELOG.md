@@ -6,7 +6,8 @@
 - Passwordless intercept magic link
 
 ### Breaking changes
-The login with provider require scope parameter `login(scope: [String]?, origin: String, viewController: UIViewController?)`
+- The login with provider require scope parameter `login(scope: [String]?, origin: String, viewController: UIViewController?)`
+- remove `signedUid` field from Profile
 
 ## v5.0.0
 
