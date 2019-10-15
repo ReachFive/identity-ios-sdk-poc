@@ -36,7 +36,7 @@ PODS:
   - IdentitySdkCore (5.1.1):
     - Alamofire (~> 4.9)
     - BrightFutures (~> 8.0)
-    - CryptoSwift (~> 1.0)
+    - CryptoSwift (~> 1.1)
   - IdentitySdkFacebook (5.1.1):
     - FacebookCore (~> 0.9)
     - FacebookLogin (~> 0.9)
@@ -55,7 +55,7 @@ DEPENDENCIES:
   - IdentitySdkWebView (from `../IdentitySdkWebView.podspec`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Alamofire
     - AlamofireNetworkLogger
     - BrightFutures
@@ -90,11 +90,11 @@ SPEC CHECKSUMS:
   GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39
   GoogleToolboxForMac: b3553629623a3b1bff17f555e736cd5a6d95ad55
   GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
-  IdentitySdkCore: 6402db1c3fff9de0210425e047b1b0ffd7037ed1
+  IdentitySdkCore: 3aaf5dc2e0e7e0506cca4dbb980bc3c93d30ad5d
   IdentitySdkFacebook: d9c42a25fce15f7ce0616aa19fae0c61ac6b4c90
   IdentitySdkGoogle: d20ace2329137b1387ba1f1092cb9859724e8b87
   IdentitySdkWebView: f3bacc3f35f944377f368f42430696bcd6ba7e1b
 
 PODFILE CHECKSUM: 56f5a656f1cc6691838a6095e1102a8ef2988439
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.3

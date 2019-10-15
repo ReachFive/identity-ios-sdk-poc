@@ -18,14 +18,14 @@ PODS:
   - IdentitySdkCore (5.1.1):
     - Alamofire (~> 4.9)
     - BrightFutures (~> 8.0)
-    - CryptoSwift (~> 1.0)
+    - CryptoSwift (~> 1.1)
 
 DEPENDENCIES:
   - GoogleSignIn (~> 4.4)
   - IdentitySdkCore (from `../IdentitySdkCore.podspec`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Alamofire
     - BrightFutures
     - CryptoSwift
@@ -44,8 +44,8 @@ SPEC CHECKSUMS:
   GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39
   GoogleToolboxForMac: b3553629623a3b1bff17f555e736cd5a6d95ad55
   GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
-  IdentitySdkCore: 6402db1c3fff9de0210425e047b1b0ffd7037ed1
+  IdentitySdkCore: 3aaf5dc2e0e7e0506cca4dbb980bc3c93d30ad5d
 
 PODFILE CHECKSUM: 77c9ec43eb6819122829c39a1375534153eb28e1
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.3
