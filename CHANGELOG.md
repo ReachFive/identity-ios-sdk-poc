@@ -7,7 +7,7 @@
 
 ### Breaking changes
 - The login with provider require scope parameter `login(scope: [String]?, origin: String, viewController: UIViewController?)`
-- remove `signedUid` field from Profile
+- The `signedUid` field was removed from the [Profile](https://developer.reach5.co/api/identity-ios/#profile) model.
 
 ## v5.0.0
 
