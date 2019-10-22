@@ -28,6 +28,17 @@ extension DataRequest {
                 } else {
                     promise.failure(ReachFiveError.TechnicalError(reason: "No response data"))
                 }
+            } else if (status != nil && status! == 401) {
+                if let data = responseData.data {
+                    switch self.parseJson(json: data, type: RequestErrors.self, decoder: decoder) {
+                    case .success(let requestErrors):
+                        promise.failure(ReachFiveError.AuthFailure(reason: requestErrors.errorUserMsg ?? requestErrors.errorDescription ?? requestErrors.error ?? "Unauthorized", requestErrors: requestErrors))
+                    case .failure(let error):
+                        promise.failure(ReachFiveError.AuthFailure(reason: error.localizedDescription))
+                    }
+                } else {
+                    promise.failure(ReachFiveError.AuthFailure(reason: "Unauthorized"))
+                }
             } else if (status != nil && status! >= 200 && status! < 300) {
                 promise.success(())
             } else {
@@ -54,6 +65,13 @@ extension DataRequest {
                         promise.failure(ReachFiveError.RequestError(requestErrors: requestErrors))
                     case .failure(let error):
                         promise.failure(ReachFiveError.TechnicalError(reason: error.localizedDescription))
+                    }
+                } else if (status != nil && status! == 401) {
+                    switch self.parseJson(json: data, type: RequestErrors.self, decoder: decoder) {
+                    case .success(let requestErrors):
+                        promise.failure(ReachFiveError.AuthFailure(reason: requestErrors.errorUserMsg ?? requestErrors.errorDescription ?? requestErrors.error ?? "Unauthorized", requestErrors: requestErrors))
+                    case .failure(let error):
+                        promise.failure(ReachFiveError.AuthFailure(reason: error.localizedDescription))
                     }
                 } else {
                     promise.failure(

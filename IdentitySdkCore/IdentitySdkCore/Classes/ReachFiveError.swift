@@ -2,7 +2,7 @@ import Foundation
 
 public enum ReachFiveError: Error {
     case RequestError(requestErrors: RequestErrors)
-    case AuthFailure(reason: String)
+    case AuthFailure(reason: String, requestErrors: RequestErrors? = nil)
     case AuthCanceled
     case TechnicalError(reason: String)
 }
