@@ -30,7 +30,7 @@ jobs:
           xcodebuild -workspace IdentitySdkWebView.xcworkspace -scheme "IdentitySdkWebView" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGN_ENTITLEMENTS="" CODE_SIGNING_ALLOWED="NO"
   publish:
     macos:
-      xcode: "10.3.0"
+      xcode: "11.1.0"
     steps:
       - checkout
       - run:
@@ -42,7 +42,7 @@ jobs:
       - run: pod trunk push IdentitySdkWebView.podspec
   build-sandbox:
     macos:
-      xcode: "10.3.0"
+      xcode: "11.1.0"
     working_directory: ~/repo/Sandbox
     steps:
       - checkout:
