@@ -1,9 +1,29 @@
 # Changelog
 
+## v5.2.0
+- Fix unauthorized errors
+- Refactor http errors handling
+- Add api errors to `ReachFiveError.AuthFailure` error
+
+### Breaking changes
+- `RequestErrors` is renamed to `ApiError`
+- `ReachFiveError.AuthFailure` contain an optional parameter of type `ApiError`
+
+## v5.1.2
+- Fix get profile without custom fields
+- fix http errors handling
+
+## v5.1.1
+- Fix http errors handling
+
 ## v5.1.0
 - Support of refreshToken
 - Passwordless code verifification
 - Passwordless intercept magic link
+
+### Breaking changes
+- The login with provider requires now the `scope` parameter `login(scope: [String]?, origin: String, viewController: UIViewController?).`
+- The `signedUid` field was removed from the [Profile](https://developer.reach5.co/api/identity-ios/#profile) model.
 
 ## v5.0.0
 
