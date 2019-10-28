@@ -15,19 +15,23 @@ jobs:
       - run: |
           cd IdentitySdkCore
           pod install
-          xcodebuild -workspace IdentitySdkCore.xcworkspace -scheme "IdentitySdkCore" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGN_ENTITLEMENTS="" CODE_SIGNING_ALLOWED="NO"
+          pod spec lint IdentitySdkCore.podspec
+          # xcodebuild -workspace IdentitySdkCore.xcworkspace -scheme "IdentitySdkCore" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGN_ENTITLEMENTS="" CODE_SIGNING_ALLOWED="NO"
       - run: |
           cd IdentitySdkFacebook
           pod install
-          xcodebuild -workspace IdentitySdkFacebook.xcworkspace -scheme "IdentitySdkFacebook" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGN_ENTITLEMENTS="" CODE_SIGNING_ALLOWED="NO"
+          pod spec lint IdentitySdkFacebook.podspec
+          # xcodebuild -workspace IdentitySdkFacebook.xcworkspace -scheme "IdentitySdkFacebook" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGN_ENTITLEMENTS="" CODE_SIGNING_ALLOWED="NO"
       - run: |
           cd IdentitySdkGoogle
           pod install
-          xcodebuild -workspace IdentitySdkGoogle.xcworkspace -scheme "IdentitySdkGoogle" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGN_ENTITLEMENTS="" CODE_SIGNING_ALLOWED="NO"
+          pod spec lint IdentitySdkGoogle.podspec
+          # xcodebuild -workspace IdentitySdkGoogle.xcworkspace -scheme "IdentitySdkGoogle" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGN_ENTITLEMENTS="" CODE_SIGNING_ALLOWED="NO"
       - run: |
           cd IdentitySdkWebView
           pod install
-          xcodebuild -workspace IdentitySdkWebView.xcworkspace -scheme "IdentitySdkWebView" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGN_ENTITLEMENTS="" CODE_SIGNING_ALLOWED="NO"
+          pod spec lint IdentitySdkWebView.podspec
+          #xcodebuild -workspace IdentitySdkWebView.xcworkspace -scheme "IdentitySdkWebView" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGN_ENTITLEMENTS="" CODE_SIGNING_ALLOWED="NO"
   publish:
     macos:
       xcode: "11.1.0"
