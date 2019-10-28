@@ -12,30 +12,34 @@ jobs:
       - run:
           name: Install CocoaPods
           command: curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
-      - run: |
-          cd IdentitySdkCore
-          pod install
-          cd ../
-          pod spec lint IdentitySdkCore.podspec
-          # xcodebuild -workspace IdentitySdkCore.xcworkspace -scheme "IdentitySdkCore" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGN_ENTITLEMENTS="" CODE_SIGNING_ALLOWED="NO"
-      - run: |
-          cd IdentitySdkFacebook
-          pod install
-          cd ../
-          pod spec lint IdentitySdkFacebook.podspec
-          # xcodebuild -workspace IdentitySdkFacebook.xcworkspace -scheme "IdentitySdkFacebook" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGN_ENTITLEMENTS="" CODE_SIGNING_ALLOWED="NO"
-      - run: |
-          cd IdentitySdkGoogle
-          pod install
-          cd ../
-          pod spec lint IdentitySdkGoogle.podspec
-          # xcodebuild -workspace IdentitySdkGoogle.xcworkspace -scheme "IdentitySdkGoogle" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGN_ENTITLEMENTS="" CODE_SIGNING_ALLOWED="NO"
-      - run: |
-          cd IdentitySdkWebView
-          pod install
-          cd ../
-          pod spec lint IdentitySdkWebView.podspec
-          #xcodebuild -workspace IdentitySdkWebView.xcworkspace -scheme "IdentitySdkWebView" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGN_ENTITLEMENTS="" CODE_SIGNING_ALLOWED="NO"
+      - run:
+          name: Check IdentitySdkCore
+          command: |
+            cd IdentitySdkCore
+            pod install
+            cd ../
+            pod spec lint IdentitySdkCore.podspec
+      - run:
+          name: Check IdentitySdkFacebook
+          command: |
+            cd IdentitySdkFacebook
+            pod install
+            cd ../
+            pod spec lint IdentitySdkFacebook.podspec
+      - run:
+          name: Check IdentitySdkGoogle
+          command: |
+            cd IdentitySdkGoogle
+            pod install
+            cd ../
+            pod spec lint IdentitySdkGoogle.podspec
+      - run:
+          name: Check IdentitySdkWebView
+          command: |
+            cd IdentitySdkWebView
+            pod install
+            cd ../
+            pod spec lint IdentitySdkWebView.podspec
   publish:
     macos:
       xcode: "11.1.0"
