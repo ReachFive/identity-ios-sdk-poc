@@ -53,9 +53,7 @@ class PasswordlessController: UIViewController {
     
     @IBAction func verifyCode(_ sender: Any) {
         let verifyAuthCodeRequest = VerifyAuthCodeRequest(
-            redirectUri: redirectUriInput.text ?? "",
-            phoneNumber: phoneNumberInput.text,
-            email: emailInput.text,
+            phoneNumber: phoneNumberInput.text ?? "",
             verificationCode: verificationCodeInput.text ?? ""
         )
         AppDelegate.reachfive()
