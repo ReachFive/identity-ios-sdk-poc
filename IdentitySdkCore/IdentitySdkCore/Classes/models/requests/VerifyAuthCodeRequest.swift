@@ -5,7 +5,7 @@ public class VerifyPasswordlessRequest: Codable, DictionaryEncodable {
     let phoneNumber: String?
     let verificationCode: String
     let state: String?
-    let redirectUri: String?
+    let redirectUri: String
     let clientId: String?
     let responseType: String?
     
@@ -14,7 +14,7 @@ public class VerifyPasswordlessRequest: Codable, DictionaryEncodable {
         phoneNumber: String? = nil,
         verificationCode: String,
         state: String? = nil,
-        redirectUri: String? = nil,
+        redirectUri: String,
         clientId: String? = nil,
         responseType: String? = nil
     ) {
@@ -30,17 +30,20 @@ public class VerifyPasswordlessRequest: Codable, DictionaryEncodable {
 
 public class VerifyAuthCodeRequest: Codable, DictionaryEncodable {
     let authType: PasswordLessAuthType?
+    let redirectUri: String
     let phoneNumber: String?
     let email: String?
     let verificationCode: String
 
     public init(
         authType: PasswordLessAuthType? = nil,
+        redirectUri: String,
         phoneNumber: String? = nil,
         email: String? = nil,
         verificationCode: String
     ) {
         self.authType = authType
+        self.redirectUri = redirectUri
         self.phoneNumber = phoneNumber
         self.email = email
         self.verificationCode = verificationCode

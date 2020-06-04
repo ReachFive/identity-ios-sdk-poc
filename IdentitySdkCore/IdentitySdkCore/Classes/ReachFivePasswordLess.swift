@@ -49,7 +49,7 @@ public extension ReachFive {
                     phoneNumber: verifyAuthCodeRequest.phoneNumber,
                     verificationCode: verifyAuthCodeRequest.verificationCode,
                     state: "passwordless",
-                    redirectUri: ReachFive.REDIRECT_URI,
+                    redirectUri: verifyAuthCodeRequest.redirectUri,
                     clientId: self.sdkConfig.clientId,
                     responseType: "code"
                 )
