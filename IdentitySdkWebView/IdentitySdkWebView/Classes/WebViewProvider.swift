@@ -97,7 +97,12 @@ class ConfiguredWebViewProvider: NSObject, Provider, SFSafariViewControllerDeleg
     }
     
     private func handleAuthCode(_ code: String) {
-        let authCodeRequest = AuthCodeRequest(clientId: self.sdkConfig.clientId, code: code, pkce: self.pkce)
+        let authCodeRequest = AuthCodeRequest(
+            clientId: self.sdkConfig.clientId,
+            code: code,
+            redirectUri: sdkConfig.redirectUri,
+            pkce: self.pkce
+        )
         self.reachFiveApi.authWithCode(authCodeRequest: authCodeRequest)
             .flatMap({ AuthToken.fromOpenIdTokenResponseFuture($0) })
             .onSuccess { authToken in
@@ -141,7 +146,7 @@ class ConfiguredWebViewProvider: NSObject, Provider, SFSafariViewControllerDeleg
             "provider": providerConfig.provider,
             "client_id": sdkConfig.clientId,
             "response_type": "code",
-            "redirect_uri": ReachFive.REDIRECT_URI,
+            "redirect_uri": sdkConfig.redirectUri,
             "scope": scope,
             "platform": "ios",
             "code_challenge": pkce.codeChallenge,

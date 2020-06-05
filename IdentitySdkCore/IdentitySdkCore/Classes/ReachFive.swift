@@ -10,8 +10,6 @@ public typealias PasswordlessCallback = (_ result: Result<AuthToken, ReachFiveEr
 
 /// ReachFive identity SDK
 public class ReachFive: NSObject {
-    private static let CLIENT_ID: String = Bundle.main.object(forInfoDictionaryKey: "ClientId") as? String ?? ""
-    public static let REDIRECT_URI: String = "reachfive-\(CLIENT_ID)://callback"
     let notificationPasswordlessName = Notification.Name("PasswordlessNotification")
     var passwordlessCallback: PasswordlessCallback? = nil
     var state: State = .NotInitialized
@@ -39,7 +37,8 @@ public class ReachFive: NSObject {
     public func refreshAccessToken(authToken: AuthToken) -> Future<AuthToken, ReachFiveError> {
         let refreshRequest = RefreshRequest(
             clientId: sdkConfig.clientId,
-            refreshToken: authToken.refreshToken ?? ""
+            refreshToken: authToken.refreshToken ?? "",
+            redirectUri: sdkConfig.redirectUri
         )
         return reachFiveApi
             .refreshAccessToken(refreshRequest)

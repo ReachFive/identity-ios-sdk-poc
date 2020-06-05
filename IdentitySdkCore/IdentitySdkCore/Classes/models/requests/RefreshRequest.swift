@@ -6,10 +6,14 @@ public class RefreshRequest: Codable, DictionaryEncodable {
     public let redirectUri: String
     public let grantType: String
     
-    public init(clientId: String, refreshToken: String) {
+    public init(
+        clientId: String,
+        refreshToken: String,
+        redirectUri: String
+    ) {
         self.clientId = clientId
         self.refreshToken = refreshToken
-        self.redirectUri = ReachFive.REDIRECT_URI
+        self.redirectUri = redirectUri
         self.grantType = "refresh_token"
     }
 }

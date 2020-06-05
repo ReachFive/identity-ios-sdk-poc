@@ -7,11 +7,17 @@ public class AuthCodeRequest: Codable, DictionaryEncodable {
     public let redirectUri: String
     public let codeVerifier: String
 
-    public convenience init(clientId: String, code: String, pkce: Pkce) {
+    public convenience init(
+        clientId: String,
+        code: String,
+        redirectUri: String,
+        pkce: Pkce
+    ) {
         self.init(
             clientId: clientId,
             code: code,
             grantType: "authorization_code",
+            redirectUri: redirectUri,
             codeVerifier: pkce.codeVerifier
         )
     }
@@ -20,12 +26,13 @@ public class AuthCodeRequest: Codable, DictionaryEncodable {
         clientId: String,
         code: String,
         grantType: String,
+        redirectUri: String,
         codeVerifier: String
     ) {
         self.clientId = clientId
         self.code = code
         self.grantType = grantType
-        self.redirectUri = ReachFive.REDIRECT_URI
+        self.redirectUri = redirectUri
         self.codeVerifier = codeVerifier
     }
 }
