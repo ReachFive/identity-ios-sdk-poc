@@ -12,7 +12,6 @@ public class AuthCodeRequest: Codable, DictionaryEncodable {
             clientId: clientId,
             code: code,
             grantType: "authorization_code",
-            redirectUri: ReachFive.REDIRECT_URI,
             codeVerifier: pkce.codeVerifier
         )
     }
@@ -21,13 +20,12 @@ public class AuthCodeRequest: Codable, DictionaryEncodable {
         clientId: String,
         code: String,
         grantType: String,
-        redirectUri: String,
         codeVerifier: String
     ) {
         self.clientId = clientId
         self.code = code
         self.grantType = grantType
-        self.redirectUri = redirectUri
+        self.redirectUri = ReachFive.REDIRECT_URI
         self.codeVerifier = codeVerifier
     }
 }

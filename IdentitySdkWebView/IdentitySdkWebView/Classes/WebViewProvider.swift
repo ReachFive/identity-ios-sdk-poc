@@ -26,7 +26,6 @@ public class WebViewProvider: ProviderCreator {
 }
 
 class ConfiguredWebViewProvider: NSObject, Provider, SFSafariViewControllerDelegate {
-    private let REDIRECT_URI: String = "reachfive://callback"
     private let notificationName = Notification.Name("AuthCallbackNotification")
     private var safariViewController: SFSafariViewController? = nil
     private var pkce: Pkce = Pkce.generate()
@@ -39,7 +38,12 @@ class ConfiguredWebViewProvider: NSObject, Provider, SFSafariViewControllerDeleg
     let reachFiveApi: ReachFiveApi
     let clientConfigResponse: ClientConfigResponse
     
-    public init(sdkConfig: SdkConfig, providerConfig: ProviderConfig, reachFiveApi: ReachFiveApi, clientConfigResponse: ClientConfigResponse) {
+    public init(
+        sdkConfig: SdkConfig,
+        providerConfig: ProviderConfig,
+        reachFiveApi: ReachFiveApi,
+        clientConfigResponse: ClientConfigResponse
+    ) {
         self.sdkConfig = sdkConfig
         self.providerConfig = providerConfig
         self.reachFiveApi = reachFiveApi
@@ -137,7 +141,7 @@ class ConfiguredWebViewProvider: NSObject, Provider, SFSafariViewControllerDeleg
             "provider": providerConfig.provider,
             "client_id": sdkConfig.clientId,
             "response_type": "code",
-            "redirect_uri": REDIRECT_URI,
+            "redirect_uri": ReachFive.REDIRECT_URI,
             "scope": scope,
             "platform": "ios",
             "code_challenge": pkce.codeChallenge,
