@@ -2,8 +2,8 @@ import Foundation
 import BrightFutures
 
 public enum PasswordLessRequest {
-    case Email(email: String, redirectUri: String)
-    case PhoneNumber(phoneNumber: String, redirectUri: String)
+    case Email(email: String, redirectUri: String?)
+    case PhoneNumber(phoneNumber: String, redirectUri: String?)
 }
 
 public extension ReachFive {
@@ -21,7 +21,7 @@ public extension ReachFive {
                 clientId: sdkConfig.clientId,
                 email: email,
                 authType: .MagicLink,
-                redirectUri: redirectUri,
+                redirectUri: redirectUri ?? sdkConfig.redirectUri,
                 codeChallenge: pkce.codeChallenge,
                 codeChallengeMethod: pkce.codeChallengeMethod
             )
@@ -31,7 +31,7 @@ public extension ReachFive {
                 clientId: sdkConfig.clientId,
                 phoneNumber: phoneNumber,
                 authType: .SMS,
-                redirectUri: redirectUri,
+                redirectUri: redirectUri ?? sdkConfig.redirectUri,
                 codeChallenge: pkce.codeChallenge,
                 codeChallengeMethod: pkce.codeChallengeMethod
             )
