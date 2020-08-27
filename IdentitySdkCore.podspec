@@ -18,6 +18,6 @@ Pod::Spec.new do |spec|
   spec.ios.deployment_target = $IOS_DEPLOYMENT_TARGET
 
   spec.dependency 'Alamofire', '~> 5.2.2'
-  spec.dependency 'BrightFutures', '~> 8.0'
+  spec.dependency 'BrightFutures', '~> 8.0.0'
   spec.dependency 'CryptoSwift', '~> 1.3.1'
 end
