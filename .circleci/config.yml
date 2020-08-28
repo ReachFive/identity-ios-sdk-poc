@@ -118,7 +118,7 @@ workflows:
   version: 2
   build-and-deploy:
     jobs:
-      - build:
+      - build-for-release:
           <<: *default_workflows_tags
       - publish:
           requires:
