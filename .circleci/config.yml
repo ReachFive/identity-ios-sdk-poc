@@ -118,8 +118,10 @@ workflows:
   version: 2
   build-and-deploy:
     jobs:
-      - build-for-release:
+      - build:
           <<: *default_workflows_tags
+      - build-for-release:
+          <<: *default_workflows_filters
       - publish:
           requires:
             - build-for-release
