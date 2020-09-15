@@ -9,6 +9,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     public static let storage = SecureStorage()
+    public static let authKey = "AUTH_TOKEN"
 
     let reachfive: ReachFive = ReachFive(
             sdkConfig: SdkConfig(
@@ -71,7 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
         print("applicationWillEnterForeground")
-        guard let token: AuthToken = AppDelegate.storage.get(key: "AUTH_TOKEN") else {
+        guard let token: AuthToken = AppDelegate.storage.get(key: AppDelegate.authKey) else {
             // re-authenticate the user
             return
         }
@@ -79,11 +80,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 .refreshAccessToken(authToken: token)
                 .onSuccess { refreshedAuthToken in
                     print("refresh successful")
-                    AppDelegate.storage.update(key: "AUTH_TOKEN", value: refreshedAuthToken)
+                    AppDelegate.storage.save(key: AppDelegate.authKey, value: refreshedAuthToken)
                 }
                 .onFailure { error in
                     print("refresh error \(error)")
-                    AppDelegate.storage.clear(key: "AUTH_TOKEN")
+                    AppDelegate.storage.clear(key: AppDelegate.authKey)
                 }
     }
 

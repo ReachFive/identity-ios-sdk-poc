@@ -36,7 +36,7 @@ public class SecureStorage: Storage {
         print("SecureStorage.save success")
     }
 
-    public func update<D: Codable>(key: String, value: D) {
+    private func update<D: Codable>(key: String, value: D) {
         let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
                                     kSecAttrService as String: serviceName,
                                     kSecAttrAccount as String: key]
