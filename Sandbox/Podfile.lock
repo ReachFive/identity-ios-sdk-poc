@@ -34,7 +34,7 @@ PODS:
   - IdentitySdkCore (5.4.0):
     - Alamofire (~> 5.2.2)
     - BrightFutures (~> 8.0.0)
-    - CryptoSwift (~> 1.3.1)
+    - CryptoSwift (~> 1.3.2)
   - IdentitySdkFacebook (5.4.0):
     - FacebookCore (~> 0.9)
     - FacebookLogin (~> 0.9)
@@ -85,7 +85,7 @@ SPEC CHECKSUMS:
   GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39
   GoogleToolboxForMac: 1350d40e86a76f7863928d63bcb0b89c84c521c5
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
-  IdentitySdkCore: 37cc089345ca02f7144985c6a34dec6849c1ac43
+  IdentitySdkCore: 69bbd895c54c33e0f7e5e1836e53c18246659e98
   IdentitySdkFacebook: 78598c3e1eeec26c1cd30e71172409555cedebe2
   IdentitySdkGoogle: 6531bcf8055d82d30b968fd3fedac8aaa5b19a4f
   IdentitySdkWebView: 587776b62ac87a357a23ba7f4839157f29eaea6c

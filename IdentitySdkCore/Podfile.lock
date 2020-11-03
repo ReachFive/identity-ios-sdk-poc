@@ -6,7 +6,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 5.2.2)
   - BrightFutures (~> 8.0.0)
-  - CryptoSwift (~> 1.3.1)
+  - CryptoSwift (~> 1.3.2)
 
 SPEC REPOS:
   trunk:
@@ -19,6 +19,6 @@ SPEC CHECKSUMS:
   BrightFutures: f8427b46feabaf73c5e71ace7d86d65dfbb47696
   CryptoSwift: 093499be1a94b0cae36e6c26b70870668cb56060
 
-PODFILE CHECKSUM: 49ef0dd24bc4d6d5314f5881de20824127caa693
+PODFILE CHECKSUM: 99fec7d674ddfde9ceeff4ef1a21feba2c4dda56
 
 COCOAPODS: 1.10.0

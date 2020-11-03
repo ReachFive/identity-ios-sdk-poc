@@ -5,7 +5,7 @@ PODS:
   - IdentitySdkCore (5.4.0):
     - Alamofire (~> 5.2.2)
     - BrightFutures (~> 8.0.0)
-    - CryptoSwift (~> 1.3.1)
+    - CryptoSwift (~> 1.3.2)
 
 DEPENDENCIES:
   - IdentitySdkCore (from `../IdentitySdkCore.podspec`)
@@ -24,7 +24,7 @@ SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   BrightFutures: f8427b46feabaf73c5e71ace7d86d65dfbb47696
   CryptoSwift: 093499be1a94b0cae36e6c26b70870668cb56060
-  IdentitySdkCore: 37cc089345ca02f7144985c6a34dec6849c1ac43
+  IdentitySdkCore: 69bbd895c54c33e0f7e5e1836e53c18246659e98
 
 PODFILE CHECKSUM: e63fcb4c65d9d34c1639c962bd3416000e26c98d
 
