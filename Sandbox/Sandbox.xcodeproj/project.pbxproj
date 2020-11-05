@@ -16,11 +16,22 @@
 		3417FF6822F846610009EC84 /* UpdatePhoneNumberController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3417FF6722F846610009EC84 /* UpdatePhoneNumberController.swift */; };
 		3417FF6E22FB06E50009EC84 /* PasswordlessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3417FF6D22FB06E50009EC84 /* PasswordlessController.swift */; };
 		3417FF7022FB11CD0009EC84 /* LoginWithPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3417FF6F22FB11CD0009EC84 /* LoginWithPasswordController.swift */; };
+		3448FF5322D4E819008D0123 /* SandboxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3448FF5222D4E819008D0123 /* SandboxUITests.swift */; };
 		34797ABD22A9607D00ED093C /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34797ABC22A9607D00ED093C /* SignupController.swift */; };
 		349E16EC230BEBBF002EA06B /* UpdatePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349E16EB230BEBBF002EA06B /* UpdatePasswordController.swift */; };
 		ADC8995361C4AB125E775CCE /* Pods_Sandbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 514A43AA721312D19BFBD529 /* Pods_Sandbox.framework */; };
 		EA91ACDEBA85D43349D63550 /* SecureStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA91A294C5DD405D6A38ADCC /* SecureStorage.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3448FF5522D4E81A008D0123 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 341731F2229D6B6400681CFD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 341731F9229D6B6400681CFD;
+			remoteInfo = Sandbox;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3414A7CC22DDD39C00CF393A /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
@@ -34,6 +45,9 @@
 		3417FF6722F846610009EC84 /* UpdatePhoneNumberController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePhoneNumberController.swift; sourceTree = "<group>"; };
 		3417FF6D22FB06E50009EC84 /* PasswordlessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordlessController.swift; sourceTree = "<group>"; };
 		3417FF6F22FB11CD0009EC84 /* LoginWithPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithPasswordController.swift; sourceTree = "<group>"; };
+		3448FF5022D4E819008D0123 /* SandboxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SandboxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3448FF5222D4E819008D0123 /* SandboxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandboxUITests.swift; sourceTree = "<group>"; };
+		3448FF5422D4E81A008D0123 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34797ABC22A9607D00ED093C /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
 		349E16EB230BEBBF002EA06B /* UpdatePasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordController.swift; sourceTree = "<group>"; };
 		514A43AA721312D19BFBD529 /* Pods_Sandbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sandbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +65,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3448FF4D22D4E819008D0123 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -58,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				341731FC229D6B6400681CFD /* Sandbox */,
+				3448FF5122D4E819008D0123 /* SandboxUITests */,
 				341731FB229D6B6400681CFD /* Products */,
 				8CD874808BCF122A3F9EDA83 /* Pods */,
 				A19C0883C2C3964994A2A248 /* Frameworks */,
@@ -68,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				341731FA229D6B6400681CFD /* Sandbox.app */,
+				3448FF5022D4E819008D0123 /* SandboxUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,6 +113,15 @@
 				EA91A294C5DD405D6A38ADCC /* SecureStorage.swift */,
 			);
 			path = Sandbox;
+			sourceTree = "<group>";
+		};
+		3448FF5122D4E819008D0123 /* SandboxUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3448FF5222D4E819008D0123 /* SandboxUITests.swift */,
+				3448FF5422D4E81A008D0123 /* Info.plist */,
+			);
+			path = SandboxUITests;
 			sourceTree = "<group>";
 		};
 		8CD874808BCF122A3F9EDA83 /* Pods */ = {
@@ -132,6 +164,24 @@
 			productReference = 341731FA229D6B6400681CFD /* Sandbox.app */;
 			productType = "com.apple.product-type.application";
 		};
+		3448FF4F22D4E819008D0123 /* SandboxUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3448FF5722D4E81A008D0123 /* Build configuration list for PBXNativeTarget "SandboxUITests" */;
+			buildPhases = (
+				3448FF4C22D4E819008D0123 /* Sources */,
+				3448FF4D22D4E819008D0123 /* Frameworks */,
+				3448FF4E22D4E819008D0123 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3448FF5622D4E81A008D0123 /* PBXTargetDependency */,
+			);
+			name = SandboxUITests;
+			productName = SandboxUITests;
+			productReference = 3448FF5022D4E819008D0123 /* SandboxUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -147,6 +197,10 @@
 				TargetAttributes = {
 					341731F9229D6B6400681CFD = {
 						CreatedOnToolsVersion = 10.2.1;
+					};
+					3448FF4F22D4E819008D0123 = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 341731F9229D6B6400681CFD;
 					};
 				};
 			};
@@ -164,6 +218,7 @@
 			projectRoot = "";
 			targets = (
 				341731F9229D6B6400681CFD /* Sandbox */,
+				3448FF4F22D4E819008D0123 /* SandboxUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -176,6 +231,13 @@
 				34173208229D6B6400681CFD /* LaunchScreen.storyboard in Resources */,
 				34173205229D6B6400681CFD /* Assets.xcassets in Resources */,
 				34173203229D6B6400681CFD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3448FF4E22D4E819008D0123 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,7 +319,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3448FF4C22D4E819008D0123 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3448FF5322D4E819008D0123 /* SandboxUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3448FF5622D4E81A008D0123 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 341731F9229D6B6400681CFD /* Sandbox */;
+			targetProxy = 3448FF5522D4E81A008D0123 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		34173201229D6B6400681CFD /* Main.storyboard */ = {
@@ -441,6 +519,44 @@
 			};
 			name = Release;
 		};
+		3448FF5822D4E81A008D0123 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6X8RPJDRWS;
+				INFOPLIST_FILE = SandboxUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.reach5.SandboxUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Sandbox;
+			};
+			name = Debug;
+		};
+		3448FF5922D4E81A008D0123 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6X8RPJDRWS;
+				INFOPLIST_FILE = SandboxUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.reach5.SandboxUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Sandbox;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -458,6 +574,15 @@
 			buildConfigurations = (
 				3417320D229D6B6400681CFD /* Debug */,
 				3417320E229D6B6400681CFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3448FF5722D4E81A008D0123 /* Build configuration list for PBXNativeTarget "SandboxUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3448FF5822D4E81A008D0123 /* Debug */,
+				3448FF5922D4E81A008D0123 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
