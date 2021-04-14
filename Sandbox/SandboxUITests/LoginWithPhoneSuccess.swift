@@ -1,10 +1,3 @@
-//
-//  LoginWithPhoneSuccess.swift
-//  SandboxUITests
-//
-//  Created by admin on 17/12/2020.
-//  Copyright © 2020 Reachfive. All rights reserved.
-//
 import XCTest
 
 class LoginWithPhoneSuccess: XCTestCase {

@@ -247,7 +247,6 @@
 		34E18B8D22A6C13100952EBD /* models */ = {
 			isa = PBXGroup;
 			children = (
-
 				34E18B8B22A6BEC900952EBD /* AccessTokenResponse.swift */,
 				34689A9622CDFB5F002970F9 /* AuthToken.swift */,
 				72DDB78D22EF354300048262 /* ClientConfigResponse.swift */,
@@ -271,7 +270,6 @@
 			children = (
 				84C353CD25E47238006978E5 /* PromiseKit.framework */,
 				2B722D997B32FEE8753D77AB /* Pods_IdentitySdkCore.framework */,
-
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
