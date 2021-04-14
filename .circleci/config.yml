@@ -19,7 +19,6 @@ jobs:
             pod install
             cd ../
             pod lib lint IdentitySdkCore.podspec --allow-warnings
-
       - run:
           name: Check IdentitySdkFacebook
           command: |
@@ -27,7 +26,6 @@ jobs:
             pod install
             cd ../
             pod lib lint IdentitySdkFacebook.podspec --allow-warnings
-            
       - run:
           name: Check IdentitySdkGoogle
           command: |
@@ -35,7 +33,6 @@ jobs:
             pod install
             cd ../
             pod lib lint IdentitySdkGoogle.podspec --allow-warnings
-
       - run:
           name: Check IdentitySdkWebView
           command: |
@@ -43,7 +40,6 @@ jobs:
             pod install
             cd ../
             pod lib lint IdentitySdkWebView.podspec --allow-warnings
-
   build-for-release:
     macos:
       xcode: "11.2.0"
@@ -59,7 +55,6 @@ jobs:
             pod install
             cd ../
             pod spec lint IdentitySdkCore.podspec --allow-warnings
-
       - run:
           name: Check IdentitySdkFacebook
           command: |
@@ -67,7 +62,6 @@ jobs:
             pod install
             cd ../
             pod spec lint IdentitySdkFacebook.podspec --allow-warnings
-
       - run:
           name: Check IdentitySdkGoogle
           command: |
@@ -75,7 +69,6 @@ jobs:
             pod install
             cd ../
             pod spec lint IdentitySdkGoogle.podspec --allow-warnings
-
       - run:
           name: Check IdentitySdkWebView
           command: |

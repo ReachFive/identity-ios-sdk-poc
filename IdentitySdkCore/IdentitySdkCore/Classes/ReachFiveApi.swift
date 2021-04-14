@@ -245,7 +245,6 @@ public class ReachFiveApi {
                      parameters: requestPasswordResetRequest.dictionary(),
                      encoding: JSONEncoding.default
         )
-
             .validate(contentType: ["application/json"])
             .responseJson(decoder: self.decoder)
     }

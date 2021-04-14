@@ -1,7 +1,6 @@
 import UIKit
 import IdentitySdkCore
 
-
 class ProfileController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var authToken: AuthToken? = AppDelegate.storage.get(key: AppDelegate.authKey)
     var devices : [DeviceCredential] = []

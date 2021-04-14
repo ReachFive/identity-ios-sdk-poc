@@ -154,7 +154,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				63B485A8E4E7A8A3D94D4C18 /* Pods_IdentitySdkCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -165,7 +164,6 @@
 		34173218229D801500681CFD /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-
 				34E18B8D22A6C13100952EBD /* models */,
 				347FDB53229BE8F800660687 /* Provider.swift */,
 				347FDB66229C02FE00660687 /* ReachFive.swift */,
@@ -200,7 +198,6 @@
 		34689A9F22CE5CF9002970F9 /* requests */ = {
 			isa = PBXGroup;
 			children = (
-
 				3404A40B22CBA6DD002FFEDB /* AuthCodeRequest.swift */,
 				34689A9822CDFC24002970F9 /* LoginProviderRequest.swift */,
 				34E18B8E22A6C32500952EBD /* LoginRequest.swift */,
@@ -215,7 +212,6 @@
 				3442C21D230EC48A009F8874 /* VerifyAuthCodeRequest.swift */,
 				34689A9D22CE4666002970F9 /* VerifyPhoneNumberRequest.swift */,
 				8496EB0725DEAE10005098DD /* webAuthn */,
-
 			);
 			path = requests;
 			sourceTree = "<group>";
@@ -273,7 +269,6 @@
 		74FB8B4B94CB262BEC297380 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-
 				84C353CD25E47238006978E5 /* PromiseKit.framework */,
 				2B722D997B32FEE8753D77AB /* Pods_IdentitySdkCore.framework */,
 
@@ -281,7 +276,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-
 		8496EB0725DEAE10005098DD /* webAuthn */ = {
 			isa = PBXGroup;
 			children = (
@@ -352,9 +346,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 347FDB4A229BE84500660687 /* Build configuration list for PBXNativeTarget "IdentitySdkCore" */;
 			buildPhases = (
-
 				3E48ED07786CEAA846211855 /* [CP] Check Pods Manifest.lock */,
-
 				347FDB3D229BE84500660687 /* Headers */,
 				347FDB3E229BE84500660687 /* Sources */,
 				347FDB3F229BE84500660687 /* Frameworks */,
@@ -412,7 +404,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-
 		3E48ED07786CEAA846211855 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -442,7 +433,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				8496EB4125DEB141005098DD /* AuthenticationOptions.swift in Sources */,
 				34BDDA3822E5BE8C00D16DAE /* LoginSummary.swift in Sources */,
 				340AF1F7232A9A2B00AA114D /* QueryString.swift in Sources */,
@@ -469,7 +459,6 @@
 				8496EB2825DEAFCF005098DD /* R5PublicKeyCredentialRequestOptions.swift in Sources */,
 				3474D28B22D32F3A005112C1 /* RequestPasswordResetRequest.swift in Sources */,
 				8496EB4025DEB141005098DD /* R5PublicKeyCredentialCreationOptions.swift in Sources */,
-
 				34E18B8A22A6985C00952EBD /* SignupRequest.swift in Sources */,
 				3417FF6622F8435F0009EC84 /* UpdatePhoneNumberRequest.swift in Sources */,
 				347FDB65229C02A800660687 /* SdkConfig.swift in Sources */,
@@ -658,7 +647,6 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/KeychainAccess\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/PromiseKit\"",
 				);
-
 				INFOPLIST_FILE = IdentitySdkCore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -701,7 +689,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.reach5.IdentitySdkCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
