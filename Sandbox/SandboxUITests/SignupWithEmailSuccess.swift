@@ -31,7 +31,7 @@ class SignupWithEmailSuccess: XCTestCase {
         loginButton.tap()
         
         sleep(1)
-        let updateEmail = app.buttons["email"]
-        XCTAssert(updateEmail.exists)
+        let emailLabel = app.staticTexts["email"]
+        XCTAssertEqual("Email: "+uuid.lowercased(), emailLabel.label)
     }
 }

@@ -29,7 +29,10 @@ class LoginWithPhoneSuccess: XCTestCase {
         loginButton.tap()
         
         sleep(1)
-        let updateEmail = app.buttons["email"]
-        XCTAssert(updateEmail.exists)
+        let predicate = NSPredicate(format: "label BEGINSWITH 'Email: '")
+        let element = app.staticTexts.element(matching: predicate)
+        XCTAssert(element.exists)
+        
+        
     }
 }
