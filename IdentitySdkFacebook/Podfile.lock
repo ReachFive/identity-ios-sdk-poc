@@ -17,7 +17,7 @@ PODS:
     - Alamofire (~> 5.2.2)
     - BrightFutures (~> 8.0.0)
     - CryptoSwift (~> 1.3.8)
-    - EllipticCurveKeyPair (~> 2.0-beta1)
+    - EllipticCurveKeyPair (~> 2.0)
     - KeychainAccess (~> 4.2.1)
     - PromiseKit (~> 6.13.1)
     - WebAuthnKit (~> 0.9.5)
@@ -53,6 +53,7 @@ SPEC REPOS:
     - KeychainAccess
     - PromiseKit
     - WebAuthnKit
+
 EXTERNAL SOURCES:
   IdentitySdkCore:
     :path: "../IdentitySdkCore.podspec"
@@ -64,7 +65,7 @@ SPEC CHECKSUMS:
   EllipticCurveKeyPair: 8c69e5238a6e47243a10a48fbd41dfb19110b22e
   FBSDKCoreKit: ac6cc500b8e104bb9a4dd20b1527b5d199123c2e
   FBSDKLoginKit: e9b6542fdee322333502ab497f628b011dce7d78
-  IdentitySdkCore: 05fe227b6f3bf5a4e21671de5647e916b5df9b83
+  IdentitySdkCore: 23c9b320351970752247e4bab8ff63576df692e5
   KeychainAccess: 9b07f665298d13c3a85881bd3171f6f49b8151c1
   PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
   WebAuthnKit: 921cdc78466db607caefe2feb617ac11eae81197
