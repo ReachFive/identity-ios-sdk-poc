@@ -38,4 +38,8 @@ class SignUpFidoControllerViewController: UIViewController {
         profileController.authToken = authToken
         self.self.navigationController?.pushViewController(profileController, animated: true)
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }

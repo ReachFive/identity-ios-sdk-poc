@@ -5,6 +5,7 @@ public enum ReachFiveError: Error {
     case AuthFailure(reason: String, apiError: ApiError? = nil)
     case AuthCanceled
     case TechnicalError(reason: String, apiError: ApiError? = nil)
+    case Fido2Error(reason: String)
 }
 
 public class ApiError: Codable {

@@ -116,20 +116,20 @@ public class ReachFive: NSObject {
                         _ = completion(authToken)
                     }
                 }
-        }.onFailure { error in
-            var messageAlert = ""
-            switch error {
-            case .RequestError(let requestErrors):
-                messageAlert = requestErrors.errorUserMsg!
-            case .TechnicalError(let technicalError):
-                messageAlert = (technicalError.apiError?.errorUserMsg)! as String
-            default:
-                messageAlert = error.localizedDescription
+            }.onFailure { error in
+                var messageAlert = ""
+                switch error {
+                case .RequestError(let requestErrors):
+                    messageAlert = requestErrors.errorUserMsg!
+                case .TechnicalError(let technicalError):
+                    messageAlert = (technicalError.apiError?.errorUserMsg)! as String
+                default:
+                    messageAlert = error.localizedDescription
+                }
+                let alert = UIAlertController(title: "Error", message:messageAlert, preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil))
+                viewController.present(alert, animated: true, completion: nil)
             }
-            let alert = UIAlertController(title: "Error", message:messageAlert, preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil))
-            viewController.present(alert, animated: true, completion: nil)
-        }
     }
     
     private func onSignupWithWebAuthnResult(webauthnSignupCredential: WebauthnSignupCredential,scopes: [String]?, completion: @escaping ((Future<AuthToken, ReachFiveError>) -> Any)) {
@@ -141,7 +141,7 @@ public class ReachFive: NSObject {
                 self.loginCallback(tkn: authenticationToken.tkn,scopes:scopes){ (authToken) -> Any in
                     _ = completion(authToken)
                 }
-        }
+            }
     }
     
     public func loginWithWebAuthn(email: String, origin: String, scopes: [String]?,viewController: UIViewController, completion: @escaping ((Future<AuthToken, ReachFiveError>) -> Any)) {
@@ -166,20 +166,20 @@ public class ReachFive: NSObject {
                         _ = completion(authToken)
                     }
                 }
-        }.onFailure { error in
-            var messageAlert = ""
-            switch error {
-            case .RequestError(let requestErrors):
-                messageAlert = requestErrors.errorUserMsg!
-            case .TechnicalError(let technicalError):
-                messageAlert = (technicalError.apiError?.errorUserMsg)! as String
-            default:
-                messageAlert = error.localizedDescription
+            }.onFailure { error in
+                var messageAlert = ""
+                switch error {
+                case .RequestError(let requestErrors):
+                    messageAlert = requestErrors.errorUserMsg!
+                case .TechnicalError(let technicalError):
+                    messageAlert = (technicalError.apiError?.errorUserMsg)! as String
+                default:
+                    messageAlert = error.localizedDescription
+                }
+                let alert = UIAlertController(title: "Error", message:messageAlert, preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil))
+                viewController.present(alert, animated: true, completion: nil)
             }
-            let alert = UIAlertController(title: "Error", message:messageAlert, preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil))
-            viewController.present(alert, animated: true, completion: nil)
-        }
     }
     
     private func onLoginWithWebAuthnResult(authenticationPublicKeyCredential: AuthenticationPublicKeyCredential, scopes: [String]?, completion: @escaping ((Future<AuthToken, ReachFiveError>) -> Any)) {
@@ -190,16 +190,65 @@ public class ReachFive: NSObject {
                 self.loginCallback(tkn: authenticationToken.tkn,scopes:scopes){ (authToken) -> Any in
                     _ = completion(authToken)
                 }
-        }
+            }
     }
     
     public func listWebAuthnDevices(authToken: AuthToken) -> Future<[DeviceCredential], ReachFiveError> {
-         
-           return self.reachFiveApi
+        
+        return self.reachFiveApi
             .getWebAuthnRegistrations(authorization: buildAuthorization(authToken: authToken))
-       }
+    }
     
     private func buildAuthorization (authToken: AuthToken) -> String {
         return authToken.tokenType! + " " + authToken.accessToken
     }
+    public func addNewWebAuthnDevice(authToken: AuthToken,
+                                     origin: String,
+                                     friendlyName: String?,viewController: UIViewController) -> Future<(), ReachFiveError>  {
+        
+        let thePromise = BrightFutures.Promise<(), ReachFiveError>()
+        let webAuthnRegistrationRequest = WebAuthnRegistrationRequest(
+            origin: origin,
+            friendlyName: friendlyName ?? ""
+        )
+        
+        self.reachFiveApi
+            .createWebAuthnRegistrationOptions(authorization: buildAuthorization(authToken: authToken),webAuthnRegistrationRequest: webAuthnRegistrationRequest)
+            .onSuccess{registrationOptions in
+                // prepare and setup the reachFiveClientFido
+                let reachFiveClientFido = ReachFiveFidoClient (viewController: viewController, origin: origin)
+                reachFiveClientFido.setupWebAuthnClient()
+                reachFiveClientFido.startRegistration(registrationOption: registrationOptions).onSuccess{ webauthnSignupCredential in
+                    // start the onSignupWithWebAuthnResult func to get firstly the authenticationToken and then exchange the tkn with an access token
+                    self.onAddNewWebAuthnDeviceResult(authToken: authToken, webauthnSignupCredential: webauthnSignupCredential)
+                        .onSuccess{
+                            let result: Swift.Result<(), ReachFiveError> = Swift.Result.success(())
+                            thePromise.complete(result)
+                        }
+                        .onFailure {error in
+                            thePromise.failure(error)
+                        }
+                }
+                .onFailure {error in
+                    thePromise.failure(error)                    
+                }
+            }
+            .onFailure {error in
+                thePromise.failure(error)
+            }
+        
+        return thePromise.future
+    }
+    
+    private func onAddNewWebAuthnDeviceResult(authToken: AuthToken, webauthnSignupCredential: WebauthnSignupCredential) -> Future<(), ReachFiveError> {
+        
+        return reachFiveApi.registerWithWebAuthn(authorization: buildAuthorization(authToken: authToken),registrationPublicKeyCredential: webauthnSignupCredential.publicKeyCredential)
+    }
+    
+    public func deleteWebAuthnRegistration(authToken: AuthToken,deviceId: String) -> Future<(), ReachFiveError> {
+        
+        self.reachFiveApi
+            .deleteWebAuthnRegistration(authorization: buildAuthorization(authToken: authToken),deviceId: deviceId)
+    }
 }
+

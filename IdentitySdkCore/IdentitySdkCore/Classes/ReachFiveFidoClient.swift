@@ -44,33 +44,43 @@ class ReachFiveFidoClient: NSObject
             authenticator: authenticator
         )
     }
-    func startRegistration(registrationOption: RegistrationOptions) -> Future<WebauthnSignupCredential, Error> {
+    func startRegistration(registrationOption: RegistrationOptions) -> Future<WebauthnSignupCredential, ReachFiveError> {
         
         var challenge = registrationOption.options.publicKey.challenge
         let userId = registrationOption.options.publicKey.user.id
         let userName = registrationOption.options.publicKey.user.name
         let displayName = registrationOption.options.publicKey.user.displayName
         let rpId = registrationOption.options.publicKey.rp.id
-        
         let requireResidentKey = true
-        var options = PublicKeyCredentialCreationOptions()
         challenge = base64urlToHexString(base64url: challenge)
         
+        var options = PublicKeyCredentialCreationOptions()
         options.challenge = Bytes.fromHex(challenge)
         options.user.id = Bytes.fromString(userId)
         options.user.name = userName
         options.user.displayName = displayName
         options.rp.id = rpId
         options.rp.name = rpId
-        
         options.attestation = .direct
         options.addPubKeyCredParam(alg: .es256)
+        
+        var arrayPublicKeyCredentialDescriptor = [PublicKeyCredentialDescriptor] ()
+        
+        if (registrationOption.options.publicKey.excludeCredentials != nil)
+        {
+            for r5PublicKeyCredentialDescriptor in registrationOption.options.publicKey.excludeCredentials! {
+                var publicKeyCredentialDescriptor = PublicKeyCredentialDescriptor ()
+                publicKeyCredentialDescriptor.id = Bytes.fromHex(base64urlToHexString(base64url: r5PublicKeyCredentialDescriptor.id))
+                arrayPublicKeyCredentialDescriptor.append(publicKeyCredentialDescriptor)
+            }
+        }
+        options.excludeCredentials = arrayPublicKeyCredentialDescriptor
         options.authenticatorSelection = AuthenticatorSelectionCriteria(
             requireResidentKey: requireResidentKey,
             userVerification: UserVerificationRequirement.required
         )
         
-        let thePromise = BrightFutures.Promise<WebauthnSignupCredential, Error>()
+        let thePromise = BrightFutures.Promise<WebauthnSignupCredential, ReachFiveError>()
         firstly {
             self.webAuthnClient.create(options)
         }.done { credential in
@@ -80,17 +90,15 @@ class ReachFiveFidoClient: NSObject
             let credType = credential.type.rawValue
             let clientDataJSON = self.encodeClientDataJsonToBase64(clientDataJson: credential.response.clientDataJSON)
             let attestationObject = Base64.encodeBase64URL(credential.response.attestationObject)
-            
             let r5AuthenticatorAttestationResponse = R5AuthenticatorAttestationResponse(attestationObject: attestationObject,clientDataJSON: clientDataJSON)
-            
             let registrationPublicKeyCredential = RegistrationPublicKeyCredential(id: credId,rawId: rawId,type: credType,response: r5AuthenticatorAttestationResponse)
             
             let webauthnSignupCredential = WebauthnSignupCredential (webauthnId: userId,publicKeyCredential: registrationPublicKeyCredential)
-            let result: Swift.Result<WebauthnSignupCredential, Error> = Swift.Result.success(webauthnSignupCredential)
+            let result: Swift.Result<WebauthnSignupCredential, ReachFiveError> = Swift.Result.success(webauthnSignupCredential)
             thePromise.complete(result)
             
         }.catch { error in
-            thePromise.failure(error)
+            thePromise.failure(ReachFiveError.Fido2Error(reason: error.localizedDescription))
         }
         
         return thePromise.future
@@ -119,7 +127,7 @@ class ReachFiveFidoClient: NSObject
         return encodeClientDataJSON
     }
     
-    func startAuthentication(authenticationOptions: AuthenticationOptions) -> Future<AuthenticationPublicKeyCredential, Error> {
+    func startAuthentication(authenticationOptions: AuthenticationOptions) -> Future<AuthenticationPublicKeyCredential, ReachFiveError> {
         var challenge = authenticationOptions.publicKey.challenge
         let rpId = authenticationOptions.publicKey.rpId
         
@@ -141,7 +149,8 @@ class ReachFiveFidoClient: NSObject
                 )
             }
         }
-        let thePromise = BrightFutures.Promise<AuthenticationPublicKeyCredential, Error>()
+        let thePromise = BrightFutures.Promise<AuthenticationPublicKeyCredential, ReachFiveError>()
+        
         firstly {
             self.webAuthnClient.get(options)
         }.done { assertion in
@@ -160,11 +169,11 @@ class ReachFiveFidoClient: NSObject
             
             let authenticationPublicKeyCredential = AuthenticationPublicKeyCredential (id: credId, rawId: rawId, type: credType, response: r5AuthenticatorAssertionResponse)
             
-            let result: Swift.Result<AuthenticationPublicKeyCredential, Error> = Swift.Result.success(authenticationPublicKeyCredential)
+            let result: Swift.Result<AuthenticationPublicKeyCredential, ReachFiveError> = Swift.Result.success(authenticationPublicKeyCredential)
             thePromise.complete(result)
             
         }.catch { error in
-            thePromise.failure(error)
+            thePromise.failure(ReachFiveError.Fido2Error(reason: error.localizedDescription))
         }
         
         return thePromise.future
