@@ -7,6 +7,7 @@ class SignupController: UIViewController {
     @IBOutlet weak var passwordInput: UITextField!
     @IBOutlet weak var nameInput: UITextField!
     @IBOutlet weak var redirectUrlInput: UITextField!
+    var redirectUrl: String? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +19,7 @@ class SignupController: UIViewController {
         let phone = phoneInput.text ?? ""
         let password = passwordInput.text ?? ""
         let name = nameInput.text ?? ""
-        var redirectUrl: String? = nil
+        
             
         if (!redirectUrlInput.text!.isEmpty)
         {
@@ -37,7 +38,7 @@ class SignupController: UIViewController {
                   name: name,
                   customFields: customFields
               )
-            self.signup(profile:profile, redirectUrl: redirectUrl!)
+            self.signup(profile:profile)
               }
               else if (!email.isEmpty) && (phone.isEmpty){
                   
@@ -47,7 +48,7 @@ class SignupController: UIViewController {
                       name: name,
                       customFields: customFields
                   )
-                self.signup(profile:profile, redirectUrl: redirectUrl!)
+                self.signup(profile:profile)
               }
               else if ((!email.isEmpty) && (!phone.isEmpty))
               {
@@ -58,7 +59,7 @@ class SignupController: UIViewController {
                     name: name,
                     customFields: customFields
                 )
-                self.signup(profile:profile, redirectUrl: redirectUrl!)
+                self.signup(profile:profile)
               }
     }
     
@@ -72,7 +73,7 @@ class SignupController: UIViewController {
         self.self.navigationController?.pushViewController(profileController, animated: true)
     }
     
-    func signup(profile:ProfileSignupRequest, redirectUrl:String)
+    func signup(profile:ProfileSignupRequest)
     {
         AppDelegate.reachfive().signup(profile: profile,redirectUrl: redirectUrl).onSuccess(callback: goToProfile)
     }
