@@ -106,8 +106,8 @@ class ProfileController: UIViewController, UITableViewDelegate, UITableViewDataS
     {
         var messageAlert = ""
         switch error {
-        case .Fido2Error(let fido2Error):
-            messageAlert = fido2Error
+        case .WebauthnError(let webauthnError):
+            messageAlert = webauthnError
         case .RequestError(let requestErrors):
             messageAlert = requestErrors.errorDescription!
         case .TechnicalError(_, let apiError):

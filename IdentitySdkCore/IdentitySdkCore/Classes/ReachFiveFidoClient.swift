@@ -98,7 +98,7 @@ class ReachFiveFidoClient: NSObject
             thePromise.complete(result)
             
         }.catch { error in
-            thePromise.failure(ReachFiveError.Fido2Error(reason: error.localizedDescription))
+            thePromise.failure(ReachFiveError.WebauthnError(reason: error.localizedDescription))
         }
         
         return thePromise.future
@@ -173,7 +173,7 @@ class ReachFiveFidoClient: NSObject
             thePromise.complete(result)
             
         }.catch { error in
-            thePromise.failure(ReachFiveError.Fido2Error(reason: error.localizedDescription))
+            thePromise.failure(ReachFiveError.WebauthnError(reason: error.localizedDescription))
         }
         
         return thePromise.future
