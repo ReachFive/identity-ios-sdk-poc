@@ -69,9 +69,8 @@ class ReachFiveFidoClient: NSObject
         if (registrationOption.options.publicKey.excludeCredentials != nil)
         {
             for r5PublicKeyCredentialDescriptor in registrationOption.options.publicKey.excludeCredentials! {
-                var publicKeyCredentialDescriptor = PublicKeyCredentialDescriptor ()
-                publicKeyCredentialDescriptor.id = Bytes.fromHex(base64urlToHexString(base64url: r5PublicKeyCredentialDescriptor.id))
-                arrayPublicKeyCredentialDescriptor.append(publicKeyCredentialDescriptor)
+                
+                arrayPublicKeyCredentialDescriptor.append(PublicKeyCredentialDescriptor (id :Bytes.fromHex(base64urlToHexString(base64url: r5PublicKeyCredentialDescriptor.id))))
             }
         }
         options.excludeCredentials = arrayPublicKeyCredentialDescriptor
