@@ -117,18 +117,10 @@ public class ReachFive: NSObject {
                     }
                 }
             }.onFailure { error in
-                var messageAlert = ""
-                switch error {
-                case .RequestError(let requestErrors):
-                    messageAlert = requestErrors.errorUserMsg!
-                case .TechnicalError(let technicalError):
-                    messageAlert = (technicalError.apiError?.errorUserMsg)! as String
-                default:
-                    messageAlert = error.localizedDescription
-                }
-                let alert = UIAlertController(title: "Error", message:messageAlert, preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil))
-                viewController.present(alert, animated: true, completion: nil)
+                
+                let thePromise = BrightFutures.Promise<AuthToken, ReachFiveError>()
+                thePromise.failure(error)
+                _ = completion(thePromise.future)
             }
     }
     
@@ -141,6 +133,11 @@ public class ReachFive: NSObject {
                 self.loginCallback(tkn: authenticationToken.tkn,scopes:scopes){ (authToken) -> Any in
                     _ = completion(authToken)
                 }
+            }
+            .onFailure { error in
+                let thePromise = BrightFutures.Promise<AuthToken, ReachFiveError>()
+                thePromise.failure(error)
+                _ = completion(thePromise.future)
             }
     }
     
@@ -167,18 +164,10 @@ public class ReachFive: NSObject {
                     }
                 }
             }.onFailure { error in
-                var messageAlert = ""
-                switch error {
-                case .RequestError(let requestErrors):
-                    messageAlert = requestErrors.errorUserMsg!
-                case .TechnicalError(let technicalError):
-                    messageAlert = (technicalError.apiError?.errorUserMsg)! as String
-                default:
-                    messageAlert = error.localizedDescription
-                }
-                let alert = UIAlertController(title: "Error", message:messageAlert, preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil))
-                viewController.present(alert, animated: true, completion: nil)
+                
+                let thePromise = BrightFutures.Promise<AuthToken, ReachFiveError>()
+                thePromise.failure(error)
+                _ = completion(thePromise.future)
             }
     }
     
@@ -191,6 +180,12 @@ public class ReachFive: NSObject {
                     _ = completion(authToken)
                 }
             }
+            .onFailure { error in
+                let thePromise = BrightFutures.Promise<AuthToken, ReachFiveError>()
+                thePromise.failure(error)
+                _ = completion(thePromise.future)
+            }
+        
     }
     
     public func listWebAuthnDevices(authToken: AuthToken) -> Future<[DeviceCredential], ReachFiveError> {
@@ -219,7 +214,7 @@ public class ReachFive: NSObject {
                 reachFiveClientFido.setupWebAuthnClient()
                 return reachFiveClientFido.startRegistration(registrationOption: registrationOptions).flatMap({ webauthnSignupCredential -> Future<(), ReachFiveError>  in
                     // start the onSignupWithWebAuthnResult func to get firstly the authenticationToken and then exchange the tkn with an access token
-                     self.onAddNewWebAuthnDeviceResult(authToken: authToken, webauthnSignupCredential: webauthnSignupCredential)
+                    self.onAddNewWebAuthnDeviceResult(authToken: authToken, webauthnSignupCredential: webauthnSignupCredential)
                 })
                 
             })
