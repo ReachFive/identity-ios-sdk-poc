@@ -11,15 +11,12 @@ extension ClosedRange where Element: Hashable {
 class SignupLoginSuccess: XCTestCase {
     
     var uuid = UUID().uuidString
-    var rndPswd = String()
+    let rndPswd = "P@ssw0rd"
     var newPhoneNumber = String()
     
     override func setUpWithError() throws {
         
         uuid += "@testaccount.io"
-        let len = 8
-        let pswdChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
-        rndPswd = String((0..<len).compactMap{ _ in pswdChars.randomElement() })
         newPhoneNumber = randomPhoneNumber()
         continueAfterFailure = false
         
