@@ -96,6 +96,7 @@ public class ConfiguredGoogleProvider: NSObject, Provider, GIDSignInDelegate {
             UIApplication.OpenURLOptionsKey.sourceApplication.rawValue: sourceApplication as AnyObject,
             UIApplication.OpenURLOptionsKey.annotation.rawValue: annotation as AnyObject
         ]
+        //test
         return GIDSignIn.sharedInstance().handle(url)
     }
 
