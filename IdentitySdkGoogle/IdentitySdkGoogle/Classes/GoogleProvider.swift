@@ -26,7 +26,7 @@ public class GoogleProvider: ProviderCreator {
     }
 }
 
-public class ConfiguredGoogleProvider: NSObject, Provider, GIDSignInDelegate, GIDSignInUIDelegate {
+public class ConfiguredGoogleProvider: NSObject, Provider, GIDSignInDelegate {
     public var name: String = GoogleProvider.NAME
     
     var sdkConfig: SdkConfig
@@ -82,17 +82,13 @@ public class ConfiguredGoogleProvider: NSObject, Provider, GIDSignInDelegate, GI
         GIDSignIn.sharedInstance().clientID = self.providerConfig.clientId
         GIDSignIn.sharedInstance().scopes = self.providerConfig.scope
         GIDSignIn.sharedInstance().delegate = self
-        GIDSignIn.sharedInstance().uiDelegate = viewController as? GIDSignInUIDelegate
+        GIDSignIn.sharedInstance().presentingViewController = viewController
         GIDSignIn.sharedInstance().signIn()
         return promise.future
     }
     
     public func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
-        return GIDSignIn.sharedInstance().handle(
-            url,
-            sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
-            annotation: options[UIApplication.OpenURLOptionsKey.annotation]
-        )
+        GIDSignIn.sharedInstance().handle(url)
     }
     
     public func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
@@ -100,7 +96,7 @@ public class ConfiguredGoogleProvider: NSObject, Provider, GIDSignInDelegate, GI
             UIApplication.OpenURLOptionsKey.sourceApplication.rawValue: sourceApplication as AnyObject,
             UIApplication.OpenURLOptionsKey.annotation.rawValue: annotation as AnyObject
         ]
-        return GIDSignIn.sharedInstance().handle(url, sourceApplication: sourceApplication, annotation: annotation)
+        return GIDSignIn.sharedInstance().handle(url)
     }
     
     public func applicationDidBecomeActive(_ application: UIApplication) {}
