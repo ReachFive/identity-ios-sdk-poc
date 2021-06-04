@@ -95,7 +95,7 @@ public class ReachFiveApi {
                 method: .post,
                 parameters: signupRequest.dictionary(),
                 encoding: JSONEncoding.default
-        )
+            )
             .validate(contentType: ["application/json"])
             .responseJson(type: AccessTokenResponse.self, decoder: self.decoder)
     }
@@ -107,7 +107,7 @@ public class ReachFiveApi {
                 method: .post,
                 parameters: loginRequest.dictionary(),
                 encoding: JSONEncoding.default
-        )
+            )
             .validate(contentType: ["application/json"])
             .responseJson(type: AccessTokenResponse.self, decoder: self.decoder)
     }
@@ -119,7 +119,7 @@ public class ReachFiveApi {
                 method: .post,
                 parameters: authCodeRequest.dictionary(),
                 encoding: JSONEncoding.default
-        )
+            )
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
             .responseJson(type: AccessTokenResponse.self, decoder: self.decoder)
@@ -132,7 +132,7 @@ public class ReachFiveApi {
                 method: .post,
                 parameters: refreshRequest.dictionary(),
                 encoding: JSONEncoding.default
-        )
+            )
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
             .responseJson(type: AccessTokenResponse.self, decoder: self.decoder)
@@ -146,7 +146,7 @@ public class ReachFiveApi {
                 ),
                 method: .get,
                 headers: tokenHeader(authToken)
-        )
+            )
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
             .responseJson(type: Profile.self, decoder: self.decoder)
@@ -163,7 +163,7 @@ public class ReachFiveApi {
                 parameters: verifyPhoneNumberRequest.dictionary(),
                 encoding: JSONEncoding.default,
                 headers: tokenHeader(authToken)
-        )
+            )
             .validate(contentType: ["application/json"])
             .responseJson(decoder: self.decoder)
     }
@@ -179,7 +179,7 @@ public class ReachFiveApi {
                 parameters: updateEmailRequest.dictionary(),
                 encoding: JSONEncoding.default,
                 headers: tokenHeader(authToken)
-        )
+            )
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
             .responseJson(type: Profile.self, decoder: self.decoder)
@@ -196,7 +196,7 @@ public class ReachFiveApi {
                 parameters: profile.dictionary(),
                 encoding: JSONEncoding.default,
                 headers: tokenHeader(authToken)
-        )
+            )
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
             .responseJson(type: Profile.self, decoder: self.decoder)
@@ -214,7 +214,7 @@ public class ReachFiveApi {
                 parameters: updatePasswordRequest.dictionary(),
                 encoding: JSONEncoding.default,
                 headers: headers
-        )
+            )
             .validate(contentType: ["application/json"])
             .responseJson(decoder: self.decoder)
     }
@@ -230,7 +230,7 @@ public class ReachFiveApi {
                 parameters: updatePhoneNumberRequest.dictionary(),
                 encoding: JSONEncoding.default,
                 headers: tokenHeader(authToken)
-        )
+            )
             .validate(contentType: ["application/json"])
             .responseJson(type: Profile.self, decoder: self.decoder)
     }
@@ -240,11 +240,11 @@ public class ReachFiveApi {
     ) -> Future<(), ReachFiveError> {
         return AF
             .request(createUrl(
-                path: "/identity/v1/forgot-password?device=\(deviceInfo)"),
+                        path: "/identity/v1/forgot-password?device=\(deviceInfo)"),
                      method: .post,
                      parameters: requestPasswordResetRequest.dictionary(),
                      encoding: JSONEncoding.default
-        )
+            )
             .validate(contentType: ["application/json"])
             .responseJson(decoder: self.decoder)
     }
@@ -256,7 +256,7 @@ public class ReachFiveApi {
                 method: .post,
                 parameters: startPasswordlessRequest.dictionary(),
                 encoding: JSONEncoding.default
-        )
+            )
             .validate(statusCode: 200..<300)
             .responseJson(decoder: self.decoder)
     }
@@ -267,7 +267,7 @@ public class ReachFiveApi {
                 createUrl(path: "/identity/v1/passwordless/verify?device=\(deviceInfo)"),
                 method: .post,
                 parameters: verifyPasswordlessRequest.dictionary()
-        )
+            )
             .validate(statusCode: 200..<300)
             .responseJson(type: PasswordlessVerifyResponse.self, decoder: self.decoder)
     }
@@ -279,7 +279,7 @@ public class ReachFiveApi {
                 method: .post,
                 parameters: verifyAuthCodeRequest.dictionary(),
                 encoding: JSONEncoding.default
-        )
+            )
             .validate(statusCode: 200..<300)
             .responseJson(decoder: self.decoder)
     }
@@ -289,7 +289,7 @@ public class ReachFiveApi {
             .request(
                 createUrl(path: "/identity/v1/logout?device=\(deviceInfo)"),
                 method: .get
-        )
+            )
             .validate(statusCode: 200..<300)
             .responseJson(decoder: self.decoder)
     }
@@ -324,7 +324,7 @@ public class ReachFiveApi {
                 method: .post,
                 parameters: webAuthnRegistrationRequest.dictionary(),
                 encoding: JSONEncoding.default
-        )
+            )
             .validate(contentType: ["application/json"])
             .responseJson(type: RegistrationOptions.self, decoder: self.decoder)
     }
@@ -335,7 +335,7 @@ public class ReachFiveApi {
                 method: .post,
                 parameters: webauthnSignupCredential.dictionary(),
                 encoding: JSONEncoding.default
-        )
+            )
             .validate(contentType: ["application/json"])
             .responseJson(type: AuthenticationToken.self, decoder: self.decoder)
     }
@@ -347,7 +347,7 @@ public class ReachFiveApi {
                 method: .post,
                 parameters: webAuthnLoginRequest.dictionary(),
                 encoding: JSONEncoding.default
-        )
+            )
             .validate(contentType: ["application/json"])
             .responseJson(type: AuthenticationOptions.self, decoder: self.decoder)
     }
@@ -359,7 +359,7 @@ public class ReachFiveApi {
                 method: .post,
                 parameters: authenticationPublicKeyCredential.dictionary(),
                 encoding: JSONEncoding.default
-        )
+            )
             .validate(contentType: ["application/json"])
             .responseJson(type: AuthenticationToken.self, decoder: self.decoder)
     }
@@ -373,8 +373,50 @@ public class ReachFiveApi {
                 method: .get,
                 encoding: JSONEncoding.default,
                 headers: headers
-        )
+            )
             .validate(contentType: ["application/json"])
             .responseJson(type: [DeviceCredential].self, decoder: self.decoder)
+    }
+    public func createWebAuthnRegistrationOptions(authorization: String,webAuthnRegistrationRequest: WebAuthnRegistrationRequest) -> Future<RegistrationOptions, ReachFiveError> {
+        
+        let headers : HTTPHeaders = [ "Authorization" : authorization ]
+        return AF
+            .request(
+                createUrl(path: "/identity/v1/webauthn/registration-options?device=\(deviceInfo)"),
+                method: .post,
+                parameters: webAuthnRegistrationRequest.dictionary(),
+                encoding: JSONEncoding.default,
+                headers: headers
+            )
+            .validate(contentType: ["application/json"])
+            .responseJson(type: RegistrationOptions.self, decoder: self.decoder)
+    }
+    
+    public func registerWithWebAuthn(authorization: String,registrationPublicKeyCredential: RegistrationPublicKeyCredential) -> Future<(), ReachFiveError> {
+        
+        let headers : HTTPHeaders = [ "Authorization" : authorization ]
+        return AF
+            .request(
+                createUrl(path: "/identity/v1/webauthn/registration?device=\(deviceInfo)"),
+                method: .post,
+                parameters: registrationPublicKeyCredential.dictionary(), encoding: JSONEncoding.default,
+                headers: headers
+            )
+            .validate(contentType: ["application/json"])
+            .responseJson(decoder: self.decoder)
+    }
+    
+    public func deleteWebAuthnRegistration(authorization: String,deviceId: String) -> Future<(), ReachFiveError> {
+        
+        let headers : HTTPHeaders = [ "Authorization" : authorization ]
+        return AF
+            .request(
+                createUrl(path: "/identity/v1/webauthn/registration/\(deviceId)?device=\(deviceInfo)"),
+                method: .delete,
+                encoding: JSONEncoding.default,
+                headers: headers
+            )
+            .validate(contentType: ["application/json"])
+            .responseJson( decoder: self.decoder)
     }
 }

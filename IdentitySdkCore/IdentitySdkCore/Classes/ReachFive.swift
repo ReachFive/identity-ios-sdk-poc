@@ -117,6 +117,7 @@ public class ReachFive: NSObject {
                     }
                 }
             }.onFailure { error in
+                
                 let thePromise = BrightFutures.Promise<AuthToken, ReachFiveError>()
                 thePromise.failure(error)
                 _ = completion(thePromise.future)
@@ -163,6 +164,7 @@ public class ReachFive: NSObject {
                     }
                 }
             }.onFailure { error in
+                
                 let thePromise = BrightFutures.Promise<AuthToken, ReachFiveError>()
                 thePromise.failure(error)
                 _ = completion(thePromise.future)
@@ -183,6 +185,7 @@ public class ReachFive: NSObject {
                 thePromise.failure(error)
                 _ = completion(thePromise.future)
             }
+        
     }
     
     public func listWebAuthnDevices(authToken: AuthToken) -> Future<[DeviceCredential], ReachFiveError> {
@@ -194,4 +197,38 @@ public class ReachFive: NSObject {
     private func buildAuthorization (authToken: AuthToken) -> String {
         return authToken.tokenType! + " " + authToken.accessToken
     }
+    public func addNewWebAuthnDevice(authToken: AuthToken,
+                                     origin: String,
+                                     friendlyName: String?,viewController: UIViewController) -> Future<(), ReachFiveError>  {
+        
+        let webAuthnRegistrationRequest = WebAuthnRegistrationRequest(
+            origin: origin,
+            friendlyName: friendlyName ?? ""
+        )
+        
+        return self.reachFiveApi
+            .createWebAuthnRegistrationOptions(authorization: buildAuthorization(authToken: authToken),webAuthnRegistrationRequest: webAuthnRegistrationRequest)
+            .flatMap({ registrationOptions -> Future<(), ReachFiveError>  in
+                // prepare and setup the reachFiveClientFido
+                let reachFiveClientFido = ReachFiveFidoClient (viewController: viewController, origin: origin)
+                reachFiveClientFido.setupWebAuthnClient()
+                return reachFiveClientFido.startRegistration(registrationOption: registrationOptions).flatMap({ webauthnSignupCredential -> Future<(), ReachFiveError>  in
+                    // start the onSignupWithWebAuthnResult func to get firstly the authenticationToken and then exchange the tkn with an access token
+                    self.onAddNewWebAuthnDeviceResult(authToken: authToken, webauthnSignupCredential: webauthnSignupCredential)
+                })
+                
+            })
+    }
+    
+    private func onAddNewWebAuthnDeviceResult(authToken: AuthToken, webauthnSignupCredential: WebauthnSignupCredential) -> Future<(), ReachFiveError> {
+        
+        return reachFiveApi.registerWithWebAuthn(authorization: buildAuthorization(authToken: authToken),registrationPublicKeyCredential: webauthnSignupCredential.publicKeyCredential)
+    }
+    
+    public func deleteWebAuthnRegistration(authToken: AuthToken,deviceId: String) -> Future<(), ReachFiveError> {
+        
+        self.reachFiveApi
+            .deleteWebAuthnRegistration(authorization: buildAuthorization(authToken: authToken),deviceId: deviceId)
+    }
 }
+
